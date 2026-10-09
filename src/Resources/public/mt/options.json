@@ -62,6 +62,11 @@
             "help": "Ladezeit"
         },
         {
+            "id": "license",
+            "label": "Lizenz",
+            "help": "Pro-Funktionen werden mit gültiger Lizenz automatisch freigeschaltet. Kauf und Verwaltung unter https://theme.michael-gahn.de (Konto erforderlich)."
+        },
+        {
             "id": "advanced",
             "label": "Erweitert",
             "help": "Eigener Code (Pro)"
@@ -654,6 +659,15 @@
             "label": "Haupt-Schrift vorladen",
             "default": true,
             "help": ""
+        },
+        {
+            "id": "license_token",
+            "group": "license",
+            "type": "text",
+            "mode": "simple",
+            "label": "Lizenzschlüssel",
+            "default": "",
+            "help": "Den Schlüssel finden Sie im Kundenkonto unter https://theme.michael-gahn.de. Zur Prüfung werden nur der Schlüssel und die Domain dieses Shops an den Lizenzserver übertragen (Server-zu-Server, keine Besucherdaten). Ohne Schlüssel läuft das Theme mit allen Free-Funktionen."
         },
         {
             "id": "custom_css",
