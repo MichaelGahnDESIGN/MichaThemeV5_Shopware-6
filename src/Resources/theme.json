@@ -95,6 +95,12 @@
                     "en-GB": "Geschwindigkeit"
                 }
             },
+            "mt-license": {
+                "label": {
+                    "de-DE": "Lizenz",
+                    "en-GB": "Lizenz"
+                }
+            },
             "mt-advanced": {
                 "label": {
                     "de-DE": "Erweitert",
@@ -1471,6 +1477,22 @@
                 "section": "mt-expert",
                 "order": 50
             },
+            "mt-license-token": {
+                "label": {
+                    "de-DE": "Lizenzschlüssel",
+                    "en-GB": "Lizenzschlüssel"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-license",
+                "section": "mt-simple",
+                "order": 51,
+                "helpText": {
+                    "de-DE": "Den Schlüssel finden Sie im Kundenkonto unter https://theme.michael-gahn.de. Zur Prüfung werden nur der Schlüssel und die Domain dieses Shops an den Lizenzserver übertragen (Server-zu-Server, keine Besucherdaten). Ohne Schlüssel läuft das Theme mit allen Free-Funktionen.",
+                    "en-GB": "Den Schlüssel finden Sie im Kundenkonto unter https://theme.michael-gahn.de. Zur Prüfung werden nur der Schlüssel und die Domain dieses Shops an den Lizenzserver übertragen (Server-zu-Server, keine Besucherdaten). Ohne Schlüssel läuft das Theme mit allen Free-Funktionen."
+                }
+            },
             "mt-custom-css": {
                 "label": {
                     "de-DE": "Eigenes CSS",
@@ -1481,7 +1503,7 @@
                 "editable": true,
                 "block": "mt-advanced",
                 "section": "mt-expert",
-                "order": 51,
+                "order": 52,
                 "helpText": {
                     "de-DE": "Verfügbar mit dem Pro-Modul Eigener Code.",
                     "en-GB": "Verfügbar mit dem Pro-Modul Eigener Code."
@@ -1500,7 +1522,7 @@
                 "editable": true,
                 "block": "mt-advanced",
                 "section": "mt-expert",
-                "order": 52,
+                "order": 53,
                 "helpText": {
                     "de-DE": "Verfügbar mit dem Pro-Modul Eigener Code. Externe Skripte brauchen ggf. Einwilligung.",
                     "en-GB": "Verfügbar mit dem Pro-Modul Eigener Code. Externe Skripte brauchen ggf. Einwilligung."

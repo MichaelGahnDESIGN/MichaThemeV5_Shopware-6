@@ -12,5 +12,9 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/michathemev5/mt/mt-shopware.css') }}">
     <script src="{{ asset('bundles/michathemev5/mt/mt-theme.js') }}" defer></script>
-    {# Eigenes CSS/JS: erst mit Pro-Lizenzprüfung (Schritt 4), bis dahin bewusst nicht ausgegeben. #}
+    {# Eigenes CSS/JS: nur mit Pro-Modul "custom-code" (Lizenzprüfung). CSS ohne Tags, JS nur von Administratoren erfasst. #}
+    {% if mt_pro('custom-code', theme_config('mt-license-token')) %}
+        {% if theme_config('mt-custom-css') %}<style id="mt-custom-css">{{ theme_config('mt-custom-css')|striptags|raw }}</style>{% endif %}
+        {% if theme_config('mt-custom-js') %}<script id="mt-custom-js">{{ theme_config('mt-custom-js')|raw }}</script>{% endif %}
+    {% endif %}
 {% endblock %}
