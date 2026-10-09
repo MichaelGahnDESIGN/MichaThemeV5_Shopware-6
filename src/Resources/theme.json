@@ -1,0 +1,1514 @@
+{
+    "name": "MichaThemeV5",
+    "author": "Michael Gahn DESIGN",
+    "views": [
+        "@Storefront",
+        "@Plugins",
+        "@MichaThemeV5"
+    ],
+    "style": [
+        "app/storefront/src/scss/overrides.scss",
+        "@Storefront",
+        "app/storefront/src/scss/base.scss"
+    ],
+    "script": [
+        "@Storefront"
+    ],
+    "asset": [
+        "@Storefront",
+        "app/storefront/src/assets"
+    ],
+    "configInheritance": [
+        "@Storefront/Storefront"
+    ],
+    "config": {
+        "blocks": {
+            "mt-colors": {
+                "label": {
+                    "de-DE": "Farben",
+                    "en-GB": "Farben"
+                }
+            },
+            "mt-typography": {
+                "label": {
+                    "de-DE": "Schriften",
+                    "en-GB": "Schriften"
+                }
+            },
+            "mt-shape": {
+                "label": {
+                    "de-DE": "Form und Stil",
+                    "en-GB": "Form und Stil"
+                }
+            },
+            "mt-logo": {
+                "label": {
+                    "de-DE": "Logo",
+                    "en-GB": "Logo"
+                }
+            },
+            "mt-header": {
+                "label": {
+                    "de-DE": "Header",
+                    "en-GB": "Header"
+                }
+            },
+            "mt-footer": {
+                "label": {
+                    "de-DE": "Footer",
+                    "en-GB": "Footer"
+                }
+            },
+            "mt-hero": {
+                "label": {
+                    "de-DE": "Startseite",
+                    "en-GB": "Startseite"
+                }
+            },
+            "mt-listing": {
+                "label": {
+                    "de-DE": "Kategorie und Listing",
+                    "en-GB": "Kategorie und Listing"
+                }
+            },
+            "mt-detail": {
+                "label": {
+                    "de-DE": "Artikelseite",
+                    "en-GB": "Artikelseite"
+                }
+            },
+            "mt-legal": {
+                "label": {
+                    "de-DE": "Recht",
+                    "en-GB": "Recht"
+                }
+            },
+            "mt-a11y": {
+                "label": {
+                    "de-DE": "Barrierefreiheit",
+                    "en-GB": "Barrierefreiheit"
+                }
+            },
+            "mt-performance": {
+                "label": {
+                    "de-DE": "Geschwindigkeit",
+                    "en-GB": "Geschwindigkeit"
+                }
+            },
+            "mt-advanced": {
+                "label": {
+                    "de-DE": "Erweitert",
+                    "en-GB": "Erweitert"
+                }
+            }
+        },
+        "sections": {
+            "mt-simple": {
+                "label": {
+                    "de-DE": "Einfach",
+                    "en-GB": "Einfach"
+                }
+            },
+            "mt-expert": {
+                "label": {
+                    "de-DE": "Experte",
+                    "en-GB": "Experte"
+                }
+            }
+        },
+        "fields": {
+            "mt-color-mode": {
+                "label": {
+                    "de-DE": "Farbmodus",
+                    "en-GB": "Farbmodus"
+                },
+                "type": "text",
+                "value": "system",
+                "editable": true,
+                "block": "mt-colors",
+                "section": "mt-simple",
+                "order": 1,
+                "helpText": {
+                    "de-DE": "Hell, Dunkel oder dem Gerät folgen. Besucher können im Shop umschalten.",
+                    "en-GB": "Hell, Dunkel oder dem Gerät folgen. Besucher können im Shop umschalten."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "system",
+                            "label": {
+                                "de-DE": "Wie das Gerät",
+                                "en-GB": "Wie das Gerät"
+                            }
+                        },
+                        {
+                            "value": "light",
+                            "label": {
+                                "de-DE": "Hell",
+                                "en-GB": "Hell"
+                            }
+                        },
+                        {
+                            "value": "dark",
+                            "label": {
+                                "de-DE": "Dunkel",
+                                "en-GB": "Dunkel"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-accent": {
+                "label": {
+                    "de-DE": "Akzentfarbe",
+                    "en-GB": "Akzentfarbe"
+                },
+                "type": "text",
+                "value": "indigo",
+                "editable": true,
+                "block": "mt-colors",
+                "section": "mt-simple",
+                "order": 2,
+                "helpText": {
+                    "de-DE": "Farbe für Buttons, Links und Hervorhebungen. Alle Varianten sind für Hell und Dunkel auf Kontrast geprüft.",
+                    "en-GB": "Farbe für Buttons, Links und Hervorhebungen. Alle Varianten sind für Hell und Dunkel auf Kontrast geprüft."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "teal",
+                            "label": {
+                                "de-DE": "Petrol",
+                                "en-GB": "Petrol"
+                            }
+                        },
+                        {
+                            "value": "indigo",
+                            "label": {
+                                "de-DE": "Indigo",
+                                "en-GB": "Indigo"
+                            }
+                        },
+                        {
+                            "value": "amber",
+                            "label": {
+                                "de-DE": "Bernstein",
+                                "en-GB": "Bernstein"
+                            }
+                        },
+                        {
+                            "value": "rose",
+                            "label": {
+                                "de-DE": "Rose",
+                                "en-GB": "Rose"
+                            }
+                        },
+                        {
+                            "value": "graphite",
+                            "label": {
+                                "de-DE": "Graphit",
+                                "en-GB": "Graphit"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-accent-custom": {
+                "label": {
+                    "de-DE": "Eigene Akzentfarbe",
+                    "en-GB": "Eigene Akzentfarbe"
+                },
+                "type": "color",
+                "value": "#000000",
+                "editable": true,
+                "block": "mt-colors",
+                "section": "mt-expert",
+                "order": 3,
+                "helpText": {
+                    "de-DE": "Leer lassen, um die Akzentfarbe von oben zu nutzen. Achtung: Eigene Farben werden nicht automatisch auf Kontrast geprüft.",
+                    "en-GB": "Leer lassen, um die Akzentfarbe von oben zu nutzen. Achtung: Eigene Farben werden nicht automatisch auf Kontrast geprüft."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-mode-toggle": {
+                "label": {
+                    "de-DE": "Umschalter Hell/Dunkel im Header anzeigen",
+                    "en-GB": "Umschalter Hell/Dunkel im Header anzeigen"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-colors",
+                "section": "mt-simple",
+                "order": 4
+            },
+            "mt-font-body": {
+                "label": {
+                    "de-DE": "Schrift für Text",
+                    "en-GB": "Schrift für Text"
+                },
+                "type": "text",
+                "value": "inter",
+                "editable": true,
+                "block": "mt-typography",
+                "section": "mt-simple",
+                "order": 5,
+                "helpText": {
+                    "de-DE": "Alle Schriften liegen lokal im Theme, es gibt keinen Abruf bei Google.",
+                    "en-GB": "Alle Schriften liegen lokal im Theme, es gibt keinen Abruf bei Google."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "system",
+                            "label": {
+                                "de-DE": "Systemschrift (Arial/Helvetica)",
+                                "en-GB": "Systemschrift (Arial/Helvetica)"
+                            }
+                        },
+                        {
+                            "value": "roboto",
+                            "label": {
+                                "de-DE": "Roboto",
+                                "en-GB": "Roboto"
+                            }
+                        },
+                        {
+                            "value": "open-sans",
+                            "label": {
+                                "de-DE": "Open Sans",
+                                "en-GB": "Open Sans"
+                            }
+                        },
+                        {
+                            "value": "inter",
+                            "label": {
+                                "de-DE": "Inter",
+                                "en-GB": "Inter"
+                            }
+                        },
+                        {
+                            "value": "lato",
+                            "label": {
+                                "de-DE": "Lato",
+                                "en-GB": "Lato"
+                            }
+                        },
+                        {
+                            "value": "montserrat",
+                            "label": {
+                                "de-DE": "Montserrat",
+                                "en-GB": "Montserrat"
+                            }
+                        },
+                        {
+                            "value": "source-sans-3",
+                            "label": {
+                                "de-DE": "Source Sans 3",
+                                "en-GB": "Source Sans 3"
+                            }
+                        },
+                        {
+                            "value": "nunito",
+                            "label": {
+                                "de-DE": "Nunito",
+                                "en-GB": "Nunito"
+                            }
+                        },
+                        {
+                            "value": "merriweather",
+                            "label": {
+                                "de-DE": "Merriweather",
+                                "en-GB": "Merriweather"
+                            }
+                        },
+                        {
+                            "value": "playfair-display",
+                            "label": {
+                                "de-DE": "Playfair Display",
+                                "en-GB": "Playfair Display"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-font-heading": {
+                "label": {
+                    "de-DE": "Schrift für Überschriften",
+                    "en-GB": "Schrift für Überschriften"
+                },
+                "type": "text",
+                "value": "inter",
+                "editable": true,
+                "block": "mt-typography",
+                "section": "mt-simple",
+                "order": 6,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "system",
+                            "label": {
+                                "de-DE": "Systemschrift (Arial/Helvetica)",
+                                "en-GB": "Systemschrift (Arial/Helvetica)"
+                            }
+                        },
+                        {
+                            "value": "roboto",
+                            "label": {
+                                "de-DE": "Roboto",
+                                "en-GB": "Roboto"
+                            }
+                        },
+                        {
+                            "value": "open-sans",
+                            "label": {
+                                "de-DE": "Open Sans",
+                                "en-GB": "Open Sans"
+                            }
+                        },
+                        {
+                            "value": "inter",
+                            "label": {
+                                "de-DE": "Inter",
+                                "en-GB": "Inter"
+                            }
+                        },
+                        {
+                            "value": "lato",
+                            "label": {
+                                "de-DE": "Lato",
+                                "en-GB": "Lato"
+                            }
+                        },
+                        {
+                            "value": "montserrat",
+                            "label": {
+                                "de-DE": "Montserrat",
+                                "en-GB": "Montserrat"
+                            }
+                        },
+                        {
+                            "value": "source-sans-3",
+                            "label": {
+                                "de-DE": "Source Sans 3",
+                                "en-GB": "Source Sans 3"
+                            }
+                        },
+                        {
+                            "value": "nunito",
+                            "label": {
+                                "de-DE": "Nunito",
+                                "en-GB": "Nunito"
+                            }
+                        },
+                        {
+                            "value": "merriweather",
+                            "label": {
+                                "de-DE": "Merriweather",
+                                "en-GB": "Merriweather"
+                            }
+                        },
+                        {
+                            "value": "playfair-display",
+                            "label": {
+                                "de-DE": "Playfair Display",
+                                "en-GB": "Playfair Display"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-font-size": {
+                "label": {
+                    "de-DE": "Schriftgröße",
+                    "en-GB": "Schriftgröße"
+                },
+                "type": "text",
+                "value": "normal",
+                "editable": true,
+                "block": "mt-typography",
+                "section": "mt-simple",
+                "order": 7,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "small",
+                            "label": {
+                                "de-DE": "Klein",
+                                "en-GB": "Klein"
+                            }
+                        },
+                        {
+                            "value": "normal",
+                            "label": {
+                                "de-DE": "Normal",
+                                "en-GB": "Normal"
+                            }
+                        },
+                        {
+                            "value": "large",
+                            "label": {
+                                "de-DE": "Groß",
+                                "en-GB": "Groß"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-radius": {
+                "label": {
+                    "de-DE": "Ecken",
+                    "en-GB": "Ecken"
+                },
+                "type": "text",
+                "value": "soft",
+                "editable": true,
+                "block": "mt-shape",
+                "section": "mt-simple",
+                "order": 8,
+                "helpText": {
+                    "de-DE": "Rundung von Karten, Buttons und Bildern.",
+                    "en-GB": "Rundung von Karten, Buttons und Bildern."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "sharp",
+                            "label": {
+                                "de-DE": "Eckig",
+                                "en-GB": "Eckig"
+                            }
+                        },
+                        {
+                            "value": "soft",
+                            "label": {
+                                "de-DE": "Leicht gerundet",
+                                "en-GB": "Leicht gerundet"
+                            }
+                        },
+                        {
+                            "value": "round",
+                            "label": {
+                                "de-DE": "Stark gerundet",
+                                "en-GB": "Stark gerundet"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-density": {
+                "label": {
+                    "de-DE": "Abstände",
+                    "en-GB": "Abstände"
+                },
+                "type": "text",
+                "value": "normal",
+                "editable": true,
+                "block": "mt-shape",
+                "section": "mt-simple",
+                "order": 9,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "compact",
+                            "label": {
+                                "de-DE": "Kompakt",
+                                "en-GB": "Kompakt"
+                            }
+                        },
+                        {
+                            "value": "normal",
+                            "label": {
+                                "de-DE": "Normal",
+                                "en-GB": "Normal"
+                            }
+                        },
+                        {
+                            "value": "airy",
+                            "label": {
+                                "de-DE": "Luftig",
+                                "en-GB": "Luftig"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-shadows": {
+                "label": {
+                    "de-DE": "Schatten",
+                    "en-GB": "Schatten"
+                },
+                "type": "text",
+                "value": "soft",
+                "editable": true,
+                "block": "mt-shape",
+                "section": "mt-expert",
+                "order": 10,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "none",
+                            "label": {
+                                "de-DE": "Keine",
+                                "en-GB": "Keine"
+                            }
+                        },
+                        {
+                            "value": "soft",
+                            "label": {
+                                "de-DE": "Weich",
+                                "en-GB": "Weich"
+                            }
+                        },
+                        {
+                            "value": "strong",
+                            "label": {
+                                "de-DE": "Kräftig",
+                                "en-GB": "Kräftig"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-buttons": {
+                "label": {
+                    "de-DE": "Button-Stil",
+                    "en-GB": "Button-Stil"
+                },
+                "type": "text",
+                "value": "solid",
+                "editable": true,
+                "block": "mt-shape",
+                "section": "mt-expert",
+                "order": 11,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "solid",
+                            "label": {
+                                "de-DE": "Gefüllt",
+                                "en-GB": "Gefüllt"
+                            }
+                        },
+                        {
+                            "value": "outline",
+                            "label": {
+                                "de-DE": "Umrandet",
+                                "en-GB": "Umrandet"
+                            }
+                        },
+                        {
+                            "value": "pill",
+                            "label": {
+                                "de-DE": "Pillenform",
+                                "en-GB": "Pillenform"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-logo-light": {
+                "label": {
+                    "de-DE": "Logo (heller Hintergrund)",
+                    "en-GB": "Logo (heller Hintergrund)"
+                },
+                "type": "media",
+                "value": "",
+                "editable": true,
+                "block": "mt-logo",
+                "section": "mt-simple",
+                "order": 12,
+                "helpText": {
+                    "de-DE": "SVG oder PNG, mindestens doppelte Größe für scharfe Darstellung.",
+                    "en-GB": "SVG oder PNG, mindestens doppelte Größe für scharfe Darstellung."
+                }
+            },
+            "mt-logo-dark": {
+                "label": {
+                    "de-DE": "Logo (dunkler Hintergrund)",
+                    "en-GB": "Logo (dunkler Hintergrund)"
+                },
+                "type": "media",
+                "value": "",
+                "editable": true,
+                "block": "mt-logo",
+                "section": "mt-simple",
+                "order": 13,
+                "helpText": {
+                    "de-DE": "Optional. Ohne Angabe wird das helle Logo genutzt.",
+                    "en-GB": "Optional. Ohne Angabe wird das helle Logo genutzt."
+                }
+            },
+            "mt-logo-alt": {
+                "label": {
+                    "de-DE": "Alternativtext des Logos",
+                    "en-GB": "Alternativtext des Logos"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-logo",
+                "section": "mt-simple",
+                "order": 14,
+                "helpText": {
+                    "de-DE": "Wird von Screenreadern vorgelesen. Meist der Shopname.",
+                    "en-GB": "Wird von Screenreadern vorgelesen. Meist der Shopname."
+                }
+            },
+            "mt-logo-height": {
+                "label": {
+                    "de-DE": "Logohöhe in Pixel",
+                    "en-GB": "Logohöhe in Pixel"
+                },
+                "type": "number",
+                "value": 40,
+                "editable": true,
+                "block": "mt-logo",
+                "section": "mt-simple",
+                "order": 15,
+                "custom": {
+                    "numberType": "int",
+                    "min": 24,
+                    "max": 96,
+                    "steps": 2
+                }
+            },
+            "mt-favicon": {
+                "label": {
+                    "de-DE": "Favicon",
+                    "en-GB": "Favicon"
+                },
+                "type": "media",
+                "value": "",
+                "editable": true,
+                "block": "mt-logo",
+                "section": "mt-expert",
+                "order": 16
+            },
+            "mt-header-layout": {
+                "label": {
+                    "de-DE": "Header-Layout",
+                    "en-GB": "Header-Layout"
+                },
+                "type": "text",
+                "value": "classic",
+                "editable": true,
+                "block": "mt-header",
+                "section": "mt-simple",
+                "order": 17,
+                "helpText": {
+                    "de-DE": "Aufbau des Kopfbereichs.",
+                    "en-GB": "Aufbau des Kopfbereichs."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "classic",
+                            "label": {
+                                "de-DE": "Klassisch (Logo links)",
+                                "en-GB": "Klassisch (Logo links)"
+                            }
+                        },
+                        {
+                            "value": "centered",
+                            "label": {
+                                "de-DE": "Zentriert (Logo mittig)",
+                                "en-GB": "Zentriert (Logo mittig)"
+                            }
+                        },
+                        {
+                            "value": "compact",
+                            "label": {
+                                "de-DE": "Kompakt (eine Zeile)",
+                                "en-GB": "Kompakt (eine Zeile)"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-header-sticky": {
+                "label": {
+                    "de-DE": "Header beim Scrollen fixieren",
+                    "en-GB": "Header beim Scrollen fixieren"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-header",
+                "section": "mt-simple",
+                "order": 18
+            },
+            "mt-header-search": {
+                "label": {
+                    "de-DE": "Suche",
+                    "en-GB": "Suche"
+                },
+                "type": "text",
+                "value": "field",
+                "editable": true,
+                "block": "mt-header",
+                "section": "mt-simple",
+                "order": 19,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "icon",
+                            "label": {
+                                "de-DE": "Nur Symbol",
+                                "en-GB": "Nur Symbol"
+                            }
+                        },
+                        {
+                            "value": "field",
+                            "label": {
+                                "de-DE": "Suchfeld",
+                                "en-GB": "Suchfeld"
+                            }
+                        },
+                        {
+                            "value": "expanded",
+                            "label": {
+                                "de-DE": "Großes Suchfeld",
+                                "en-GB": "Großes Suchfeld"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-announcement": {
+                "label": {
+                    "de-DE": "Ankündigungsleiste anzeigen",
+                    "en-GB": "Ankündigungsleiste anzeigen"
+                },
+                "type": "switch",
+                "value": false,
+                "editable": true,
+                "block": "mt-header",
+                "section": "mt-simple",
+                "order": 20
+            },
+            "mt-announcement-text": {
+                "label": {
+                    "de-DE": "Text der Ankündigungsleiste",
+                    "en-GB": "Text der Ankündigungsleiste"
+                },
+                "type": "text",
+                "value": "Kostenloser Versand ab 50 €",
+                "editable": true,
+                "block": "mt-header",
+                "section": "mt-simple",
+                "order": 21,
+                "helpText": {
+                    "de-DE": "Bitte nur belegbare Aussagen verwenden (UWG).",
+                    "en-GB": "Bitte nur belegbare Aussagen verwenden (UWG)."
+                }
+            },
+            "mt-footer-layout": {
+                "label": {
+                    "de-DE": "Footer-Layout",
+                    "en-GB": "Footer-Layout"
+                },
+                "type": "text",
+                "value": "columns",
+                "editable": true,
+                "block": "mt-footer",
+                "section": "mt-simple",
+                "order": 22,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "columns",
+                            "label": {
+                                "de-DE": "Mehrspaltig",
+                                "en-GB": "Mehrspaltig"
+                            }
+                        },
+                        {
+                            "value": "centered",
+                            "label": {
+                                "de-DE": "Zentriert",
+                                "en-GB": "Zentriert"
+                            }
+                        },
+                        {
+                            "value": "minimal",
+                            "label": {
+                                "de-DE": "Minimal",
+                                "en-GB": "Minimal"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-footer-payment": {
+                "label": {
+                    "de-DE": "Zahlungsarten im Footer zeigen",
+                    "en-GB": "Zahlungsarten im Footer zeigen"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-footer",
+                "section": "mt-simple",
+                "order": 23
+            },
+            "mt-footer-trust": {
+                "label": {
+                    "de-DE": "Vertrauens-Hinweise zeigen",
+                    "en-GB": "Vertrauens-Hinweise zeigen"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-footer",
+                "section": "mt-simple",
+                "order": 24,
+                "helpText": {
+                    "de-DE": "Zum Beispiel Rückgabe, Versand, Support. Nur Aussagen eintragen, die stimmen.",
+                    "en-GB": "Zum Beispiel Rückgabe, Versand, Support. Nur Aussagen eintragen, die stimmen."
+                }
+            },
+            "mt-trust-1": {
+                "label": {
+                    "de-DE": "Vertrauens-Hinweis 1",
+                    "en-GB": "Vertrauens-Hinweis 1"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-footer",
+                "section": "mt-simple",
+                "order": 25,
+                "helpText": {
+                    "de-DE": "Nur eintragen, was im Shop tatsächlich gilt.",
+                    "en-GB": "Nur eintragen, was im Shop tatsächlich gilt."
+                }
+            },
+            "mt-trust-2": {
+                "label": {
+                    "de-DE": "Vertrauens-Hinweis 2",
+                    "en-GB": "Vertrauens-Hinweis 2"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-footer",
+                "section": "mt-simple",
+                "order": 26
+            },
+            "mt-trust-3": {
+                "label": {
+                    "de-DE": "Vertrauens-Hinweis 3",
+                    "en-GB": "Vertrauens-Hinweis 3"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-footer",
+                "section": "mt-simple",
+                "order": 27
+            },
+            "mt-hero-style": {
+                "label": {
+                    "de-DE": "Hero-Bereich",
+                    "en-GB": "Hero-Bereich"
+                },
+                "type": "text",
+                "value": "image",
+                "editable": true,
+                "block": "mt-hero",
+                "section": "mt-simple",
+                "order": 28,
+                "helpText": {
+                    "de-DE": "Großer Einstieg auf der Startseite.",
+                    "en-GB": "Großer Einstieg auf der Startseite."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "image",
+                            "label": {
+                                "de-DE": "Bild mit Text",
+                                "en-GB": "Bild mit Text"
+                            }
+                        },
+                        {
+                            "value": "gradient",
+                            "label": {
+                                "de-DE": "Farbverlauf",
+                                "en-GB": "Farbverlauf"
+                            }
+                        },
+                        {
+                            "value": "none",
+                            "label": {
+                                "de-DE": "Ohne",
+                                "en-GB": "Ohne"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-hero-height": {
+                "label": {
+                    "de-DE": "Hero-Höhe",
+                    "en-GB": "Hero-Höhe"
+                },
+                "type": "text",
+                "value": "medium",
+                "editable": true,
+                "block": "mt-hero",
+                "section": "mt-expert",
+                "order": 29,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "small",
+                            "label": {
+                                "de-DE": "Niedrig",
+                                "en-GB": "Niedrig"
+                            }
+                        },
+                        {
+                            "value": "medium",
+                            "label": {
+                                "de-DE": "Mittel",
+                                "en-GB": "Mittel"
+                            }
+                        },
+                        {
+                            "value": "large",
+                            "label": {
+                                "de-DE": "Hoch",
+                                "en-GB": "Hoch"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-hero-title": {
+                "label": {
+                    "de-DE": "Überschrift",
+                    "en-GB": "Überschrift"
+                },
+                "type": "text",
+                "value": "Willkommen in unserem Shop",
+                "editable": true,
+                "block": "mt-hero",
+                "section": "mt-simple",
+                "order": 30
+            },
+            "mt-hero-text": {
+                "label": {
+                    "de-DE": "Text",
+                    "en-GB": "Text"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-hero",
+                "section": "mt-simple",
+                "order": 31
+            },
+            "mt-hero-cta-label": {
+                "label": {
+                    "de-DE": "Button-Beschriftung",
+                    "en-GB": "Button-Beschriftung"
+                },
+                "type": "text",
+                "value": "Jetzt entdecken",
+                "editable": true,
+                "block": "mt-hero",
+                "section": "mt-simple",
+                "order": 32
+            },
+            "mt-hero-cta-url": {
+                "label": {
+                    "de-DE": "Button-Ziel (Adresse)",
+                    "en-GB": "Button-Ziel (Adresse)"
+                },
+                "type": "text",
+                "value": "/",
+                "editable": true,
+                "block": "mt-hero",
+                "section": "mt-simple",
+                "order": 33,
+                "helpText": {
+                    "de-DE": "Interne Adresse wie /neuheiten oder vollständige Adresse.",
+                    "en-GB": "Interne Adresse wie /neuheiten oder vollständige Adresse."
+                }
+            },
+            "mt-hero-image": {
+                "label": {
+                    "de-DE": "Hero-Bild",
+                    "en-GB": "Hero-Bild"
+                },
+                "type": "media",
+                "value": "",
+                "editable": true,
+                "block": "mt-hero",
+                "section": "mt-simple",
+                "order": 34,
+                "helpText": {
+                    "de-DE": "Eigenes Bild verwenden, keine Stockfotos ohne Lizenz.",
+                    "en-GB": "Eigenes Bild verwenden, keine Stockfotos ohne Lizenz."
+                }
+            },
+            "mt-listing-layout": {
+                "label": {
+                    "de-DE": "Produktliste",
+                    "en-GB": "Produktliste"
+                },
+                "type": "text",
+                "value": "grid",
+                "editable": true,
+                "block": "mt-listing",
+                "section": "mt-simple",
+                "order": 35,
+                "helpText": {
+                    "de-DE": "Darstellung in Kategorien und Suche.",
+                    "en-GB": "Darstellung in Kategorien und Suche."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "grid",
+                            "label": {
+                                "de-DE": "Raster",
+                                "en-GB": "Raster"
+                            }
+                        },
+                        {
+                            "value": "large",
+                            "label": {
+                                "de-DE": "Große Bilder",
+                                "en-GB": "Große Bilder"
+                            }
+                        },
+                        {
+                            "value": "list",
+                            "label": {
+                                "de-DE": "Liste",
+                                "en-GB": "Liste"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-listing-columns": {
+                "label": {
+                    "de-DE": "Spalten auf dem Desktop",
+                    "en-GB": "Spalten auf dem Desktop"
+                },
+                "type": "number",
+                "value": 4,
+                "editable": true,
+                "block": "mt-listing",
+                "section": "mt-simple",
+                "order": 36,
+                "custom": {
+                    "numberType": "int",
+                    "min": 2,
+                    "max": 5,
+                    "steps": 1
+                }
+            },
+            "mt-listing-ratio": {
+                "label": {
+                    "de-DE": "Bildformat",
+                    "en-GB": "Bildformat"
+                },
+                "type": "text",
+                "value": "square",
+                "editable": true,
+                "block": "mt-listing",
+                "section": "mt-expert",
+                "order": 37,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "square",
+                            "label": {
+                                "de-DE": "Quadrat (1:1)",
+                                "en-GB": "Quadrat (1:1)"
+                            }
+                        },
+                        {
+                            "value": "portrait",
+                            "label": {
+                                "de-DE": "Hochformat (4:5)",
+                                "en-GB": "Hochformat (4:5)"
+                            }
+                        },
+                        {
+                            "value": "landscape",
+                            "label": {
+                                "de-DE": "Querformat (4:3)",
+                                "en-GB": "Querformat (4:3)"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-listing-hover": {
+                "label": {
+                    "de-DE": "Effekt beim Darüberfahren",
+                    "en-GB": "Effekt beim Darüberfahren"
+                },
+                "type": "text",
+                "value": "zoom",
+                "editable": true,
+                "block": "mt-listing",
+                "section": "mt-expert",
+                "order": 38,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "none",
+                            "label": {
+                                "de-DE": "Keiner",
+                                "en-GB": "Keiner"
+                            }
+                        },
+                        {
+                            "value": "zoom",
+                            "label": {
+                                "de-DE": "Zoom",
+                                "en-GB": "Zoom"
+                            }
+                        },
+                        {
+                            "value": "second",
+                            "label": {
+                                "de-DE": "Zweites Bild",
+                                "en-GB": "Zweites Bild"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-listing-badges": {
+                "label": {
+                    "de-DE": "Sonderpreis- und Neu-Siegel zeigen",
+                    "en-GB": "Sonderpreis- und Neu-Siegel zeigen"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-listing",
+                "section": "mt-simple",
+                "order": 39
+            },
+            "mt-listing-filter": {
+                "label": {
+                    "de-DE": "Filter",
+                    "en-GB": "Filter"
+                },
+                "type": "text",
+                "value": "sidebar",
+                "editable": true,
+                "block": "mt-listing",
+                "section": "mt-simple",
+                "order": 40,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "sidebar",
+                            "label": {
+                                "de-DE": "Seitenleiste",
+                                "en-GB": "Seitenleiste"
+                            }
+                        },
+                        {
+                            "value": "top",
+                            "label": {
+                                "de-DE": "Oben",
+                                "en-GB": "Oben"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-detail-layout": {
+                "label": {
+                    "de-DE": "Artikelseite",
+                    "en-GB": "Artikelseite"
+                },
+                "type": "text",
+                "value": "classic",
+                "editable": true,
+                "block": "mt-detail",
+                "section": "mt-simple",
+                "order": 41,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "classic",
+                            "label": {
+                                "de-DE": "Klassisch (Galerie links)",
+                                "en-GB": "Klassisch (Galerie links)"
+                            }
+                        },
+                        {
+                            "value": "stacked",
+                            "label": {
+                                "de-DE": "Untereinander",
+                                "en-GB": "Untereinander"
+                            }
+                        },
+                        {
+                            "value": "sticky",
+                            "label": {
+                                "de-DE": "Kaufbox bleibt sichtbar",
+                                "en-GB": "Kaufbox bleibt sichtbar"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-detail-gallery": {
+                "label": {
+                    "de-DE": "Galerie",
+                    "en-GB": "Galerie"
+                },
+                "type": "text",
+                "value": "thumbs-bottom",
+                "editable": true,
+                "block": "mt-detail",
+                "section": "mt-expert",
+                "order": 42,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "thumbs-bottom",
+                            "label": {
+                                "de-DE": "Vorschau unten",
+                                "en-GB": "Vorschau unten"
+                            }
+                        },
+                        {
+                            "value": "thumbs-left",
+                            "label": {
+                                "de-DE": "Vorschau links",
+                                "en-GB": "Vorschau links"
+                            }
+                        },
+                        {
+                            "value": "dots",
+                            "label": {
+                                "de-DE": "Punkte",
+                                "en-GB": "Punkte"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-detail-sticky-cart": {
+                "label": {
+                    "de-DE": "Fixierter Warenkorb-Button auf dem Handy",
+                    "en-GB": "Fixierter Warenkorb-Button auf dem Handy"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-detail",
+                "section": "mt-simple",
+                "order": 43
+            },
+            "mt-detail-tabs": {
+                "label": {
+                    "de-DE": "Beschreibung",
+                    "en-GB": "Beschreibung"
+                },
+                "type": "text",
+                "value": "tabs",
+                "editable": true,
+                "block": "mt-detail",
+                "section": "mt-expert",
+                "order": 44,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "tabs",
+                            "label": {
+                                "de-DE": "Reiter",
+                                "en-GB": "Reiter"
+                            }
+                        },
+                        {
+                            "value": "accordion",
+                            "label": {
+                                "de-DE": "Aufklappbar",
+                                "en-GB": "Aufklappbar"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-legal-price-note": {
+                "label": {
+                    "de-DE": "Hinweis neben dem Preis",
+                    "en-GB": "Hinweis neben dem Preis"
+                },
+                "type": "text",
+                "value": "inkl. MwSt., zzgl. Versand",
+                "editable": true,
+                "block": "mt-legal",
+                "section": "mt-simple",
+                "order": 45,
+                "helpText": {
+                    "de-DE": "Pflichtangabe nach PAngV. Der Link zu den Versandkosten bleibt immer erhalten.",
+                    "en-GB": "Pflichtangabe nach PAngV. Der Link zu den Versandkosten bleibt immer erhalten."
+                }
+            },
+            "mt-legal-unit-price": {
+                "label": {
+                    "de-DE": "Grundpreis anzeigen",
+                    "en-GB": "Grundpreis anzeigen"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-legal",
+                "section": "mt-simple",
+                "order": 46,
+                "helpText": {
+                    "de-DE": "Pflicht, wo die Preisangabenverordnung einen Grundpreis verlangt.",
+                    "en-GB": "Pflicht, wo die Preisangabenverordnung einen Grundpreis verlangt."
+                }
+            },
+            "mt-a11y-focus": {
+                "label": {
+                    "de-DE": "Fokusrahmen",
+                    "en-GB": "Fokusrahmen"
+                },
+                "type": "text",
+                "value": "standard",
+                "editable": true,
+                "block": "mt-a11y",
+                "section": "mt-simple",
+                "order": 47,
+                "helpText": {
+                    "de-DE": "Sichtbarer Rahmen bei Tastaturbedienung.",
+                    "en-GB": "Sichtbarer Rahmen bei Tastaturbedienung."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "standard",
+                            "label": {
+                                "de-DE": "Standard",
+                                "en-GB": "Standard"
+                            }
+                        },
+                        {
+                            "value": "strong",
+                            "label": {
+                                "de-DE": "Kräftig",
+                                "en-GB": "Kräftig"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-a11y-text-widget": {
+                "label": {
+                    "de-DE": "Textgrößen-Schalter anzeigen",
+                    "en-GB": "Textgrößen-Schalter anzeigen"
+                },
+                "type": "switch",
+                "value": false,
+                "editable": true,
+                "block": "mt-a11y",
+                "section": "mt-expert",
+                "order": 48
+            },
+            "mt-perf-lazy": {
+                "label": {
+                    "de-DE": "Bilder erst beim Scrollen laden",
+                    "en-GB": "Bilder erst beim Scrollen laden"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-performance",
+                "section": "mt-expert",
+                "order": 49
+            },
+            "mt-perf-preload-fonts": {
+                "label": {
+                    "de-DE": "Haupt-Schrift vorladen",
+                    "en-GB": "Haupt-Schrift vorladen"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-performance",
+                "section": "mt-expert",
+                "order": 50
+            },
+            "mt-custom-css": {
+                "label": {
+                    "de-DE": "Eigenes CSS",
+                    "en-GB": "Eigenes CSS"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-advanced",
+                "section": "mt-expert",
+                "order": 51,
+                "helpText": {
+                    "de-DE": "Verfügbar mit dem Pro-Modul Eigener Code.",
+                    "en-GB": "Verfügbar mit dem Pro-Modul Eigener Code."
+                },
+                "custom": {
+                    "componentName": "sw-textarea-field"
+                }
+            },
+            "mt-custom-js": {
+                "label": {
+                    "de-DE": "Eigenes JavaScript",
+                    "en-GB": "Eigenes JavaScript"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-advanced",
+                "section": "mt-expert",
+                "order": 52,
+                "helpText": {
+                    "de-DE": "Verfügbar mit dem Pro-Modul Eigener Code. Externe Skripte brauchen ggf. Einwilligung.",
+                    "en-GB": "Verfügbar mit dem Pro-Modul Eigener Code. Externe Skripte brauchen ggf. Einwilligung."
+                },
+                "custom": {
+                    "componentName": "sw-textarea-field"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{% sw_extends '@Storefront/storefront/layout/meta.html.twig' %}
+
+{% block layout_head_stylesheet %}
+    {% sw_include '@MichaThemeV5/storefront/layout/mt-config.html.twig' %}
+    <script src="{{ asset('bundles/michathemev5/mt/mt-init.js') }}"></script>
+    {% if theme_config('mt-perf-preload-fonts') %}
+        <link rel="preload" href="{{ asset('bundles/michathemev5/mt/fonts/inter-latin-400-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+    {% endif %}
+    <link rel="stylesheet" href="{{ asset('bundles/michathemev5/mt/mt-fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/michathemev5/mt/mt-tokens.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/michathemev5/mt/mt-base.css') }}">
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/michathemev5/mt/mt-shopware.css') }}">
+    <script src="{{ asset('bundles/michathemev5/mt/mt-theme.js') }}" defer></script>
+    {# Eigenes CSS/JS: erst mit Pro-Lizenzprüfung (Schritt 4), bis dahin bewusst nicht ausgegeben. #}
+{% endblock %}

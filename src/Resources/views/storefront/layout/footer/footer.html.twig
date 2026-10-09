@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
+
+{% block layout_footer %}
+    {% if theme_config('mt-footer-trust') %}
+        {% set mtTrust = [theme_config('mt-trust-1'), theme_config('mt-trust-2'), theme_config('mt-trust-3')]|filter(t => t) %}
+        {% if mtTrust|length > 0 %}
+            <section class="container mt-section" aria-label="Unsere Versprechen">
+                <ul class="mt-trust">
+                    {% for t in mtTrust %}<li>{{ t }}</li>{% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+    {% endif %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,16 @@
+{
+  "name": "michael-gahn/micha-theme-v5",
+  "description": "MichaThemeV5 für Shopware 6: Hell/Dunkel, viele Optionen, rechtssicher ausgerichtet für DE und EU",
+  "type": "shopware-platform-plugin",
+  "version": "0.2.0",
+  "license": "proprietary",
+  "authors": [{ "name": "Michael Gahn DESIGN" }],
+  "require": { "shopware/core": "~6.6.0 || ~6.7.0", "shopware/storefront": "~6.6.0 || ~6.7.0" },
+  "autoload": { "psr-4": { "MichaThemeV5\\": "src/" } },
+  "extra": {
+    "shopware-plugin-class": "MichaThemeV5\\MichaThemeV5",
+    "label": { "de-DE": "MichaThemeV5", "en-GB": "MichaThemeV5" },
+    "description": { "de-DE": "Das flexible Theme von Michael Gahn DESIGN", "en-GB": "The flexible theme by Michael Gahn DESIGN" },
+    "manufacturerLink": { "de-DE": "https://theme.michael-gahn.de", "en-GB": "https://theme.michael-gahn.de" }
+  }
+}

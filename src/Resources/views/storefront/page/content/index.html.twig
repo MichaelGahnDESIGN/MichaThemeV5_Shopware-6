@@ -1,0 +1,16 @@
+{% sw_extends '@Storefront/storefront/page/content/index.html.twig' %}
+
+{# Hero nur auf der Startseite (Option Hero-Bereich; "Ohne" blendet ihn aus) #}
+{% block page_content %}
+    {% if activeRoute == 'frontend.home.page' and theme_config('mt-hero-style') != 'none' %}
+        {% set mtImg = theme_config('mt-hero-image') %}
+        <section class="container"><div class="mt-hero"{% if mtImg and theme_config('mt-hero-style') == 'image' %} style="background-image:linear-gradient(90deg,var(--mt-surface) 30%,transparent),url('{{ mtImg }}');background-size:cover;background-position:center"{% endif %}>
+            <div>
+                <h1 class="mt-hero__title">{{ theme_config('mt-hero-title') }}</h1>
+                {% if theme_config('mt-hero-text') %}<p class="mt-hero__text">{{ theme_config('mt-hero-text') }}</p>{% endif %}
+                {% if theme_config('mt-hero-cta-label') %}<a class="mt-btn" href="{{ theme_config('mt-hero-cta-url') }}">{{ theme_config('mt-hero-cta-label') }}</a>{% endif %}
+            </div>
+        </div></section>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
