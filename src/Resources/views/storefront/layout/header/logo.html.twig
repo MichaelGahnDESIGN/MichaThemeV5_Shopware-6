@@ -1,0 +1,16 @@
+{% sw_extends '@Storefront/storefront/layout/header/logo.html.twig' %}
+
+{% block layout_header_logo_link %}
+    {% set mtLight = theme_config('mt-logo-light') %}
+    {% set mtDark = theme_config('mt-logo-dark') %}
+    {% if mtLight %}
+        <a class="header-logo-main-link" href="{{ path('frontend.home.page') }}" title="{{ 'header.logoLink'|trans|striptags }}">
+            <picture class="header-logo-picture {{ mtDark ? 'mt-logo--has-dark' : '' }}">
+                <img class="mt-logo mt-logo--light" src="{{ mtLight }}" alt="{{ theme_config('mt-logo-alt') ?: config('core.basicInformation.shopName') }}">
+                {% if mtDark %}<img class="mt-logo mt-logo--dark" src="{{ mtDark }}" alt="" aria-hidden="true">{% endif %}
+            </picture>
+        </a>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

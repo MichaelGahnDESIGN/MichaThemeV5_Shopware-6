@@ -1,0 +1,681 @@
+{
+    "version": 1,
+    "groups": [
+        {
+            "id": "colors",
+            "label": "Farben",
+            "help": "Akzentfarbe, Modus und eigene Farben"
+        },
+        {
+            "id": "typography",
+            "label": "Schriften",
+            "help": "Lokale Schriften und Größen"
+        },
+        {
+            "id": "shape",
+            "label": "Form und Stil",
+            "help": "Ecken, Abstände, Schatten, Buttons"
+        },
+        {
+            "id": "logo",
+            "label": "Logo",
+            "help": "Logo, Favicon, Größe"
+        },
+        {
+            "id": "header",
+            "label": "Header",
+            "help": "Kopfbereich und Suche"
+        },
+        {
+            "id": "footer",
+            "label": "Footer",
+            "help": "Fußbereich"
+        },
+        {
+            "id": "hero",
+            "label": "Startseite",
+            "help": "Hero-Bereich"
+        },
+        {
+            "id": "listing",
+            "label": "Kategorie und Listing",
+            "help": "Produktlisten"
+        },
+        {
+            "id": "detail",
+            "label": "Artikelseite",
+            "help": "Produkt-Detailseite"
+        },
+        {
+            "id": "legal",
+            "label": "Recht",
+            "help": "Preisangaben und Pflichttexte"
+        },
+        {
+            "id": "a11y",
+            "label": "Barrierefreiheit",
+            "help": "Fokus, Textgröße, Bewegung"
+        },
+        {
+            "id": "performance",
+            "label": "Geschwindigkeit",
+            "help": "Ladezeit"
+        },
+        {
+            "id": "advanced",
+            "label": "Erweitert",
+            "help": "Eigener Code (Pro)"
+        }
+    ],
+    "options": [
+        {
+            "id": "color_mode",
+            "group": "colors",
+            "type": "select",
+            "mode": "simple",
+            "label": "Farbmodus",
+            "default": "system",
+            "help": "Hell, Dunkel oder dem Gerät folgen. Besucher können im Shop umschalten.",
+            "choices": {
+                "system": "Wie das Gerät",
+                "light": "Hell",
+                "dark": "Dunkel"
+            },
+            "attr": "data-theme"
+        },
+        {
+            "id": "accent",
+            "group": "colors",
+            "type": "select",
+            "mode": "simple",
+            "label": "Akzentfarbe",
+            "default": "indigo",
+            "help": "Farbe für Buttons, Links und Hervorhebungen. Alle Varianten sind für Hell und Dunkel auf Kontrast geprüft.",
+            "choices": {
+                "teal": "Petrol",
+                "indigo": "Indigo",
+                "amber": "Bernstein",
+                "rose": "Rose",
+                "graphite": "Graphit"
+            },
+            "attr": "data-accent"
+        },
+        {
+            "id": "accent_custom",
+            "group": "colors",
+            "type": "color",
+            "mode": "expert",
+            "label": "Eigene Akzentfarbe",
+            "default": "",
+            "help": "Leer lassen, um die Akzentfarbe von oben zu nutzen. Achtung: Eigene Farben werden nicht automatisch auf Kontrast geprüft.",
+            "css": "--mt-accent-custom"
+        },
+        {
+            "id": "mode_toggle",
+            "group": "colors",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Umschalter Hell/Dunkel im Header anzeigen",
+            "default": true,
+            "help": ""
+        },
+        {
+            "id": "font_body",
+            "group": "typography",
+            "type": "font",
+            "mode": "simple",
+            "label": "Schrift für Text",
+            "default": "inter",
+            "help": "Alle Schriften liegen lokal im Theme, es gibt keinen Abruf bei Google.",
+            "attr": "data-mt-font-body"
+        },
+        {
+            "id": "font_heading",
+            "group": "typography",
+            "type": "font",
+            "mode": "simple",
+            "label": "Schrift für Überschriften",
+            "default": "inter",
+            "help": "",
+            "attr": "data-mt-font-heading"
+        },
+        {
+            "id": "font_size",
+            "group": "typography",
+            "type": "select",
+            "mode": "simple",
+            "label": "Schriftgröße",
+            "default": "normal",
+            "help": "",
+            "choices": {
+                "small": "Klein",
+                "normal": "Normal",
+                "large": "Groß"
+            },
+            "attr": "data-mt-size"
+        },
+        {
+            "id": "radius",
+            "group": "shape",
+            "type": "select",
+            "mode": "simple",
+            "label": "Ecken",
+            "default": "soft",
+            "help": "Rundung von Karten, Buttons und Bildern.",
+            "choices": {
+                "sharp": "Eckig",
+                "soft": "Leicht gerundet",
+                "round": "Stark gerundet"
+            },
+            "attr": "data-mt-radius"
+        },
+        {
+            "id": "density",
+            "group": "shape",
+            "type": "select",
+            "mode": "simple",
+            "label": "Abstände",
+            "default": "normal",
+            "help": "",
+            "choices": {
+                "compact": "Kompakt",
+                "normal": "Normal",
+                "airy": "Luftig"
+            },
+            "attr": "data-mt-density"
+        },
+        {
+            "id": "shadows",
+            "group": "shape",
+            "type": "select",
+            "mode": "expert",
+            "label": "Schatten",
+            "default": "soft",
+            "help": "",
+            "choices": {
+                "none": "Keine",
+                "soft": "Weich",
+                "strong": "Kräftig"
+            },
+            "attr": "data-mt-shadow"
+        },
+        {
+            "id": "buttons",
+            "group": "shape",
+            "type": "select",
+            "mode": "expert",
+            "label": "Button-Stil",
+            "default": "solid",
+            "help": "",
+            "choices": {
+                "solid": "Gefüllt",
+                "outline": "Umrandet",
+                "pill": "Pillenform"
+            },
+            "attr": "data-mt-buttons"
+        },
+        {
+            "id": "logo_light",
+            "group": "logo",
+            "type": "media",
+            "mode": "simple",
+            "label": "Logo (heller Hintergrund)",
+            "default": "",
+            "help": "SVG oder PNG, mindestens doppelte Größe für scharfe Darstellung."
+        },
+        {
+            "id": "logo_dark",
+            "group": "logo",
+            "type": "media",
+            "mode": "simple",
+            "label": "Logo (dunkler Hintergrund)",
+            "default": "",
+            "help": "Optional. Ohne Angabe wird das helle Logo genutzt."
+        },
+        {
+            "id": "logo_alt",
+            "group": "logo",
+            "type": "text",
+            "mode": "simple",
+            "label": "Alternativtext des Logos",
+            "default": "",
+            "help": "Wird von Screenreadern vorgelesen. Meist der Shopname."
+        },
+        {
+            "id": "logo_height",
+            "group": "logo",
+            "type": "range",
+            "mode": "simple",
+            "label": "Logohöhe in Pixel",
+            "default": 40,
+            "help": "",
+            "min": 24,
+            "max": 96,
+            "step": 2,
+            "css": "--mt-logo-height",
+            "unit": "px"
+        },
+        {
+            "id": "favicon",
+            "group": "logo",
+            "type": "media",
+            "mode": "expert",
+            "label": "Favicon",
+            "default": "",
+            "help": ""
+        },
+        {
+            "id": "header_layout",
+            "group": "header",
+            "type": "select",
+            "mode": "simple",
+            "label": "Header-Layout",
+            "default": "classic",
+            "help": "Aufbau des Kopfbereichs.",
+            "choices": {
+                "classic": "Klassisch (Logo links)",
+                "centered": "Zentriert (Logo mittig)",
+                "compact": "Kompakt (eine Zeile)"
+            },
+            "attr": "data-mt-header"
+        },
+        {
+            "id": "header_sticky",
+            "group": "header",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Header beim Scrollen fixieren",
+            "default": true,
+            "help": "",
+            "attr": "data-mt-sticky"
+        },
+        {
+            "id": "header_search",
+            "group": "header",
+            "type": "select",
+            "mode": "simple",
+            "label": "Suche",
+            "default": "field",
+            "help": "",
+            "choices": {
+                "icon": "Nur Symbol",
+                "field": "Suchfeld",
+                "expanded": "Großes Suchfeld"
+            },
+            "attr": "data-mt-search"
+        },
+        {
+            "id": "announcement",
+            "group": "header",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Ankündigungsleiste anzeigen",
+            "default": false,
+            "help": "",
+            "attr": "data-mt-announcement"
+        },
+        {
+            "id": "announcement_text",
+            "group": "header",
+            "type": "text",
+            "mode": "simple",
+            "label": "Text der Ankündigungsleiste",
+            "default": "Kostenloser Versand ab 50 €",
+            "help": "Bitte nur belegbare Aussagen verwenden (UWG)."
+        },
+        {
+            "id": "footer_layout",
+            "group": "footer",
+            "type": "select",
+            "mode": "simple",
+            "label": "Footer-Layout",
+            "default": "columns",
+            "help": "",
+            "choices": {
+                "columns": "Mehrspaltig",
+                "centered": "Zentriert",
+                "minimal": "Minimal"
+            },
+            "attr": "data-mt-footer"
+        },
+        {
+            "id": "footer_payment",
+            "group": "footer",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Zahlungsarten im Footer zeigen",
+            "default": true,
+            "help": ""
+        },
+        {
+            "id": "footer_trust",
+            "group": "footer",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Vertrauens-Hinweise zeigen",
+            "default": true,
+            "help": "Zum Beispiel Rückgabe, Versand, Support. Nur Aussagen eintragen, die stimmen."
+        },
+        {
+            "id": "trust_1",
+            "group": "footer",
+            "type": "text",
+            "mode": "simple",
+            "label": "Vertrauens-Hinweis 1",
+            "default": "",
+            "help": "Nur eintragen, was im Shop tatsächlich gilt."
+        },
+        {
+            "id": "trust_2",
+            "group": "footer",
+            "type": "text",
+            "mode": "simple",
+            "label": "Vertrauens-Hinweis 2",
+            "default": "",
+            "help": ""
+        },
+        {
+            "id": "trust_3",
+            "group": "footer",
+            "type": "text",
+            "mode": "simple",
+            "label": "Vertrauens-Hinweis 3",
+            "default": "",
+            "help": ""
+        },
+        {
+            "id": "hero_style",
+            "group": "hero",
+            "type": "select",
+            "mode": "simple",
+            "label": "Hero-Bereich",
+            "default": "image",
+            "help": "Großer Einstieg auf der Startseite.",
+            "choices": {
+                "image": "Bild mit Text",
+                "gradient": "Farbverlauf",
+                "none": "Ohne"
+            },
+            "attr": "data-mt-hero"
+        },
+        {
+            "id": "hero_height",
+            "group": "hero",
+            "type": "select",
+            "mode": "expert",
+            "label": "Hero-Höhe",
+            "default": "medium",
+            "help": "",
+            "choices": {
+                "small": "Niedrig",
+                "medium": "Mittel",
+                "large": "Hoch"
+            },
+            "attr": "data-mt-hero-height"
+        },
+        {
+            "id": "hero_title",
+            "group": "hero",
+            "type": "text",
+            "mode": "simple",
+            "label": "Überschrift",
+            "default": "Willkommen in unserem Shop",
+            "help": ""
+        },
+        {
+            "id": "hero_text",
+            "group": "hero",
+            "type": "text",
+            "mode": "simple",
+            "label": "Text",
+            "default": "",
+            "help": ""
+        },
+        {
+            "id": "hero_cta_label",
+            "group": "hero",
+            "type": "text",
+            "mode": "simple",
+            "label": "Button-Beschriftung",
+            "default": "Jetzt entdecken",
+            "help": ""
+        },
+        {
+            "id": "hero_cta_url",
+            "group": "hero",
+            "type": "text",
+            "mode": "simple",
+            "label": "Button-Ziel (Adresse)",
+            "default": "/",
+            "help": "Interne Adresse wie /neuheiten oder vollständige Adresse."
+        },
+        {
+            "id": "hero_image",
+            "group": "hero",
+            "type": "media",
+            "mode": "simple",
+            "label": "Hero-Bild",
+            "default": "",
+            "help": "Eigenes Bild verwenden, keine Stockfotos ohne Lizenz."
+        },
+        {
+            "id": "listing_layout",
+            "group": "listing",
+            "type": "select",
+            "mode": "simple",
+            "label": "Produktliste",
+            "default": "grid",
+            "help": "Darstellung in Kategorien und Suche.",
+            "choices": {
+                "grid": "Raster",
+                "large": "Große Bilder",
+                "list": "Liste"
+            },
+            "attr": "data-mt-listing"
+        },
+        {
+            "id": "listing_columns",
+            "group": "listing",
+            "type": "range",
+            "mode": "simple",
+            "label": "Spalten auf dem Desktop",
+            "default": 4,
+            "help": "",
+            "min": 2,
+            "max": 5,
+            "step": 1,
+            "css": "--mt-listing-cols"
+        },
+        {
+            "id": "listing_ratio",
+            "group": "listing",
+            "type": "select",
+            "mode": "expert",
+            "label": "Bildformat",
+            "default": "square",
+            "help": "",
+            "choices": {
+                "square": "Quadrat (1:1)",
+                "portrait": "Hochformat (4:5)",
+                "landscape": "Querformat (4:3)"
+            },
+            "attr": "data-mt-ratio"
+        },
+        {
+            "id": "listing_hover",
+            "group": "listing",
+            "type": "select",
+            "mode": "expert",
+            "label": "Effekt beim Darüberfahren",
+            "default": "zoom",
+            "help": "",
+            "choices": {
+                "none": "Keiner",
+                "zoom": "Zoom",
+                "second": "Zweites Bild"
+            },
+            "attr": "data-mt-hover"
+        },
+        {
+            "id": "listing_badges",
+            "group": "listing",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Sonderpreis- und Neu-Siegel zeigen",
+            "default": true,
+            "help": "",
+            "attr": "data-mt-badges"
+        },
+        {
+            "id": "listing_filter",
+            "group": "listing",
+            "type": "select",
+            "mode": "simple",
+            "label": "Filter",
+            "default": "sidebar",
+            "help": "",
+            "choices": {
+                "sidebar": "Seitenleiste",
+                "top": "Oben"
+            },
+            "attr": "data-mt-filter"
+        },
+        {
+            "id": "detail_layout",
+            "group": "detail",
+            "type": "select",
+            "mode": "simple",
+            "label": "Artikelseite",
+            "default": "classic",
+            "help": "",
+            "choices": {
+                "classic": "Klassisch (Galerie links)",
+                "stacked": "Untereinander",
+                "sticky": "Kaufbox bleibt sichtbar"
+            },
+            "attr": "data-mt-detail"
+        },
+        {
+            "id": "detail_gallery",
+            "group": "detail",
+            "type": "select",
+            "mode": "expert",
+            "label": "Galerie",
+            "default": "thumbs-bottom",
+            "help": "",
+            "choices": {
+                "thumbs-bottom": "Vorschau unten",
+                "thumbs-left": "Vorschau links",
+                "dots": "Punkte"
+            },
+            "attr": "data-mt-gallery"
+        },
+        {
+            "id": "detail_sticky_cart",
+            "group": "detail",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Fixierter Warenkorb-Button auf dem Handy",
+            "default": true,
+            "help": "",
+            "attr": "data-mt-sticky-cart"
+        },
+        {
+            "id": "detail_tabs",
+            "group": "detail",
+            "type": "select",
+            "mode": "expert",
+            "label": "Beschreibung",
+            "default": "tabs",
+            "help": "",
+            "choices": {
+                "tabs": "Reiter",
+                "accordion": "Aufklappbar"
+            },
+            "attr": "data-mt-tabs"
+        },
+        {
+            "id": "legal_price_note",
+            "group": "legal",
+            "type": "text",
+            "mode": "simple",
+            "label": "Hinweis neben dem Preis",
+            "default": "inkl. MwSt., zzgl. Versand",
+            "help": "Pflichtangabe nach PAngV. Der Link zu den Versandkosten bleibt immer erhalten.",
+            "locked_by_law": true
+        },
+        {
+            "id": "legal_unit_price",
+            "group": "legal",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Grundpreis anzeigen",
+            "default": true,
+            "help": "Pflicht, wo die Preisangabenverordnung einen Grundpreis verlangt.",
+            "locked_by_law": true
+        },
+        {
+            "id": "a11y_focus",
+            "group": "a11y",
+            "type": "select",
+            "mode": "simple",
+            "label": "Fokusrahmen",
+            "default": "standard",
+            "help": "Sichtbarer Rahmen bei Tastaturbedienung.",
+            "choices": {
+                "standard": "Standard",
+                "strong": "Kräftig"
+            },
+            "attr": "data-mt-focus"
+        },
+        {
+            "id": "a11y_text_widget",
+            "group": "a11y",
+            "type": "toggle",
+            "mode": "expert",
+            "label": "Textgrößen-Schalter anzeigen",
+            "default": false,
+            "help": ""
+        },
+        {
+            "id": "perf_lazy",
+            "group": "performance",
+            "type": "toggle",
+            "mode": "expert",
+            "label": "Bilder erst beim Scrollen laden",
+            "default": true,
+            "help": ""
+        },
+        {
+            "id": "perf_preload_fonts",
+            "group": "performance",
+            "type": "toggle",
+            "mode": "expert",
+            "label": "Haupt-Schrift vorladen",
+            "default": true,
+            "help": ""
+        },
+        {
+            "id": "custom_css",
+            "group": "advanced",
+            "type": "code",
+            "mode": "expert",
+            "label": "Eigenes CSS",
+            "default": "",
+            "help": "Verfügbar mit dem Pro-Modul Eigener Code.",
+            "pro": "custom-code",
+            "language": "css"
+        },
+        {
+            "id": "custom_js",
+            "group": "advanced",
+            "type": "code",
+            "mode": "expert",
+            "label": "Eigenes JavaScript",
+            "default": "",
+            "help": "Verfügbar mit dem Pro-Modul Eigener Code. Externe Skripte brauchen ggf. Einwilligung.",
+            "pro": "custom-code",
+            "language": "js"
+        }
+    ]
+}
