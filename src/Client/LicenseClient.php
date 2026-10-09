@@ -102,7 +102,13 @@ final class LicenseClient
             return ['source' => 'grace'] + $cached['state'];
         }
 
-        return ['valid' => false, 'tier' => 'free', 'modules' => [], 'source' => 'none', 'reason' => 'unreachable'];
+        $down = ['valid' => false, 'tier' => 'free', 'modules' => [], 'source' => 'none', 'reason' => 'unreachable'];
+        // kurz merken, damit nicht jeder Seitenaufruf bis zum Timeout wartet; ein vorhandener gültiger Eintrag bleibt für die Gnadenfrist erhalten
+        if (!is_array($cached) || ($cached['state']['valid'] ?? false) !== true) {
+            ($this->cacheSet)($key, ['until' => $now + 120, 'state' => $down], 120);
+        }
+
+        return $down;
     }
 
     /** Ist ein Pro-Modul freigeschaltet? Pro und Agentur: alle Module, Plus: die gebuchten. */

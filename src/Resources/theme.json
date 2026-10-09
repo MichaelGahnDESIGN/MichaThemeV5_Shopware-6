@@ -1511,25 +1511,6 @@
                 "custom": {
                     "componentName": "sw-textarea-field"
                 }
-            },
-            "mt-custom-js": {
-                "label": {
-                    "de-DE": "Eigenes JavaScript",
-                    "en-GB": "Eigenes JavaScript"
-                },
-                "type": "text",
-                "value": "",
-                "editable": true,
-                "block": "mt-advanced",
-                "section": "mt-expert",
-                "order": 53,
-                "helpText": {
-                    "de-DE": "Verfügbar mit dem Pro-Modul Eigener Code. Externe Skripte brauchen ggf. Einwilligung.",
-                    "en-GB": "Verfügbar mit dem Pro-Modul Eigener Code. Externe Skripte brauchen ggf. Einwilligung."
-                },
-                "custom": {
-                    "componentName": "sw-textarea-field"
-                }
             }
         }
     }
