@@ -53,6 +53,12 @@ final class LicenseClient
         if ($token === '') {
             return self::FREE;
         }
+        // Ein vom Server erneuertes Token (Abo-Verlängerung) gilt für genau den eingetragenen Schlüssel.
+        $renewKey = 'mt_tok_' . hash('sha256', $token . '|' . $this->domain);
+        $renewed = ($this->cacheGet)($renewKey);
+        if (is_array($renewed) && is_string($renewed['token'] ?? null) && $renewed['token'] !== '') {
+            $token = $renewed['token'];
+        }
         $key = 'mt_lic_' . hash('sha256', $token . '|' . $this->domain);
         $now = (int) ($this->now)();
         $cached = ($this->cacheGet)($key);
@@ -67,6 +73,9 @@ final class LicenseClient
 
         if ($json !== null && array_key_exists('valid', $json) && ($res['status'] ?? 0) < 500) {
             if ($json['valid'] === true) {
+                if (is_string($json['renewed_token'] ?? null) && strlen($json['renewed_token']) < 5000) {
+                    ($this->cacheSet)($renewKey, ['token' => $json['renewed_token']], 400 * 86400);
+                }
                 $lic = is_array($json['license'] ?? null) ? $json['license'] : [];
                 $until = strtotime((string) ($json['cache_valid_until'] ?? '')) ?: $now + 3600;
                 $until = min($until, $now + 86400);
