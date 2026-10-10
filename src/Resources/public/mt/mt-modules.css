@@ -1,0 +1,20 @@
+/* MichaThemeV5 – Pro-Module: Fortschrittsbalken, Rabattanzeige, Popup. Nur --mt-*-Variablen, keine externen Ressourcen. */
+.mt-progress { height: .625rem; background: var(--mt-surface-2); border: 1px solid var(--mt-border); border-radius: 999px; overflow: hidden; }
+.mt-progress__fill { height: 100%; background: var(--mt-accent); border-radius: 999px; transition: width .4s ease; }
+.mt-ship, .mt-stock { margin-block: var(--mt-gap); }
+.mt-ship__text, .mt-stock__text { margin: 0 0 .35rem; font-size: var(--mt-text-sm); font-weight: 600; color: var(--mt-text); }
+.mt-stock .mt-progress__fill { background: var(--mt-warning); }
+
+.mt-discount { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; margin-block: .5rem; }
+.mt-discount__lowest { font-size: var(--mt-text-xs); color: var(--mt-text-muted); }
+.mt-countdown { display: inline-flex; align-items: center; gap: .35rem; padding: .15rem .6rem; border: 1px solid var(--mt-danger); border-radius: 999px; color: var(--mt-danger); font-weight: 700; font-variant-numeric: tabular-nums; font-size: var(--mt-text-sm); }
+
+dialog.mt-popup {
+  max-width: min(32rem, calc(100vw - 2rem)); padding: 2rem; border: 1px solid var(--mt-border); border-radius: var(--mt-r-lg);
+  background: var(--mt-surface); color: var(--mt-text); box-shadow: var(--mt-shadow-md);
+}
+dialog.mt-popup::backdrop { background: rgba(0, 0, 0, .55); }
+.mt-popup h2 { margin-top: 0; }
+.mt-popup__close { position: absolute; top: .5rem; right: .5rem; width: 44px; height: 44px; border: 0; background: transparent; color: var(--mt-text); font-size: 1.75rem; line-height: 1; cursor: pointer; border-radius: var(--mt-r); }
+.mt-popup__close:hover { background: var(--mt-surface-2); }
+@media (prefers-reduced-motion: reduce) { .mt-progress__fill { transition: none; } }

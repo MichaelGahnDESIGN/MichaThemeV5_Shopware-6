@@ -34,7 +34,7 @@
 - [ ] **EU- und DE-konforme Statistik (Datenschutz)** [Free] – geplant
 - [ ] **Rechtstext-Platzhalter und Hinweise** [Free] – geplant
 - [ ] **Weitere Themes und Designvarianten** [Premium] – geplant
-- [ ] **Rabattanzeige und Angebots-Countdown** [Premium] – geplant
+- [ ] **Rabattanzeige und Angebots-Countdown** [Premium] – in Arbeit
 - [ ] **EU-Energielabels** [Premium] – geplant
 - [ ] **Smarte Suche** [Premium] – geplant
 
@@ -48,15 +48,15 @@
 - [ ] **Live-Sale-Benachrichtigung** [Premium] – geplant
 - [ ] **Google-Rezensionen** [Premium] – geplant
 - [ ] **Wiederbestellen** [Premium] – geplant
-- [ ] **Versandkosten-Fortschrittsbalken** [Premium] – geplant
-- [ ] **Bestands-Fortschrittsbalken** [Premium] – geplant
+- [ ] **Versandkosten-Fortschrittsbalken** [Premium] – in Arbeit
+- [ ] **Bestands-Fortschrittsbalken** [Premium] – in Arbeit
 - [ ] **Checkout-Motivation** [Premium] – geplant
 - [ ] **Liefer- und Versandanzeige** [Premium] – geplant
 - [ ] **Adventskalender** [Premium] – geplant
 - [ ] **Gewinnspiel** [Premium] – geplant
 - [ ] **Special FX** [Premium] – geplant
 - [ ] **Erweiterte Statistiken** [Premium] – geplant
-- [ ] **Popup-Manager** [Premium] – geplant
+- [ ] **Popup-Manager** [Premium] – in Arbeit
 - [ ] **Mega-Menü** [Premium] – geplant
 - [ ] **Schnellansicht** [Premium] – geplant
 - [ ] **Cross-Selling und Bundles** [Premium] – geplant

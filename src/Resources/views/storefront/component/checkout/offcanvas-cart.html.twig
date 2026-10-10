@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-cart.html.twig' %}
+
+{# Pro-Modul Versand-Fortschritt: Schwelle und Texte kommen aus den Theme-Einstellungen. #}
+{% block component_offcanvas_cart_actions %}
+    {% if page.cart.lineItems|length > 0 %}
+        <div data-mt-ship-progress data-total="{{ page.cart.price.positionPrice }}"></div>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
