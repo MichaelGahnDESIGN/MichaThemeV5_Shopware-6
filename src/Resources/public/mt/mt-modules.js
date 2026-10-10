@@ -47,6 +47,42 @@
     return out;
   };
 
+  /** Datum in deutscher Zeit: {y, m, d, h, wd} (wd: 0 = Sonntag). */
+  lib.berlinParts = function (ms) {
+    var f = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hourCycle: 'h23', weekday: 'short' });
+    var o = {}; f.formatToParts(new Date(ms)).forEach(function (p) { o[p.type] = p.value; });
+    return { y: +o.year, m: +o.month, d: +o.day, h: +o.hour, wd: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(o.weekday) };
+  };
+
+  /** Feiertagsliste "JJJJ-MM-TT,..." zu einer Menge; ungültige Einträge werden ignoriert. */
+  lib.holidaySet = function (text) {
+    var set = {};
+    String(text || '').split(/[,;\s]+/).forEach(function (t) { if (/^\d{4}-\d{2}-\d{2}$/.test(t)) { set[t] = true; } });
+    return set;
+  };
+
+  /**
+   * Voraussichtliches Lieferfenster (Werktage Mo-Fr ohne Feiertage). Bestellung vor dem Bestellschluss an einem
+   * Werktag wird noch am selben Tag bearbeitet, sonst am nächsten Werktag. Ergebnis: Datumsteile {y,m,d} für von/bis oder null.
+   */
+  lib.deliveryWindow = function (nowMs, cfg) {
+    var n = function (v, min, max, dflt) { var x = parseInt(v, 10); return isNaN(x) ? dflt : Math.min(max, Math.max(min, x)); };
+    var handling = n(cfg.delivery_handling_days, 0, 10, 1), tmin = n(cfg.delivery_transit_min, 1, 15, 2), tmax = n(cfg.delivery_transit_max, 1, 15, 4);
+    var cutoff = n(cfg.delivery_cutoff_hour, 0, 24, 14);
+    if (tmax < tmin) { tmax = tmin; }
+    var holidays = lib.holidaySet(cfg.delivery_holidays), now = lib.berlinParts(nowMs);
+    var day = new Date(Date.UTC(now.y, now.m - 1, now.d));
+    var key = function (dt) { return dt.getUTCFullYear() + '-' + lib.pad(dt.getUTCMonth() + 1) + '-' + lib.pad(dt.getUTCDate()); };
+    var working = function (dt) { var w = dt.getUTCDay(); return w !== 0 && w !== 6 && !holidays[key(dt)]; };
+    var next = function (dt) { var c = new Date(dt.getTime() + 86400000), guard = 0; while (!working(c) && guard++ < 400) { c = new Date(c.getTime() + 86400000); } return c; };
+    var add = function (dt, k) { var c = dt; for (var i = 0; i < k; i++) { c = next(c); } return c; };
+    var start = (working(day) && now.h < cutoff) ? day : next(day);
+    var ship = add(start, handling);
+    var out = function (dt) { return { y: dt.getUTCFullYear(), m: dt.getUTCMonth() + 1, d: dt.getUTCDate() }; };
+    var from = add(ship, tmin), to = add(ship, tmax);
+    return from.getUTCFullYear() > 2100 ? null : { from: out(from), to: out(to) };
+  };
+
   /** Soll das Popup jetzt erscheinen? state.closedAt = Zeitpunkt des letzten Schließens (ms) oder null. */
   lib.popupDue = function (cfg, state, path) {
     if (!cfg || !cfg.popup_title) { return false; }
@@ -104,6 +140,16 @@
         n.setAttribute('data-mt-done', '1'); if (!r.show) { return; }
         var text = lib.fill(c.stock_text, { n: String(r.count) });
         n.replaceChildren(el('p', 'mt-stock__text', text), bar(r.percent, text)); n.classList.add('mt-stock');
+      });
+    }
+
+    function delivery() {
+      var c = cfg['lieferanzeige']; if (!c) { return; }
+      doc.querySelectorAll('[data-mt-delivery]:not([data-mt-done])').forEach(function (n) {
+        n.setAttribute('data-mt-done', '1');
+        var w = lib.deliveryWindow(Date.now(), c); if (!w) { return; }
+        var fmt = function (p) { try { return new Intl.DateTimeFormat(lang, { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' }).format(new Date(Date.UTC(p.y, p.m - 1, p.d))); } catch (e) { return p.d + '.' + p.m + '.'; } };
+        n.replaceChildren(el('p', 'mt-delivery__text', lib.fill(c.delivery_text, { 'von': fmt(w.from), 'bis': fmt(w.to) }))); n.classList.add('mt-delivery');
       });
     }
 
@@ -167,7 +213,7 @@
       }
     }
 
-    function run() { shipping(); stock(); discount(); }
+    function run() { shipping(); stock(); discount(); delivery(); }
     if (doc.readyState === 'loading') { doc.addEventListener('DOMContentLoaded', function () { run(); popup(); }); } else { run(); popup(); }
     if (win.MutationObserver) { new win.MutationObserver(run).observe(doc.documentElement, { childList: true, subtree: true }); }
   };

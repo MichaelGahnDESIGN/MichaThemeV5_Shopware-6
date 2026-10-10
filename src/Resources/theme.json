@@ -1819,6 +1819,118 @@
                 "custom": {
                     "componentName": "sw-textarea-field"
                 }
+            },
+            "mt-delivery-handling-days": {
+                "label": {
+                    "de-DE": "Lieferanzeige: Bearbeitungszeit in Werktagen",
+                    "en-GB": "Lieferanzeige: Bearbeitungszeit in Werktagen"
+                },
+                "type": "number",
+                "value": 1,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 69,
+                "helpText": {
+                    "de-DE": "Werktage von der Bestellung bis zur Übergabe an den Versand. Muss zu Ihren echten Versandbedingungen passen.",
+                    "en-GB": "Werktage von der Bestellung bis zur Übergabe an den Versand. Muss zu Ihren echten Versandbedingungen passen."
+                },
+                "custom": {
+                    "numberType": "int",
+                    "min": 0,
+                    "max": 10,
+                    "steps": 1
+                }
+            },
+            "mt-delivery-transit-min": {
+                "label": {
+                    "de-DE": "Lieferanzeige: Versandlaufzeit früheste Lieferung (Werktage)",
+                    "en-GB": "Lieferanzeige: Versandlaufzeit früheste Lieferung (Werktage)"
+                },
+                "type": "number",
+                "value": 2,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 70,
+                "custom": {
+                    "numberType": "int",
+                    "min": 1,
+                    "max": 15,
+                    "steps": 1
+                }
+            },
+            "mt-delivery-transit-max": {
+                "label": {
+                    "de-DE": "Lieferanzeige: Versandlaufzeit späteste Lieferung (Werktage)",
+                    "en-GB": "Lieferanzeige: Versandlaufzeit späteste Lieferung (Werktage)"
+                },
+                "type": "number",
+                "value": 4,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 71,
+                "custom": {
+                    "numberType": "int",
+                    "min": 1,
+                    "max": 15,
+                    "steps": 1
+                }
+            },
+            "mt-delivery-cutoff-hour": {
+                "label": {
+                    "de-DE": "Lieferanzeige: Bestellschluss (Uhr, deutsche Zeit)",
+                    "en-GB": "Lieferanzeige: Bestellschluss (Uhr, deutsche Zeit)"
+                },
+                "type": "number",
+                "value": 14,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 72,
+                "helpText": {
+                    "de-DE": "Bestellungen danach werden erst am nächsten Werktag bearbeitet. 24 = kein Bestellschluss.",
+                    "en-GB": "Bestellungen danach werden erst am nächsten Werktag bearbeitet. 24 = kein Bestellschluss."
+                },
+                "custom": {
+                    "numberType": "int",
+                    "min": 0,
+                    "max": 24,
+                    "steps": 1
+                }
+            },
+            "mt-delivery-holidays": {
+                "label": {
+                    "de-DE": "Lieferanzeige: Feiertage und Betriebsferien",
+                    "en-GB": "Lieferanzeige: Feiertage und Betriebsferien"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-expert",
+                "order": 73,
+                "helpText": {
+                    "de-DE": "Daten im Format JJJJ-MM-TT, durch Komma getrennt, z. B. 2026-12-25,2026-12-26. Diese Tage zählen nicht als Werktage.",
+                    "en-GB": "Daten im Format JJJJ-MM-TT, durch Komma getrennt, z. B. 2026-12-25,2026-12-26. Diese Tage zählen nicht als Werktage."
+                }
+            },
+            "mt-delivery-text": {
+                "label": {
+                    "de-DE": "Lieferanzeige: Text",
+                    "en-GB": "Lieferanzeige: Text"
+                },
+                "type": "text",
+                "value": "Lieferung voraussichtlich {von} bis {bis}",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-expert",
+                "order": 74,
+                "helpText": {
+                    "de-DE": "{von} und {bis} werden durch Wochentag und Datum ersetzt. Es ist eine Schätzung, kein Liefertermin.",
+                    "en-GB": "{von} und {bis} werden durch Wochentag und Datum ersetzt. Es ist eine Schätzung, kein Liefertermin."
+                }
             }
         }
     }
