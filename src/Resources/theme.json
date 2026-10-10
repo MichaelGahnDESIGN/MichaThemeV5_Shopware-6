@@ -95,6 +95,12 @@
                     "en-GB": "Geschwindigkeit"
                 }
             },
+            "mt-modules": {
+                "label": {
+                    "de-DE": "Pro-Module",
+                    "en-GB": "Pro-Module"
+                }
+            },
             "mt-license": {
                 "label": {
                     "de-DE": "Lizenz",
@@ -1477,6 +1483,308 @@
                 "section": "mt-expert",
                 "order": 50
             },
+            "mt-popup-title": {
+                "label": {
+                    "de-DE": "Popup: Überschrift",
+                    "en-GB": "Popup: Überschrift"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 51,
+                "helpText": {
+                    "de-DE": "Leer lassen, dann erscheint kein Popup.",
+                    "en-GB": "Leer lassen, dann erscheint kein Popup."
+                }
+            },
+            "mt-popup-text": {
+                "label": {
+                    "de-DE": "Popup: Text",
+                    "en-GB": "Popup: Text"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 52,
+                "helpText": {
+                    "de-DE": "Nur Hinweise und Aktionen. Für Newsletter-Anmeldungen ist eine Einwilligung nötig, die dieses Popup nicht einholt.",
+                    "en-GB": "Nur Hinweise und Aktionen. Für Newsletter-Anmeldungen ist eine Einwilligung nötig, die dieses Popup nicht einholt."
+                }
+            },
+            "mt-popup-cta-label": {
+                "label": {
+                    "de-DE": "Popup: Button-Beschriftung",
+                    "en-GB": "Popup: Button-Beschriftung"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 53
+            },
+            "mt-popup-cta-url": {
+                "label": {
+                    "de-DE": "Popup: Button-Ziel (Adresse)",
+                    "en-GB": "Popup: Button-Ziel (Adresse)"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 54,
+                "helpText": {
+                    "de-DE": "Interne Adresse wie /angebote oder vollständige Adresse (https).",
+                    "en-GB": "Interne Adresse wie /angebote oder vollständige Adresse (https)."
+                }
+            },
+            "mt-popup-trigger": {
+                "label": {
+                    "de-DE": "Popup: Auslöser",
+                    "en-GB": "Popup: Auslöser"
+                },
+                "type": "text",
+                "value": "delay",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 55,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "delay",
+                            "label": {
+                                "de-DE": "Nach einigen Sekunden",
+                                "en-GB": "Nach einigen Sekunden"
+                            }
+                        },
+                        {
+                            "value": "scroll",
+                            "label": {
+                                "de-DE": "Nach dem Scrollen",
+                                "en-GB": "Nach dem Scrollen"
+                            }
+                        },
+                        {
+                            "value": "exit",
+                            "label": {
+                                "de-DE": "Beim Verlassen der Seite (Desktop)",
+                                "en-GB": "Beim Verlassen der Seite (Desktop)"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-popup-delay": {
+                "label": {
+                    "de-DE": "Popup: Sekunden bis zur Anzeige",
+                    "en-GB": "Popup: Sekunden bis zur Anzeige"
+                },
+                "type": "number",
+                "value": 10,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-expert",
+                "order": 56,
+                "custom": {
+                    "numberType": "int",
+                    "min": 3,
+                    "max": 120,
+                    "steps": 1
+                }
+            },
+            "mt-popup-frequency": {
+                "label": {
+                    "de-DE": "Popup: Wie oft zeigen?",
+                    "en-GB": "Popup: Wie oft zeigen?"
+                },
+                "type": "text",
+                "value": "session",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 57,
+                "helpText": {
+                    "de-DE": "Das Schließen wird im Browser des Besuchers gemerkt (kein Tracking, keine Weitergabe).",
+                    "en-GB": "Das Schließen wird im Browser des Besuchers gemerkt (kein Tracking, keine Weitergabe)."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "session",
+                            "label": {
+                                "de-DE": "Einmal pro Besuch",
+                                "en-GB": "Einmal pro Besuch"
+                            }
+                        },
+                        {
+                            "value": "day",
+                            "label": {
+                                "de-DE": "Einmal pro Tag",
+                                "en-GB": "Einmal pro Tag"
+                            }
+                        },
+                        {
+                            "value": "week",
+                            "label": {
+                                "de-DE": "Einmal pro Woche",
+                                "en-GB": "Einmal pro Woche"
+                            }
+                        }
+                    ]
+                }
+            },
+            "mt-popup-home-only": {
+                "label": {
+                    "de-DE": "Popup: nur auf der Startseite",
+                    "en-GB": "Popup: nur auf der Startseite"
+                },
+                "type": "switch",
+                "value": false,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-expert",
+                "order": 58
+            },
+            "mt-ship-threshold": {
+                "label": {
+                    "de-DE": "Versandkosten-Balken: ab diesem Warenwert versandkostenfrei",
+                    "en-GB": "Versandkosten-Balken: ab diesem Warenwert versandkostenfrei"
+                },
+                "type": "number",
+                "value": 0,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 59,
+                "helpText": {
+                    "de-DE": "0 schaltet den Balken aus. Der Wert muss mit Ihrer tatsächlichen Versandregel übereinstimmen.",
+                    "en-GB": "0 schaltet den Balken aus. Der Wert muss mit Ihrer tatsächlichen Versandregel übereinstimmen."
+                },
+                "custom": {
+                    "numberType": "int",
+                    "min": 0,
+                    "max": 1000,
+                    "steps": 1
+                }
+            },
+            "mt-ship-text": {
+                "label": {
+                    "de-DE": "Versandkosten-Balken: Text",
+                    "en-GB": "Versandkosten-Balken: Text"
+                },
+                "type": "text",
+                "value": "Noch {rest} bis zum kostenlosen Versand",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-expert",
+                "order": 60,
+                "helpText": {
+                    "de-DE": "{rest} wird durch den fehlenden Betrag ersetzt.",
+                    "en-GB": "{rest} wird durch den fehlenden Betrag ersetzt."
+                }
+            },
+            "mt-ship-done-text": {
+                "label": {
+                    "de-DE": "Versandkosten-Balken: Text bei Erreichen",
+                    "en-GB": "Versandkosten-Balken: Text bei Erreichen"
+                },
+                "type": "text",
+                "value": "Der Versand ist kostenlos.",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-expert",
+                "order": 61
+            },
+            "mt-stock-threshold": {
+                "label": {
+                    "de-DE": "Bestands-Balken: anzeigen ab Restbestand",
+                    "en-GB": "Bestands-Balken: anzeigen ab Restbestand"
+                },
+                "type": "number",
+                "value": 10,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 62,
+                "helpText": {
+                    "de-DE": "Der Balken zeigt nur den echten Lagerbestand und nur, wenn er höchstens so hoch ist.",
+                    "en-GB": "Der Balken zeigt nur den echten Lagerbestand und nur, wenn er höchstens so hoch ist."
+                },
+                "custom": {
+                    "numberType": "int",
+                    "min": 1,
+                    "max": 100,
+                    "steps": 1
+                }
+            },
+            "mt-stock-text": {
+                "label": {
+                    "de-DE": "Bestands-Balken: Text",
+                    "en-GB": "Bestands-Balken: Text"
+                },
+                "type": "text",
+                "value": "Nur noch {n} auf Lager",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-expert",
+                "order": 63,
+                "helpText": {
+                    "de-DE": "{n} wird durch den Bestand ersetzt.",
+                    "en-GB": "{n} wird durch den Bestand ersetzt."
+                }
+            },
+            "mt-discount-percent": {
+                "label": {
+                    "de-DE": "Rabattanzeige: Prozent-Siegel zeigen",
+                    "en-GB": "Rabattanzeige: Prozent-Siegel zeigen"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 64,
+                "helpText": {
+                    "de-DE": "Der Prozentwert bezieht sich auf den niedrigsten Preis der letzten 30 Tage (Preisangabenverordnung).",
+                    "en-GB": "Der Prozentwert bezieht sich auf den niedrigsten Preis der letzten 30 Tage (Preisangabenverordnung)."
+                }
+            },
+            "mt-discount-countdown": {
+                "label": {
+                    "de-DE": "Rabattanzeige: Countdown zeigen",
+                    "en-GB": "Rabattanzeige: Countdown zeigen"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-simple",
+                "order": 65,
+                "helpText": {
+                    "de-DE": "Der Countdown läuft nur bis zum echten Ende der Aktion im Shop. Dauerhafte oder künstliche Countdowns sind unzulässig.",
+                    "en-GB": "Der Countdown läuft nur bis zum echten Ende der Aktion im Shop. Dauerhafte oder künstliche Countdowns sind unzulässig."
+                }
+            },
+            "mt-discount-lowest-label": {
+                "label": {
+                    "de-DE": "Rabattanzeige: Text zum 30-Tage-Preis",
+                    "en-GB": "Rabattanzeige: Text zum 30-Tage-Preis"
+                },
+                "type": "text",
+                "value": "Niedrigster Preis der letzten 30 Tage",
+                "editable": true,
+                "block": "mt-modules",
+                "section": "mt-expert",
+                "order": 66
+            },
             "mt-license-token": {
                 "label": {
                     "de-DE": "Lizenzschlüssel",
@@ -1487,7 +1795,7 @@
                 "editable": true,
                 "block": "mt-license",
                 "section": "mt-simple",
-                "order": 51,
+                "order": 67,
                 "helpText": {
                     "de-DE": "Den Schlüssel finden Sie im Kundenkonto unter https://theme.michael-gahn.de. Zur Prüfung werden nur der Schlüssel und die Domain dieses Shops an den Lizenzserver übertragen (Server-zu-Server, keine Besucherdaten). Ohne Schlüssel läuft das Theme mit allen Free-Funktionen.",
                     "en-GB": "Den Schlüssel finden Sie im Kundenkonto unter https://theme.michael-gahn.de. Zur Prüfung werden nur der Schlüssel und die Domain dieses Shops an den Lizenzserver übertragen (Server-zu-Server, keine Besucherdaten). Ohne Schlüssel läuft das Theme mit allen Free-Funktionen."
@@ -1503,7 +1811,7 @@
                 "editable": true,
                 "block": "mt-advanced",
                 "section": "mt-expert",
-                "order": 52,
+                "order": 68,
                 "helpText": {
                     "de-DE": "Verfügbar mit dem Pro-Modul Eigener Code.",
                     "en-GB": "Verfügbar mit dem Pro-Modul Eigener Code."

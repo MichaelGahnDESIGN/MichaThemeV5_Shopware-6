@@ -63,10 +63,10 @@ Status: **planned** = geplant · **in_progress** = in Arbeit · **existing** = a
 - **WhatsApp-Newsletter** (geplant): Anmeldung mit nachweisbarem Double-Opt-In, Abmeldung per Klick, Protokoll der Einwilligung, Versand über Business-API-Anbieter mit Auftragsverarbeitung. _Recht:_ UWG § 7 (Einwilligung), DSGVO; Nachweispflicht der Einwilligung.
 - **Live-Sale-Benachrichtigung** (geplant): Hinweise auf echte, anonymisierte Käufe („Jemand aus Hamburg hat … gekauft“); Opt-out, keine erfundenen Meldungen. _Recht:_ Gefälschte Social-Proof-Meldungen sind irreführend (UWG); nur echte Daten, ohne Rückschluss auf Personen.
 - **Google-Rezensionen** (geplant): Bewertungen serverseitig abrufen und zwischenspeichern, ohne dass Besucher Google kontaktieren; Kennzeichnung der Quelle; strukturierte Daten nur wo erlaubt. _Recht:_ Nutzungsbedingungen der Google-APIs; Bewertungen nicht verfälschen oder selektiv filtern (UWG).
-- **Rabattanzeige und Angebots-Countdown** (geplant): Rabatt in Prozent und Betrag, optional Countdown; Streichpreis mit niedrigstem Preis der letzten 30 Tage. _Recht:_ PAngV § 11; Countdown nur bei echter Befristung (UWG, keine künstliche Verknappung).
+- **Rabattanzeige und Angebots-Countdown** (in Arbeit): Rabatt in Prozent und Betrag, optional Countdown; Streichpreis mit niedrigstem Preis der letzten 30 Tage. _Recht:_ PAngV § 11; Countdown nur bei echter Befristung (UWG, keine künstliche Verknappung).
 - **Wiederbestellen** (geplant): Frühere Bestellung mit einem Klick erneut in den Warenkorb legen, Verfügbarkeit und aktuelle Preise werden geprüft.
-- **Versandkosten-Fortschrittsbalken** (geplant): Zeigt, wie viel bis zur versandkostenfreien Lieferung fehlt. _Recht:_ Angaben müssen mit den Versandbedingungen übereinstimmen (PAngV).
-- **Bestands-Fortschrittsbalken** (geplant): Zeigt den echten Lagerbestand als Balken. _Recht:_ Nur echte Bestände; keine künstliche Verknappung (UWG Anhang Nr. 7).
+- **Versandkosten-Fortschrittsbalken** (in Arbeit): Zeigt, wie viel bis zur versandkostenfreien Lieferung fehlt. _Recht:_ Angaben müssen mit den Versandbedingungen übereinstimmen (PAngV).
+- **Bestands-Fortschrittsbalken** (in Arbeit): Zeigt den echten Lagerbestand als Balken. _Recht:_ Nur echte Bestände; keine künstliche Verknappung (UWG Anhang Nr. 7).
 - **Checkout-Motivation** (geplant): Vertrauens- und Hilfetexte, Fortschritt im Checkout, Abbruch-Hinweise ohne Druck. _Recht:_ Keine manipulativen Muster (Dark Patterns), Hinweise des DSA beachten.
 - **Liefer- und Versandanzeige** (geplant): Voraussichtliches Lieferdatum mit Bestellschluss, je Versandart und Land. _Recht:_ Lieferzeitangaben müssen verbindlich und zutreffend sein (UWG, PAngV).
 - **Adventskalender** (geplant): Türchen mit Aktionen, Zeitplan, Gutscheine; barrierefrei und ohne Tracking. _Recht:_ Bei Gewinnen: Teilnahmebedingungen und Datenschutzhinweise.
@@ -75,7 +75,7 @@ Status: **planned** = geplant · **in_progress** = in Arbeit · **existing** = a
 - **Special FX** (geplant): Schnee, Regen und weitere Effekte; abschaltbar, respektiert Reduced-Motion, kein Blitzen. _Recht:_ WCAG 2.3.1 (keine Blitze), Barrierefreiheit; Besucher können Effekte ausschalten.
 - **Smarte Suche** (geplant): Vorschläge, Fehlertoleranz, Synonyme, Filter in der Suche; läuft im Shop ohne Drittanbieter, anonyme Suchstatistik.
 - **Erweiterte Statistiken** (geplant): Erweiterung der kostenlosen Statistik: Trichter, Kampagnen, Produktleistung, Export; weiterhin cookielos und ohne Dritte. _Recht:_ Wie die kostenlose Statistik; Dokumentation anpassen.
-- **Popup-Manager** (geplant): Regeln, Häufigkeitsgrenzen, Zeitpläne; barrierefrei, ohne aufdringliche Vollbild-Einblendungen auf Mobilgeräten. _Recht:_ Nur mit Rechtsgrundlage für verarbeitete Daten; Google-Richtlinien zu Interstitials beachten.
+- **Popup-Manager** (in Arbeit): Regeln, Häufigkeitsgrenzen, Zeitpläne; barrierefrei, ohne aufdringliche Vollbild-Einblendungen auf Mobilgeräten. _Recht:_ Nur mit Rechtsgrundlage für verarbeitete Daten; Google-Richtlinien zu Interstitials beachten.
 - **Mega-Menü** (geplant): Mehrspaltiges Menü mit Bildern und Hervorhebungen.
 - **Schnellansicht** (geplant): Artikel in der Liste in einem Dialog ansehen und in den Warenkorb legen.
 - **Cross-Selling und Bundles** (geplant): Zubehör, „Oft zusammen gekauft“, Bundle-Rabatte. _Recht:_ Preisangaben nach PAngV.

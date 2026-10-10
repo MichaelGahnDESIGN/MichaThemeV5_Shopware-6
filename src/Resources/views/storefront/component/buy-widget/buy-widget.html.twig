@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' %}
+
+{# Pro-Module Bestand und Rabatt. Die Hüllen bleiben leer, solange mt-modules.js kein Modul freigibt (keine gültige Lizenz). #}
+{% block buy_widget_price %}
+    {{ parent() }}
+    {% set mtPrice = page.product.calculatedPrice %}
+    {# Bezugspreis: Shopware-Preisverlauf der letzten 30 Tage (regulationPrice), nie ein frei gewählter Streichpreis #}
+    {% if mtPrice.regulationPrice and mtPrice.regulationPrice.price > mtPrice.unitPrice %}
+        <div data-mt-discount data-current="{{ mtPrice.unitPrice }}" data-lowest30="{{ mtPrice.regulationPrice.price }}"></div>
+    {% endif %}
+    {% if page.product.isCloseout %}
+        <div data-mt-stock data-stock="{{ page.product.availableStock }}"></div>
+    {% endif %}
+{% endblock %}

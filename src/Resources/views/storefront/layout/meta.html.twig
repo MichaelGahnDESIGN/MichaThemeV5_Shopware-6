@@ -12,6 +12,10 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/michathemev5/mt/mt-shopware.css') }}">
     <script src="{{ asset('bundles/michathemev5/mt/mt-theme.js') }}" defer></script>
+    {# Pro-Module (Popup, Fortschrittsbalken, Rabatt): Konfiguration nur bei gültiger Lizenz #}
+    {% sw_include '@MichaThemeV5/storefront/layout/mt-modules.html.twig' %}
+    <link rel="stylesheet" href="{{ asset('bundles/michathemev5/mt/mt-modules.css') }}">
+    <script src="{{ asset('bundles/michathemev5/mt/mt-modules.js') }}" defer></script>
     {# Eigenes CSS/JS: nur mit Pro-Modul "custom-code" (Lizenzprüfung). Nur CSS (ohne Tags). Eigenes JavaScript gibt es in Shopware bewusst nicht, weil jedes Konto mit Theme-Recht damit im Checkout mitlesen könnte. #}
     {% if mt_pro('custom-code', theme_config('mt-license-token')) %}
         {% if theme_config('mt-custom-css') %}<style id="mt-custom-css">{{ theme_config('mt-custom-css')|striptags|raw }}</style>{% endif %}

@@ -62,6 +62,11 @@
             "help": "Ladezeit"
         },
         {
+            "id": "modules",
+            "label": "Pro-Module",
+            "help": "Einstellungen der gebuchten Pro-Module. Sie wirken erst, wenn das Modul in Ihrer Lizenz freigeschaltet ist (https://theme.michael-gahn.de). Alle Hinweise müssen der Wahrheit entsprechen."
+        },
+        {
             "id": "license",
             "label": "Lizenz",
             "help": "Pro-Funktionen werden mit gültiger Lizenz automatisch freigeschaltet. Kauf und Verwaltung unter https://theme.michael-gahn.de (Konto erforderlich)."
@@ -659,6 +664,188 @@
             "label": "Haupt-Schrift vorladen",
             "default": true,
             "help": ""
+        },
+        {
+            "id": "popup_title",
+            "group": "modules",
+            "type": "text",
+            "mode": "simple",
+            "label": "Popup: Überschrift",
+            "default": "",
+            "help": "Leer lassen, dann erscheint kein Popup.",
+            "pro": "popup"
+        },
+        {
+            "id": "popup_text",
+            "group": "modules",
+            "type": "text",
+            "mode": "simple",
+            "label": "Popup: Text",
+            "default": "",
+            "help": "Nur Hinweise und Aktionen. Für Newsletter-Anmeldungen ist eine Einwilligung nötig, die dieses Popup nicht einholt.",
+            "pro": "popup"
+        },
+        {
+            "id": "popup_cta_label",
+            "group": "modules",
+            "type": "text",
+            "mode": "simple",
+            "label": "Popup: Button-Beschriftung",
+            "default": "",
+            "help": "",
+            "pro": "popup"
+        },
+        {
+            "id": "popup_cta_url",
+            "group": "modules",
+            "type": "text",
+            "mode": "simple",
+            "label": "Popup: Button-Ziel (Adresse)",
+            "default": "",
+            "help": "Interne Adresse wie /angebote oder vollständige Adresse (https).",
+            "pro": "popup"
+        },
+        {
+            "id": "popup_trigger",
+            "group": "modules",
+            "type": "select",
+            "mode": "simple",
+            "label": "Popup: Auslöser",
+            "default": "delay",
+            "help": "",
+            "pro": "popup",
+            "choices": {
+                "delay": "Nach einigen Sekunden",
+                "scroll": "Nach dem Scrollen",
+                "exit": "Beim Verlassen der Seite (Desktop)"
+            }
+        },
+        {
+            "id": "popup_delay",
+            "group": "modules",
+            "type": "range",
+            "mode": "expert",
+            "label": "Popup: Sekunden bis zur Anzeige",
+            "default": 10,
+            "help": "",
+            "pro": "popup",
+            "min": 3,
+            "max": 120,
+            "step": 1,
+            "unit": "s"
+        },
+        {
+            "id": "popup_frequency",
+            "group": "modules",
+            "type": "select",
+            "mode": "simple",
+            "label": "Popup: Wie oft zeigen?",
+            "default": "session",
+            "help": "Das Schließen wird im Browser des Besuchers gemerkt (kein Tracking, keine Weitergabe).",
+            "pro": "popup",
+            "choices": {
+                "session": "Einmal pro Besuch",
+                "day": "Einmal pro Tag",
+                "week": "Einmal pro Woche"
+            }
+        },
+        {
+            "id": "popup_home_only",
+            "group": "modules",
+            "type": "toggle",
+            "mode": "expert",
+            "label": "Popup: nur auf der Startseite",
+            "default": false,
+            "help": "",
+            "pro": "popup"
+        },
+        {
+            "id": "ship_threshold",
+            "group": "modules",
+            "type": "range",
+            "mode": "simple",
+            "label": "Versandkosten-Balken: ab diesem Warenwert versandkostenfrei",
+            "default": 0,
+            "help": "0 schaltet den Balken aus. Der Wert muss mit Ihrer tatsächlichen Versandregel übereinstimmen.",
+            "pro": "versand-progress",
+            "min": 0,
+            "max": 1000,
+            "step": 1,
+            "unit": ""
+        },
+        {
+            "id": "ship_text",
+            "group": "modules",
+            "type": "text",
+            "mode": "expert",
+            "label": "Versandkosten-Balken: Text",
+            "default": "Noch {rest} bis zum kostenlosen Versand",
+            "help": "{rest} wird durch den fehlenden Betrag ersetzt.",
+            "pro": "versand-progress"
+        },
+        {
+            "id": "ship_done_text",
+            "group": "modules",
+            "type": "text",
+            "mode": "expert",
+            "label": "Versandkosten-Balken: Text bei Erreichen",
+            "default": "Der Versand ist kostenlos.",
+            "help": "",
+            "pro": "versand-progress"
+        },
+        {
+            "id": "stock_threshold",
+            "group": "modules",
+            "type": "range",
+            "mode": "simple",
+            "label": "Bestands-Balken: anzeigen ab Restbestand",
+            "default": 10,
+            "help": "Der Balken zeigt nur den echten Lagerbestand und nur, wenn er höchstens so hoch ist.",
+            "pro": "stock-progress",
+            "min": 1,
+            "max": 100,
+            "step": 1,
+            "unit": ""
+        },
+        {
+            "id": "stock_text",
+            "group": "modules",
+            "type": "text",
+            "mode": "expert",
+            "label": "Bestands-Balken: Text",
+            "default": "Nur noch {n} auf Lager",
+            "help": "{n} wird durch den Bestand ersetzt.",
+            "pro": "stock-progress"
+        },
+        {
+            "id": "discount_percent",
+            "group": "modules",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Rabattanzeige: Prozent-Siegel zeigen",
+            "default": true,
+            "help": "Der Prozentwert bezieht sich auf den niedrigsten Preis der letzten 30 Tage (Preisangabenverordnung).",
+            "pro": "rabatt"
+        },
+        {
+            "id": "discount_countdown",
+            "group": "modules",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Rabattanzeige: Countdown zeigen",
+            "default": true,
+            "help": "Der Countdown läuft nur bis zum echten Ende der Aktion im Shop. Dauerhafte oder künstliche Countdowns sind unzulässig.",
+            "pro": "rabatt"
+        },
+        {
+            "id": "discount_lowest_label",
+            "group": "modules",
+            "type": "text",
+            "mode": "expert",
+            "label": "Rabattanzeige: Text zum 30-Tage-Preis",
+            "default": "Niedrigster Preis der letzten 30 Tage",
+            "help": "",
+            "pro": "rabatt"
         },
         {
             "id": "license_token",
