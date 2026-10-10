@@ -68,7 +68,7 @@ Status: **planned** = geplant · **in_progress** = in Arbeit · **existing** = a
 - **Versandkosten-Fortschrittsbalken** (in Arbeit): Zeigt, wie viel bis zur versandkostenfreien Lieferung fehlt. _Recht:_ Angaben müssen mit den Versandbedingungen übereinstimmen (PAngV).
 - **Bestands-Fortschrittsbalken** (in Arbeit): Zeigt den echten Lagerbestand als Balken. _Recht:_ Nur echte Bestände; keine künstliche Verknappung (UWG Anhang Nr. 7).
 - **Checkout-Motivation** (geplant): Vertrauens- und Hilfetexte, Fortschritt im Checkout, Abbruch-Hinweise ohne Druck. _Recht:_ Keine manipulativen Muster (Dark Patterns), Hinweise des DSA beachten.
-- **Liefer- und Versandanzeige** (geplant): Voraussichtliches Lieferdatum mit Bestellschluss, je Versandart und Land. _Recht:_ Lieferzeitangaben müssen verbindlich und zutreffend sein (UWG, PAngV).
+- **Liefer- und Versandanzeige** (in Arbeit): Voraussichtliches Lieferdatum mit Bestellschluss, je Versandart und Land. _Recht:_ Lieferzeitangaben müssen verbindlich und zutreffend sein (UWG, PAngV).
 - **Adventskalender** (geplant): Türchen mit Aktionen, Zeitplan, Gutscheine; barrierefrei und ohne Tracking. _Recht:_ Bei Gewinnen: Teilnahmebedingungen und Datenschutzhinweise.
 - **Gewinnspiel** (geplant): Rechtssichere Gewinnspiele: Teilnahmebedingungen, Altersgrenze, Datenschutzhinweis, Kopplungsverbot, nachvollziehbare Auslosung, Löschfristen. _Recht:_ UWG, DSGVO, Glücksspielrecht (kein Einsatz verlangen), Teilnahmebedingungen anwaltlich prüfen.
 - **EU-Energielabels** (geplant): Energielabel und Produktdatenblatt aus der EPREL-Datenbank, Pfeil-Label auf Artikelseite und in Listen. _Recht:_ Delegierte Verordnungen zur Energieverbrauchskennzeichnung (EU) 2017/1369 und produktspezifisch.

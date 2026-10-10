@@ -51,7 +51,7 @@
 - [ ] **Versandkosten-Fortschrittsbalken** [Premium] – in Arbeit
 - [ ] **Bestands-Fortschrittsbalken** [Premium] – in Arbeit
 - [ ] **Checkout-Motivation** [Premium] – geplant
-- [ ] **Liefer- und Versandanzeige** [Premium] – geplant
+- [ ] **Liefer- und Versandanzeige** [Premium] – in Arbeit
 - [ ] **Adventskalender** [Premium] – geplant
 - [ ] **Gewinnspiel** [Premium] – geplant
 - [ ] **Special FX** [Premium] – geplant

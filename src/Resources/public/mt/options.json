@@ -877,6 +877,82 @@
             "help": "Verfügbar mit dem Pro-Modul Eigener Code. Externe Skripte brauchen ggf. Einwilligung.",
             "pro": "custom-code",
             "language": "js"
+        },
+        {
+            "id": "delivery_handling_days",
+            "type": "range",
+            "mode": "simple",
+            "label": "Lieferanzeige: Bearbeitungszeit in Werktagen",
+            "default": 1,
+            "help": "Werktage von der Bestellung bis zur Übergabe an den Versand. Muss zu Ihren echten Versandbedingungen passen.",
+            "min": 0,
+            "max": 10,
+            "step": 1,
+            "unit": "",
+            "group": "modules",
+            "pro": "lieferanzeige"
+        },
+        {
+            "id": "delivery_transit_min",
+            "type": "range",
+            "mode": "simple",
+            "label": "Lieferanzeige: Versandlaufzeit früheste Lieferung (Werktage)",
+            "default": 2,
+            "help": "",
+            "min": 1,
+            "max": 15,
+            "step": 1,
+            "unit": "",
+            "group": "modules",
+            "pro": "lieferanzeige"
+        },
+        {
+            "id": "delivery_transit_max",
+            "type": "range",
+            "mode": "simple",
+            "label": "Lieferanzeige: Versandlaufzeit späteste Lieferung (Werktage)",
+            "default": 4,
+            "help": "",
+            "min": 1,
+            "max": 15,
+            "step": 1,
+            "unit": "",
+            "group": "modules",
+            "pro": "lieferanzeige"
+        },
+        {
+            "id": "delivery_cutoff_hour",
+            "type": "range",
+            "mode": "simple",
+            "label": "Lieferanzeige: Bestellschluss (Uhr, deutsche Zeit)",
+            "default": 14,
+            "help": "Bestellungen danach werden erst am nächsten Werktag bearbeitet. 24 = kein Bestellschluss.",
+            "min": 0,
+            "max": 24,
+            "step": 1,
+            "unit": "",
+            "group": "modules",
+            "pro": "lieferanzeige"
+        },
+        {
+            "id": "delivery_holidays",
+            "type": "text",
+            "mode": "expert",
+            "label": "Lieferanzeige: Feiertage und Betriebsferien",
+            "default": "",
+            "help": "Daten im Format JJJJ-MM-TT, durch Komma getrennt, z. B. 2026-12-25,2026-12-26. Diese Tage zählen nicht als Werktage.",
+            "group": "modules",
+            "pro": "lieferanzeige"
+        },
+        {
+            "id": "delivery_text",
+            "type": "text",
+            "mode": "expert",
+            "label": "Lieferanzeige: Text",
+            "default": "Lieferung voraussichtlich {von} bis {bis}",
+            "help": "{von} und {bis} werden durch Wochentag und Datum ersetzt. Es ist eine Schätzung, kein Liefertermin.",
+            "group": "modules",
+            "pro": "lieferanzeige"
         }
     ]
 }
