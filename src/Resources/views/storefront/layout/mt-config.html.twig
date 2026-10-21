@@ -1,0 +1,35 @@
+{# AUTOMATISCH ERZEUGT aus themes/core/options.json (php bin/build-themes.php). Nicht von Hand ändern. #}
+{% set mtAttrs = {
+    'data-theme': theme_config('mt-color-mode'),
+    'data-accent': theme_config('mt-accent'),
+    'data-mt-font-body': theme_config('mt-font-body'),
+    'data-mt-font-heading': theme_config('mt-font-heading'),
+    'data-mt-size': theme_config('mt-font-size'),
+    'data-mt-radius': theme_config('mt-radius'),
+    'data-mt-density': theme_config('mt-density'),
+    'data-mt-shadow': theme_config('mt-shadows'),
+    'data-mt-buttons': theme_config('mt-buttons'),
+    'data-mt-header': theme_config('mt-header-layout'),
+    'data-mt-sticky': (theme_config('mt-header-sticky') ? '1' : '0'),
+    'data-mt-search': theme_config('mt-header-search'),
+    'data-mt-announcement': (theme_config('mt-announcement') ? '1' : '0'),
+    'data-mt-footer': theme_config('mt-footer-layout'),
+    'data-mt-hero': theme_config('mt-hero-style'),
+    'data-mt-hero-height': theme_config('mt-hero-height'),
+    'data-mt-listing': theme_config('mt-listing-layout'),
+    'data-mt-ratio': theme_config('mt-listing-ratio'),
+    'data-mt-hover': theme_config('mt-listing-hover'),
+    'data-mt-badges': (theme_config('mt-listing-badges') ? '1' : '0'),
+    'data-mt-filter': theme_config('mt-listing-filter'),
+    'data-mt-detail': theme_config('mt-detail-layout'),
+    'data-mt-gallery': theme_config('mt-detail-gallery'),
+    'data-mt-sticky-cart': (theme_config('mt-detail-sticky-cart') ? '1' : '0'),
+    'data-mt-tabs': theme_config('mt-detail-tabs'),
+    'data-mt-focus': theme_config('mt-a11y-focus')
+} %}
+{% set mtVars = {
+    '--mt-accent-custom': (theme_config('mt-accent-custom') ? (theme_config('mt-accent-custom')) : ''),
+    '--mt-logo-height': (theme_config('mt-logo-height') ? (theme_config('mt-logo-height') ~ 'px') : ''),
+    '--mt-listing-cols': (theme_config('mt-listing-columns') ? (theme_config('mt-listing-columns')) : '')
+} %}
+<meta name="mt-config" content="{{ { attrs: mtAttrs, vars: mtVars }|json_encode|escape('html_attr') }}">

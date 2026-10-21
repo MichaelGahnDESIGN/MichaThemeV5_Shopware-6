@@ -1,0 +1,20 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+
+{% block layout_header %}
+    <a class="mt-skip" href="#mt-main">Zum Inhalt springen</a>
+    {% if theme_config('mt-announcement') and theme_config('mt-announcement-text') %}
+        <div class="mt-announcement" role="note">{{ theme_config('mt-announcement-text') }}</div>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
+
+{% block layout_header_top_bar %}
+    {{ parent() }}
+    {% if theme_config('mt-mode-toggle') %}
+        <div class="mt-mode-wrap">
+            <button type="button" class="mt-mode-toggle" data-mt-mode-toggle aria-label="Farbmodus wechseln">
+                <span aria-hidden="true">◐</span> <span data-mt-mode-label>Wie das Gerät</span>
+            </button>
+        </div>
+    {% endif %}
+{% endblock %}
