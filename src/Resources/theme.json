@@ -1519,6 +1519,128 @@
                     "en-GB": "Den Schlüssel finden Sie im Kundenkonto unter https://theme.michael-gahn.de. Zur Prüfung werden nur der Schlüssel und die Domain dieses Shops an den Lizenzserver übertragen (Server-zu-Server, keine Besucherdaten). Ohne Schlüssel läuft das Theme mit allen Free-Funktionen."
                 },
                 "scss": false
+            },
+            "mt-legal-warranty": {
+                "label": {
+                    "de-DE": "Hinweis zur gesetzlichen Gewährleistung",
+                    "en-GB": "Hinweis zur gesetzlichen Gewährleistung"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-legal",
+                "section": "mt-simple",
+                "order": 52,
+                "helpText": {
+                    "de-DE": "Auf der Artikelseite und im Warenkorb. Ab Shopware 6.7.14 zeigt die Bestellabschlussseite den Hinweis selbst (Einstellungen › Warenkorb); das Theme ergänzt nur Artikelseite und Warenkorb, damit nichts doppelt erscheint.",
+                    "en-GB": "Auf der Artikelseite und im Warenkorb. Ab Shopware 6.7.14 zeigt die Bestellabschlussseite den Hinweis selbst (Einstellungen › Warenkorb); das Theme ergänzt nur Artikelseite und Warenkorb, damit nichts doppelt erscheint."
+                }
+            },
+            "mt-legal-warranty-text": {
+                "label": {
+                    "de-DE": "Text zur Gewährleistung",
+                    "en-GB": "Text zur Gewährleistung"
+                },
+                "type": "text",
+                "value": "Für alle Artikel gilt die gesetzliche Gewährleistung (Mängelhaftung) von mindestens zwei Jahren.",
+                "editable": true,
+                "block": "mt-legal",
+                "section": "mt-simple",
+                "order": 53,
+                "helpText": {
+                    "de-DE": "Textvorschlag, rechtlich prüfen lassen.",
+                    "en-GB": "Textvorschlag, rechtlich prüfen lassen."
+                },
+                "custom": {
+                    "componentName": "sw-textarea-field"
+                },
+                "scss": false
+            },
+            "mt-legal-gpsr": {
+                "label": {
+                    "de-DE": "Produktsicherheit (GPSR) auf der Artikelseite",
+                    "en-GB": "Produktsicherheit (GPSR) auf der Artikelseite"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "mt-legal",
+                "section": "mt-simple",
+                "order": 54,
+                "helpText": {
+                    "de-DE": "Liest die Custom Fields mt_gpsr_manufacturer, mt_gpsr_responsible_person, mt_gpsr_contact und mt_gpsr_safety_info am Produkt (Einstellungen › System › Custom Fields, Typ Text). Ohne Hersteller-Feld wird der Hersteller aus den Stammdaten genutzt. Ohne Werte erscheint nichts.",
+                    "en-GB": "Liest die Custom Fields mt_gpsr_manufacturer, mt_gpsr_responsible_person, mt_gpsr_contact und mt_gpsr_safety_info am Produkt (Einstellungen › System › Custom Fields, Typ Text). Ohne Hersteller-Feld wird der Hersteller aus den Stammdaten genutzt. Ohne Werte erscheint nichts."
+                }
+            },
+            "mt-legal-withdrawal-page": {
+                "label": {
+                    "de-DE": "Adresse der Widerrufs-Seite",
+                    "en-GB": "Adresse der Widerrufs-Seite"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-legal",
+                "section": "mt-simple",
+                "order": 55,
+                "helpText": {
+                    "de-DE": "Pfad oder Adresse, z. B. /widerruf. Wird im Footer als „Vertrag widerrufen“ verlinkt. Ab Shopware 6.7.9 gibt es einen eigenen Button (Stammdaten › Widerrufsantrag Seite, Footer-Button einschalten); dann dieses Feld leer lassen. Den Bestellbutton beschriftet Shopware bzw. ein Rechtsplugin (Button-Lösung § 312j BGB), nicht das Theme. Technischer Hinweis, keine Rechtsberatung.",
+                    "en-GB": "Pfad oder Adresse, z. B. /widerruf. Wird im Footer als „Vertrag widerrufen“ verlinkt. Ab Shopware 6.7.9 gibt es einen eigenen Button (Stammdaten › Widerrufsantrag Seite, Footer-Button einschalten); dann dieses Feld leer lassen. Den Bestellbutton beschriftet Shopware bzw. ein Rechtsplugin (Button-Lösung § 312j BGB), nicht das Theme. Technischer Hinweis, keine Rechtsberatung."
+                },
+                "scss": false
+            },
+            "mt-soldout-display": {
+                "label": {
+                    "de-DE": "Ausverkaufte Artikel kennzeichnen",
+                    "en-GB": "Ausverkaufte Artikel kennzeichnen"
+                },
+                "type": "text",
+                "value": "mark",
+                "editable": true,
+                "block": "mt-listing",
+                "section": "mt-simple",
+                "order": 56,
+                "helpText": {
+                    "de-DE": "Zeigt „Ausverkauft“ an Listen-Karten und einen deaktivierten Button auf der Artikelseite. Ausblenden stellen Sie in Shopware selbst ein (Verkaufskanal › Listing: Ausverkaufte Produkte ausblenden).",
+                    "en-GB": "Zeigt „Ausverkauft“ an Listen-Karten und einen deaktivierten Button auf der Artikelseite. Ausblenden stellen Sie in Shopware selbst ein (Verkaufskanal › Listing: Ausverkaufte Produkte ausblenden)."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "mark",
+                            "label": {
+                                "de-DE": "Kennzeichnen",
+                                "en-GB": "Kennzeichnen"
+                            }
+                        },
+                        {
+                            "value": "off",
+                            "label": {
+                                "de-DE": "Nicht kennzeichnen",
+                                "en-GB": "Nicht kennzeichnen"
+                            }
+                        }
+                    ]
+                },
+                "scss": false
+            },
+            "mt-a11y-statement-page": {
+                "label": {
+                    "de-DE": "Adresse der Barrierefreiheitserklärung",
+                    "en-GB": "Adresse der Barrierefreiheitserklärung"
+                },
+                "type": "text",
+                "value": "",
+                "editable": true,
+                "block": "mt-a11y",
+                "section": "mt-simple",
+                "order": 57,
+                "helpText": {
+                    "de-DE": "Pfad oder Adresse, z. B. /barrierefreiheit. Wird im Footer verlinkt.",
+                    "en-GB": "Pfad oder Adresse, z. B. /barrierefreiheit. Wird im Footer verlinkt."
+                },
+                "scss": false
             }
         }
     }

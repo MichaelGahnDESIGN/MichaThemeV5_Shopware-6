@@ -1,0 +1,40 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' %}
+
+{# Grundpreis ein/aus (Pflicht nach PAngV, Standard an) #}
+{% block buy_widget_price_unit_reference_content %}
+    {% if theme_config('mt-legal-unit-price') %}{{ parent() }}{% endif %}
+{% endblock %}
+
+{# Ausverkauft Button deaktiviert - Shopware blendet den Kaufbutton bei nicht verfügbar selbst aus #}
+{% block buy_widget_buy_form %}
+    {{ parent() }}
+    {% if theme_config('mt-soldout-display') == 'mark' and not product.available %}
+        <p><button type="button" class="btn btn-primary mt-soldout-btn" disabled aria-disabled="true">Ausverkauft</button></p>
+    {% endif %}
+{% endblock %}
+
+{# Gewährleistung Hinweis + GPSR aus Custom Fields #}
+{% block buy_widget_ordernumber_container %}
+    {{ parent() }}
+    {% if theme_config('mt-legal-warranty') and theme_config('mt-legal-warranty-text')|trim %}
+        <p class="mt-warranty" role="note">{{ theme_config('mt-legal-warranty-text') }}</p>
+    {% endif %}
+    {% if theme_config('mt-legal-gpsr') %}
+        {% set mtCf = product.translated.customFields ?? {} %}
+        {% set mtMaker = mtCf.mt_gpsr_manufacturer ?? product.manufacturer.translated.name ?? '' %}
+        {% set mtPerson = mtCf.mt_gpsr_responsible_person ?? '' %}
+        {% set mtContact = mtCf.mt_gpsr_contact ?? '' %}
+        {% set mtSafety = mtCf.mt_gpsr_safety_info ?? '' %}
+        {% if mtMaker or mtPerson or mtContact or mtSafety %}
+            <details class="mt-gpsr">
+                <summary>Produktsicherheit</summary>
+                <dl>
+                    {% if mtMaker %}<dt>Hersteller</dt><dd>{{ mtMaker|nl2br }}</dd>{% endif %}
+                    {% if mtPerson %}<dt>Verantwortliche Person in der EU</dt><dd>{{ mtPerson|nl2br }}</dd>{% endif %}
+                    {% if mtContact %}<dt>Kontakt</dt><dd>{{ mtContact|nl2br }}</dd>{% endif %}
+                    {% if mtSafety %}<dt>Sicherheitshinweise</dt><dd>{{ mtSafety|nl2br }}</dd>{% endif %}
+                </dl>
+            </details>
+        {% endif %}
+    {% endif %}
+{% endblock %}

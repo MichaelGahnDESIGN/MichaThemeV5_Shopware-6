@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/component/product/card/price-unit.html.twig' %}
+
+{# Listen-Karte: Ausverkauft Badge, Preis Hinweis + Link Versandkosten (Shopware zeigt Steuerhinweis in Listen nur mit Kaufen in Listen) #}
+{% block component_product_box_price_info %}
+    {% if theme_config('mt-soldout-display') == 'mark' and not product.available %}
+        <span class="mt-soldout">Ausverkauft</span>
+    {% endif %}
+    {{ parent() }}
+    {% set mtNote = theme_config('mt-legal-price-note')|trim %}
+    {% if mtNote %}
+        {% set mtShipPage = config('core.basicInformation.shippingPaymentInfoPage') %}
+        <p class="mt-price-note">{{ mtNote }}
+            {% if mtShipPage %}<a href="{{ path('frontend.cms.page', { id: mtShipPage }) }}" data-ajax-modal="true" data-url="{{ path('frontend.cms.page', { id: mtShipPage }) }}">Versandkosten</a>{% endif %}
+        </p>
+    {% endif %}
+{% endblock %}
+
+{# Grundpreis in Listen ein/aus #}
+{% block component_product_box_price_reference_unit %}
+    {% if theme_config('mt-legal-unit-price') %}{{ parent() }}{% endif %}
+{% endblock %}

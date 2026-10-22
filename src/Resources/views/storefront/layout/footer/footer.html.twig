@@ -13,3 +13,24 @@
     {% endif %}
     {{ parent() }}
 {% endblock %}
+
+{# Links Pflichtseiten: Widerruf (eigene Seite, ab 6.7.9 gibt es auch den Shopware Button) + Barrierefreiheit #}
+{% block layout_footer_bottom %}
+    {% set mtLinks = [] %}
+    {% set mtWd = theme_config('mt-legal-withdrawal-page')|trim %}
+    {% if mtWd and ((mtWd starts with '/' and not (mtWd starts with '//')) or mtWd starts with 'https://' or mtWd starts with 'http://') %}
+        {% set mtLinks = mtLinks|merge([{ label: 'Vertrag widerrufen', url: mtWd, cls: 'mt-withdraw-link' }]) %}
+    {% endif %}
+    {% set mtA11y = theme_config('mt-a11y-statement-page')|trim %}
+    {% if mtA11y and ((mtA11y starts with '/' and not (mtA11y starts with '//')) or mtA11y starts with 'https://' or mtA11y starts with 'http://') %}
+        {% set mtLinks = mtLinks|merge([{ label: 'Erklärung zur Barrierefreiheit', url: mtA11y, cls: '' }]) %}
+    {% endif %}
+    {% if mtLinks|length > 0 %}
+        <nav class="container mt-legal-links" aria-label="Pflichtlinks">
+            <ul class="list-unstyled d-flex flex-wrap gap-3">
+                {% for l in mtLinks %}<li><a{% if l.cls %} class="{{ l.cls }}"{% endif %} href="{{ l.url }}">{{ l.label }}</a></li>{% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}

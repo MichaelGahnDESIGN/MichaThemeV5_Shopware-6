@@ -1,0 +1,10 @@
+{# Video 2-Klick YouTube/Vimeo - Einbinden: {% sw_include '@MichaThemeV5/storefront/component/mt-video-consent.html.twig' with { provider: 'youtube', videoId: 'XXXXXXXXXXX', title: 'Titel' } %}
+   iframe baut erst mt-legal.js nach Klick (youtube-nocookie bzw. Vimeo dnt=1). Vorher wird nichts von Dritten geladen. #}
+{% set mtHost = provider == 'vimeo' ? 'Vimeo' : 'YouTube' %}
+<div class="mt-video" data-mt-video data-mt-video-provider="{{ provider }}" data-mt-video-id="{{ videoId }}" data-mt-video-title="{{ title|default('') }}">
+    <div class="mt-video__consent">
+        <p>Dieses Video wird erst nach Klick von {{ mtHost }} geladen. Dabei werden Daten an den Anbieter übertragen.</p>
+        <p><a href="{{ path('frontend.cms.page', { id: config('core.basicInformation.privacyPage') }) }}" data-ajax-modal="true" data-url="{{ path('frontend.cms.page', { id: config('core.basicInformation.privacyPage') }) }}">Datenschutzerklärung</a></p>
+        <button type="button" class="btn btn-primary" data-mt-video-load>Video von {{ mtHost }} laden<span class="visually-hidden">: {{ title|default('') }}</span></button>
+    </div>
+</div>
