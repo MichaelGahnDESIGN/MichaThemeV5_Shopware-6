@@ -17,8 +17,6 @@ Dieses Repo enthält nur die kostenlosen Funktionen (Free). Pro-Funktionen und E
 
 Alle rechtlichen Angaben sind technische Hinweise zum Stand der Erstellung und keine Rechtsberatung. Vor Veröffentlichung von einer Anwältin oder einem Anwalt prüfen lassen.
 
-## Weiteres
-
 
 ## Fertige Release-Pakete und GitHub-Updates
 

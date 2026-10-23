@@ -1,0 +1,24 @@
+/* MichaThemeV5 - Recht: Preis-Extras, Hinweise, GPSR, Ausverkauft, Widerruf, Video. Nur --mt-* Variablen */
+.mt-legal-extras { display: grid; gap: .15rem; margin-block: .25rem .75rem; font-size: var(--mt-text-sm); color: var(--mt-text-muted); }
+.mt-legal-hint { color: var(--mt-warning); background: var(--mt-warning-bg); padding: .25rem .5rem; border-radius: var(--mt-r); }
+.mt-warranty { font-size: var(--mt-text-sm); color: var(--mt-text-muted); border-left: 3px solid var(--mt-border-strong); padding-left: .75rem; margin-block: var(--mt-gap); }
+.mt-gpsr dt { font-weight: 700; margin-top: .75rem; }
+.mt-gpsr dd { margin: 0; }
+.mt-soldout { display: inline-block; background: var(--mt-surface-2); color: var(--mt-text); border: 1px solid var(--mt-border-strong); border-radius: 999px; font-size: var(--mt-text-sm); font-weight: 700; padding: .15rem .75rem; margin: .5rem var(--mt-gap) 0; }
+.mt-soldout-btn[disabled] { opacity: .6; cursor: not-allowed; }
+
+/* Widerruf Link, deutlich sichtbar */
+.mt-withdraw-link { display: inline-block; padding: .6em 1em; border: 2px solid currentColor; border-radius: var(--mt-r); font-weight: 700; text-decoration: none; }
+.mt-withdraw-link:hover { background: var(--mt-accent-subtle); }
+.mt-legal-links { margin-top: var(--mt-gap); }
+.mt-linkbtn { background: none; border: 0; padding: .5rem 0; min-height: 44px; font: inherit; font-weight: 600; color: var(--mt-text); text-decoration: underline; cursor: pointer; }
+
+/* Video 2-Klick */
+.mt-video { position: relative; display: grid; aspect-ratio: 16 / 9; background: var(--mt-surface-2); border-radius: var(--mt-r-lg); overflow: hidden; }
+.mt-video > * { grid-area: 1 / 1; }
+.mt-video__consent { align-self: center; justify-self: center; margin: var(--mt-gap); padding: var(--mt-gap); max-width: 32rem; background: var(--mt-surface); color: var(--mt-text); border-radius: var(--mt-r-lg); text-align: center; font-size: var(--mt-text-sm); }
+.mt-video__consent p { margin: 0 0 .5rem; }
+.mt-video__frame { width: 100%; height: 100%; border: 0; }
+.mt-price-note { margin: .25rem 0 0; font-size: var(--mt-text-xs); color: var(--mt-text-muted); }
+.mt-gpsr summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
+.mt-gpsr dd { margin-bottom: .5rem; }

@@ -18,19 +18,19 @@
 - [ ] **SEO-Optimierung** [Free] – geplant
 - [ ] **Google PageSpeed / Core Web Vitals** [Free] – geplant
 - [ ] **Rechtssicher in DE und EU** [Free] – geplant
-- [ ] **Einwilligungs-Schnittstelle (TDDDG)** [Free] – geplant
+- [ ] **Einwilligungs-Schnittstelle (TDDDG)** [Free] – in Arbeit
 - [ ] **Pflichtangaben und Preisdarstellung** [Free] – in Arbeit
-- [ ] **Widerrufsfunktion und Bestellbutton** [Free] – geplant
-- [ ] **GPSR-Produktsicherheit** [Free] – geplant
+- [ ] **Widerrufsfunktion und Bestellbutton** [Free] – in Arbeit
+- [ ] **GPSR-Produktsicherheit** [Free] – in Arbeit
 - [ ] **KI-Kennzeichnung** [Free] – als Plugin vorhanden, Einbindung offen
-- [ ] **EU-Garantie- und Gewährleistungshinweise** [Free] – als Plugin vorhanden, Einbindung offen
-- [ ] **Barrierefreiheit (BFSG / WCAG 2.2 AA)** [Free] – geplant
+- [ ] **EU-Garantie- und Gewährleistungshinweise** [Free] – in Arbeit
+- [ ] **Barrierefreiheit (BFSG / WCAG 2.2 AA)** [Free] – in Arbeit
 - [ ] **Keine Drittanbieter-Ressourcen** [Free] – in Arbeit
 
 ## Priorität 2
 
 - [ ] **Designvariante „Basis“** [Free] – geplant
-- [ ] **Ausverkauft-Konfiguration** [Free] – als Plugin vorhanden, Einbindung offen
+- [ ] **Ausverkauft-Konfiguration** [Free] – in Arbeit
 - [ ] **EU- und DE-konforme Statistik (Datenschutz)** [Free] – geplant
 - [ ] **Rechtstext-Platzhalter und Hinweise** [Free] – geplant
 

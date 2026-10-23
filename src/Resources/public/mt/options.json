@@ -663,6 +663,67 @@
             "label": "Lizenzschlüssel",
             "default": "",
             "help": "Den Schlüssel finden Sie im Kundenkonto unter https://theme.michael-gahn.de. Zur Prüfung werden nur der Schlüssel und die Domain dieses Shops an den Lizenzserver übertragen (Server-zu-Server, keine Besucherdaten). Ohne Schlüssel läuft das Theme mit allen Free-Funktionen."
+        },
+        {
+            "id": "legal_warranty",
+            "group": "legal",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Hinweis zur gesetzlichen Gewährleistung",
+            "default": true,
+            "help": "Auf der Artikelseite und im Warenkorb. Ab Shopware 6.7.14 zeigt die Bestellabschlussseite den Hinweis selbst (Einstellungen › Warenkorb); das Theme ergänzt nur Artikelseite und Warenkorb, damit nichts doppelt erscheint."
+        },
+        {
+            "id": "legal_warranty_text",
+            "group": "legal",
+            "type": "text",
+            "mode": "simple",
+            "label": "Text zur Gewährleistung",
+            "default": "Für alle Artikel gilt die gesetzliche Gewährleistung (Mängelhaftung) von mindestens zwei Jahren.",
+            "help": "Textvorschlag, rechtlich prüfen lassen.",
+            "input": "textarea"
+        },
+        {
+            "id": "legal_gpsr",
+            "group": "legal",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Produktsicherheit (GPSR) auf der Artikelseite",
+            "default": true,
+            "help": "Liest die Custom Fields mt_gpsr_manufacturer, mt_gpsr_responsible_person, mt_gpsr_contact und mt_gpsr_safety_info am Produkt (Einstellungen › System › Custom Fields, Typ Text). Ohne Hersteller-Feld wird der Hersteller aus den Stammdaten genutzt. Ohne Werte erscheint nichts."
+        },
+        {
+            "id": "legal_withdrawal_page",
+            "group": "legal",
+            "type": "text",
+            "mode": "simple",
+            "label": "Adresse der Widerrufs-Seite",
+            "default": "",
+            "help": "Pfad oder Adresse, z. B. /widerruf. Wird im Footer als „Vertrag widerrufen“ verlinkt. Ab Shopware 6.7.9 gibt es einen eigenen Button (Stammdaten › Widerrufsantrag Seite, Footer-Button einschalten); dann dieses Feld leer lassen. Den Bestellbutton beschriftet Shopware bzw. ein Rechtsplugin (Button-Lösung § 312j BGB), nicht das Theme. Technischer Hinweis, keine Rechtsberatung.",
+            "input": "url"
+        },
+        {
+            "id": "soldout_display",
+            "group": "listing",
+            "type": "select",
+            "mode": "simple",
+            "label": "Ausverkaufte Artikel kennzeichnen",
+            "default": "mark",
+            "help": "Zeigt „Ausverkauft“ an Listen-Karten und einen deaktivierten Button auf der Artikelseite. Ausblenden stellen Sie in Shopware selbst ein (Verkaufskanal › Listing: Ausverkaufte Produkte ausblenden).",
+            "choices": {
+                "mark": "Kennzeichnen",
+                "off": "Nicht kennzeichnen"
+            }
+        },
+        {
+            "id": "a11y_statement_page",
+            "group": "a11y",
+            "type": "text",
+            "mode": "simple",
+            "label": "Adresse der Barrierefreiheitserklärung",
+            "default": "",
+            "help": "Pfad oder Adresse, z. B. /barrierefreiheit. Wird im Footer verlinkt.",
+            "input": "url"
         }
     ]
 }

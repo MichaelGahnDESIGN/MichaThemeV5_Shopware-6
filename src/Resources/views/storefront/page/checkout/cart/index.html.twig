@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+
+{# Gewährleisung Hinweis im Warenkorb (Bestellabschluss macht Shopware ab 6.7.14 selbst) #}
+{% block page_checkout_cart_action_proceed %}
+    {% if theme_config('mt-legal-warranty') and theme_config('mt-legal-warranty-text')|trim %}
+        <p class="mt-warranty" role="note">{{ theme_config('mt-legal-warranty-text') }}</p>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
