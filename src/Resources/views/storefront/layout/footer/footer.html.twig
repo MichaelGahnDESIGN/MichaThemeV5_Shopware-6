@@ -12,4 +12,5 @@
         {% endif %}
     {% endif %}
     {{ parent() }}
+    {% sw_include '@MichaThemeV5/storefront/notification/notification-center.html.twig' with { placement: 'footer' } %}
 {% endblock %}

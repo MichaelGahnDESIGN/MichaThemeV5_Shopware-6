@@ -1,0 +1,2 @@
+import './page/mgd-notification-center';
+Shopware.Module.register('mgd-notification-center', { type: 'plugin', name: 'Notification Center', title: 'mgd-notification-center.general.mainMenuItemGeneral', description: 'Öffentliche und persönliche Meldungen', color: '#005fcc', icon: 'regular-bell', routes: { index: { component: 'mgd-notification-center-index', path: 'index' } }, navigation: [{ id: 'mgd-notification-center', label: 'Notification Center', color: '#005fcc', path: 'mgd.notification.center.index', icon: 'regular-bell', parent: 'sw-settings', position: 100 }] });
