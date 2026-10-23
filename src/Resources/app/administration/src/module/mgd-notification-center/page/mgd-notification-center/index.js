@@ -1,0 +1,3 @@
+import template from './mgd-notification-center.html.twig';
+const { Component } = Shopware;
+Component.register('mgd-notification-center-index', { template, inject: ['httpClient'], data() { return { title: '', body: '', scope: 'public', customerId: '', status: 'draft', saved: false, error: '' }; }, methods: { save() { this.error = ''; this.httpClient.post('/_action/mgd-notification-center', { title: this.title, body: this.body, scope: this.scope, customerId: this.customerId, status: this.status }).then(() => { this.saved = true; this.title = ''; this.body = ''; }).catch(() => { this.error = 'Meldung konnte nicht gespeichert werden.'; }); } } });

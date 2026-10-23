@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+[[allowlists]]
+description = "SHA-256 der lokalen CSS-Token-Datei im Buildnachweis"
+condition = "AND"
+paths = ['''src/Resources/public/build-integrity\.json$''']
+regexTarget = "line"
+regexes = ['''^\s*"mt/mt-tokens\.css": "[a-f0-9]{64}",$''']

@@ -1,0 +1,44 @@
+name: Fertige Shopware-Releasepakete
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '22'
+      - uses: shivammathur/setup-php@bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f
+        with:
+          php-version: '8.2'
+          extensions: zip, curl, mbstring
+      - name: PHP und Composer prüfen
+        run: |
+          find src -name '*.php' -print0 | xargs -0 -n1 php -l
+          composer validate --no-check-publish
+      - name: Assets frisch bauen und Paket erstellen
+        run: |
+          python3 scripts/build-assets.py
+          python3 scripts/build-release.py
+          python3 scripts/test-release.py
+      - name: Verhalten und Update-Sicherheit prüfen
+        run: |
+          for test in tests/*.php; do [ ! -f "$test" ] || php "$test"; done
+          for test in tests/*.test.mjs; do [ ! -f "$test" ] || node "$test"; done
+      - name: Geprüftes Release veröffentlichen
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(python3 -c 'import json; print(json.load(open("composer.json"))["version"])')
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            echo "Diese Version ist bereits veröffentlicht; keine Assets überschreiben."
+            exit 0
+          fi
+          gh release create "v$VERSION" dist/* --target "$GITHUB_SHA" --title "Version $VERSION" --notes-file RELEASE.md
