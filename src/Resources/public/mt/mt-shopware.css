@@ -94,3 +94,9 @@ hr, .border, .border-top, .border-bottom { border-color: var(--mt-border) !impor
 
 /* Fokus auf Shopware-Elementen */
 .btn:focus-visible, .form-control:focus-visible, a:focus-visible { outline: var(--mt-focus-width) solid var(--mt-focus); outline-offset: 2px; box-shadow: none; }
+
+/* Dark-Mode: Bootstrap/Storefront Farben auf Theme-Tokens ziehen (sonst dunkle Schrift auf dunkel) */
+:root { --bs-body-color: var(--mt-text); --bs-body-bg: var(--mt-bg); --bs-heading-color: var(--mt-text); --bs-link-color: var(--mt-accent-text); }
+.product-detail-name, .product-detail-headline, .page-title, .cms-element-text h1, .cms-element-text h2 { color: var(--mt-text); }
+.breadcrumb-link, .breadcrumb-link.is-active { color: var(--mt-accent-text); }
+.cookie-permission-container { background: var(--mt-surface); color: var(--mt-text); border-top: 1px solid var(--mt-border); }

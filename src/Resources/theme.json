@@ -223,7 +223,7 @@
                     "en-GB": "Eigene Akzentfarbe"
                 },
                 "type": "color",
-                "value": "#000000",
+                "value": "",
                 "editable": true,
                 "block": "mt-colors",
                 "section": "mt-expert",
