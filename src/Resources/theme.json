@@ -1521,5 +1521,6 @@
                 "scss": false
             }
         }
-    }
+    },
+    "previewMedia": "public/preview.png"
 }

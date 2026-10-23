@@ -7,5 +7,22 @@
             <argument type="service" id="cache.object"/>
             <tag name="twig.extension"/>
         </service>
-    </services>
+        <service id="MichaThemeV5\Update\ReleaseMetadata" abstract="true"/>
+    <service id="MichaThemeV5\Update\ArchiveValidator"/>
+    <service id="MichaThemeV5\Update\DownloadPolicy"/>
+    <service id="MichaThemeV5\Update\GitHubClient"><argument type="service" id="MichaThemeV5\Update\DownloadPolicy"/></service>
+    <service id="MichaThemeV5\Update\AtomicInstaller"><argument type="service" id="MichaThemeV5\Update\ArchiveValidator"/></service>
+    <service id="MichaThemeV5\Update\GitHubReleaseUpdater">
+      <argument type="service" id="MichaThemeV5\Update\GitHubClient"/><argument type="service" id="MichaThemeV5\Update\AtomicInstaller"/><argument type="service" id="Shopware\Core\Framework\Plugin\PluginService"/><argument>%kernel.project_dir%</argument>
+    </service>
+    <service id="MichaThemeV5\Controller\UpdateController" public="true">
+      <argument type="service" id="MichaThemeV5\Update\GitHubReleaseUpdater"/><argument type="service" id="logger"/>
+      <call method="setContainer"><argument type="service" id="service_container"/></call><tag name="controller.service_arguments"/>
+    </service>
+    <service id="MichaThemeV5\ScheduledTask\UpdateTask"><tag name="shopware.scheduled.task"/></service>
+    <service id="MichaThemeV5\ScheduledTask\UpdateTaskHandler">
+      <argument type="service" id="scheduled_task.repository"/><argument type="service" id="logger"/><argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/><argument type="service" id="MichaThemeV5\Update\GitHubReleaseUpdater"/>
+      <tag name="messenger.message_handler" handles="MichaThemeV5\ScheduledTask\UpdateTask"/>
+    </service>
+  </services>
 </container>

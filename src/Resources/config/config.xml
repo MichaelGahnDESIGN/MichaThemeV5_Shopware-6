@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+  <card>
+    <title lang="de-DE">GitHub-Updates</title>
+    <title lang="en-GB">GitHub updates</title>
+    <input-field type="bool">
+      <name>automaticUpdates</name>
+      <label lang="de-DE">Stündlich GitHub-Releases prüfen und Update-Dateien vorbereiten</label>
+      <label lang="en-GB">Check GitHub releases hourly and prepare update files</label>
+      <defaultValue>false</defaultValue>
+      <helpText lang="de-DE">Standardmäßig aus. Nur global für alle Verkaufskanäle einstellen. Erfordert laufenden Shopware ScheduledTask-/Queue-Worker und Scheduler bzw. Cron. Geprüfte neuere Releases werden mit privater Sicherung vorbereitet; anschließend den eigentlichen Plugin-Updatevorgang in Shopware ausführen. Wegen kurzer Umschaltlücke ein Wartungsfenster verwenden.</helpText>
+      <helpText lang="en-GB">Disabled by default. Configure globally for all sales channels. Requires a running Shopware ScheduledTask/queue worker and scheduler or cron. Verified newer releases are prepared with a private backup; then run the actual plugin update in Shopware. Use a maintenance window because the directory switch has a brief gap.</helpText>
+    </input-field>
+  </card>
+</config>
