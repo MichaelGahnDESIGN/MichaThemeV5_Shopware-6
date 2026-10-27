@@ -21,7 +21,7 @@
     if (!box.dispatchEvent(ev)) { return; }
     var frame = document.createElement('iframe');
     frame.src = e.url + id + e.query;
-    frame.title = box.getAttribute('data-mt-video-title') || '';
+    frame.title = box.getAttribute('data-mt-video-title') || (provider === 'vimeo' ? 'Vimeo Video' : 'YouTube Video');
     frame.allow = 'autoplay; fullscreen; picture-in-picture';
     frame.allowFullscreen = true;
     frame.className = 'mt-video__frame';
