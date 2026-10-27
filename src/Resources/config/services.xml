@@ -24,10 +24,20 @@
       <argument type="service" id="scheduled_task.repository"/><argument type="service" id="logger"/><argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/><argument type="service" id="MichaThemeV5\Update\GitHubReleaseUpdater"/>
       <tag name="messenger.message_handler" handles="MichaThemeV5\ScheduledTask\UpdateTask"/>
     </service>
-    <service id="MichaThemeV5\NotificationCenter\Service\NotificationService"><argument type="service" id="Doctrine\DBAL\Connection"/></service>
-    <service id="MichaThemeV5\NotificationCenter\Controller\NotificationController" public="true"><argument type="service" id="MichaThemeV5\NotificationCenter\Service\NotificationService"/><tag name="controller.service_arguments"/></service>
-    <service id="MichaThemeV5\NotificationCenter\Controller\NotificationAdminController" public="true"><argument type="service" id="MichaThemeV5\NotificationCenter\Service\NotificationService"/><tag name="controller.service_arguments"/></service>
-    <service id="MichaThemeV5\NotificationCenter\Subscriber\ProductSubscriber"><argument type="service" id="MichaThemeV5\NotificationCenter\Service\NotificationService"/><tag name="kernel.event_subscriber"/></service>
-    <service id="MichaThemeV5\NotificationCenter\Subscriber\OrderSubscriber"><argument type="service" id="MichaThemeV5\NotificationCenter\Service\NotificationService"/><argument type="service" id="Doctrine\DBAL\Connection"/><tag name="kernel.event_subscriber"/></service>
+    <service id="MichaThemeV5\NotificationCenter\Service\NotificationService">
+      <argument type="service" id="Doctrine\DBAL\Connection"/><argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+    </service>
+    <service id="MichaThemeV5\NotificationCenter\Controller\NotificationController" public="true">
+      <argument type="service" id="MichaThemeV5\NotificationCenter\Service\NotificationService"/><argument type="service" id="logger"/><tag name="controller.service_arguments"/>
+    </service>
+    <service id="MichaThemeV5\NotificationCenter\Controller\NotificationAdminController" public="true">
+      <argument type="service" id="MichaThemeV5\NotificationCenter\Service\NotificationService"/><tag name="controller.service_arguments"/>
+    </service>
+    <service id="MichaThemeV5\NotificationCenter\Subscriber\ProductSubscriber">
+      <argument type="service" id="MichaThemeV5\NotificationCenter\Service\NotificationService"/><argument type="service" id="logger"/><tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="MichaThemeV5\NotificationCenter\Subscriber\OrderSubscriber">
+      <argument type="service" id="MichaThemeV5\NotificationCenter\Service\NotificationService"/><argument type="service" id="Doctrine\DBAL\Connection"/><argument type="service" id="logger"/><tag name="kernel.event_subscriber"/>
+    </service>
   </services>
 </container>

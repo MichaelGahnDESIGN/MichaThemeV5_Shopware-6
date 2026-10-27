@@ -12,7 +12,8 @@
         "app/storefront/src/scss/base.scss"
     ],
     "script": [
-        "@Storefront"
+        "@Storefront",
+        "app/storefront/dist/storefront/js/micha-theme-v5/micha-theme-v5.js"
     ],
     "asset": [
         "@Storefront",

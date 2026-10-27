@@ -1,1 +1,11 @@
-<div class="mt-notification-center mt-notification-center--{{ placement|default('floating-bottom-right') }}" data-mt-notification-center><button type="button" aria-expanded="false" aria-controls="mt-notification-panel" class="mt-notification-button" aria-label="Benachrichtigungen öffnen"><span aria-hidden="true">🔔</span><span class="mt-notification-count" hidden>0</span></button><section id="mt-notification-panel" hidden class="mt-notification-panel" aria-label="Benachrichtigungen"><p>Keine neuen Benachrichtigungen.</p><ul></ul></section></div>
+{# Glocke - placement: menu (Header) oder footer. Aus, wenn der Schalter in den Plugin-Einstellungen aus ist. #}
+{% set mtNcPlace = placement|default('menu') %}
+{% if config('MichaThemeV5.config.notificationCenterEnabled') is not same as(false) %}
+    <div class="mt-notification-center mt-notification-center--{{ mtNcPlace }}" data-mt-notification-center data-feed-url="{{ path('frontend.mgd.notification.feed') }}" data-read-url="{{ path('frontend.mgd.notification.read', { id: '00000000000000000000000000000000' }) }}">
+        <button type="button" class="mt-notification-button" aria-expanded="false" aria-controls="mt-notification-panel-{{ mtNcPlace }}" aria-label="Benachrichtigungen"><span aria-hidden="true">🔔</span><span class="mt-notification-count" hidden>0</span></button>
+        <section id="mt-notification-panel-{{ mtNcPlace }}" class="mt-notification-panel" aria-label="Benachrichtigungen" hidden>
+            <p class="mt-notification-empty">Keine neuen Benachrichtigungen.</p>
+            <ul class="mt-notification-list"></ul>
+        </section>
+    </div>
+{% endif %}
