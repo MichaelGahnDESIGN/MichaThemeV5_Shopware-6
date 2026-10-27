@@ -1,9 +1,15 @@
 {
   "sources": {
     "scripts/build-assets.py": "f2a6f111aed7f6bd60da881e80bf6877426e93c78cc4fb4b4347829c10928909",
+    "src/Resources/app/administration/src/main.js": "934046dc5af37c2f972e9aa1950c0a27f7b696f3c86bab20dd5d00bc67bdc65b",
+    "src/Resources/app/administration/src/module/mgd-notification-center/index.js": "f0c0e52e6bf038e06b78d1ec9c883a8eb77ca30f3fd7d1a6a1f73b342248c5de",
+    "src/Resources/app/administration/src/module/mgd-notification-center/page/mgd-notification-center/index.js": "e2b17d02289edbd003c6e1400005c60047e102ea306a816ffebcd598200a3f31",
+    "src/Resources/app/administration/src/module/mgd-notification-center/page/mgd-notification-center/mgd-notification-center.html.twig": "cfd86e4af6123d54afa1f44022e9e7617a2df138d902339be9a37c6d29ffd5fa",
     "src/Resources/app/storefront/src/assets/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/Resources/app/storefront/src/main.js": "cd659bbb66641801fdfa933d8a7527ca6c940b5e747cd827708276f2e98e8e4b",
+    "src/Resources/app/storefront/src/notification/notification-center.plugin.js": "cebabba868205acdee9405331f95bed3628c2e7db284db68dc8d33b497e217ea",
     "src/Resources/app/storefront/src/scss/base.scss": "55428a2aeb6685afc2de09879aa40bf7463e067f22171e16dbedcc2347b66dc5",
-    "src/Resources/app/storefront/src/scss/overrides.scss": "bf394e9931cd6069f0d9a80af4893c9e5fa89412610882fa0d2ecdfbcd0fc84f"
+    "src/Resources/app/storefront/src/scss/overrides.scss": "c73b4e0e26d1a7a5e111b418cbd3a149c883063387cee243589e58b7debe37ab"
   },
   "outputs": {
     "mt/fonts/LICENSE-inter.txt": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345",
@@ -54,10 +60,12 @@
     "mt/mt-base.css": "bc7d3e4eff0aef6289feff8fcf0e9328427c9a6c8fa656d465b5099d986e1e64",
     "mt/mt-fonts.css": "efe2d991d503c7c3216c62b07f03c4f2263abd7adc56c94a4f33a4f1dd655638",
     "mt/mt-init.js": "614f9c959b778180a3874164062f067f501be1539a6e1f15c8444393aafa0a0f",
-    "mt/mt-shopware.css": "99f0770befc6be3d8e18c6a84da885717d2a15e75f5ec4138d251dd1ef8afeee",
+    "mt/mt-legal.css": "b44ea31a6dff57279bfa4414561c9da591ae68074733c53bbd306182fd1598c1",
+    "mt/mt-legal.js": "d57be0f3d412a02e087e6e6ea8f4a5e4116c17e744d2f618a24ab43303a7ed2b",
+    "mt/mt-shopware.css": "22cd92905aaeade64ec739fca1251dac9d9dd1c1fbff106ea1d9ec96274cae4c",
     "mt/mt-theme.js": "fb7f87e96e7e2018872f379a0bacbb7d7089484e7cec8b052e639a927f33e7e9",
     "mt/mt-tokens.css": "3b656dff3276710070e2b5b4c13709b6868dbf3cf17729cf6392576c93224fac",
-    "mt/options.json": "5ec0c14861ce07907e895017a2e5996ba6ff9761bf57a96f385370395e63535a",
+    "mt/options.json": "f5a6957092d6815ccf560ec6f590c9d45d775df1f39d389143a97bc141e42632",
     "preview.png": "2feaad3935e399ce4aa25ea5840df023055dbac297926b6c1269d476e94513b3"
   }
 }

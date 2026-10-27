@@ -1,11 +1,23 @@
-# Version 0.2.2
+# Version 0.2.3 (Pre-Alpha)
 
-Das Release-ZIP enthält alle benötigten Plugin-Dateien einschließlich fertiger CSS-/JavaScript-Dateien. Upload und GitHub-Update verwenden dasselbe geprüfte Paket. Ein manueller Administration- oder Node-Build entfällt.
+Das Theme ist noch in Entwicklung (Pre-Alpha). Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop.
 
-Die Release-Pipeline prüft PHP, Paketinhalt, Asset-Verweise und Build-Prüfsummen. Veraltete oder veränderte Build-Dateien werden beim lokalen Verpacken abgewiesen; GitHub baut die Styles bei jedem Release frisch.
+## Neu in dieser Version
 
-Neu: optionaler GitHub-Updater mit festem Repository, SHA-256-Prüfung, sicherer ZIP-Prüfung, privater Sicherung und Rückfall bei Fehlern. Automatik bleibt standardmäßig aus. Diese Version zunächst einmal per ZIP installieren.
+- Rechtliche Hilfen im Shop: Preishinweis mit Link zu den Versandkosten, Hinweis zur Gewährleistung, Produktsicherheit (GPSR) aus Custom Fields, Kennzeichnung "Ausverkauft", Links zur Widerrufs-Seite und zur Barrierefreiheitserklärung sowie Videos, die erst nach einem Klick geladen werden. Alle Texte sind Vorschläge und keine Rechtsberatung.
+- Dunkelmodus besser lesbar: Überschriften, Brotkrumen-Links und Cookie-Leiste haben mehr Kontrast.
+- "Eigene Akzentfarbe" ist jetzt standardmäßig leer. Vorher hat sie die gewählte Akzentfarbe immer überschrieben.
+- Eingebettete Videos bekommen immer einen Titel für Screenreader (Barrierefreiheit).
+- Der niedrigste Preis der letzten 30 Tage und die Lieferzeit kommen von Shopware selbst. Das Theme blendet sie nicht aus. Mehr dazu in `docs/INSTALL.md`.
 
-Nach dem Upload bzw. der automatischen Vorbereitung unter „Erweiterungen → Meine Erweiterungen“ den normalen Shopware-Updatevorgang ausführen. Shopware übernimmt dabei seine Asset- und Cache-Schritte. Für automatische Prüfungen den Schalter in den Plugin-Einstellungen global aktivieren; ScheduledTask-Scheduler und Queue-Worker müssen laufen. Wegen der kurzen Verzeichnis-Umschaltung ein Wartungsfenster verwenden. Eine Shop-Sicherung vor Updates bleibt empfohlen.
+## Noch nicht fertig
 
-Das Theme bleibt Pre-Alpha. Seine eigenen Styles, Skripte und Schriften liegen bereits fertig im Paket. Die normale Shopware-Theme-Zuweisung bzw. Theme-Kompilierung für den jeweiligen Verkaufskanal bleibt Teil von Shopware und wird nicht durch ein universelles all.css ersetzt.
+- Das Benachrichtigungs-Center (Glocke) ist nur vorbereitet und im Shop noch ausgeschaltet, weil die Anzeige in Shopware 6.7 noch nicht läuft. Im Hintergrund legt das Theme schon Datenbank-Tabellen an und speichert bei Produkt- und Bestelländerungen Meldungen, die noch niemand sieht.
+- Der optionale GitHub-Updater ist standardmäßig aus. Diese Version bitte per ZIP-Upload installieren.
+
+## So installieren
+
+1. Datei `MichaThemeV5.zip` herunterladen. Die Prüfsumme steht in `MichaThemeV5.zip.sha256`.
+2. In Shopware unter "Erweiterungen" > "Meine Erweiterungen" hochladen und den Update- oder Installations-Schritt ausführen.
+3. Theme dem Verkaufskanal zuweisen und `bin/console theme:compile` ausführen. Danach den Cache leeren.
+4. Vor jedem Update eine Sicherung des Shops machen.
