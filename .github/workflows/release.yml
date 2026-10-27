@@ -22,6 +22,11 @@ jobs:
         run: |
           find src -name '*.php' -print0 | xargs -0 -n1 php -l
           composer validate --no-check-publish
+      - name: Storefront-Skript (dist) passt zur Quelle
+        run: |
+          sh scripts/build-storefront.sh --check
+          node --check src/Resources/app/storefront/src/js/mt-notification-center.js
+          node --check src/Resources/app/storefront/dist/storefront/js/micha-theme-v5/micha-theme-v5.js
       - name: Assets frisch bauen und Paket erstellen
         run: |
           python3 scripts/build-assets.py

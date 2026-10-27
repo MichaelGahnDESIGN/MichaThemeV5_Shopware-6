@@ -13,10 +13,21 @@ Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.m
 
 Dieses Repo enthält nur die kostenlosen Funktionen (Free). Pro-Funktionen und Erweiterungen werden separat und privat ausgeliefert und sind nicht Teil dieses Repos; Informationen, Kauf und Verwaltung unter https://theme.michael-gahn.de (Konto erforderlich).
 
+## Lizenz (kurz erklärt)
+
+- Der eigene Code und die eigenen Gestaltungen dieses Themes gehören Michael Gahn DESIGN. Alle Rechte sind vorbehalten. Die Datei [`LICENSE`](LICENSE) sagt das in einem Satz.
+- Die Schriften im Theme sind frei nutzbar unter der SIL Open Font License. Die Texte dazu liegen bei den Schriften (`src/Resources/public/mt/fonts/LICENSE-*.txt`).
+- Plugins und Fremdcode behalten ihre eigene Lizenz.
+- Das ist keine Rechtsberatung; die Lizenzfrage wird noch rechtlich geprüft.
+
 ## Rechtliches
 
 Alle rechtlichen Angaben sind technische Hinweise zum Stand der Erstellung und keine Rechtsberatung. Vor Veröffentlichung von einer Anwältin oder einem Anwalt prüfen lassen.
 
+
+## Benachrichtigungs-Center (Glocke)
+
+Ab Version 0.2.4 funktioniert die Glocke wieder (Shopware 6.6 und 6.7). Sie steht oben in der Kopfleiste und unten im Footer. Eingeloggte Kunden sehen dort ihre eigenen Bestell-Meldungen. Öffentliche Meldungen für alle Besucher lassen sich bisher nur über die Admin-API anlegen (`POST /api/_action/mgd-notification-center`); eine fertige Oberfläche dafür im Admin gibt es noch nicht. Mehr dazu in [`docs/INSTALL.md`](docs/INSTALL.md).
 
 ## Fertige Release-Pakete und GitHub-Updates
 

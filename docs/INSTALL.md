@@ -28,6 +28,16 @@ Der niedrigste Preis der letzten 30 Tage (Omnibus-Hinweis) und die Lieferzeit we
 2. Die Lieferzeit kommt aus der Lieferzeit, die dem Produkt zugewiesen ist.
 3. Ob die Anzeige in Ihrem Shop richtig aussieht, bitte selbst im Shop prüfen. Das ist in dieser Version noch nicht in einem echten Shop mit Regulierungspreis getestet.
 
-## Benachrichtigungs-Center (noch aus)
+## Benachrichtigungs-Center (Glocke)
 
-Die Glocke ist in Version 0.2.3 ausgeschaltet. Die Route für die Meldungen wird in Shopware 6.7 noch nicht geladen, und das Skript für die Anzeige ist nicht gebaut. Die Dateien sind schon im Paket, damit die Arbeit weitergehen kann.
+Ab Version 0.2.4 ist die Glocke wieder an (Shopware 6.6 und 6.7). So funktioniert sie:
+
+1. Die Glocke steht in der Kopfleiste und im Footer. Ein Klick öffnet die Liste.
+2. Eingeloggte Kunden sehen ihre eigenen Meldungen zu Bestellungen (z. B. "Bestellung 10001: Der Status deiner Bestellung wurde aktualisiert."). Die rote Zahl zeigt die ungelesenen. Beim Öffnen gelten sie als gelesen. Dafür wird nichts im Browser gespeichert.
+3. Besucher ohne Login sehen nur öffentliche Meldungen. Die gibt es nur, wenn Sie welche anlegen: per Admin-API `POST /api/_action/mgd-notification-center` (Felder `scope=public`, `status=published`, `title`, `body`, optional `targetUrl`). Dafür brauchen Sie Admin-Rechte zum Ändern der Einstellungen. Eine fertige Oberfläche im Admin gibt es noch nicht.
+4. Die Glocke lässt sich in den Plugin-Einstellungen unter "Benachrichtigungs-Center (Glocke)" ausschalten. Dann ist sie unsichtbar und es werden keine neuen Meldungen mehr gespeichert.
+5. "Produkt aktualisiert" als öffentliche Meldung ist standardmäßig aus (gleicher Einstellungsbereich), weil Shopware Produkte auch bei Lagerbestand und Preisen laufend ändert.
+
+Nach dem Update: `bin/console cache:clear`, dann `bin/console theme:compile`. Das Skript der Glocke liegt fertig im Paket (`src/Resources/app/storefront/dist`). Ein Node-Build ist nicht nötig.
+
+Für Entwickler: Die Quelle liegt in `src/Resources/app/storefront/src/js/mt-notification-center.js`. Nach Änderungen `sh scripts/build-storefront.sh` ausführen. Die Prüfung in GitHub schlägt sonst fehl.

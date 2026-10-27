@@ -1,0 +1,9 @@
+Copyright (c) 2026 Michael Gahn DESIGN. Alle Rechte vorbehalten.
+
+Hinweise:
+
+- Der eigene Code und die eigenen Gestaltungen dieses Themes sind proprietär
+  (siehe "license": "proprietary" in composer.json).
+- Die enthaltenen Schriften stehen unter der SIL Open Font License (OFL).
+  Die Lizenztexte liegen bei den Schriften: src/Resources/public/mt/fonts/LICENSE-*.txt
+- Enthaltene Plugins und Fremdcode behalten ihre eigenen Lizenzen.

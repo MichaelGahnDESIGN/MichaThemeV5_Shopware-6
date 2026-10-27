@@ -17,5 +17,14 @@
             </button>
         </div>
     {% endif %}
-    {# Notification Center Glocke aus - Route + Storefront JS noch nicht fertig, siehe docs/INSTALL.md #}
+{% endblock %}
+
+{# Glocke Header - bei den Aktionen (Konto, Warenkorb), weil layout_header_top_bar zu top-bar.html.twig gehört und hier nie gerendert wird #}
+{% block layout_header_actions_account %}
+    {% if config('MichaThemeV5.config.notificationCenterEnabled') is not same as(false) %}
+        <div class="col-auto">
+            {% sw_include '@MichaThemeV5/storefront/notification/notification-center.html.twig' with { placement: 'menu' } %}
+        </div>
+    {% endif %}
+    {{ parent() }}
 {% endblock %}

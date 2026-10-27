@@ -5,11 +5,12 @@
     "src/Resources/app/administration/src/module/mgd-notification-center/index.js": "f0c0e52e6bf038e06b78d1ec9c883a8eb77ca30f3fd7d1a6a1f73b342248c5de",
     "src/Resources/app/administration/src/module/mgd-notification-center/page/mgd-notification-center/index.js": "e2b17d02289edbd003c6e1400005c60047e102ea306a816ffebcd598200a3f31",
     "src/Resources/app/administration/src/module/mgd-notification-center/page/mgd-notification-center/mgd-notification-center.html.twig": "cfd86e4af6123d54afa1f44022e9e7617a2df138d902339be9a37c6d29ffd5fa",
+    "src/Resources/app/storefront/dist/storefront/js/micha-theme-v5/micha-theme-v5.js": "795ae06cd42733f246925dc82e4c60315551d04868ab50c284becc41b9d594c7",
     "src/Resources/app/storefront/src/assets/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "src/Resources/app/storefront/src/main.js": "cd659bbb66641801fdfa933d8a7527ca6c940b5e747cd827708276f2e98e8e4b",
-    "src/Resources/app/storefront/src/notification/notification-center.plugin.js": "cebabba868205acdee9405331f95bed3628c2e7db284db68dc8d33b497e217ea",
+    "src/Resources/app/storefront/src/js/mt-notification-center.js": "910048f310eeef576e21203f959f6fd97412b9cd41e7d8f321bc1becb9626219",
+    "src/Resources/app/storefront/src/main.js": "d81e7519a46e038affe35e524d1cfe88ec48ff2c055dc149bedc9e775a987e13",
     "src/Resources/app/storefront/src/scss/base.scss": "55428a2aeb6685afc2de09879aa40bf7463e067f22171e16dbedcc2347b66dc5",
-    "src/Resources/app/storefront/src/scss/overrides.scss": "c73b4e0e26d1a7a5e111b418cbd3a149c883063387cee243589e58b7debe37ab"
+    "src/Resources/app/storefront/src/scss/overrides.scss": "c3466ba768e708f42a6d7fe9d68de24c2a306f33045a7354d6e682ccaee8feac"
   },
   "outputs": {
     "mt/fonts/LICENSE-inter.txt": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345",

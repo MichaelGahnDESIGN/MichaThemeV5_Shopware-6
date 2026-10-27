@@ -12,4 +12,24 @@
       <helpText lang="en-GB">Disabled by default. Configure globally for all sales channels. Requires a running Shopware ScheduledTask/queue worker and scheduler or cron. Verified newer releases are prepared with a private backup; then run the actual plugin update in Shopware. Use a maintenance window because the directory switch has a brief gap.</helpText>
     </input-field>
   </card>
+  <card>
+    <title lang="de-DE">Benachrichtigungs-Center (Glocke)</title>
+    <title lang="en-GB">Notification center (bell)</title>
+    <input-field type="bool">
+      <name>notificationCenterEnabled</name>
+      <label lang="de-DE">Glocke anzeigen und Bestell-Meldungen speichern</label>
+      <label lang="en-GB">Show the bell and store order messages</label>
+      <defaultValue>true</defaultValue>
+      <helpText lang="de-DE">Wenn aus, ist die Glocke unsichtbar und es werden keine neuen Meldungen mehr gespeichert. Kunden sehen nur ihre eigenen Meldungen zu Bestellungen.</helpText>
+      <helpText lang="en-GB">When off, the bell is hidden and no new messages are stored. Customers only see their own order messages.</helpText>
+    </input-field>
+    <input-field type="bool">
+      <name>notificationProductEvents</name>
+      <label lang="de-DE">Öffentliche Meldung "Produkt aktualisiert" bei Produktänderungen</label>
+      <label lang="en-GB">Public message "Product updated" when products change</label>
+      <defaultValue>false</defaultValue>
+      <helpText lang="de-DE">Standardmäßig aus. Shopware ändert Produkte auch bei Lagerbestand und Preisen laufend, deshalb kann das viele Meldungen erzeugen (höchstens eine pro Produkt und Tag).</helpText>
+      <helpText lang="en-GB">Off by default. Shopware also writes products for stock and price changes, so this can create many messages (at most one per product and day).</helpText>
+    </input-field>
+  </card>
 </config>
