@@ -321,8 +321,8 @@
             "type": "text",
             "mode": "simple",
             "label": "Text der Ankündigungsleiste",
-            "default": "Kostenloser Versand ab 50 €",
-            "help": "Bitte nur belegbare Aussagen verwenden (UWG)."
+            "default": "",
+            "help": "Leer = keine Meldung. Bitte nur belegbare Aussagen verwenden (UWG), zum Beispiel eine Versandgrenze nur, wenn sie im Shop wirklich gilt."
         },
         {
             "id": "footer_layout",
