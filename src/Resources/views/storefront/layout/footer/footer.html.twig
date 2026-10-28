@@ -34,6 +34,15 @@
         </nav>
     {% endif %}
     {{ parent() }}
+    {# Hell/Dunkel Schalter Footer #}
+    {% if theme_config('mt-mode-toggle') and theme_config('mt-mode-toggle-place') == 'footer' %}
+        <div class="container mt-footer-mode">
+            <button type="button" class="mt-mode-toggle" data-mt-mode-toggle data-mt-place="footer" aria-label="Farbmodus: Wie das Gerät. Zum Wechseln klicken." title="Farbmodus: Wie das Gerät. Zum Wechseln klicken.">
+                {% sw_include '@MichaThemeV5/storefront/component/mt-mode-icons.html.twig' %}
+                <span class="mt-mode-text">Farbmodus: <span data-mt-mode-label>Wie das Gerät</span></span>
+            </button>
+        </div>
+    {% endif %}
     {# Glocke Footer - im Block layout_footer_bottom, einen Block layout_footer gibt es in Shopware 6.7 nicht #}
     {% sw_include '@MichaThemeV5/storefront/notification/notification-center.html.twig' with { placement: 'footer' } %}
 {% endblock %}

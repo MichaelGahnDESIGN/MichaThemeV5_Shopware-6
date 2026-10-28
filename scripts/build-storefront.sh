@@ -4,15 +4,16 @@
 #   sh scripts/build-storefront.sh --check  prüft nur, ob dist zur Quelle passt (CI)
 set -eu
 
-src="src/Resources/app/storefront/src/js/mt-notification-center.js"
+srcdir="src/Resources/app/storefront/src/js"
+src="$srcdir/mt-notification-center.js $srcdir/mt-favorites-sync.js"
 out="src/Resources/app/storefront/dist/storefront/js/micha-theme-v5/micha-theme-v5.js"
 tmp=$(mktemp)
 trap 'rm -f "$tmp"' EXIT
 
-# Kopf + Quelle, sonst nix (kein Minify, bleibt lesbar)
+# Kopf + Quellen, sonst nix (kein Minify, bleibt lesbar)
 {
   echo "/* MichaThemeV5: automatisch erzeugt aus ${src}. Nicht von Hand ändern, sondern: sh scripts/build-storefront.sh */"
-  cat "$src"
+  for f in $src; do cat "$f"; done
 } > "$tmp"
 
 if [ "${1:-}" = "--check" ]; then

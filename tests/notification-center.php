@@ -60,7 +60,9 @@ $theme = json_decode((string) file_get_contents($root . '/src/Resources/theme.js
 ok(in_array('app/storefront/dist/storefront/js/micha-theme-v5/micha-theme-v5.js', $theme['script'], true), 'theme.json nennt die dist-Datei nicht');
 $dist = (string) file_get_contents($root . '/src/Resources/app/storefront/dist/storefront/js/micha-theme-v5/micha-theme-v5.js');
 $source = (string) file_get_contents($root . '/src/Resources/app/storefront/src/js/mt-notification-center.js');
-ok(str_ends_with($dist, $source), 'dist enthält die Quelle nicht');
+ok(str_contains($dist, $source), 'dist enthält die Quelle nicht');
+$sync = (string) file_get_contents($root . '/src/Resources/app/storefront/src/js/mt-favorites-sync.js');
+ok(str_ends_with($dist, $sync), 'dist enthält die Favoriten-Quelle nicht');
 ok(!preg_match('/^\s*import\s/m', $dist), 'dist darf keine Imports haben');
 
 // Header und Footer zeigen die Glocke wieder

@@ -11,6 +11,17 @@
     {% if theme_config('mt-soldout-display') == 'mark' and not product.available %}
         <p><button type="button" class="btn btn-primary mt-soldout-btn" disabled aria-disabled="true">Ausverkauft</button></p>
     {% endif %}
+    {# Herz Artikelseite #}
+    {% if theme_config('mt-favorites') %}
+        <div class="mt-fav-detail">
+            {% sw_include '@MichaThemeV5/storefront/component/mt-fav-toggle.html.twig' with {
+                mtFavId: product.id,
+                mtFavName: product.translated.name,
+                mtFavUrl: seoUrl('frontend.detail.page', { productId: product.id }),
+                mtFavClass: 'detail'
+            } %}
+        </div>
+    {% endif %}
 {% endblock %}
 
 {# Gewährleistung Hinweis + GPSR aus Custom Fields #}

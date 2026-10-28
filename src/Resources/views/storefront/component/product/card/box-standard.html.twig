@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box-standard.html.twig' %}
+
+{# Herz auf der Karte (Listing, Slider) - Block gibts in 6.6 + 6.7 #}
+{% block component_product_box_image %}
+    {{ parent() }}
+    {% if theme_config('mt-favorites') and id %}
+        {% sw_include '@MichaThemeV5/storefront/component/mt-fav-toggle.html.twig' with {
+            mtFavId: id,
+            mtFavName: name,
+            mtFavUrl: seoUrl('frontend.detail.page', { productId: id }),
+            mtFavClass: (config('core.cart.wishlistEnabled') ? 'card mt-fav-toggle--with-wishlist' : 'card')
+        } %}
+    {% endif %}
+{% endblock %}

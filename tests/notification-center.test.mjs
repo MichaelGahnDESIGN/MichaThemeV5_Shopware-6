@@ -18,6 +18,8 @@ const element = (tag = 'div') => ({
 async function run(items, ok = true) {
     const calls = [];
     const root = element();
+    // wie im Template: Glocke startet versteckt
+    root.hidden = true;
     root.attrs = { 'data-feed-url': '/feed', 'data-read-url': '/mgd-notification-center/00000000000000000000000000000000/read' };
     const button = element('button'); button.attrs['aria-label'] = 'Benachrichtigungen'; button.attrs['aria-expanded'] = 'false';
     const parts = { 'mt-notification-button': button, 'mt-notification-panel': Object.assign(element('section'), { hidden: true }), 'mt-notification-list': element('ul'), 'mt-notification-empty': element('p'), 'mt-notification-count': Object.assign(element('span'), { hidden: true }) };
@@ -25,13 +27,13 @@ async function run(items, ok = true) {
     root.contains = () => true;
     const doc = {
         readyState: 'complete', documentElement: { lang: 'de' },
-        querySelectorAll: () => [root], createElement: element, addEventListener() {},
+        querySelectorAll: () => [root], querySelector: () => null, createElement: element, addEventListener() {},
     };
     globalThis.document = doc;
     globalThis.fetch = (url, options = {}) => { calls.push({ url, method: options.method || 'GET', headers: options.headers }); return Promise.resolve({ ok, json: () => Promise.resolve({ items }) }); };
     new Function(dist)();
     await new Promise((r) => setTimeout(r, 10));
-    return { parts, calls, button };
+    return { parts, calls, button, root };
 }
 
 // Meldungen, Zähler (nur persönlich ungelesen), XHR-Header
@@ -40,7 +42,9 @@ async function run(items, ok = true) {
         { id: 'a'.repeat(32), title: '<b>Bestellung 1</b>', body: 'Text', targetUrl: '/account/order', publishedAt: '2026-10-27T10:00:00Z', scope: 'personal', read: false },
         { id: 'b'.repeat(32), title: 'Öffentlich', body: '', targetUrl: 'javascript:alert(1)', publishedAt: '2026-10-27T09:00:00Z', scope: 'public', read: true },
     ];
-    const { parts, calls, button } = await run(items);
+    const { parts, calls, button, root } = await run(items);
+    // Einträge da: Glocke sichtbar
+    assert.equal(root.hidden, false);
     assert.equal(parts['mt-notification-list'].children.length, 2);
     assert.equal(parts['mt-notification-count'].textContent, '1');
     assert.equal(parts['mt-notification-count'].hidden, false);
@@ -64,10 +68,18 @@ async function run(items, ok = true) {
 
 // Fehler beim Abruf: leere Liste, kein Fehler, Hinweistext bleibt sichtbar
 {
-    const { parts } = await run([], false);
+    const { parts, root } = await run([], false);
+    // kein Eintrag: Glocke bleibt versteckt
+    assert.equal(root.hidden, true);
     assert.equal(parts['mt-notification-list'].children.length, 0);
     assert.equal(parts['mt-notification-empty'].hidden, false);
     assert.equal(parts['mt-notification-count'].hidden, true);
+}
+
+// Feed leer (Abruf ok): Glocke bleibt versteckt
+{
+    const { root } = await run([], true);
+    assert.equal(root.hidden, true);
 }
 
 console.log('Glocken-Skript geprüft.');

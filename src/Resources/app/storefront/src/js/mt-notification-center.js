@@ -89,6 +89,8 @@
                 list.append(li);
             });
             if (empty) empty.hidden = items.length > 0;
+            // Glocke erst sichtbar wenn echte Einträge da sind (Header + Footer)
+            root.hidden = items.length === 0;
             // Zaehler nur fuer persoenliche Meldungen (Serverstand, nichts im Browser gespeichert)
             unreadIds = items.filter((item) => item.scope === 'personal' && !item.read).map((item) => item.id);
             setCount(unreadIds.length);

@@ -2,6 +2,7 @@
 {% set mtAttrs = {
     'data-theme': theme_config('mt-color-mode'),
     'data-accent': theme_config('mt-accent'),
+    'data-mt-mode-place': theme_config('mt-mode-toggle-place'),
     'data-mt-font-body': theme_config('mt-font-body'),
     'data-mt-font-heading': theme_config('mt-font-heading'),
     'data-mt-size': theme_config('mt-font-size'),
@@ -13,6 +14,7 @@
     'data-mt-sticky': (theme_config('mt-header-sticky') ? '1' : '0'),
     'data-mt-search': theme_config('mt-header-search'),
     'data-mt-announcement': (theme_config('mt-announcement') ? '1' : '0'),
+    'data-mt-favorites': (theme_config('mt-favorites') ? '1' : '0'),
     'data-mt-footer': theme_config('mt-footer-layout'),
     'data-mt-hero': theme_config('mt-hero-style'),
     'data-mt-hero-height': theme_config('mt-hero-height'),
