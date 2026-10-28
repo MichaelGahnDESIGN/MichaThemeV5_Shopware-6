@@ -42,10 +42,15 @@
     return list.concat([item]).slice(-FAV_MAX);
   }
   function fillLabel(pattern, value) { return String(pattern).replace('%s', value); }
+  // Einzahl/Mehrzahl - 1 Eintrag, 2 Einträge (Einzahl-Text optional, sonst Mehrzahl-Text)
+  function countLabel(n, many, one) {
+    var pattern = (n === 1 && one) ? one : many;
+    return fillLabel(pattern, String(n));
+  }
 
   if (typeof document === 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
-      module.exports = { parseFavs: parseFavs, cleanFav: cleanFav, cleanUrl: cleanUrl, toggleFav: toggleFav, fillLabel: fillLabel, FAV_MAX: FAV_MAX };
+      module.exports = { parseFavs: parseFavs, cleanFav: cleanFav, cleanUrl: cleanUrl, toggleFav: toggleFav, fillLabel: fillLabel, countLabel: countLabel, FAV_MAX: FAV_MAX };
     }
     return;
   }
@@ -105,7 +110,8 @@
       if (count) { count.textContent = list.length > 99 ? '99+' : String(list.length); }
       if (open) {
         var cp = open.getAttribute('data-label-count') || 'Favoriten, %s Einträge';
-        open.setAttribute('aria-label', fillLabel(cp, String(list.length)));
+        var cpOne = open.getAttribute('data-label-count-one') || 'Favoriten, %s Eintrag';
+        open.setAttribute('aria-label', countLabel(list.length, cp, cpOne));
       }
       if (ul) {
         ul.textContent = '';

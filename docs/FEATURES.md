@@ -22,6 +22,9 @@ Status: **planned** = geplant · **in_progress** = in Arbeit · **existing** = a
 - **Layouts für Kategorie- und Artikellisten** (in Arbeit): Raster mit 2 bis 5 Spalten, Listenansicht, Filter links oder oben, Kartenstile (flach, Rahmen, Schatten), Bildverhältnis, Hover-Effekte.
 - **Layouts für Artikel-Detailseiten** (in Arbeit): Galerie links oder unten, fixierte Kaufbox, Tabs oder Akkordeon, Vertrauenselemente, verwandte Artikel.
 - **Designvariante „Basis“** (geplant): Eine fertige Designvariante im Free-Theme; weitere Varianten sind Premium (siehe Themes).
+- **Icon-Leiste im Header** (fertig): Hell/Dunkel-Schalter (nur Icon, Ort wählbar: Header, Footer, Konto), Benachrichtigungen, Merkliste (nur mit nativer Wunschliste), Favoriten als Herz-Liste im Browser, Konto, Warenkorb. Listen sind unsichtbar, solange sie leer sind.
+- **Colorpicker (Farbwähler)** (in Arbeit): Farbwahl mit Farbfläche, Farbton-Regler, HEX-Feld mit Kopieren-Knopf und Kontrastwarnung für die Akzentfarbe. Die Komponente ist fertig und getestet (Kern), die Einbindung in die Einstellungsseiten folgt mit den Plugin-Einstellungsseiten in 0.5.0. Shopify nutzt den eingebauten Farbwähler des Theme-Editors.
+- **Gespeicherte Farbpalette** (in Arbeit): Bis zu 12 eigene Farben speichern und mit einem Klick wieder wählen. Die Komponente ist fertig, gespeichert wird später im Backend des Shops (Einbindung in 0.5.0). Shopify: nicht möglich, der Theme-Editor kann keine eigenen Paletten speichern.
 
 ### Inhalte und Erlebniswelten
 
