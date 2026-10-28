@@ -8,6 +8,26 @@
 4. Assets: `bin/console assets:install`
 5. Im Administrationsbereich unter Erscheinungsbild das Theme öffnen. Die Optionen sind nach Bereichen geordnet, jeweils getrennt in "Einfach" und "Experte".
 
+## Aussehen und Icon-Leiste einstellen (ab 0.3.0 und 0.4.0)
+
+1. Öffne im Administrationsbereich Erscheinungsbild, dann Themes, dann MichaThemeV5.
+2. Bereich **Farben**: Wähle die Akzentfarbe (Standard ist Rot) und den „Ort des Hell/Dunkel-Schalters“ (Header, Footer oder Benutzerkonto).
+3. Bereich **Header**: „Favoriten (Herz-Liste) anzeigen“ schaltet die Herzen an oder aus.
+4. Speichere und führe `bin/console theme:compile` aus.
+
+Die Icon-Leiste zeigt von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto, Warenkorb. Glocke, Merkliste und Favoriten sind unsichtbar, solange nichts drin ist. Die Merkliste ist die Wunschliste von Shopware.
+
+## Farben und Colorpicker
+
+Der Colorpicker ist ein Farbwähler mit Farbfläche, Farbton-Regler, HEX-Feld (zum Beispiel `#c8161a`) mit Kopieren-Knopf, einer Palette für bis zu 12 gespeicherte Farben und einer Warnung bei schlecht lesbarem Text auf der Akzentfarbe.
+
+Wichtig: Er ist fertig und getestet, aber in diesem Theme noch nicht zu sehen. Er kommt mit den Einstellungsseiten der Plugins in Version 0.5.0. Bis dahin gilt:
+
+1. Öffne die Theme-Einstellungen (Erscheinungsbild, Themes, MichaThemeV5, Bereich Farben).
+2. Wähle bei „Akzentfarbe“ eine Farbe aus der Liste.
+3. Oder wähle „Eigene Akzentfarbe“ und trage den HEX-Wert ein, zum Beispiel `#c8161a`.
+4. Prüfe die Seite hell und dunkel. Text auf der Farbe muss gut lesbar bleiben.
+
 ## Erzeugte Dateien
 
 `src/Resources/theme.json`, `src/Resources/public/mt/*` (außer `mt-shopware.css`) und `views/storefront/layout/mt-config.html.twig` werden aus dem Optionskatalog des Repos MichaThemeV5-Pro erzeugt (`php bin/build-themes.php shopware <Ordner>`). Nicht von Hand ändern.

@@ -1,8 +1,13 @@
-# Version 0.4.0 (Pre-Alpha)
+# Version 0.4.1 (Pre-Alpha)
 
 Das Theme ist noch in Entwicklung (Pre-Alpha). Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop.
 
 ## Neu in dieser Version
+
+- Korrigiert: Der Zähl-Text der Favoriten stimmt jetzt in der Einzahl. Bei einem Favoriten heißt es „Favoriten, 1 Eintrag“, bei mehreren „Favoriten, 2 Einträge“.
+- Doku: Anleitung für Icon-Leiste und Farben in `docs/INSTALL.md` und `README.md`. Der Colorpicker ist fertig, aber noch nicht im Theme sichtbar (kommt mit den Plugin-Einstellungsseiten in Version 0.5.0).
+
+## Aus Version 0.4.0
 
 - Neue Icon-Leiste in der Kopfzeile, von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto, Warenkorb. Die Suche bleibt in der Mitte.
 - Der Hell/Dunkel-Schalter zeigt in der Kopfzeile nur noch ein Symbol. Den Zustand liest man im Tooltip bzw. Screenreader-Namen.
