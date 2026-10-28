@@ -1,0 +1,10 @@
+{% sw_extends '@Storefront/storefront/layout/header.html.twig' %}
+
+{# Sprunglink + Ankündigung vor dem Header (volle Breite) - Block "header" gibt es in 6.6 und 6.7 #}
+{% block header %}
+    <a class="mt-skip" href="#mt-main">Zum Inhalt springen</a>
+    {% if theme_config('mt-announcement') and theme_config('mt-announcement-text') %}
+        <div class="mt-announcement" role="note">{{ theme_config('mt-announcement-text') }}</div>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}

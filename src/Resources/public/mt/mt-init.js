@@ -28,8 +28,7 @@
     });
     var L = 0.2126 * lum[0] + 0.7152 * lum[1] + 0.0722 * lum[2];
     root.style.setProperty('--mt-accent', custom);
-    root.style.setProperty('--mt-accent-hover', custom);
-    root.style.setProperty('--mt-accent-text', custom);
-    root.style.setProperty('--mt-on-accent', L > 0.4 ? '#000000' : '#ffffff');
+    // Schrift auf dem Button: schwarz oder weiß, je nach Kontrast (Grenze ca. 0.179)
+    root.style.setProperty('--mt-on-accent', L > 0.179 ? '#000000' : '#ffffff');
   }
 })();
