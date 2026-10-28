@@ -46,7 +46,7 @@ h1, .h1 { font-size: var(--mt-text-2xl); }
 h2, .h2 { font-size: var(--mt-text-xl); }
 @media (min-width: 48rem) { h1, .h1 { font-size: var(--mt-text-3xl); } h2, .h2 { font-size: var(--mt-text-2xl); } }
 a { color: var(--mt-accent-text); }
-a:hover { color: var(--mt-accent-text); text-decoration-thickness: 2px; }
+a:hover { color: color-mix(in srgb, var(--mt-accent-text) 80%, var(--mt-text)); text-decoration-thickness: 2px; }
 b, strong, th, dt, .fw-bold, .fw-semibold { font-weight: 700; }
 .text-muted, .product-description, .product-unit-price { color: var(--mt-text-muted) !important; }
 .text-dark-emphasis, .text-body-emphasis { color: var(--mt-text-muted) !important; }

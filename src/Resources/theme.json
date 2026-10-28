@@ -832,8 +832,8 @@
                 "section": "mt-simple",
                 "order": 21,
                 "helpText": {
-                    "de-DE": "Bitte nur belegbare Aussagen verwenden (UWG).",
-                    "en-GB": "Bitte nur belegbare Aussagen verwenden (UWG)."
+                    "de-DE": "Leer = keine Meldung. Bitte nur belegbare Aussagen verwenden (UWG), zum Beispiel eine Versandgrenze nur, wenn sie im Shop wirklich gilt.",
+                    "en-GB": "Leer = keine Meldung. Bitte nur belegbare Aussagen verwenden (UWG), zum Beispiel eine Versandgrenze nur, wenn sie im Shop wirklich gilt."
                 },
                 "scss": false
             },

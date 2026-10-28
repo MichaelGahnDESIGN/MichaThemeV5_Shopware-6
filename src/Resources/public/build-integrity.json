@@ -58,15 +58,15 @@
     "mt/fonts/source-sans-3-latin-700-normal.woff2": "ae35266f2ab0d5314ff9a04127931eb26c793e4f1269bb240046d4d2db4b7bb1",
     "mt/fonts/source-sans-3-latin-ext-400-normal.woff2": "f5706bb057951632456ecbc496dfd01f0e1598718cb31c464c74a6b1fe79c837",
     "mt/fonts/source-sans-3-latin-ext-700-normal.woff2": "6a9fd74275186fc7c5019796401ac280d2cdd19afc6cbb1ae9af481cbda9d25c",
-    "mt/mt-base.css": "5be41f308c7310c47b772e833b5b37fb3488ee0f42696557992f76d735b78025",
+    "mt/mt-base.css": "9e6e3b40d1e4c175b0430cc62425af85cfd0dcd2534e40357b55816a48ad12de",
     "mt/mt-fonts.css": "efe2d991d503c7c3216c62b07f03c4f2263abd7adc56c94a4f33a4f1dd655638",
     "mt/mt-init.js": "38c15c67aff9fe87f8bf38f6bf97a8068af6ac415d00e1da062b6a8f57ca2365",
     "mt/mt-legal.css": "b44ea31a6dff57279bfa4414561c9da591ae68074733c53bbd306182fd1598c1",
     "mt/mt-legal.js": "d57be0f3d412a02e087e6e6ea8f4a5e4116c17e744d2f618a24ab43303a7ed2b",
-    "mt/mt-shopware.css": "7d9f38dd7fdd5978c2716b5c3feb842dcf09d316bc8a91dd967f6d0155f45d47",
+    "mt/mt-shopware.css": "61ab5772886d1dcfdbd9aa4d6f84a55336581b3df972165dcfbc8e52042c60f2",
     "mt/mt-theme.js": "8d09c0a5256261338ee9249f4c8691bdf650567c60116ef147e162c0d7a46c2f",
     "mt/mt-tokens.css": "7b41e9c438b035c776c081719c1c9c8106ec192419bbeb0487c23cfb3acae19c",
-    "mt/options.json": "e1a36845ac301bfdd81d54eb3215aa834335518dc3cd960036cfd606bfff9e67",
+    "mt/options.json": "94ba795f579cd66d918690455a26f06b0fb87427332c576c525fa9941d24f920",
     "preview.png": "b88ae63bab32ac322357dbebc53ef418aa60c4e267795d4187357e7f349134d7"
   }
 }
