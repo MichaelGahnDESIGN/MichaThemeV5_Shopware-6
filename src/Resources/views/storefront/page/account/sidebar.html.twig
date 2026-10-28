@@ -1,0 +1,12 @@
+{% sw_extends '@Storefront/storefront/page/account/sidebar.html.twig' %}
+
+{# Schalter im Konto (Seitenleiste + Konto-Menü Header) - nur eingeloggt, Gäste haben keine Menüliste #}
+{% block page_account_sidebar_menu_inner %}
+    {{ parent() }}
+    {% if theme_config('mt-mode-toggle') and theme_config('mt-mode-toggle-place') == 'account' %}
+        <button type="button" class="list-group-item list-group-item-action account-aside-item mt-mode-toggle mt-mode-toggle--account" data-mt-mode-toggle data-mt-place="account" aria-label="Farbmodus: Wie das Gerät. Zum Wechseln klicken." title="Farbmodus: Wie das Gerät. Zum Wechseln klicken.">
+            {% sw_include '@MichaThemeV5/storefront/component/mt-mode-icons.html.twig' %}
+            <span class="mt-mode-text">Farbmodus: <span data-mt-mode-label>Wie das Gerät</span></span>
+        </button>
+    {% endif %}
+{% endblock %}

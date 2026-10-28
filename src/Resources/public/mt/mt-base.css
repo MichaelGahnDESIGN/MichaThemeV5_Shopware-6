@@ -108,10 +108,44 @@ a:hover { color: color-mix(in srgb, var(--mt-accent-text) 80%, var(--mt-text)); 
 .mt-trust { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--mt-gap); list-style: none; padding: 0; margin: 0; }
 .mt-trust li { padding: var(--mt-gap); border: 1px solid var(--mt-border); border-radius: var(--mt-r); background: var(--mt-surface); }
 
-/* Modus-Umschalter */
-.mt-mode-toggle { min-width: 44px; min-height: 44px; border: 1px solid var(--mt-border-strong); border-radius: var(--mt-r); background: var(--mt-surface); color: var(--mt-text); cursor: pointer; padding: 0 .75rem; }
+/* Modus-Umschalter - im Header nur Icon (Zustand als aria-label/Tooltip), 44x44 */
+.mt-mode-toggle { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-width: 44px; min-height: 44px; border: 1px solid var(--mt-border-strong); border-radius: var(--mt-r); background: var(--mt-surface); color: var(--mt-text); cursor: pointer; padding: 0 .75rem; font: inherit; }
 .mt-mode-toggle:hover { background: var(--mt-surface-2); }
-:root[data-mt-mode-toggle="0"] .mt-mode-toggle { display: none; }
+.mt-mode-toggle--icon { width: 44px; padding: 0; border-color: transparent; background: transparent; }
+.mt-mode-toggle .mt-mode-ico { display: none; width: 20px; height: 20px; flex: none; }
+.mt-mode-toggle:not([data-mode]) .mt-mode-ico--system, .mt-mode-toggle[data-mode="system"] .mt-mode-ico--system,
+.mt-mode-toggle[data-mode="light"] .mt-mode-ico--light, .mt-mode-toggle[data-mode="dark"] .mt-mode-ico--dark { display: block; }
+/* nur am gewählten Ort sichtbar (Plattform rendert zusätzlich nur dort) */
+:root[data-mt-mode-place="header"] [data-mt-place="footer"], :root[data-mt-mode-place="header"] [data-mt-place="account"],
+:root[data-mt-mode-place="footer"] [data-mt-place="header"], :root[data-mt-mode-place="footer"] [data-mt-place="account"],
+:root[data-mt-mode-place="account"] [data-mt-place="header"], :root[data-mt-mode-place="account"] [data-mt-place="footer"],
+:root:not([data-mt-mode-place]) [data-mt-place="footer"], :root:not([data-mt-mode-place]) [data-mt-place="account"] { display: none !important; }
+
+/* Icon-Leiste: Listen-Symbole (Merkliste, Favoriten) - leer = unsichtbar */
+.mt-hdr-item { position: relative; display: inline-flex; }
+.mt-hdr-item[hidden], .mt-hdr-item--empty { display: none !important; }
+:root[data-mt-favorites="0"] [data-mt-fav-item], :root[data-mt-favorites="0"] .mt-fav-toggle { display: none !important; }
+/* Zähler neutral (kein Rot, Rot bleibt dem Warenkorb) */
+.mt-list-count { position: absolute; top: 3px; right: 1px; min-width: 1.25rem; height: 1.25rem; box-sizing: border-box; padding: 0 .3rem; border-radius: 999px; background: var(--mt-surface-2); color: var(--mt-text); border: 1px solid var(--mt-border-strong); font-size: var(--mt-text-xs); font-weight: 700; line-height: 1.05rem; text-align: center; font-variant-numeric: tabular-nums; pointer-events: none; }
+
+/* Favoriten Herz-Button auf Karten und Artikelseite */
+.mt-fav-toggle { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0; border: 1px solid var(--mt-border); border-radius: 999px; background: var(--mt-surface); color: var(--mt-text); cursor: pointer; transition: background-color .15s ease-out; }
+.mt-fav-toggle:hover { background: var(--mt-surface-2); }
+.mt-fav-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mt-fav-toggle[aria-pressed="true"] { color: var(--mt-accent-text); border-color: var(--mt-accent-text); }
+.mt-fav-toggle[aria-pressed="true"] svg { fill: currentColor; }
+.mt-fav-toggle--card { position: absolute; top: .5rem; right: .5rem; z-index: 2; }
+
+/* Favoriten Panel */
+.mt-fav-panel { position: absolute; top: calc(100% + .35rem); right: 0; z-index: 950; width: min(22rem, calc(100vw - 2rem)); max-height: 70vh; overflow: auto; padding: .5rem; background: var(--mt-surface); color: var(--mt-text); border: 1px solid var(--mt-border); border-radius: var(--mt-r-lg); box-shadow: var(--mt-shadow-md); }
+.mt-fav-panel[hidden] { display: none; }
+.mt-fav-list { list-style: none; margin: 0; padding: 0; }
+.mt-fav-list li { display: flex; align-items: center; gap: .25rem; border-bottom: 1px solid var(--mt-border); }
+.mt-fav-list li:last-child { border-bottom: 0; }
+.mt-fav-list a { flex: 1; min-width: 0; padding: .65rem .5rem; color: var(--mt-text); text-decoration: none; overflow-wrap: anywhere; }
+.mt-fav-list a:hover { text-decoration: underline; }
+.mt-fav-remove { flex: none; min-width: 44px; min-height: 44px; border: 0; border-radius: var(--mt-r); background: transparent; color: var(--mt-text-muted); font-size: 1.25rem; line-height: 1; cursor: pointer; }
+.mt-fav-remove:hover { background: var(--mt-surface-2); color: var(--mt-text); }
 
 /* Preis (Hinweis bleibt immer sichtbar, Pflichtangabe) */
 .mt-price { font-weight: 700; font-size: var(--mt-text-xl); color: var(--mt-text); font-variant-numeric: tabular-nums; }

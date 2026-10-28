@@ -11,7 +11,16 @@ Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.m
 
 ## Aussehen (ab Version 0.3.0)
 
-Hell: Weiß und Hellgrau. Dunkel: Anthrazit. Der Standard-Akzent ist Rot und lässt sich in den Theme-Einstellungen ändern. Rot steht nur bei bedienbaren Dingen (Kaufen-Button, Menüpunkt, Seitenzahl). Alle anderen Buttons sind neutral. Der Hell/Dunkel-Umschalter sitzt in der Kopfzeile.
+Hell: Weiß und Hellgrau. Dunkel: Anthrazit. Der Standard-Akzent ist Rot und lässt sich in den Theme-Einstellungen ändern. Rot steht nur bei bedienbaren Dingen (Kaufen-Button, Menüpunkt, Seitenzahl). Alle anderen Buttons sind neutral. Der Hell/Dunkel-Umschalter sitzt standardmäßig in der Kopfzeile.
+
+## Icon-Leiste in der Kopfzeile (ab Version 0.4.0)
+
+Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto, Warenkorb. Die Suche bleibt in der Mitte.
+
+- **Hell/Dunkel-Schalter:** In der Kopfzeile nur als Symbol (ohne Text). Wie er gerade steht, liest ein Screenreader aus dem Namen des Knopfes vor. In den Theme-Einstellungen unter „Ort des Hell/Dunkel-Schalters“ lässt er sich in den Footer oder ins Benutzerkonto verlegen. Im Benutzerkonto erscheint er als Eintrag im Konto-Menü, aber nur für angemeldete Kunden (Gäste haben dort keine Menüliste).
+- **Glocke:** Erscheint erst, wenn es mindestens eine echte Benachrichtigung gibt. Sonst ist sie unsichtbar.
+- **Merkliste:** Das ist die normale Wunschliste von Shopware. Das Symbol erscheint erst, wenn etwas drin liegt. Ist die Wunschliste im Admin ausgeschaltet, gibt es auch kein Symbol.
+- **Favoriten:** Eine eigene Herz-Liste des Themes. Das Herz sitzt auf den Produktkarten und auf der Artikelseite. Die Liste steht nur im Browser des Besuchers (nichts geht an den Server). Das Symbol in der Kopfzeile erscheint erst, wenn mindestens ein Favorit gespeichert ist. Abschaltbar in den Theme-Einstellungen („Favoriten (Herz-Liste) anzeigen“).
 
 ## Weitere Funktionen (Pro)
 

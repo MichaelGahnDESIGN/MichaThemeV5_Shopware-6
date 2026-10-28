@@ -26,6 +26,7 @@ jobs:
         run: |
           sh scripts/build-storefront.sh --check
           node --check src/Resources/app/storefront/src/js/mt-notification-center.js
+          node --check src/Resources/app/storefront/src/js/mt-favorites-sync.js
           node --check src/Resources/app/storefront/dist/storefront/js/micha-theme-v5/micha-theme-v5.js
       - name: Assets frisch bauen und Paket erstellen
         run: |

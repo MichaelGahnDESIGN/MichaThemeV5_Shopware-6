@@ -116,9 +116,24 @@
             "group": "colors",
             "type": "toggle",
             "mode": "simple",
-            "label": "Umschalter Hell/Dunkel im Header anzeigen",
+            "label": "Umschalter Hell/Dunkel anzeigen",
             "default": true,
-            "help": ""
+            "help": "Aus = es gibt keinen Umschalter im Shop. Wo er steht, wählen Sie darunter."
+        },
+        {
+            "id": "mode_toggle_place",
+            "group": "colors",
+            "type": "select",
+            "mode": "simple",
+            "label": "Ort des Hell/Dunkel-Schalters",
+            "default": "header",
+            "help": "Header = Symbol in der Icon-Leiste (Standard). Footer = Zeile im Fußbereich. Benutzerkonto = Eintrag im Kundenkonto, wo die Plattform das zulässt.",
+            "choices": {
+                "header": "Header",
+                "footer": "Footer",
+                "account": "Benutzerkonto-Einstellungen"
+            },
+            "attr": "data-mt-mode-place"
         },
         {
             "id": "font_body",
@@ -323,6 +338,16 @@
             "label": "Text der Ankündigungsleiste",
             "default": "",
             "help": "Leer = keine Meldung. Bitte nur belegbare Aussagen verwenden (UWG), zum Beispiel eine Versandgrenze nur, wenn sie im Shop wirklich gilt."
+        },
+        {
+            "id": "favorites",
+            "group": "header",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Favoriten (Herz-Liste) anzeigen",
+            "default": true,
+            "help": "Besucher können Artikel mit dem Herz merken. Die Liste liegt nur im eigenen Browser, sie wird nicht an den Shop gesendet. Das Symbol im Header erscheint erst, wenn mindestens ein Favorit gespeichert ist.",
+            "attr": "data-mt-favorites"
         },
         {
             "id": "footer_layout",
