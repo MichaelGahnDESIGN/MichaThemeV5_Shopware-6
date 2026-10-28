@@ -1,6 +1,7 @@
 {% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
 
-{% block layout_footer %}
+{# Trust Bereich - Block layout_footer gibt es in 6.6/6.7 nicht, layout_footer_inner_container schon #}
+{% block layout_footer_inner_container %}
     {% if theme_config('mt-footer-trust') %}
         {% set mtTrust = [theme_config('mt-trust-1'), theme_config('mt-trust-2'), theme_config('mt-trust-3')]|filter(t => t) %}
         {% if mtTrust|length > 0 %}

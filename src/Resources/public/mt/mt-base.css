@@ -5,7 +5,8 @@
   --mt-font-body: Arial, Helvetica, sans-serif;
   --mt-font-heading: Arial, Helvetica, sans-serif;
   --mt-r: 8px;
-  --mt-r-lg: 14px;
+  --mt-r-lg: 12px;
+  --mt-r-xl: 16px;
   --mt-gap: 1rem;
   --mt-shadow: var(--mt-shadow-sm);
   --mt-ratio: 1 / 1;
@@ -15,9 +16,9 @@
   --mt-header-h: 72px;
 }
 
-:root[data-mt-radius="sharp"] { --mt-r: 2px; --mt-r-lg: 4px; }
-:root[data-mt-radius="soft"] { --mt-r: 8px; --mt-r-lg: 14px; }
-:root[data-mt-radius="round"] { --mt-r: 14px; --mt-r-lg: 24px; }
+:root[data-mt-radius="sharp"] { --mt-r: 2px; --mt-r-lg: 4px; --mt-r-xl: 6px; }
+:root[data-mt-radius="soft"] { --mt-r: 8px; --mt-r-lg: 12px; --mt-r-xl: 16px; }
+:root[data-mt-radius="round"] { --mt-r: 12px; --mt-r-lg: 18px; --mt-r-xl: 24px; }
 :root[data-mt-density="compact"] { --mt-gap: .625rem; }
 :root[data-mt-density="normal"] { --mt-gap: 1rem; }
 :root[data-mt-density="airy"] { --mt-gap: 1.5rem; }
@@ -32,13 +33,17 @@
 :root[data-mt-size="large"] { font-size: 112.5%; }
 :root[data-mt-focus="strong"] { --mt-focus-width: 4px; }
 
+/* Schrift glätten */
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 body {
   background: var(--mt-bg);
   color: var(--mt-text);
   font-family: var(--mt-font-body);
   line-height: 1.55;
 }
-h1, h2, h3, h4, h5, h6 { font-family: var(--mt-font-heading); color: var(--mt-text); line-height: 1.2; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--mt-font-heading); color: var(--mt-text); line-height: 1.25; font-weight: 700; }
+h1, h2 { line-height: 1.15; letter-spacing: -.02em; text-wrap: balance; }
+h3 { letter-spacing: -.01em; }
 a { color: var(--mt-accent-text); }
 a:hover { color: var(--mt-accent-hover); }
 
@@ -75,13 +80,15 @@ a:hover { color: var(--mt-accent-hover); }
 :root[data-mt-buttons="outline"] .mt-btn:not(.mt-btn--ghost):hover { background: var(--mt-accent-subtle); }
 :root[data-mt-buttons="pill"] .mt-btn { border-radius: 999px; }
 
-/* Ankündigungsleiste */
-.mt-announcement { display: none; background: var(--mt-accent); color: var(--mt-on-accent); text-align: center; padding: .5rem 1rem; font-weight: 600; font-size: var(--mt-text-sm); }
+/* Ankündigungsleiste - neutral, Rot bleibt den Buttons */
+.mt-announcement { display: none; background: var(--mt-surface-2); color: var(--mt-text); border-bottom: 1px solid var(--mt-border); text-align: center; padding: .5rem 1rem; font-weight: 700; font-size: var(--mt-text-sm); }
 :root[data-mt-announcement="1"] .mt-announcement { display: block; }
 
 /* Siegel (Sonderpreis, Neu) */
-.mt-badge { display: inline-block; padding: .2rem .65rem; border-radius: 999px; font-size: var(--mt-text-xs); font-weight: 700; background: var(--mt-accent); color: var(--mt-on-accent); }
-.mt-badge--sale { background: var(--mt-danger); color: #fff; }
+/* Neu = neutral invertiert, Sale = getönt mit Text (nie Vollfläche in Rot) */
+.mt-badge { display: inline-block; padding: .2rem .65rem; border-radius: 999px; font-size: var(--mt-text-xs); font-weight: 700; line-height: 1.4; background: var(--mt-text); color: var(--mt-bg); border: 1px solid var(--mt-text); }
+.mt-badge--sale { background: var(--mt-danger-bg); color: var(--mt-danger); border-color: var(--mt-danger-border); }
+.mt-badge--soldout { background: var(--mt-surface-2); color: var(--mt-text-muted); border-color: var(--mt-border-strong); }
 :root[data-mt-badges="0"] .mt-badge { display: none; }
 
 /* Hero (Shop-Charakter: groß, kräftig) */
@@ -106,8 +113,8 @@ a:hover { color: var(--mt-accent-hover); }
 :root[data-mt-mode-toggle="0"] .mt-mode-toggle { display: none; }
 
 /* Preis (Hinweis bleibt immer sichtbar, Pflichtangabe) */
-.mt-price { font-weight: 800; font-size: var(--mt-text-xl); color: var(--mt-text); }
-.mt-price--sale { color: var(--mt-danger); }
+.mt-price { font-weight: 700; font-size: var(--mt-text-xl); color: var(--mt-text); font-variant-numeric: tabular-nums; }
+.mt-price--sale { color: var(--mt-text); }
 .mt-price__old { text-decoration: line-through; color: var(--mt-text-subtle); font-weight: 400; margin-right: .5rem; }
 .mt-price__note { font-size: var(--mt-text-xs); color: var(--mt-text-muted); }
 
@@ -123,6 +130,19 @@ a:hover { color: var(--mt-accent-hover); }
 /* Bewegung respektieren (WCAG 2.3.3) */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Eigene Akzentfarbe - Hover, Link und Tönung werden abgeleitet (mt-init.js setzt nur Akzent und Schriftfarbe) */
+:root[style*="--mt-accent-custom"] {
+  --mt-accent-hover: color-mix(in srgb, var(--mt-accent) 88%, #000);
+  --mt-accent-text: color-mix(in srgb, var(--mt-accent) 85%, #000);
+  --mt-accent-subtle: color-mix(in srgb, var(--mt-accent) 10%, var(--mt-surface));
+}
+:root[data-theme="dark"][style*="--mt-accent-custom"] {
+  --mt-accent-text: color-mix(in srgb, var(--mt-accent) 60%, #fff);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"])[style*="--mt-accent-custom"] { --mt-accent-text: color-mix(in srgb, var(--mt-accent) 60%, #fff); }
 }
 
 /* Logo: Hell/Dunkel-Variante */

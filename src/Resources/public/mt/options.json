@@ -89,9 +89,10 @@
             "type": "select",
             "mode": "simple",
             "label": "Akzentfarbe",
-            "default": "indigo",
+            "default": "red",
             "help": "Farbe für Buttons, Links und Hervorhebungen. Alle Varianten sind für Hell und Dunkel auf Kontrast geprüft.",
             "choices": {
+                "red": "Rot",
                 "teal": "Petrol",
                 "indigo": "Indigo",
                 "amber": "Bernstein",

@@ -8,9 +8,10 @@
     var t = root.getAttribute('data-theme');
     return t === 'light' || t === 'dark' ? t : 'system';
   }
-  function apply(mode) {
+  // Speichern nur wenn der Besucher selbst umschaltet (nicht schon beim Laden)
+  function apply(mode, save) {
     if (mode === 'system') { root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme', mode); }
-    try { window.localStorage.setItem('mt-mode', mode); } catch (e) { /* ignorieren */ }
+    if (save) { try { window.localStorage.setItem('mt-mode', mode); } catch (e) { /* ignorieren */ } }
     document.querySelectorAll('[data-mt-mode-toggle]').forEach(function (b) {
       b.setAttribute('aria-label', 'Farbmodus: ' + labels[mode] + '. Zum Wechseln klicken.');
       b.setAttribute('data-mode', mode);
@@ -20,7 +21,7 @@
   }
   document.addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('[data-mt-mode-toggle]') : null;
-    if (b) { apply(order[(order.indexOf(current()) + 1) % order.length]); }
+    if (b) { apply(order[(order.indexOf(current()) + 1) % order.length], true); }
     var s = e.target.closest ? e.target.closest('[data-mt-size-step]') : null;
     if (s) {
       var sizes = ['small', 'normal', 'large'];
@@ -29,7 +30,7 @@
       root.setAttribute('data-mt-size', sizes[i]);
     }
   });
-  apply(current());
+  apply(current(), false);
   function landmark() {
     var m = document.querySelector('main');
     if (m) { if (!m.id) { m.id = 'mt-main'; } m.setAttribute('tabindex', '-1'); }

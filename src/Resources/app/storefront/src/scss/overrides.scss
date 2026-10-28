@@ -1,13 +1,13 @@
 // MichaThemeV5: Farben kommen aus den CSS-Variablen, damit Hell/Dunkel ohne Neu-Kompilieren funktioniert.
 .mt-notification-center { position: relative; display: inline-block; }
-.mt-notification-button { position: relative; width: 2.75rem; height: 2.75rem; border: 1px solid currentColor; border-radius: 50%; background: var(--mt-surface, #fff); color: inherit; cursor: pointer; }
-.mt-notification-count { position: absolute; top: -.4rem; right: -.4rem; min-width: 1.25rem; border-radius: 1rem; background: #b42318; color: #fff; font-size: .75rem; line-height: 1.25rem; text-align: center; }
-.mt-notification-panel { position: absolute; right: 0; z-index: 1040; width: min(22rem, calc(100vw - 2rem)); max-height: 22rem; overflow: auto; padding: 1rem; border: 1px solid currentColor; background: var(--mt-surface, #fff); color: var(--mt-text, inherit); text-align: left; }
+.mt-notification-button { position: relative; width: 2.75rem; height: 2.75rem; border: 0; border-radius: var(--mt-r); background: transparent; color: inherit; cursor: pointer; }
+.mt-notification-count { position: absolute; top: .1rem; right: .1rem; min-width: 1.25rem; border-radius: 1rem; background: var(--mt-accent); color: var(--mt-on-accent); font-size: .75rem; font-weight: 700; line-height: 1.25rem; text-align: center; }
+.mt-notification-panel { position: absolute; right: 0; z-index: 1040; width: min(22rem, calc(100vw - 2rem)); max-height: 22rem; overflow: auto; padding: 1rem; border: 1px solid var(--mt-border); background: var(--mt-surface); color: var(--mt-text); text-align: left; }
 .mt-notification-center--menu .mt-notification-panel { top: calc(100% + .5rem); }
 .mt-notification-center--footer { display: flex; justify-content: flex-end; padding: .5rem 1rem; }
 .mt-notification-center--footer .mt-notification-panel { bottom: calc(100% + .5rem); }
 .mt-notification-list { margin: 0; padding: 0; list-style: none; }
-.mt-notification-item { display: flex; flex-direction: column; gap: .25rem; padding: .5rem 0; border-top: 1px solid var(--mt-border, rgba(127, 127, 127, .4)); }
-.mt-notification-item--new strong { font-weight: 800; }
+.mt-notification-item { display: flex; flex-direction: column; gap: .25rem; padding: .5rem 0; border-top: 1px solid var(--mt-border); }
+.mt-notification-item--new strong { font-weight: 700; }
 .mt-notification-item time { font-size: .8125rem; opacity: .75; }
 @media (max-width: 575.98px) { .mt-notification-center .mt-notification-panel { position: fixed; right: 1rem; left: 1rem; width: auto; } .mt-notification-center--menu .mt-notification-panel { top: 4.5rem; bottom: auto; } .mt-notification-center--footer .mt-notification-panel { top: auto; bottom: 4.5rem; } }

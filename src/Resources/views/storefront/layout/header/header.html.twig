@@ -1,26 +1,15 @@
 {% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
 
-{% block layout_header %}
-    <a class="mt-skip" href="#mt-main">Zum Inhalt springen</a>
-    {% if theme_config('mt-announcement') and theme_config('mt-announcement-text') %}
-        <div class="mt-announcement" role="note">{{ theme_config('mt-announcement-text') }}</div>
-    {% endif %}
-    {{ parent() }}
-{% endblock %}
-
-{% block layout_header_top_bar %}
-    {{ parent() }}
+{# Modus-Schalter + Glocke bei den Aktionen (Konto, Warenkorb). layout_header_top_bar liegt in top-bar.html.twig und wurde hier nie gerendert, daher dieser Block #}
+{% block layout_header_actions_account %}
     {% if theme_config('mt-mode-toggle') %}
-        <div class="mt-mode-wrap">
-            <button type="button" class="mt-mode-toggle" data-mt-mode-toggle aria-label="Farbmodus wechseln">
-                <span aria-hidden="true">◐</span> <span data-mt-mode-label>Wie das Gerät</span>
+        <div class="col-auto">
+            <button type="button" class="btn header-actions-btn mt-mode-toggle" data-mt-mode-toggle aria-label="Farbmodus wechseln" title="Farbmodus wechseln">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+                <span class="mt-mode-label" data-mt-mode-label>Wie das Gerät</span>
             </button>
         </div>
     {% endif %}
-{% endblock %}
-
-{# Glocke Header - bei den Aktionen (Konto, Warenkorb), weil layout_header_top_bar zu top-bar.html.twig gehört und hier nie gerendert wird #}
-{% block layout_header_actions_account %}
     {% if config('MichaThemeV5.config.notificationCenterEnabled') is not same as(false) %}
         <div class="col-auto">
             {% sw_include '@MichaThemeV5/storefront/notification/notification-center.html.twig' with { placement: 'menu' } %}

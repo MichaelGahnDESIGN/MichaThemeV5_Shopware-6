@@ -10,7 +10,7 @@
     "src/Resources/app/storefront/src/js/mt-notification-center.js": "910048f310eeef576e21203f959f6fd97412b9cd41e7d8f321bc1becb9626219",
     "src/Resources/app/storefront/src/main.js": "d81e7519a46e038affe35e524d1cfe88ec48ff2c055dc149bedc9e775a987e13",
     "src/Resources/app/storefront/src/scss/base.scss": "55428a2aeb6685afc2de09879aa40bf7463e067f22171e16dbedcc2347b66dc5",
-    "src/Resources/app/storefront/src/scss/overrides.scss": "c3466ba768e708f42a6d7fe9d68de24c2a306f33045a7354d6e682ccaee8feac"
+    "src/Resources/app/storefront/src/scss/overrides.scss": "045aa7e326016ab87cec72aa14049653995cf842bad8226f9da906b78fb5c2f1"
   },
   "outputs": {
     "mt/fonts/LICENSE-inter.txt": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345",
@@ -58,15 +58,15 @@
     "mt/fonts/source-sans-3-latin-700-normal.woff2": "ae35266f2ab0d5314ff9a04127931eb26c793e4f1269bb240046d4d2db4b7bb1",
     "mt/fonts/source-sans-3-latin-ext-400-normal.woff2": "f5706bb057951632456ecbc496dfd01f0e1598718cb31c464c74a6b1fe79c837",
     "mt/fonts/source-sans-3-latin-ext-700-normal.woff2": "6a9fd74275186fc7c5019796401ac280d2cdd19afc6cbb1ae9af481cbda9d25c",
-    "mt/mt-base.css": "bc7d3e4eff0aef6289feff8fcf0e9328427c9a6c8fa656d465b5099d986e1e64",
+    "mt/mt-base.css": "5be41f308c7310c47b772e833b5b37fb3488ee0f42696557992f76d735b78025",
     "mt/mt-fonts.css": "efe2d991d503c7c3216c62b07f03c4f2263abd7adc56c94a4f33a4f1dd655638",
-    "mt/mt-init.js": "614f9c959b778180a3874164062f067f501be1539a6e1f15c8444393aafa0a0f",
+    "mt/mt-init.js": "38c15c67aff9fe87f8bf38f6bf97a8068af6ac415d00e1da062b6a8f57ca2365",
     "mt/mt-legal.css": "b44ea31a6dff57279bfa4414561c9da591ae68074733c53bbd306182fd1598c1",
     "mt/mt-legal.js": "d57be0f3d412a02e087e6e6ea8f4a5e4116c17e744d2f618a24ab43303a7ed2b",
-    "mt/mt-shopware.css": "22cd92905aaeade64ec739fca1251dac9d9dd1c1fbff106ea1d9ec96274cae4c",
-    "mt/mt-theme.js": "fb7f87e96e7e2018872f379a0bacbb7d7089484e7cec8b052e639a927f33e7e9",
-    "mt/mt-tokens.css": "3b656dff3276710070e2b5b4c13709b6868dbf3cf17729cf6392576c93224fac",
-    "mt/options.json": "f5a6957092d6815ccf560ec6f590c9d45d775df1f39d389143a97bc141e42632",
-    "preview.png": "2feaad3935e399ce4aa25ea5840df023055dbac297926b6c1269d476e94513b3"
+    "mt/mt-shopware.css": "7d9f38dd7fdd5978c2716b5c3feb842dcf09d316bc8a91dd967f6d0155f45d47",
+    "mt/mt-theme.js": "8d09c0a5256261338ee9249f4c8691bdf650567c60116ef147e162c0d7a46c2f",
+    "mt/mt-tokens.css": "7b41e9c438b035c776c081719c1c9c8106ec192419bbeb0487c23cfb3acae19c",
+    "mt/options.json": "e1a36845ac301bfdd81d54eb3215aa834335518dc3cd960036cfd606bfff9e67",
+    "preview.png": "b88ae63bab32ac322357dbebc53ef418aa60c4e267795d4187357e7f349134d7"
   }
 }

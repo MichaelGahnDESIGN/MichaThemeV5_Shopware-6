@@ -167,7 +167,7 @@
                     "en-GB": "Akzentfarbe"
                 },
                 "type": "text",
-                "value": "indigo",
+                "value": "red",
                 "editable": true,
                 "block": "mt-colors",
                 "section": "mt-simple",
@@ -179,6 +179,13 @@
                 "custom": {
                     "componentName": "sw-single-select",
                     "options": [
+                        {
+                            "value": "red",
+                            "label": {
+                                "de-DE": "Rot",
+                                "en-GB": "Rot"
+                            }
+                        },
                         {
                             "value": "teal",
                             "label": {
@@ -819,7 +826,7 @@
                     "en-GB": "Text der Ankündigungsleiste"
                 },
                 "type": "text",
-                "value": "Kostenloser Versand ab 50 €",
+                "value": "",
                 "editable": true,
                 "block": "mt-header",
                 "section": "mt-simple",
