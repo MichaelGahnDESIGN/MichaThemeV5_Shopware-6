@@ -26,6 +26,15 @@ Die Icon-Leiste zeigt von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkl
 5. Kein Build nötig. Das Admin-Skript liegt fertig im Paket. Entwickler: `python3 scripts/build-admin.py` baut es aus `src/Resources/app/administration` neu.
 6. Nach einem Update: `bin/console plugin:update MichaThemeV5`, `assets:install`, `theme:compile`, `cache:clear`.
 
+## Layout: Karten, Glas, Breite (ab 0.5.3)
+
+1. Öffne Einstellungen, Erweiterungen, MichaThemeV5, Reiter **Einstellungen**.
+2. Karte **Form und Stil**: wähle **Kartenstil**, **Flächenstil** (Glas) und **Inhaltsbreite**. Oder nimm das Preset „Glas“ oder „Kompakt“.
+3. **Speichern**. Das Theme wird neu übersetzt (bis zu einer Minute).
+4. Glas wirkt nur in Browsern mit Weichzeichner und nicht bei „Transparenz reduzieren“. Dann bleiben die Flächen einfarbig.
+
+Bilder der Ansicht: `docs/screenshots/`.
+
 ## Erzeugte Dateien
 
 `src/Resources/theme.json`, `src/Resources/public/mt/*` (außer `mt-shopware.css`) und `views/storefront/layout/mt-config.html.twig` werden aus dem Optionskatalog des Repos MichaThemeV5-Pro erzeugt (`php bin/build-themes.php shopware <Ordner>`). Nicht von Hand ändern.

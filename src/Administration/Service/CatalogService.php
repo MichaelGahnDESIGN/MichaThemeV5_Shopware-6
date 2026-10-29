@@ -9,7 +9,7 @@ use MichaThemeV5\Plugin\CatalogFeed;
 /** Plugin-Empfehlungen aus dem Feed von theme.michael-gahn.de. Fehler sind leise, im Shop wird nie abgerufen. */
 class CatalogService
 {
-    public const SELF_ID = 'plugin-michathemev5-shopware';
+    public const SELF_ID = 'plugin-michatheme-v5-shopware';
 
     public function __construct(private readonly CacheStore $cache, private readonly ?\Closure $http = null)
     {

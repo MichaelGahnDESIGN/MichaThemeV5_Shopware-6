@@ -45,11 +45,11 @@
       },
       "glass": {
         "label": "Glas",
-        "help": "Runde Ecken und weiche Schatten. Der Glas-Effekt für Flächen kommt mit einem späteren Update des Shopware-Themes."
+        "help": "Glas-Flächen mit feinem Rand, runde Ecken und weiche Schatten. Bei alten Browsern und bei „Transparenz reduzieren“ bleiben die Flächen einfarbig."
       },
       "compact": {
         "label": "Kompakt",
-        "help": "Weniger Abstand und eckigere Ecken: mehr Produkte auf einen Blick. Die breitere Inhaltsbreite kommt mit einem späteren Update."
+        "help": "Weniger Abstand, eckigere Ecken und breiterer Inhalt: mehr Produkte auf einen Blick."
       }
     },
     "filter": {
