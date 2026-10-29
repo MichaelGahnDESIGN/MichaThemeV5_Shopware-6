@@ -17,7 +17,8 @@ with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as tar
         if path.is_symlink(): raise SystemExit('Symlinks sind im Paket nicht erlaubt.')
         if not path.is_file() or path.name == ".gitkeep": continue
         relative = path.relative_to(ROOT)
-        if any(part.startswith('.') or part in ['node_modules', 'vendor'] for part in relative.parts):
+        # einzige erlaubte Punkt-Datei: Shopware 6.7 liest die Admin-Skripte aus .vite/entrypoints.json
+        if relative.as_posix() != 'src/Resources/public/administration/.vite/entrypoints.json' and any(part.startswith('.') or part in ['node_modules', 'vendor'] for part in relative.parts):
             raise SystemExit('Unerlaubte Datei im Paket: ' + str(relative))
         info = zipfile.ZipInfo(name + '/' + relative.as_posix(), date_time=(2020, 1, 1, 0, 0, 0))
         info.external_attr = (stat.S_IFREG | 0o644) << 16

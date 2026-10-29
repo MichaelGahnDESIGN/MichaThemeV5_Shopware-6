@@ -30,6 +30,12 @@
                     "en-GB": "Farben"
                 }
             },
+            "mt-colors_custom": {
+                "label": {
+                    "de-DE": "Eigene Farben",
+                    "en-GB": "Eigene Farben"
+                }
+            },
             "mt-typography": {
                 "label": {
                     "de-DE": "Schriften",
@@ -1591,6 +1597,614 @@
                 },
                 "scss": false
             },
+            "mt-color-bg-light": {
+                "label": {
+                    "de-DE": "Seitenhintergrund (Hell)",
+                    "en-GB": "Seitenhintergrund (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 54,
+                "helpText": {
+                    "de-DE": "Hintergrund der ganzen Seite. Leer = Standard.",
+                    "en-GB": "Hintergrund der ganzen Seite. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-bg-dark": {
+                "label": {
+                    "de-DE": "Seitenhintergrund (Dunkel)",
+                    "en-GB": "Seitenhintergrund (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 55,
+                "helpText": {
+                    "de-DE": "Hintergrund der ganzen Seite. Leer = Standard.",
+                    "en-GB": "Hintergrund der ganzen Seite. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-surface-light": {
+                "label": {
+                    "de-DE": "Karten und Flächen (Hell)",
+                    "en-GB": "Karten und Flächen (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 56,
+                "helpText": {
+                    "de-DE": "Karten, Boxen und Felder. Leer = Standard.",
+                    "en-GB": "Karten, Boxen und Felder. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-surface-dark": {
+                "label": {
+                    "de-DE": "Karten und Flächen (Dunkel)",
+                    "en-GB": "Karten und Flächen (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 57,
+                "helpText": {
+                    "de-DE": "Karten, Boxen und Felder. Leer = Standard.",
+                    "en-GB": "Karten, Boxen und Felder. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-surface2-light": {
+                "label": {
+                    "de-DE": "Fläche 2 (Chips, Ränder von Flächen) (Hell)",
+                    "en-GB": "Fläche 2 (Chips, Ränder von Flächen) (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 58,
+                "helpText": {
+                    "de-DE": "Zweite Fläche, zum Beispiel für Chips und Tabellenköpfe. Leer = Standard.",
+                    "en-GB": "Zweite Fläche, zum Beispiel für Chips und Tabellenköpfe. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-surface2-dark": {
+                "label": {
+                    "de-DE": "Fläche 2 (Chips, Ränder von Flächen) (Dunkel)",
+                    "en-GB": "Fläche 2 (Chips, Ränder von Flächen) (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 59,
+                "helpText": {
+                    "de-DE": "Zweite Fläche, zum Beispiel für Chips und Tabellenköpfe. Leer = Standard.",
+                    "en-GB": "Zweite Fläche, zum Beispiel für Chips und Tabellenköpfe. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-text-light": {
+                "label": {
+                    "de-DE": "Text (Hell)",
+                    "en-GB": "Text (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 60,
+                "helpText": {
+                    "de-DE": "Haupttext. Muss auf Hintergrund und Flächen gut lesbar sein. Leer = Standard.",
+                    "en-GB": "Haupttext. Muss auf Hintergrund und Flächen gut lesbar sein. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-text-dark": {
+                "label": {
+                    "de-DE": "Text (Dunkel)",
+                    "en-GB": "Text (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 61,
+                "helpText": {
+                    "de-DE": "Haupttext. Muss auf Hintergrund und Flächen gut lesbar sein. Leer = Standard.",
+                    "en-GB": "Haupttext. Muss auf Hintergrund und Flächen gut lesbar sein. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-text-muted-light": {
+                "label": {
+                    "de-DE": "Text gedämpft (Hell)",
+                    "en-GB": "Text gedämpft (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 62,
+                "helpText": {
+                    "de-DE": "Hilfetexte und Nebeninfos. Leer = Standard.",
+                    "en-GB": "Hilfetexte und Nebeninfos. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-text-muted-dark": {
+                "label": {
+                    "de-DE": "Text gedämpft (Dunkel)",
+                    "en-GB": "Text gedämpft (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 63,
+                "helpText": {
+                    "de-DE": "Hilfetexte und Nebeninfos. Leer = Standard.",
+                    "en-GB": "Hilfetexte und Nebeninfos. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-border-light": {
+                "label": {
+                    "de-DE": "Rahmen (Hell)",
+                    "en-GB": "Rahmen (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 64,
+                "helpText": {
+                    "de-DE": "Rahmen von Feldern und Knöpfen. Für gute Erkennbarkeit mindestens 3:1 Kontrast zur Fläche. Leer = Standard.",
+                    "en-GB": "Rahmen von Feldern und Knöpfen. Für gute Erkennbarkeit mindestens 3:1 Kontrast zur Fläche. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-border-dark": {
+                "label": {
+                    "de-DE": "Rahmen (Dunkel)",
+                    "en-GB": "Rahmen (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 65,
+                "helpText": {
+                    "de-DE": "Rahmen von Feldern und Knöpfen. Für gute Erkennbarkeit mindestens 3:1 Kontrast zur Fläche. Leer = Standard.",
+                    "en-GB": "Rahmen von Feldern und Knöpfen. Für gute Erkennbarkeit mindestens 3:1 Kontrast zur Fläche. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-link-light": {
+                "label": {
+                    "de-DE": "Link (Hell)",
+                    "en-GB": "Link (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 66,
+                "helpText": {
+                    "de-DE": "Farbe der Links im Text. Leer = abgeleitet von der Akzentfarbe. Leer = Standard.",
+                    "en-GB": "Farbe der Links im Text. Leer = abgeleitet von der Akzentfarbe. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-link-dark": {
+                "label": {
+                    "de-DE": "Link (Dunkel)",
+                    "en-GB": "Link (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 67,
+                "helpText": {
+                    "de-DE": "Farbe der Links im Text. Leer = abgeleitet von der Akzentfarbe. Leer = Standard.",
+                    "en-GB": "Farbe der Links im Text. Leer = abgeleitet von der Akzentfarbe. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-on-accent-light": {
+                "label": {
+                    "de-DE": "Button-Text auf Akzent (Hell)",
+                    "en-GB": "Button-Text auf Akzent (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 68,
+                "helpText": {
+                    "de-DE": "Schrift auf Akzent-Buttons. Leer = automatisch (schwarz oder weiß nach Kontrast). Leer = Standard.",
+                    "en-GB": "Schrift auf Akzent-Buttons. Leer = automatisch (schwarz oder weiß nach Kontrast). Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-on-accent-dark": {
+                "label": {
+                    "de-DE": "Button-Text auf Akzent (Dunkel)",
+                    "en-GB": "Button-Text auf Akzent (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 69,
+                "helpText": {
+                    "de-DE": "Schrift auf Akzent-Buttons. Leer = automatisch (schwarz oder weiß nach Kontrast). Leer = Standard.",
+                    "en-GB": "Schrift auf Akzent-Buttons. Leer = automatisch (schwarz oder weiß nach Kontrast). Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-header-bg-light": {
+                "label": {
+                    "de-DE": "Header-Hintergrund (Hell)",
+                    "en-GB": "Header-Hintergrund (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 70,
+                "helpText": {
+                    "de-DE": "Kopfbereich. Leer = Fläche. Leer = Standard.",
+                    "en-GB": "Kopfbereich. Leer = Fläche. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-header-bg-dark": {
+                "label": {
+                    "de-DE": "Header-Hintergrund (Dunkel)",
+                    "en-GB": "Header-Hintergrund (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 71,
+                "helpText": {
+                    "de-DE": "Kopfbereich. Leer = Fläche. Leer = Standard.",
+                    "en-GB": "Kopfbereich. Leer = Fläche. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-footer-bg-light": {
+                "label": {
+                    "de-DE": "Footer-Hintergrund (Hell)",
+                    "en-GB": "Footer-Hintergrund (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 72,
+                "helpText": {
+                    "de-DE": "Fußbereich. Leer = Fläche 2. Leer = Standard.",
+                    "en-GB": "Fußbereich. Leer = Fläche 2. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-footer-bg-dark": {
+                "label": {
+                    "de-DE": "Footer-Hintergrund (Dunkel)",
+                    "en-GB": "Footer-Hintergrund (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 73,
+                "helpText": {
+                    "de-DE": "Fußbereich. Leer = Fläche 2. Leer = Standard.",
+                    "en-GB": "Fußbereich. Leer = Fläche 2. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-announce-bg-light": {
+                "label": {
+                    "de-DE": "Ankündigungsleiste (Hell)",
+                    "en-GB": "Ankündigungsleiste (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 74,
+                "helpText": {
+                    "de-DE": "Hintergrund der Ankündigungsleiste. Leer = Fläche 2. Leer = Standard.",
+                    "en-GB": "Hintergrund der Ankündigungsleiste. Leer = Fläche 2. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-announce-bg-dark": {
+                "label": {
+                    "de-DE": "Ankündigungsleiste (Dunkel)",
+                    "en-GB": "Ankündigungsleiste (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 75,
+                "helpText": {
+                    "de-DE": "Hintergrund der Ankündigungsleiste. Leer = Fläche 2. Leer = Standard.",
+                    "en-GB": "Hintergrund der Ankündigungsleiste. Leer = Fläche 2. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-danger-light": {
+                "label": {
+                    "de-DE": "Sale-/Fehler-Farbe (Hell)",
+                    "en-GB": "Sale-/Fehler-Farbe (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 76,
+                "helpText": {
+                    "de-DE": "Fehlermeldungen und Sale-Hinweise. Leer = Standard.",
+                    "en-GB": "Fehlermeldungen und Sale-Hinweise. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-danger-dark": {
+                "label": {
+                    "de-DE": "Sale-/Fehler-Farbe (Dunkel)",
+                    "en-GB": "Sale-/Fehler-Farbe (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 77,
+                "helpText": {
+                    "de-DE": "Fehlermeldungen und Sale-Hinweise. Leer = Standard.",
+                    "en-GB": "Fehlermeldungen und Sale-Hinweise. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-success-light": {
+                "label": {
+                    "de-DE": "Erfolg (Hell)",
+                    "en-GB": "Erfolg (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 78,
+                "helpText": {
+                    "de-DE": "Erfolgsmeldungen. Leer = Standard.",
+                    "en-GB": "Erfolgsmeldungen. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-success-dark": {
+                "label": {
+                    "de-DE": "Erfolg (Dunkel)",
+                    "en-GB": "Erfolg (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 79,
+                "helpText": {
+                    "de-DE": "Erfolgsmeldungen. Leer = Standard.",
+                    "en-GB": "Erfolgsmeldungen. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-warning-light": {
+                "label": {
+                    "de-DE": "Warnung (Hell)",
+                    "en-GB": "Warnung (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 80,
+                "helpText": {
+                    "de-DE": "Warnhinweise. Leer = Standard.",
+                    "en-GB": "Warnhinweise. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-warning-dark": {
+                "label": {
+                    "de-DE": "Warnung (Dunkel)",
+                    "en-GB": "Warnung (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 81,
+                "helpText": {
+                    "de-DE": "Warnhinweise. Leer = Standard.",
+                    "en-GB": "Warnhinweise. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-info-light": {
+                "label": {
+                    "de-DE": "Info (Hell)",
+                    "en-GB": "Info (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 82,
+                "helpText": {
+                    "de-DE": "Info-Hinweise. Leer = Standard.",
+                    "en-GB": "Info-Hinweise. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-info-dark": {
+                "label": {
+                    "de-DE": "Info (Dunkel)",
+                    "en-GB": "Info (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 83,
+                "helpText": {
+                    "de-DE": "Info-Hinweise. Leer = Standard.",
+                    "en-GB": "Info-Hinweise. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-focus-light": {
+                "label": {
+                    "de-DE": "Fokusring (Hell)",
+                    "en-GB": "Fokusring (Hell)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 84,
+                "helpText": {
+                    "de-DE": "Rahmen um das Element, das per Tastatur ausgewählt ist. Mindestens 3:1 Kontrast. Leer = Standard.",
+                    "en-GB": "Rahmen um das Element, das per Tastatur ausgewählt ist. Mindestens 3:1 Kontrast. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
+            "mt-color-focus-dark": {
+                "label": {
+                    "de-DE": "Fokusring (Dunkel)",
+                    "en-GB": "Fokusring (Dunkel)"
+                },
+                "type": "color",
+                "value": "",
+                "editable": true,
+                "block": "mt-colors_custom",
+                "section": "mt-expert",
+                "order": 85,
+                "helpText": {
+                    "de-DE": "Rahmen um das Element, das per Tastatur ausgewählt ist. Mindestens 3:1 Kontrast. Leer = Standard.",
+                    "en-GB": "Rahmen um das Element, das per Tastatur ausgewählt ist. Mindestens 3:1 Kontrast. Leer = Standard."
+                },
+                "custom": {
+                    "allowEmpty": true
+                }
+            },
             "mt-legal-warranty": {
                 "label": {
                     "de-DE": "Hinweis zur gesetzlichen Gewährleistung",
@@ -1601,7 +2215,7 @@
                 "editable": true,
                 "block": "mt-legal",
                 "section": "mt-simple",
-                "order": 54,
+                "order": 86,
                 "helpText": {
                     "de-DE": "Auf der Artikelseite und im Warenkorb. Ab Shopware 6.7.14 zeigt die Bestellabschlussseite den Hinweis selbst (Einstellungen › Warenkorb); das Theme ergänzt nur Artikelseite und Warenkorb, damit nichts doppelt erscheint.",
                     "en-GB": "Auf der Artikelseite und im Warenkorb. Ab Shopware 6.7.14 zeigt die Bestellabschlussseite den Hinweis selbst (Einstellungen › Warenkorb); das Theme ergänzt nur Artikelseite und Warenkorb, damit nichts doppelt erscheint."
@@ -1617,7 +2231,7 @@
                 "editable": true,
                 "block": "mt-legal",
                 "section": "mt-simple",
-                "order": 55,
+                "order": 87,
                 "helpText": {
                     "de-DE": "Textvorschlag, rechtlich prüfen lassen.",
                     "en-GB": "Textvorschlag, rechtlich prüfen lassen."
@@ -1637,7 +2251,7 @@
                 "editable": true,
                 "block": "mt-legal",
                 "section": "mt-simple",
-                "order": 56,
+                "order": 88,
                 "helpText": {
                     "de-DE": "Liest die Custom Fields mt_gpsr_manufacturer, mt_gpsr_responsible_person, mt_gpsr_contact und mt_gpsr_safety_info am Produkt (Einstellungen › System › Custom Fields, Typ Text). Ohne Hersteller-Feld wird der Hersteller aus den Stammdaten genutzt. Ohne Werte erscheint nichts.",
                     "en-GB": "Liest die Custom Fields mt_gpsr_manufacturer, mt_gpsr_responsible_person, mt_gpsr_contact und mt_gpsr_safety_info am Produkt (Einstellungen › System › Custom Fields, Typ Text). Ohne Hersteller-Feld wird der Hersteller aus den Stammdaten genutzt. Ohne Werte erscheint nichts."
@@ -1653,7 +2267,7 @@
                 "editable": true,
                 "block": "mt-legal",
                 "section": "mt-simple",
-                "order": 57,
+                "order": 89,
                 "helpText": {
                     "de-DE": "Pfad oder Adresse, z. B. /widerruf. Wird im Footer als „Vertrag widerrufen“ verlinkt. Ab Shopware 6.7.9 gibt es einen eigenen Button (Stammdaten › Widerrufsantrag Seite, Footer-Button einschalten); dann dieses Feld leer lassen. Den Bestellbutton beschriftet Shopware bzw. ein Rechtsplugin (Button-Lösung § 312j BGB), nicht das Theme. Technischer Hinweis, keine Rechtsberatung.",
                     "en-GB": "Pfad oder Adresse, z. B. /widerruf. Wird im Footer als „Vertrag widerrufen“ verlinkt. Ab Shopware 6.7.9 gibt es einen eigenen Button (Stammdaten › Widerrufsantrag Seite, Footer-Button einschalten); dann dieses Feld leer lassen. Den Bestellbutton beschriftet Shopware bzw. ein Rechtsplugin (Button-Lösung § 312j BGB), nicht das Theme. Technischer Hinweis, keine Rechtsberatung."
@@ -1670,7 +2284,7 @@
                 "editable": true,
                 "block": "mt-listing",
                 "section": "mt-simple",
-                "order": 58,
+                "order": 90,
                 "helpText": {
                     "de-DE": "Zeigt „Ausverkauft“ an Listen-Karten und einen deaktivierten Button auf der Artikelseite. Ausblenden stellen Sie in Shopware selbst ein (Verkaufskanal › Listing: Ausverkaufte Produkte ausblenden).",
                     "en-GB": "Zeigt „Ausverkauft“ an Listen-Karten und einen deaktivierten Button auf der Artikelseite. Ausblenden stellen Sie in Shopware selbst ein (Verkaufskanal › Listing: Ausverkaufte Produkte ausblenden)."
@@ -1706,7 +2320,7 @@
                 "editable": true,
                 "block": "mt-a11y",
                 "section": "mt-simple",
-                "order": 59,
+                "order": 91,
                 "helpText": {
                     "de-DE": "Pfad oder Adresse, z. B. /barrierefreiheit. Wird im Footer verlinkt.",
                     "en-GB": "Pfad oder Adresse, z. B. /barrierefreiheit. Wird im Footer verlinkt."

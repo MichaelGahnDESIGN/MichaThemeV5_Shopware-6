@@ -6,7 +6,7 @@ Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtss
 
 ## Funktionen
 
-29 Free-Funktionen sind aufgeführt (fertig oder noch in Arbeit, den Stand zeigt die Liste). Dieses Repo enthält ausschließlich die kostenlosen Funktionen.
+33 Free-Funktionen sind aufgeführt (fertig oder noch in Arbeit, den Stand zeigt die Liste). Dieses Repo enthält ausschließlich die kostenlosen Funktionen.
 Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.md), offene Punkte in [`TODO.md`](TODO.md).
 
 ## Aussehen (ab Version 0.3.0)
@@ -15,9 +15,9 @@ Hell: Weiß und Hellgrau. Dunkel: Anthrazit. Der Standard-Akzent ist Rot und lä
 
 ## Farben und Colorpicker
 
-Der Colorpicker ist ein Farbwähler. Er hat eine Farbfläche, einen Farbton-Regler und ein Feld für den HEX-Wert (zum Beispiel `#c8161a`) mit Kopieren-Knopf. Dazu kommt eine Palette für bis zu 12 gespeicherte Farben und eine Warnung, wenn Text auf deiner Akzentfarbe schlecht lesbar wäre.
+Der Colorpicker ist ein Farbwähler. Er hat eine Farbfläche, einen Farbton-Regler und ein Feld für den HEX-Wert (zum Beispiel `#c8161a`) mit Kopieren-Knopf. Dazu kommt eine Palette für bis zu 12 gespeicherte Farben und eine Warnung, wenn Text auf deinen Farben schlecht lesbar wäre.
 
-Ehrlich gesagt: Der Colorpicker ist fertig und getestet, aber in diesem Theme noch nicht zu sehen. Er wird mit den Einstellungsseiten der Plugins in Version 0.5.0 eingebunden. Bis dahin wählst du die Akzentfarbe wie bisher: aus der Liste oder als eigene Farbe (HEX-Wert) in den Theme-Einstellungen.
+Eingebunden ist er in der WooCommerce-Version (Plugin 0.5.0) und im Shopware-Admin-Modul (Version 0.5.1). Auf den anderen Plattformen wählst du die Akzentfarbe wie bisher aus der Liste oder als eigene Farbe (HEX-Wert) in den Theme-Einstellungen. Die Einbindung folgt später.
 
 ## Icon-Leiste in der Kopfzeile (ab Version 0.4.0)
 
@@ -27,6 +27,18 @@ Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto
 - **Glocke:** Erscheint erst, wenn es mindestens eine echte Benachrichtigung gibt. Sonst ist sie unsichtbar.
 - **Merkliste:** Das ist die normale Wunschliste von Shopware. Das Symbol erscheint erst, wenn etwas drin liegt. Ist die Wunschliste im Admin ausgeschaltet, gibt es auch kein Symbol.
 - **Favoriten:** Eine eigene Herz-Liste des Themes. Das Herz sitzt auf den Produktkarten und auf der Artikelseite. Die Liste steht nur im Browser des Besuchers (nichts geht an den Server). Das Symbol in der Kopfzeile erscheint erst, wenn mindestens ein Favorit gespeichert ist. Abschaltbar in den Theme-Einstellungen („Favoriten (Herz-Liste) anzeigen“).
+
+## Admin-Modul (ab Version 0.5.1)
+
+Das Plugin bringt eine eigene Einstellungsseite im Shopware-Admin mit. So findest du sie:
+
+1. Öffne im Admin **Einstellungen**, dann **Erweiterungen**, dann **MichaThemeV5**.
+2. Oben stehen vier Reiter: **Einstellungen**, **Lizenzen**, **Plugin-Empfehlungen** und **Info**.
+3. **Einstellungen:** Wähle ein Design-Preset (Standard, Glas, Kompakt), suche eine Einstellung oder schalte zwischen „Einfach“ und „Experte“ um. Unter „Eigene Farben“ (nur im Modus „Experte“) stellst du 16 Farben getrennt für Hell und Dunkel ein, mit Farbwähler, Palette für 12 Farben und Warnung bei schlecht lesbarem Text. Klicke dann auf **Speichern**. Das Theme wird neu übersetzt, das dauert bis zu einer Minute.
+4. **Lizenzen:** Füge deinen Lizenzcode ein und klicke auf „Speichern und prüfen“. Der Code wird danach nie mehr im Klartext angezeigt. Ohne Code läuft alles in der Free-Version weiter. Kaufen kannst du auf https://theme.michael-gahn.de.
+5. **Plugin-Empfehlungen:** Weitere Plugins von Michael Gahn DESIGN. Es wird nichts automatisch installiert.
+
+Die Werte liegen in der normalen Theme-Konfiguration (Inhalte, Themes). Beide Wege ändern dasselbe, nichts geht verloren. Du brauchst keinen Build, das Admin-Skript liegt fertig im Paket. Recht für Benutzerrollen: Unter „Benutzer & Berechtigungen“ gibt es die Rechte „MichaThemeV5 ansehen“ und „bearbeiten“. Hinweis: Glas-Fläche und breitere Inhaltsbreite aus den Presets kommen erst mit einem späteren Theme-Update.
 
 ## Weitere Funktionen (Pro)
 

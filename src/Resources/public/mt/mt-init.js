@@ -21,6 +21,8 @@
   } catch (e) { /* kein Speicher verfügbar */ }
   if (mode === 'system') { root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme', mode); }
   var custom = vars['--mt-accent-custom'];
+  // Eigene Farben aus dem Plugin (Button-Text auf Akzent) setzt das Theme per CSS, dann nichts inline überschreiben
+  var ovOn = vars['--mt-ov-on-accent-light'] || vars['--mt-ov-on-accent-dark'];
   if (custom && /^#[0-9a-fA-F]{6}$/.test(custom)) {
     var n = parseInt(custom.slice(1), 16);
     var lum = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(function (v) {
@@ -29,6 +31,6 @@
     var L = 0.2126 * lum[0] + 0.7152 * lum[1] + 0.0722 * lum[2];
     root.style.setProperty('--mt-accent', custom);
     // Schrift auf dem Button: schwarz oder weiß, je nach Kontrast (Grenze ca. 0.179)
-    root.style.setProperty('--mt-on-accent', L > 0.179 ? '#000000' : '#ffffff');
+    if (!ovOn) { root.style.setProperty('--mt-on-accent', L > 0.179 ? '#000000' : '#ffffff'); }
   }
 })();

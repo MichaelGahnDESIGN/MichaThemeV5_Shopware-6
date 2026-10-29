@@ -7,6 +7,11 @@
             "help": "Akzentfarbe, Modus und eigene Farben"
         },
         {
+            "id": "colors_custom",
+            "label": "Eigene Farben",
+            "help": "Farben für Hell und Dunkel einzeln einstellen. Leer = Standard des Themes. Mit Colorpicker, eigener Farbpalette und Kontrast-Warnung. Gespeichert wird immer, auch bei Warnung."
+        },
+        {
             "id": "typography",
             "label": "Schriften",
             "help": "Lokale Schriften und Größen"
@@ -689,6 +694,552 @@
             "label": "Lizenzschlüssel",
             "default": "",
             "help": "Den Schlüssel finden Sie im Kundenkonto unter https://theme.michael-gahn.de. Zur Prüfung werden nur der Schlüssel und die Domain dieses Shops an den Lizenzserver übertragen (Server-zu-Server, keine Besucherdaten). Ohne Schlüssel läuft das Theme mit allen Free-Funktionen."
+        },
+        {
+            "id": "color_bg_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Seitenhintergrund (Hell)",
+            "default": "",
+            "help": "Hintergrund der ganzen Seite. Leer = Standard.",
+            "color": {
+                "token": "bg",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_bg_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Seitenhintergrund (Dunkel)",
+            "default": "",
+            "help": "Hintergrund der ganzen Seite. Leer = Standard.",
+            "color": {
+                "token": "bg",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_surface_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Karten und Flächen (Hell)",
+            "default": "",
+            "help": "Karten, Boxen und Felder. Leer = Standard.",
+            "color": {
+                "token": "surface",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_surface_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Karten und Flächen (Dunkel)",
+            "default": "",
+            "help": "Karten, Boxen und Felder. Leer = Standard.",
+            "color": {
+                "token": "surface",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_surface2_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Fläche 2 (Chips, Ränder von Flächen) (Hell)",
+            "default": "",
+            "help": "Zweite Fläche, zum Beispiel für Chips und Tabellenköpfe. Leer = Standard.",
+            "color": {
+                "token": "surface-2",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_surface2_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Fläche 2 (Chips, Ränder von Flächen) (Dunkel)",
+            "default": "",
+            "help": "Zweite Fläche, zum Beispiel für Chips und Tabellenköpfe. Leer = Standard.",
+            "color": {
+                "token": "surface-2",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_text_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Text (Hell)",
+            "default": "",
+            "help": "Haupttext. Muss auf Hintergrund und Flächen gut lesbar sein. Leer = Standard.",
+            "color": {
+                "token": "text",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_text_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Text (Dunkel)",
+            "default": "",
+            "help": "Haupttext. Muss auf Hintergrund und Flächen gut lesbar sein. Leer = Standard.",
+            "color": {
+                "token": "text",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_text_muted_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Text gedämpft (Hell)",
+            "default": "",
+            "help": "Hilfetexte und Nebeninfos. Leer = Standard.",
+            "color": {
+                "token": "text-muted",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_text_muted_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Text gedämpft (Dunkel)",
+            "default": "",
+            "help": "Hilfetexte und Nebeninfos. Leer = Standard.",
+            "color": {
+                "token": "text-muted",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_border_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Rahmen (Hell)",
+            "default": "",
+            "help": "Rahmen von Feldern und Knöpfen. Für gute Erkennbarkeit mindestens 3:1 Kontrast zur Fläche. Leer = Standard.",
+            "color": {
+                "token": "border-strong",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_border_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Rahmen (Dunkel)",
+            "default": "",
+            "help": "Rahmen von Feldern und Knöpfen. Für gute Erkennbarkeit mindestens 3:1 Kontrast zur Fläche. Leer = Standard.",
+            "color": {
+                "token": "border-strong",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_link_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Link (Hell)",
+            "default": "",
+            "help": "Farbe der Links im Text. Leer = abgeleitet von der Akzentfarbe. Leer = Standard.",
+            "color": {
+                "token": "link",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_link_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Link (Dunkel)",
+            "default": "",
+            "help": "Farbe der Links im Text. Leer = abgeleitet von der Akzentfarbe. Leer = Standard.",
+            "color": {
+                "token": "link",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_on_accent_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Button-Text auf Akzent (Hell)",
+            "default": "",
+            "help": "Schrift auf Akzent-Buttons. Leer = automatisch (schwarz oder weiß nach Kontrast). Leer = Standard.",
+            "color": {
+                "token": "on-accent",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ],
+            "css": "--mt-ov-on-accent-light"
+        },
+        {
+            "id": "color_on_accent_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Button-Text auf Akzent (Dunkel)",
+            "default": "",
+            "help": "Schrift auf Akzent-Buttons. Leer = automatisch (schwarz oder weiß nach Kontrast). Leer = Standard.",
+            "color": {
+                "token": "on-accent",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ],
+            "css": "--mt-ov-on-accent-dark"
+        },
+        {
+            "id": "color_header_bg_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Header-Hintergrund (Hell)",
+            "default": "",
+            "help": "Kopfbereich. Leer = Fläche. Leer = Standard.",
+            "color": {
+                "token": "header-bg",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_header_bg_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Header-Hintergrund (Dunkel)",
+            "default": "",
+            "help": "Kopfbereich. Leer = Fläche. Leer = Standard.",
+            "color": {
+                "token": "header-bg",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_footer_bg_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Footer-Hintergrund (Hell)",
+            "default": "",
+            "help": "Fußbereich. Leer = Fläche 2. Leer = Standard.",
+            "color": {
+                "token": "footer-bg",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_footer_bg_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Footer-Hintergrund (Dunkel)",
+            "default": "",
+            "help": "Fußbereich. Leer = Fläche 2. Leer = Standard.",
+            "color": {
+                "token": "footer-bg",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_announce_bg_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Ankündigungsleiste (Hell)",
+            "default": "",
+            "help": "Hintergrund der Ankündigungsleiste. Leer = Fläche 2. Leer = Standard.",
+            "color": {
+                "token": "announce-bg",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_announce_bg_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Ankündigungsleiste (Dunkel)",
+            "default": "",
+            "help": "Hintergrund der Ankündigungsleiste. Leer = Fläche 2. Leer = Standard.",
+            "color": {
+                "token": "announce-bg",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_danger_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Sale-/Fehler-Farbe (Hell)",
+            "default": "",
+            "help": "Fehlermeldungen und Sale-Hinweise. Leer = Standard.",
+            "color": {
+                "token": "danger",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_danger_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Sale-/Fehler-Farbe (Dunkel)",
+            "default": "",
+            "help": "Fehlermeldungen und Sale-Hinweise. Leer = Standard.",
+            "color": {
+                "token": "danger",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_success_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Erfolg (Hell)",
+            "default": "",
+            "help": "Erfolgsmeldungen. Leer = Standard.",
+            "color": {
+                "token": "success",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_success_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Erfolg (Dunkel)",
+            "default": "",
+            "help": "Erfolgsmeldungen. Leer = Standard.",
+            "color": {
+                "token": "success",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_warning_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Warnung (Hell)",
+            "default": "",
+            "help": "Warnhinweise. Leer = Standard.",
+            "color": {
+                "token": "warning",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_warning_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Warnung (Dunkel)",
+            "default": "",
+            "help": "Warnhinweise. Leer = Standard.",
+            "color": {
+                "token": "warning",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_info_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Info (Hell)",
+            "default": "",
+            "help": "Info-Hinweise. Leer = Standard.",
+            "color": {
+                "token": "info",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_info_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Info (Dunkel)",
+            "default": "",
+            "help": "Info-Hinweise. Leer = Standard.",
+            "color": {
+                "token": "info",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_focus_light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Fokusring (Hell)",
+            "default": "",
+            "help": "Rahmen um das Element, das per Tastatur ausgewählt ist. Mindestens 3:1 Kontrast. Leer = Standard.",
+            "color": {
+                "token": "focus",
+                "mode": "light"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
+        },
+        {
+            "id": "color_focus_dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Fokusring (Dunkel)",
+            "default": "",
+            "help": "Rahmen um das Element, das per Tastatur ausgewählt ist. Mindestens 3:1 Kontrast. Leer = Standard.",
+            "color": {
+                "token": "focus",
+                "mode": "dark"
+            },
+            "platforms": [
+                "woocommerce",
+                "shopware"
+            ]
         },
         {
             "id": "legal_warranty",

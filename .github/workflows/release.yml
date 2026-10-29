@@ -28,6 +28,11 @@ jobs:
           node --check src/Resources/app/storefront/src/js/mt-notification-center.js
           node --check src/Resources/app/storefront/src/js/mt-favorites-sync.js
           node --check src/Resources/app/storefront/dist/storefront/js/micha-theme-v5/micha-theme-v5.js
+      - name: Admin-Modul (JS passt zur Quelle, Texte, PHP-Dienste)
+        run: |
+          python3 scripts/build-admin.py --check
+          node --test tests/admin-module.test.mjs
+          php tests/admin-module.php
       - name: Assets frisch bauen und Paket erstellen
         run: |
           python3 scripts/build-assets.py
