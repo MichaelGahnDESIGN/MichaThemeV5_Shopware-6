@@ -1,5 +1,10 @@
 # Änderungen
 
+## Version 0.5.2
+
+- Korrigiert: Das Admin-Modul fand sein Einstellungs-Schema nicht (falscher Pfad). Jetzt lädt es die Einstellungen, die Lizenz-Seite und die Info-Seite.
+- Kleinigkeit: Eine unnötige PHP-8.5-Warnung beim Laden der Plugin-Empfehlungen entfernt.
+
 ## Version 0.5.1
 
 - Neu: Admin-Modul im Shopware-Admin unter Einstellungen, Erweiterungen, MichaThemeV5 mit vier Seiten: Einstellungen, Lizenzen, Plugin-Empfehlungen, Info.

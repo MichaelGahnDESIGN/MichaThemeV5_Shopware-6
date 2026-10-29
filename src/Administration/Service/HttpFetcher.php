@@ -39,7 +39,6 @@ final class HttpFetcher
         ]);
         $ok = curl_exec($curl);
         $status = (int) curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
-        curl_close($curl);
         if ($tooBig || $ok === false) {
             return null;
         }

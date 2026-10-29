@@ -183,7 +183,11 @@ foreach ($services->services->service as $service) {
 }
 ok($checked === 10, "10 Admin-Dienste erwartet, gefunden: $checked");
 // Plugin-Klasse setzt den Pfad-Parameter, den services.xml braucht
-ok(str_contains((string) file_get_contents($root . '/src/MichaThemeV5.php'), 'michatheme_v5.plugin_dir'), 'Plugin setzt michatheme_v5.plugin_dir');
+$pluginClass = (string) file_get_contents($root . '/src/MichaThemeV5.php');
+ok(str_contains($pluginClass, 'michatheme_v5.plugin_dir'), 'Plugin setzt michatheme_v5.plugin_dir');
+// Regression 0.5.1: getPath() ist src/, der Parameter muss der Ordner darüber sein (sonst findet der Dienst Schema und Changelog nicht)
+ok(str_contains($pluginClass, 'dirname(rtrim($this->getPath()'), 'plugin_dir ist der Plugin-Ordner, nicht src/');
+ok(!str_contains((string) file_get_contents($root . '/src/Administration/Service/HttpFetcher.php'), 'curl_close'), 'curl_close ist ab PHP 8.5 veraltet');
 ok(str_contains((string) file_get_contents($root . '/src/Resources/config/services.xml'), '%michatheme_v5.plugin_dir%'), 'services.xml nutzt den Parameter');
 // composer: beide Namensräume
 $composer = json_decode((string) file_get_contents($root . '/composer.json'), true);
