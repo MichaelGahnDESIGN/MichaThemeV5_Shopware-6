@@ -17,16 +17,14 @@
 
 Die Icon-Leiste zeigt von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto, Warenkorb. Glocke, Merkliste und Favoriten sind unsichtbar, solange nichts drin ist. Die Merkliste ist die Wunschliste von Shopware.
 
-## Farben und Colorpicker
+## Admin-Modul und Farben (ab 0.5.1)
 
-Der Colorpicker ist ein Farbwähler mit Farbfläche, Farbton-Regler, HEX-Feld (zum Beispiel `#c8161a`) mit Kopieren-Knopf, einer Palette für bis zu 12 gespeicherte Farben und einer Warnung bei schlecht lesbarem Text auf der Akzentfarbe.
-
-Wichtig: Er ist fertig und getestet, aber in diesem Theme noch nicht zu sehen. Er kommt mit den Einstellungsseiten der Plugins in Version 0.5.0. Bis dahin gilt:
-
-1. Öffne die Theme-Einstellungen (Erscheinungsbild, Themes, MichaThemeV5, Bereich Farben).
-2. Wähle bei „Akzentfarbe“ eine Farbe aus der Liste.
-3. Oder wähle „Eigene Akzentfarbe“ und trage den HEX-Wert ein, zum Beispiel `#c8161a`.
-4. Prüfe die Seite hell und dunkel. Text auf der Farbe muss gut lesbar bleiben.
+1. Öffne im Admin Einstellungen, dann Erweiterungen, dann MichaThemeV5.
+2. Reiter **Einstellungen**: Preset wählen oder Einstellungen ändern, dann **Speichern**. Das Theme wird neu übersetzt (bis zu einer Minute).
+3. Eigene Farben: Schalter „Experte“ einschalten, Karte „Eigene Farben“ öffnen, bei einer Farbe auf „Farbwähler öffnen“ klicken. Leer lassen heißt Standardfarbe.
+4. Reiter **Lizenzen**: Lizenzcode einfügen, „Speichern und prüfen“. Ohne Code läuft die Free-Version.
+5. Kein Build nötig. Das Admin-Skript liegt fertig im Paket. Entwickler: `python3 scripts/build-admin.py` baut es aus `src/Resources/app/administration` neu.
+6. Nach einem Update: `bin/console plugin:update MichaThemeV5`, `assets:install`, `theme:compile`, `cache:clear`.
 
 ## Erzeugte Dateien
 

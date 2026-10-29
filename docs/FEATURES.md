@@ -12,7 +12,7 @@ Status: **planned** = geplant · **in_progress** = in Arbeit · **existing** = a
 
 ### Design und Konfiguration
 
-- **Farben über Variablen** (in Arbeit): Alle Farben als CSS-Variablen: Presets, Akzentfarbe, eigene Werte; getrennte Werte für Hell und Dunkel.
+- **Farben über Variablen** (geplant): Alle Farben als CSS-Variablen: Akzentfarbe und 16 eigene Farben (Seitenhintergrund, Flächen, Text, Rahmen, Link, Button-Text, Header, Footer, Ankündigung, Sale/Fehler, Erfolg, Warnung, Info, Fokus), je Hell und Dunkel getrennt, leer = Standard des Themes. Mit Kontrast-Warnung (Text 4,5 zu 1, Rahmen und Fokus 3 zu 1). Fertig und getestet für WooCommerce; die anderen Plattformen folgen (geplant 0.5.x).
 - **Hell-, Dunkel- und Systemmodus** (in Arbeit): Folgt dem Gerät oder per Schalter im Shop; beide Modi auf Kontrast geprüft (WCAG AA), kein Aufblitzen beim Laden.
 - **Einfach- und Experten-Konfigurator** (in Arbeit): Wenige Schlüsseloptionen für Einsteiger, alle Optionen für Profis. Gliederung: Tab, Gruppe, Abschnitt, Feld. Eine gemeinsame Optionsdefinition erzeugt die Konfiguration aller drei Plattformen.
 - **Lokale Schriften** (in Arbeit): Lokal eingebettete Schriften (WOFF2, offene Lizenzen): Arial/Helvetica als Systemschrift, Roboto, Open Sans, Inter, Lato, Montserrat, Source Sans 3, Nunito, Merriweather, Playfair Display. Kein Abruf bei Google oder CDNs. _Recht:_ Externe Schriftdienste sind ohne Einwilligung datenschutzrechtlich riskant (u. a. LG München I, Az. 3 O 17493/20); lokale Einbettung ist die sichere Lösung. Schriftlizenzen (OFL) mitliefern.
@@ -21,10 +21,11 @@ Status: **planned** = geplant · **in_progress** = in Arbeit · **existing** = a
 - **Verschiedene Footer** (in Arbeit): Mehrere Footer-Layouts (4-spaltig, 3-spaltig, minimal), Rechtslinks, Zahlungs- und Versandarten, Newsletter-Feld (mit Double-Opt-In). _Recht:_ Pflichtlinks (Impressum, Datenschutz, AGB, Widerruf) immer sichtbar und in jedem Footer-Layout enthalten.
 - **Layouts für Kategorie- und Artikellisten** (in Arbeit): Raster mit 2 bis 5 Spalten, Listenansicht, Filter links oder oben, Kartenstile (flach, Rahmen, Schatten), Bildverhältnis, Hover-Effekte.
 - **Layouts für Artikel-Detailseiten** (in Arbeit): Galerie links oder unten, fixierte Kaufbox, Tabs oder Akkordeon, Vertrauenselemente, verwandte Artikel.
-- **Designvariante „Basis“** (geplant): Eine fertige Designvariante im Free-Theme; weitere Varianten sind Premium (siehe Themes).
+- **Design-Presets (Stil-Sets)** (geplant): Per Klick anwendbare Stil-Sets, die nur Optionswerte und damit Design-Variablen setzen: Standard (Anthrazit/Hell, Rot), Glas (halbtransparente Flächen, feiner Rand, bleibt lesbar) und Kompakt (weniger Abstand). Vor dem Anwenden wird gesichert; zurück mit „Standard“. In WooCommerce fertig und getestet, andere Plattformen geplant.
 - **Icon-Leiste im Header** (fertig): Hell/Dunkel-Schalter (nur Icon, Ort wählbar: Header, Footer, Konto), Benachrichtigungen, Merkliste (nur mit nativer Wunschliste), Favoriten als Herz-Liste im Browser, Konto, Warenkorb. Listen sind unsichtbar, solange sie leer sind.
-- **Colorpicker (Farbwähler)** (in Arbeit): Farbwahl mit Farbfläche, Farbton-Regler, HEX-Feld mit Kopieren-Knopf und Kontrastwarnung für die Akzentfarbe. Die Komponente ist fertig und getestet (Kern), die Einbindung in die Einstellungsseiten folgt mit den Plugin-Einstellungsseiten in 0.5.0. Shopify nutzt den eingebauten Farbwähler des Theme-Editors.
-- **Gespeicherte Farbpalette** (in Arbeit): Bis zu 12 eigene Farben speichern und mit einem Klick wieder wählen. Die Komponente ist fertig, gespeichert wird später im Backend des Shops (Einbindung in 0.5.0). Shopify: nicht möglich, der Theme-Editor kann keine eigenen Paletten speichern.
+- **Colorpicker (Farbwähler)** (fertig): Farbwahl mit Farbfläche, Farbton-Regler, HEX-Feld mit Kopieren-Knopf und Kontrastwarnung. In der WooCommerce-Plugin-Einstellungsseite an jedem Farbfeld eingebunden (fertig, getestet). JTL folgt mit seiner Plugin-Seite. Shopify nutzt den eingebauten Farbwähler des Theme-Editors.
+- **Gespeicherte Farbpalette** (fertig): Bis zu 12 eigene Farben speichern und mit einem Klick wieder wählen, gilt für den ganzen Shop. In WooCommerce fertig und getestet (gespeichert im Shop). JTL folgt. Shopify: nicht möglich, der Theme-Editor kann keine eigenen Paletten speichern.
+- **Layout-Varianten per Option** (geplant): Kartenstil (flach, Rahmen, Schatten), Flächenstil (einfarbig oder Glas mit Rückfall bei fehlender Unterstützung und bei „Transparenz reduzieren“) und Inhaltsbreite (schmal, normal, breit). Setzen nur ein data-Attribut am html-Element, keine doppelten Vorlagen. Header-Layout, Dichte und Ecken gibt es schon. Fertig für WooCommerce, andere Plattformen geplant.
 
 ### Inhalte und Erlebniswelten
 
@@ -53,4 +54,10 @@ Status: **planned** = geplant · **in_progress** = in Arbeit · **existing** = a
 ### Barrierefreiheit
 
 - **Barrierefreiheit (BFSG / WCAG 2.2 AA)** (in Arbeit): Tastaturbedienung, sichtbarer Fokus, Kontraste, Skip-Link, Beschriftungen, Reduced-Motion, Screenreader-Texte, Vorlage für die Barrierefreiheitserklärung. _Recht:_ Barrierefreiheitsstärkungsgesetz (BFSG), seit 28.06.2025 für Online-Shops mit Verbrauchern; Ausnahmen für Kleinstunternehmen prüfen.
+
+### Plattform und Betrieb
+
+- **Plugin: Einstellungsseite** (fertig): Übersichtliche Einstellungsseite im Plugin MichaThemeV5: Gruppen, Suche, Einfach/Experte, Filter „Nur geänderte“ und „Nur Pflichtangaben“, Live-Hinweise, Zurücksetzen je Feld und Gruppe, Speichern mit Sicherung. Gleicher Speicher wie das Theme, nichts geht verloren. Fertig für WooCommerce und Shopware (Admin-Modul, Version 0.5.1); JTL in Arbeit, Shopify bleibt im Theme-Editor.
+- **Plugin: Lizenzseite** (fertig): Lizenzcode einfügen, Status (Free, Pro, abgelaufen, falsche Domain, Server nicht erreichbar), „Jetzt prüfen“ und Link zum Kauf. Der Shop bricht nie, bei Fehlern gilt Free. Der Code wird nie im Klartext angezeigt. Fertig für WooCommerce und Shopware (Version 0.5.1).
+- **Plugin: Plugin-Empfehlungen** (fertig): Liste weiterer Plugins aus dem Katalog von theme.michael-gahn.de, nur im Admin, mit Zwischenspeicher, leisen Fehlern und Aktualisieren höchstens einmal pro Minute. Nichts wird automatisch installiert. Fertig für WooCommerce und Shopware (Version 0.5.1).
 

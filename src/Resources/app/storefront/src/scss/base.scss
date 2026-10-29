@@ -1,2 +1,47 @@
 // MichaThemeV5: bewusst leer. Farben, Schriften und Formen kommen aus den CSS-Variablen in mt/mt-tokens.css.
 // Die Datei muss existieren, weil theme.json sie als Style-Einstieg nennt.
+
+// Eigene Farben aus der Theme-Konfiguration (Felder mt-color-*), leer = Standard
+@mixin mt-color-vars($map) { @each $token, $value in $map { --mt-#{$token}: #{$value}; } }
+
+$mt-colors-light: ();
+@if global-variable-exists('mt-color-bg-light') { @if $mt-color-bg-light { $mt-colors-light: map-merge($mt-colors-light, ('bg': $mt-color-bg-light)); } }
+@if global-variable-exists('mt-color-surface-light') { @if $mt-color-surface-light { $mt-colors-light: map-merge($mt-colors-light, ('surface': $mt-color-surface-light)); } }
+@if global-variable-exists('mt-color-surface2-light') { @if $mt-color-surface2-light { $mt-colors-light: map-merge($mt-colors-light, ('surface-2': $mt-color-surface2-light)); } }
+@if global-variable-exists('mt-color-text-light') { @if $mt-color-text-light { $mt-colors-light: map-merge($mt-colors-light, ('text': $mt-color-text-light)); } }
+@if global-variable-exists('mt-color-text-muted-light') { @if $mt-color-text-muted-light { $mt-colors-light: map-merge($mt-colors-light, ('text-muted': $mt-color-text-muted-light)); } }
+@if global-variable-exists('mt-color-border-light') { @if $mt-color-border-light { $mt-colors-light: map-merge($mt-colors-light, ('border-strong': $mt-color-border-light)); } }
+@if global-variable-exists('mt-color-link-light') { @if $mt-color-link-light { $mt-colors-light: map-merge($mt-colors-light, ('link': $mt-color-link-light)); } }
+@if global-variable-exists('mt-color-on-accent-light') { @if $mt-color-on-accent-light { $mt-colors-light: map-merge($mt-colors-light, ('on-accent': $mt-color-on-accent-light)); } }
+@if global-variable-exists('mt-color-header-bg-light') { @if $mt-color-header-bg-light { $mt-colors-light: map-merge($mt-colors-light, ('header-bg': $mt-color-header-bg-light)); } }
+@if global-variable-exists('mt-color-footer-bg-light') { @if $mt-color-footer-bg-light { $mt-colors-light: map-merge($mt-colors-light, ('footer-bg': $mt-color-footer-bg-light)); } }
+@if global-variable-exists('mt-color-announce-bg-light') { @if $mt-color-announce-bg-light { $mt-colors-light: map-merge($mt-colors-light, ('announce-bg': $mt-color-announce-bg-light)); } }
+@if global-variable-exists('mt-color-danger-light') { @if $mt-color-danger-light { $mt-colors-light: map-merge($mt-colors-light, ('danger': $mt-color-danger-light)); } }
+@if global-variable-exists('mt-color-success-light') { @if $mt-color-success-light { $mt-colors-light: map-merge($mt-colors-light, ('success': $mt-color-success-light)); } }
+@if global-variable-exists('mt-color-warning-light') { @if $mt-color-warning-light { $mt-colors-light: map-merge($mt-colors-light, ('warning': $mt-color-warning-light)); } }
+@if global-variable-exists('mt-color-info-light') { @if $mt-color-info-light { $mt-colors-light: map-merge($mt-colors-light, ('info': $mt-color-info-light)); } }
+@if global-variable-exists('mt-color-focus-light') { @if $mt-color-focus-light { $mt-colors-light: map-merge($mt-colors-light, ('focus': $mt-color-focus-light)); } }
+
+$mt-colors-dark: ();
+@if global-variable-exists('mt-color-bg-dark') { @if $mt-color-bg-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('bg': $mt-color-bg-dark)); } }
+@if global-variable-exists('mt-color-surface-dark') { @if $mt-color-surface-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('surface': $mt-color-surface-dark)); } }
+@if global-variable-exists('mt-color-surface2-dark') { @if $mt-color-surface2-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('surface-2': $mt-color-surface2-dark)); } }
+@if global-variable-exists('mt-color-text-dark') { @if $mt-color-text-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('text': $mt-color-text-dark)); } }
+@if global-variable-exists('mt-color-text-muted-dark') { @if $mt-color-text-muted-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('text-muted': $mt-color-text-muted-dark)); } }
+@if global-variable-exists('mt-color-border-dark') { @if $mt-color-border-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('border-strong': $mt-color-border-dark)); } }
+@if global-variable-exists('mt-color-link-dark') { @if $mt-color-link-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('link': $mt-color-link-dark)); } }
+@if global-variable-exists('mt-color-on-accent-dark') { @if $mt-color-on-accent-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('on-accent': $mt-color-on-accent-dark)); } }
+@if global-variable-exists('mt-color-header-bg-dark') { @if $mt-color-header-bg-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('header-bg': $mt-color-header-bg-dark)); } }
+@if global-variable-exists('mt-color-footer-bg-dark') { @if $mt-color-footer-bg-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('footer-bg': $mt-color-footer-bg-dark)); } }
+@if global-variable-exists('mt-color-announce-bg-dark') { @if $mt-color-announce-bg-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('announce-bg': $mt-color-announce-bg-dark)); } }
+@if global-variable-exists('mt-color-danger-dark') { @if $mt-color-danger-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('danger': $mt-color-danger-dark)); } }
+@if global-variable-exists('mt-color-success-dark') { @if $mt-color-success-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('success': $mt-color-success-dark)); } }
+@if global-variable-exists('mt-color-warning-dark') { @if $mt-color-warning-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('warning': $mt-color-warning-dark)); } }
+@if global-variable-exists('mt-color-info-dark') { @if $mt-color-info-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('info': $mt-color-info-dark)); } }
+@if global-variable-exists('mt-color-focus-dark') { @if $mt-color-focus-dark { $mt-colors-dark: map-merge($mt-colors-dark, ('focus': $mt-color-focus-dark)); } }
+
+@if length($mt-colors-light) > 0 { html:root:root:root { @include mt-color-vars($mt-colors-light); } }
+@if length($mt-colors-dark) > 0 {
+  @media (prefers-color-scheme: dark) { html:root:not([data-theme="light"]):root:root { @include mt-color-vars($mt-colors-dark); } }
+  html:root[data-theme="dark"]:root:root { @include mt-color-vars($mt-colors-dark); }
+}

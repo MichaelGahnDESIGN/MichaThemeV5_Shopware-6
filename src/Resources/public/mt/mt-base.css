@@ -16,6 +16,11 @@
   --mt-header-h: 72px;
 }
 
+:root { --mt-container: 80rem; }
+:root[data-mt-container="narrow"] { --mt-container: 64rem; }
+:root[data-mt-container="wide"] { --mt-container: 96rem; }
+/* Glas-Flächen: halbtransparent, feiner Rand. Text bleibt lesbar, weil er auf Fläche UND Hintergrund 4,5:1 hat (Test ThemeGlassContrastTest) */
+:root[data-mt-surface="glass"] { --mt-glass-bg: color-mix(in srgb, var(--mt-surface) 72%, transparent); --mt-glass-border: color-mix(in srgb, var(--mt-border-strong) 35%, transparent); --mt-glass-blur: 14px; }
 :root[data-mt-radius="sharp"] { --mt-r: 2px; --mt-r-lg: 4px; --mt-r-xl: 6px; }
 :root[data-mt-radius="soft"] { --mt-r: 8px; --mt-r-lg: 12px; --mt-r-xl: 16px; }
 :root[data-mt-radius="round"] { --mt-r: 12px; --mt-r-lg: 18px; --mt-r-xl: 24px; }
@@ -44,7 +49,7 @@ body {
 h1, h2, h3, h4, h5, h6 { font-family: var(--mt-font-heading); color: var(--mt-text); line-height: 1.25; font-weight: 700; }
 h1, h2 { line-height: 1.15; letter-spacing: -.02em; text-wrap: balance; }
 h3 { letter-spacing: -.01em; }
-a { color: var(--mt-accent-text); }
+a { color: var(--mt-link, var(--mt-accent-text)); }
 /* Link-Hover: Textton bleibt hell genug (accent-hover ist ein Button-Ton, im Dunkeln nur 2,8:1) */
 a:hover { color: color-mix(in srgb, var(--mt-accent-text) 80%, var(--mt-text)); text-decoration-thickness: 2px; }
 
@@ -82,7 +87,7 @@ a:hover { color: color-mix(in srgb, var(--mt-accent-text) 80%, var(--mt-text)); 
 :root[data-mt-buttons="pill"] .mt-btn { border-radius: 999px; }
 
 /* Ankündigungsleiste - neutral, Rot bleibt den Buttons */
-.mt-announcement { display: none; background: var(--mt-surface-2); color: var(--mt-text); border-bottom: 1px solid var(--mt-border); text-align: center; padding: .5rem 1rem; font-weight: 700; font-size: var(--mt-text-sm); }
+.mt-announcement { display: none; background: var(--mt-announce-bg, var(--mt-surface-2)); color: var(--mt-text); border-bottom: 1px solid var(--mt-border); text-align: center; padding: .5rem 1rem; font-weight: 700; font-size: var(--mt-text-sm); }
 :root[data-mt-announcement="1"] .mt-announcement { display: block; }
 
 /* Siegel (Sonderpreis, Neu) */

@@ -2,7 +2,7 @@
   "name": "michael-gahn/micha-theme-v5",
   "description": "MichaThemeV5 für Shopware 6: Hell/Dunkel, viele Optionen, rechtssicher ausgerichtet für DE und EU",
   "type": "shopware-platform-plugin",
-  "version": "0.4.1",
+  "version": "0.5.1",
   "license": "proprietary",
   "authors": [
     {
@@ -19,7 +19,8 @@
   },
   "autoload": {
     "psr-4": {
-      "MichaThemeV5\\": "src/"
+      "MichaThemeV5\\": "src/",
+      "MichaThemeV5\\Plugin\\": "src/Generated/"
     }
   },
   "extra": {

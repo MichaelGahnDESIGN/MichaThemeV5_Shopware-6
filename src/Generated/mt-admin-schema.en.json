@@ -1,0 +1,1587 @@
+{
+    "schemaVersion": 1,
+    "version": "0.5.1",
+    "edition": "free",
+    "platform": "shopware",
+    "groups": [
+        {
+            "id": "colors",
+            "label": "Colors",
+            "help": "Accent color, mode and custom colors"
+        },
+        {
+            "id": "colors_custom",
+            "label": "Eigene Farben",
+            "help": "Farben für Hell und Dunkel einzeln einstellen. Leer = Standard des Themes. Mit Colorpicker, eigener Farbpalette und Kontrast-Warnung. Gespeichert wird immer, auch bei Warnung."
+        },
+        {
+            "id": "typography",
+            "label": "Typography",
+            "help": "Local fonts and sizes"
+        },
+        {
+            "id": "shape",
+            "label": "Shape and style",
+            "help": "Corners, spacing, shadows, buttons"
+        },
+        {
+            "id": "logo",
+            "label": "Logo",
+            "help": "Logo, favicon, size"
+        },
+        {
+            "id": "header",
+            "label": "Header",
+            "help": "Header area and search"
+        },
+        {
+            "id": "footer",
+            "label": "Footer",
+            "help": "Footer area"
+        },
+        {
+            "id": "hero",
+            "label": "Home page",
+            "help": "Hero area"
+        },
+        {
+            "id": "listing",
+            "label": "Collection and listing",
+            "help": "Product lists"
+        },
+        {
+            "id": "detail",
+            "label": "Product page",
+            "help": "Product detail page"
+        },
+        {
+            "id": "legal",
+            "label": "Legal",
+            "help": "Price information and mandatory texts"
+        },
+        {
+            "id": "a11y",
+            "label": "Accessibility",
+            "help": "Focus, text size, motion"
+        },
+        {
+            "id": "performance",
+            "label": "Performance",
+            "help": "Loading time"
+        }
+    ],
+    "options": [
+        {
+            "id": "color_mode",
+            "key": "mt-color-mode",
+            "group": "colors",
+            "type": "select",
+            "mode": "simple",
+            "label": "Color mode",
+            "help": "Light, dark or follow the device. Visitors can switch in the shop.",
+            "default": "system",
+            "attr": "data-theme",
+            "choices": {
+                "system": "Like the device",
+                "light": "Light",
+                "dark": "Dark"
+            }
+        },
+        {
+            "id": "accent",
+            "key": "mt-accent",
+            "group": "colors",
+            "type": "select",
+            "mode": "simple",
+            "label": "Accent color",
+            "help": "Color for buttons, links and highlights. All variants are contrast-checked for light and dark.",
+            "default": "red",
+            "attr": "data-accent",
+            "choices": {
+                "red": "Red",
+                "teal": "Teal",
+                "indigo": "Indigo",
+                "amber": "Amber",
+                "rose": "Rose",
+                "graphite": "Graphite"
+            }
+        },
+        {
+            "id": "accent_custom",
+            "key": "mt-accent-custom",
+            "group": "colors",
+            "type": "color",
+            "mode": "expert",
+            "label": "Custom accent color",
+            "help": "Leave empty to use the accent color above. Note: custom colors are not contrast-checked automatically.",
+            "default": "",
+            "css": "--mt-accent-custom"
+        },
+        {
+            "id": "mode_toggle",
+            "key": "mt-mode-toggle",
+            "group": "colors",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Show light/dark switch",
+            "help": "Off = no switch in the shop. Choose below where it appears.",
+            "default": true
+        },
+        {
+            "id": "mode_toggle_place",
+            "key": "mt-mode-toggle-place",
+            "group": "colors",
+            "type": "select",
+            "mode": "simple",
+            "label": "Place of the light/dark switch",
+            "help": "Header = icon in the icon bar (default). Footer = row in the footer. Customer account = entry in the customer account, where the platform allows it.",
+            "default": "header",
+            "attr": "data-mt-mode-place",
+            "choices": {
+                "header": "Header",
+                "footer": "Footer",
+                "account": "Customer account settings"
+            }
+        },
+        {
+            "id": "font_body",
+            "key": "mt-font-body",
+            "group": "typography",
+            "type": "font",
+            "mode": "simple",
+            "label": "Body font",
+            "help": "All fonts are stored locally in the theme, nothing is loaded from Google.",
+            "default": "inter",
+            "attr": "data-mt-font-body",
+            "choices": {
+                "system": "Systemschrift (Arial/Helvetica)",
+                "roboto": "Roboto",
+                "open-sans": "Open Sans",
+                "inter": "Inter",
+                "lato": "Lato",
+                "montserrat": "Montserrat",
+                "source-sans-3": "Source Sans 3",
+                "nunito": "Nunito",
+                "merriweather": "Merriweather",
+                "playfair-display": "Playfair Display"
+            }
+        },
+        {
+            "id": "font_heading",
+            "key": "mt-font-heading",
+            "group": "typography",
+            "type": "font",
+            "mode": "simple",
+            "label": "Heading font",
+            "help": "",
+            "default": "inter",
+            "attr": "data-mt-font-heading",
+            "choices": {
+                "system": "Systemschrift (Arial/Helvetica)",
+                "roboto": "Roboto",
+                "open-sans": "Open Sans",
+                "inter": "Inter",
+                "lato": "Lato",
+                "montserrat": "Montserrat",
+                "source-sans-3": "Source Sans 3",
+                "nunito": "Nunito",
+                "merriweather": "Merriweather",
+                "playfair-display": "Playfair Display"
+            }
+        },
+        {
+            "id": "font_size",
+            "key": "mt-font-size",
+            "group": "typography",
+            "type": "select",
+            "mode": "simple",
+            "label": "Font size",
+            "help": "",
+            "default": "normal",
+            "attr": "data-mt-size",
+            "choices": {
+                "small": "Small",
+                "normal": "Normal",
+                "large": "Large"
+            }
+        },
+        {
+            "id": "radius",
+            "key": "mt-radius",
+            "group": "shape",
+            "type": "select",
+            "mode": "simple",
+            "label": "Corners",
+            "help": "Rounding of cards, buttons and images.",
+            "default": "soft",
+            "attr": "data-mt-radius",
+            "choices": {
+                "sharp": "Sharp",
+                "soft": "Slightly rounded",
+                "round": "Strongly rounded"
+            }
+        },
+        {
+            "id": "density",
+            "key": "mt-density",
+            "group": "shape",
+            "type": "select",
+            "mode": "simple",
+            "label": "Spacing",
+            "help": "",
+            "default": "normal",
+            "attr": "data-mt-density",
+            "choices": {
+                "compact": "Compact",
+                "normal": "Normal",
+                "airy": "Airy"
+            }
+        },
+        {
+            "id": "shadows",
+            "key": "mt-shadows",
+            "group": "shape",
+            "type": "select",
+            "mode": "expert",
+            "label": "Shadows",
+            "help": "",
+            "default": "soft",
+            "attr": "data-mt-shadow",
+            "choices": {
+                "none": "None",
+                "soft": "Soft",
+                "strong": "Strong"
+            }
+        },
+        {
+            "id": "buttons",
+            "key": "mt-buttons",
+            "group": "shape",
+            "type": "select",
+            "mode": "expert",
+            "label": "Button style",
+            "help": "",
+            "default": "solid",
+            "attr": "data-mt-buttons",
+            "choices": {
+                "solid": "Filled",
+                "outline": "Outlined",
+                "pill": "Pill"
+            }
+        },
+        {
+            "id": "logo_light",
+            "key": "mt-logo-light",
+            "group": "logo",
+            "type": "media",
+            "mode": "simple",
+            "label": "Logo (light background)",
+            "help": "SVG or PNG, at least twice the display size for a sharp result.",
+            "default": ""
+        },
+        {
+            "id": "logo_dark",
+            "key": "mt-logo-dark",
+            "group": "logo",
+            "type": "media",
+            "mode": "simple",
+            "label": "Logo (dark background)",
+            "help": "Optional. Without it the light logo is used.",
+            "default": ""
+        },
+        {
+            "id": "logo_alt",
+            "key": "mt-logo-alt",
+            "group": "logo",
+            "type": "text",
+            "mode": "simple",
+            "label": "Logo alternative text",
+            "help": "Read by screen readers. Usually the shop name.",
+            "default": ""
+        },
+        {
+            "id": "logo_height",
+            "key": "mt-logo-height",
+            "group": "logo",
+            "type": "range",
+            "mode": "simple",
+            "label": "Logo height in pixels",
+            "help": "",
+            "default": 40,
+            "unit": "px",
+            "min": 24,
+            "max": 96,
+            "step": 2,
+            "css": "--mt-logo-height"
+        },
+        {
+            "id": "favicon",
+            "key": "mt-favicon",
+            "group": "logo",
+            "type": "media",
+            "mode": "expert",
+            "label": "Favicon",
+            "help": "",
+            "default": ""
+        },
+        {
+            "id": "header_layout",
+            "key": "mt-header-layout",
+            "group": "header",
+            "type": "select",
+            "mode": "simple",
+            "label": "Header layout",
+            "help": "Structure of the header area.",
+            "default": "classic",
+            "attr": "data-mt-header",
+            "choices": {
+                "classic": "Classic (logo left)",
+                "centered": "Centered (logo in the middle)",
+                "compact": "Compact (single row)"
+            }
+        },
+        {
+            "id": "header_sticky",
+            "key": "mt-header-sticky",
+            "group": "header",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Keep header fixed when scrolling",
+            "help": "",
+            "default": true,
+            "attr": "data-mt-sticky"
+        },
+        {
+            "id": "header_search",
+            "key": "mt-header-search",
+            "group": "header",
+            "type": "select",
+            "mode": "simple",
+            "label": "Search",
+            "help": "",
+            "default": "field",
+            "attr": "data-mt-search",
+            "choices": {
+                "icon": "Icon only",
+                "field": "Search field",
+                "expanded": "Large search field"
+            }
+        },
+        {
+            "id": "announcement",
+            "key": "mt-announcement",
+            "group": "header",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Show announcement bar",
+            "help": "",
+            "default": false,
+            "attr": "data-mt-announcement"
+        },
+        {
+            "id": "announcement_text",
+            "key": "mt-announcement-text",
+            "group": "header",
+            "type": "text",
+            "mode": "simple",
+            "label": "Announcement bar text",
+            "help": "Only use statements you can prove (unfair competition law).",
+            "default": ""
+        },
+        {
+            "id": "favorites",
+            "key": "mt-favorites",
+            "group": "header",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Show favorites (heart list)",
+            "help": "Visitors can mark products with a heart. The list stays in their own browser and is not sent to the shop. The header icon appears only when at least one favorite is saved.",
+            "default": true,
+            "attr": "data-mt-favorites"
+        },
+        {
+            "id": "footer_layout",
+            "key": "mt-footer-layout",
+            "group": "footer",
+            "type": "select",
+            "mode": "simple",
+            "label": "Footer layout",
+            "help": "",
+            "default": "columns",
+            "attr": "data-mt-footer",
+            "choices": {
+                "columns": "Multiple columns",
+                "centered": "Centered",
+                "minimal": "Minimal"
+            }
+        },
+        {
+            "id": "footer_payment",
+            "key": "mt-footer-payment",
+            "group": "footer",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Show payment methods in the footer",
+            "help": "",
+            "default": true
+        },
+        {
+            "id": "footer_trust",
+            "key": "mt-footer-trust",
+            "group": "footer",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Show trust notes",
+            "help": "For example returns, shipping, support. Only enter statements that are true.",
+            "default": true
+        },
+        {
+            "id": "trust_1",
+            "key": "mt-trust-1",
+            "group": "footer",
+            "type": "text",
+            "mode": "simple",
+            "label": "Trust note 1",
+            "help": "Only enter what actually applies in the shop.",
+            "default": ""
+        },
+        {
+            "id": "trust_2",
+            "key": "mt-trust-2",
+            "group": "footer",
+            "type": "text",
+            "mode": "simple",
+            "label": "Trust note 2",
+            "help": "",
+            "default": ""
+        },
+        {
+            "id": "trust_3",
+            "key": "mt-trust-3",
+            "group": "footer",
+            "type": "text",
+            "mode": "simple",
+            "label": "Trust note 3",
+            "help": "",
+            "default": ""
+        },
+        {
+            "id": "hero_style",
+            "key": "mt-hero-style",
+            "group": "hero",
+            "type": "select",
+            "mode": "simple",
+            "label": "Hero area",
+            "help": "Large introduction on the home page.",
+            "default": "image",
+            "attr": "data-mt-hero",
+            "choices": {
+                "image": "Image with text",
+                "gradient": "Gradient",
+                "none": "None"
+            }
+        },
+        {
+            "id": "hero_height",
+            "key": "mt-hero-height",
+            "group": "hero",
+            "type": "select",
+            "mode": "expert",
+            "label": "Hero height",
+            "help": "",
+            "default": "medium",
+            "attr": "data-mt-hero-height",
+            "choices": {
+                "small": "Low",
+                "medium": "Medium",
+                "large": "High"
+            }
+        },
+        {
+            "id": "hero_title",
+            "key": "mt-hero-title",
+            "group": "hero",
+            "type": "text",
+            "mode": "simple",
+            "label": "Heading",
+            "help": "",
+            "default": "Willkommen in unserem Shop"
+        },
+        {
+            "id": "hero_text",
+            "key": "mt-hero-text",
+            "group": "hero",
+            "type": "text",
+            "mode": "simple",
+            "label": "Text",
+            "help": "",
+            "default": ""
+        },
+        {
+            "id": "hero_cta_label",
+            "key": "mt-hero-cta-label",
+            "group": "hero",
+            "type": "text",
+            "mode": "simple",
+            "label": "Button label",
+            "help": "",
+            "default": "Jetzt entdecken"
+        },
+        {
+            "id": "hero_cta_url",
+            "key": "mt-hero-cta-url",
+            "group": "hero",
+            "type": "text",
+            "mode": "simple",
+            "label": "Button target (address)",
+            "help": "Internal address such as /collections/new or a full address.",
+            "default": "/"
+        },
+        {
+            "id": "hero_image",
+            "key": "mt-hero-image",
+            "group": "hero",
+            "type": "media",
+            "mode": "simple",
+            "label": "Hero image",
+            "help": "Use your own image, no stock photos without a license.",
+            "default": ""
+        },
+        {
+            "id": "listing_layout",
+            "key": "mt-listing-layout",
+            "group": "listing",
+            "type": "select",
+            "mode": "simple",
+            "label": "Product list",
+            "help": "Display in collections and search.",
+            "default": "grid",
+            "attr": "data-mt-listing",
+            "choices": {
+                "grid": "Grid",
+                "large": "Large images",
+                "list": "List"
+            }
+        },
+        {
+            "id": "listing_columns",
+            "key": "mt-listing-columns",
+            "group": "listing",
+            "type": "range",
+            "mode": "simple",
+            "label": "Columns on desktop",
+            "help": "",
+            "default": 4,
+            "min": 2,
+            "max": 5,
+            "step": 1,
+            "css": "--mt-listing-cols"
+        },
+        {
+            "id": "listing_ratio",
+            "key": "mt-listing-ratio",
+            "group": "listing",
+            "type": "select",
+            "mode": "expert",
+            "label": "Image ratio",
+            "help": "",
+            "default": "square",
+            "attr": "data-mt-ratio",
+            "choices": {
+                "square": "Square (1:1)",
+                "portrait": "Portrait (4:5)",
+                "landscape": "Landscape (4:3)"
+            }
+        },
+        {
+            "id": "listing_hover",
+            "key": "mt-listing-hover",
+            "group": "listing",
+            "type": "select",
+            "mode": "expert",
+            "label": "Hover effect",
+            "help": "",
+            "default": "zoom",
+            "attr": "data-mt-hover",
+            "choices": {
+                "none": "None",
+                "zoom": "Zoom",
+                "second": "Second image"
+            }
+        },
+        {
+            "id": "listing_badges",
+            "key": "mt-listing-badges",
+            "group": "listing",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Show sale and new badges",
+            "help": "",
+            "default": true,
+            "attr": "data-mt-badges"
+        },
+        {
+            "id": "listing_filter",
+            "key": "mt-listing-filter",
+            "group": "listing",
+            "type": "select",
+            "mode": "simple",
+            "label": "Filter",
+            "help": "",
+            "default": "sidebar",
+            "attr": "data-mt-filter",
+            "choices": {
+                "sidebar": "Sidebar",
+                "top": "Top"
+            }
+        },
+        {
+            "id": "detail_layout",
+            "key": "mt-detail-layout",
+            "group": "detail",
+            "type": "select",
+            "mode": "simple",
+            "label": "Product page",
+            "help": "",
+            "default": "classic",
+            "attr": "data-mt-detail",
+            "choices": {
+                "classic": "Classic (gallery left)",
+                "stacked": "Stacked",
+                "sticky": "Buy box stays visible"
+            }
+        },
+        {
+            "id": "detail_gallery",
+            "key": "mt-detail-gallery",
+            "group": "detail",
+            "type": "select",
+            "mode": "expert",
+            "label": "Gallery",
+            "help": "",
+            "default": "thumbs-bottom",
+            "attr": "data-mt-gallery",
+            "choices": {
+                "thumbs-bottom": "Thumbnails below",
+                "thumbs-left": "Thumbnails left",
+                "dots": "Dots"
+            }
+        },
+        {
+            "id": "detail_sticky_cart",
+            "key": "mt-detail-sticky-cart",
+            "group": "detail",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Fixed add-to-cart button on mobile",
+            "help": "",
+            "default": true,
+            "attr": "data-mt-sticky-cart"
+        },
+        {
+            "id": "detail_tabs",
+            "key": "mt-detail-tabs",
+            "group": "detail",
+            "type": "select",
+            "mode": "expert",
+            "label": "Description",
+            "help": "",
+            "default": "tabs",
+            "attr": "data-mt-tabs",
+            "choices": {
+                "tabs": "Tabs",
+                "accordion": "Accordion"
+            }
+        },
+        {
+            "id": "legal_price_note",
+            "key": "mt-legal-price-note",
+            "group": "legal",
+            "type": "text",
+            "mode": "simple",
+            "label": "Note next to the price",
+            "help": "Mandatory information (price indication rules). The link to the shipping costs always stays.",
+            "default": "inkl. MwSt., zzgl. Versand",
+            "locked_by_law": true
+        },
+        {
+            "id": "legal_unit_price",
+            "key": "mt-legal-unit-price",
+            "group": "legal",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Show unit price",
+            "help": "Mandatory where price indication rules require a unit price.",
+            "default": true,
+            "locked_by_law": true
+        },
+        {
+            "id": "a11y_focus",
+            "key": "mt-a11y-focus",
+            "group": "a11y",
+            "type": "select",
+            "mode": "simple",
+            "label": "Focus outline",
+            "help": "Visible outline for keyboard use.",
+            "default": "standard",
+            "attr": "data-mt-focus",
+            "choices": {
+                "standard": "Standard",
+                "strong": "Strong"
+            }
+        },
+        {
+            "id": "a11y_text_widget",
+            "key": "mt-a11y-text-widget",
+            "group": "a11y",
+            "type": "toggle",
+            "mode": "expert",
+            "label": "Show text size buttons",
+            "help": "",
+            "default": false
+        },
+        {
+            "id": "perf_lazy",
+            "key": "mt-perf-lazy",
+            "group": "performance",
+            "type": "toggle",
+            "mode": "expert",
+            "label": "Load images only when scrolled into view",
+            "help": "",
+            "default": true
+        },
+        {
+            "id": "perf_preload_fonts",
+            "key": "mt-perf-preload-fonts",
+            "group": "performance",
+            "type": "toggle",
+            "mode": "expert",
+            "label": "Preload main font",
+            "help": "",
+            "default": true
+        },
+        {
+            "id": "color_bg_light",
+            "key": "mt-color-bg-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Seitenhintergrund (Hell)",
+            "help": "Hintergrund der ganzen Seite. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "bg",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_bg_dark",
+            "key": "mt-color-bg-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Seitenhintergrund (Dunkel)",
+            "help": "Hintergrund der ganzen Seite. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "bg",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_surface_light",
+            "key": "mt-color-surface-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Karten und Flächen (Hell)",
+            "help": "Karten, Boxen und Felder. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "surface",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_surface_dark",
+            "key": "mt-color-surface-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Karten und Flächen (Dunkel)",
+            "help": "Karten, Boxen und Felder. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "surface",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_surface2_light",
+            "key": "mt-color-surface2-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Fläche 2 (Chips, Ränder von Flächen) (Hell)",
+            "help": "Zweite Fläche, zum Beispiel für Chips und Tabellenköpfe. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "surface-2",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_surface2_dark",
+            "key": "mt-color-surface2-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Fläche 2 (Chips, Ränder von Flächen) (Dunkel)",
+            "help": "Zweite Fläche, zum Beispiel für Chips und Tabellenköpfe. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "surface-2",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_text_light",
+            "key": "mt-color-text-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Text (Hell)",
+            "help": "Haupttext. Muss auf Hintergrund und Flächen gut lesbar sein. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "text",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_text_dark",
+            "key": "mt-color-text-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Text (Dunkel)",
+            "help": "Haupttext. Muss auf Hintergrund und Flächen gut lesbar sein. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "text",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_text_muted_light",
+            "key": "mt-color-text-muted-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Text gedämpft (Hell)",
+            "help": "Hilfetexte und Nebeninfos. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "text-muted",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_text_muted_dark",
+            "key": "mt-color-text-muted-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Text gedämpft (Dunkel)",
+            "help": "Hilfetexte und Nebeninfos. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "text-muted",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_border_light",
+            "key": "mt-color-border-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Rahmen (Hell)",
+            "help": "Rahmen von Feldern und Knöpfen. Für gute Erkennbarkeit mindestens 3:1 Kontrast zur Fläche. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "border-strong",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_border_dark",
+            "key": "mt-color-border-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Rahmen (Dunkel)",
+            "help": "Rahmen von Feldern und Knöpfen. Für gute Erkennbarkeit mindestens 3:1 Kontrast zur Fläche. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "border-strong",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_link_light",
+            "key": "mt-color-link-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Link (Hell)",
+            "help": "Farbe der Links im Text. Leer = abgeleitet von der Akzentfarbe. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "link",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_link_dark",
+            "key": "mt-color-link-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Link (Dunkel)",
+            "help": "Farbe der Links im Text. Leer = abgeleitet von der Akzentfarbe. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "link",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_on_accent_light",
+            "key": "mt-color-on-accent-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Button-Text auf Akzent (Hell)",
+            "help": "Schrift auf Akzent-Buttons. Leer = automatisch (schwarz oder weiß nach Kontrast). Leer = Standard.",
+            "default": "",
+            "css": "--mt-ov-on-accent-light",
+            "color": {
+                "token": "on-accent",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_on_accent_dark",
+            "key": "mt-color-on-accent-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Button-Text auf Akzent (Dunkel)",
+            "help": "Schrift auf Akzent-Buttons. Leer = automatisch (schwarz oder weiß nach Kontrast). Leer = Standard.",
+            "default": "",
+            "css": "--mt-ov-on-accent-dark",
+            "color": {
+                "token": "on-accent",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_header_bg_light",
+            "key": "mt-color-header-bg-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Header-Hintergrund (Hell)",
+            "help": "Kopfbereich. Leer = Fläche. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "header-bg",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_header_bg_dark",
+            "key": "mt-color-header-bg-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Header-Hintergrund (Dunkel)",
+            "help": "Kopfbereich. Leer = Fläche. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "header-bg",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_footer_bg_light",
+            "key": "mt-color-footer-bg-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Footer-Hintergrund (Hell)",
+            "help": "Fußbereich. Leer = Fläche 2. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "footer-bg",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_footer_bg_dark",
+            "key": "mt-color-footer-bg-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Footer-Hintergrund (Dunkel)",
+            "help": "Fußbereich. Leer = Fläche 2. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "footer-bg",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_announce_bg_light",
+            "key": "mt-color-announce-bg-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Ankündigungsleiste (Hell)",
+            "help": "Hintergrund der Ankündigungsleiste. Leer = Fläche 2. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "announce-bg",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_announce_bg_dark",
+            "key": "mt-color-announce-bg-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Ankündigungsleiste (Dunkel)",
+            "help": "Hintergrund der Ankündigungsleiste. Leer = Fläche 2. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "announce-bg",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_danger_light",
+            "key": "mt-color-danger-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Sale-/Fehler-Farbe (Hell)",
+            "help": "Fehlermeldungen und Sale-Hinweise. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "danger",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_danger_dark",
+            "key": "mt-color-danger-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Sale-/Fehler-Farbe (Dunkel)",
+            "help": "Fehlermeldungen und Sale-Hinweise. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "danger",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_success_light",
+            "key": "mt-color-success-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Erfolg (Hell)",
+            "help": "Erfolgsmeldungen. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "success",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_success_dark",
+            "key": "mt-color-success-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Erfolg (Dunkel)",
+            "help": "Erfolgsmeldungen. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "success",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_warning_light",
+            "key": "mt-color-warning-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Warnung (Hell)",
+            "help": "Warnhinweise. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "warning",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_warning_dark",
+            "key": "mt-color-warning-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Warnung (Dunkel)",
+            "help": "Warnhinweise. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "warning",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_info_light",
+            "key": "mt-color-info-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Info (Hell)",
+            "help": "Info-Hinweise. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "info",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_info_dark",
+            "key": "mt-color-info-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Info (Dunkel)",
+            "help": "Info-Hinweise. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "info",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "color_focus_light",
+            "key": "mt-color-focus-light",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Fokusring (Hell)",
+            "help": "Rahmen um das Element, das per Tastatur ausgewählt ist. Mindestens 3:1 Kontrast. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "focus",
+                "mode": "light"
+            }
+        },
+        {
+            "id": "color_focus_dark",
+            "key": "mt-color-focus-dark",
+            "group": "colors_custom",
+            "type": "color",
+            "mode": "expert",
+            "label": "Fokusring (Dunkel)",
+            "help": "Rahmen um das Element, das per Tastatur ausgewählt ist. Mindestens 3:1 Kontrast. Leer = Standard.",
+            "default": "",
+            "color": {
+                "token": "focus",
+                "mode": "dark"
+            }
+        },
+        {
+            "id": "legal_warranty",
+            "key": "mt-legal-warranty",
+            "group": "legal",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Note on the statutory warranty",
+            "help": "On the product page and in the cart.",
+            "default": true
+        },
+        {
+            "id": "legal_warranty_text",
+            "key": "mt-legal-warranty-text",
+            "group": "legal",
+            "type": "text",
+            "mode": "simple",
+            "label": "Warranty text",
+            "help": "Suggested text, have it checked legally.",
+            "default": "Für alle Artikel gilt die gesetzliche Gewährleistung (Mängelhaftung) von mindestens zwei Jahren.",
+            "input": "textarea"
+        },
+        {
+            "id": "legal_gpsr",
+            "key": "mt-legal-gpsr",
+            "group": "legal",
+            "type": "toggle",
+            "mode": "simple",
+            "label": "Product safety (GPSR) on the product page",
+            "help": "Reads the product metafields gpsr.manufacturer (manufacturer), gpsr.responsible_person (responsible person in the EU), gpsr.contact (contact) and gpsr.safety_info (safety information), each multi-line text. Without values nothing appears.",
+            "default": true
+        },
+        {
+            "id": "legal_withdrawal_page",
+            "key": "mt-legal-withdrawal-page",
+            "group": "legal",
+            "type": "text",
+            "mode": "simple",
+            "label": "Page “Withdraw from contract”",
+            "help": "Linked in the footer. The page should contain the withdrawal form or function. The order button is labeled by Shopify checkout, not by the theme.",
+            "default": "",
+            "input": "url"
+        },
+        {
+            "id": "soldout_display",
+            "key": "mt-soldout-display",
+            "group": "listing",
+            "type": "select",
+            "mode": "simple",
+            "label": "Sold-out products in lists",
+            "help": "On the product page a sold-out product always stays reachable and marked, the buy button is disabled. Hiding can reduce the number per page.",
+            "default": "mark",
+            "choices": {
+                "mark": "Show and mark",
+                "off": "Nicht kennzeichnen"
+            }
+        },
+        {
+            "id": "a11y_statement_page",
+            "key": "mt-a11y-statement-page",
+            "group": "a11y",
+            "type": "text",
+            "mode": "simple",
+            "label": "Accessibility statement page",
+            "help": "Linked in the footer.",
+            "default": "",
+            "input": "url"
+        }
+    ],
+    "colorTokens": {
+        "light": {
+            "bg": "#f5f6f7",
+            "surface": "#ffffff",
+            "surface-2": "#eceef0",
+            "border": "#d9dce0",
+            "border-strong": "#7b828b",
+            "text": "#16181c",
+            "text-muted": "#464c54",
+            "focus": "#16181c",
+            "success": "#1b6b3a",
+            "warning": "#7a4800",
+            "danger": "#b42318",
+            "info": "#1d4f91"
+        },
+        "dark": {
+            "bg": "#1c1d20",
+            "surface": "#242529",
+            "surface-2": "#2d2f34",
+            "border": "#3b3d43",
+            "border-strong": "#80858d",
+            "text": "#ececee",
+            "text-muted": "#b4b8be",
+            "focus": "#ffffff",
+            "success": "#6fd391",
+            "warning": "#f0b955",
+            "danger": "#ff8f86",
+            "info": "#8db8f5"
+        }
+    },
+    "accents": {
+        "red": {
+            "light": {
+                "accent": "#c8161a",
+                "on-accent": "#ffffff",
+                "accent-text": "#bd1317"
+            },
+            "dark": {
+                "accent": "#dc2f33",
+                "on-accent": "#ffffff",
+                "accent-text": "#ff7f82"
+            }
+        },
+        "teal": {
+            "light": {
+                "accent": "#0b6e66",
+                "on-accent": "#ffffff",
+                "accent-text": "#0b6e66"
+            },
+            "dark": {
+                "accent": "#3cc5b5",
+                "on-accent": "#04201d",
+                "accent-text": "#52d0c1"
+            }
+        },
+        "indigo": {
+            "light": {
+                "accent": "#3b47c4",
+                "on-accent": "#ffffff",
+                "accent-text": "#3b47c4"
+            },
+            "dark": {
+                "accent": "#8b95f5",
+                "on-accent": "#0c1033",
+                "accent-text": "#9aa3f7"
+            }
+        },
+        "amber": {
+            "light": {
+                "accent": "#8f5200",
+                "on-accent": "#ffffff",
+                "accent-text": "#8f5200"
+            },
+            "dark": {
+                "accent": "#f2b24a",
+                "on-accent": "#241600",
+                "accent-text": "#f4bc5e"
+            }
+        },
+        "rose": {
+            "light": {
+                "accent": "#b02348",
+                "on-accent": "#ffffff",
+                "accent-text": "#b02348"
+            },
+            "dark": {
+                "accent": "#ff7d98",
+                "on-accent": "#2e0610",
+                "accent-text": "#ff8fa7"
+            }
+        },
+        "graphite": {
+            "light": {
+                "accent": "#2e3943",
+                "on-accent": "#ffffff",
+                "accent-text": "#2e3943"
+            },
+            "dark": {
+                "accent": "#c5d0da",
+                "on-accent": "#0f1519",
+                "accent-text": "#d0dae3"
+            }
+        }
+    },
+    "colorFallback": {
+        "link": "accent-text",
+        "header-bg": "surface",
+        "footer-bg": "surface-2",
+        "announce-bg": "surface-2"
+    },
+    "colorRules": [
+        {
+            "fg": "text",
+            "bg": "bg",
+            "min": 4.5,
+            "label": "Text auf Seitenhintergrund"
+        },
+        {
+            "fg": "text",
+            "bg": "surface",
+            "min": 4.5,
+            "label": "Text auf Fläche"
+        },
+        {
+            "fg": "text",
+            "bg": "surface-2",
+            "min": 4.5,
+            "label": "Text auf Fläche 2"
+        },
+        {
+            "fg": "text",
+            "bg": "header-bg",
+            "min": 4.5,
+            "label": "Text auf Header"
+        },
+        {
+            "fg": "text",
+            "bg": "footer-bg",
+            "min": 4.5,
+            "label": "Text auf Footer"
+        },
+        {
+            "fg": "text",
+            "bg": "announce-bg",
+            "min": 4.5,
+            "label": "Text auf Ankündigungsleiste"
+        },
+        {
+            "fg": "text-muted",
+            "bg": "bg",
+            "min": 4.5,
+            "label": "Gedämpfter Text auf Seitenhintergrund"
+        },
+        {
+            "fg": "link",
+            "bg": "bg",
+            "min": 4.5,
+            "label": "Link auf Seitenhintergrund"
+        },
+        {
+            "fg": "border-strong",
+            "bg": "bg",
+            "min": 3,
+            "label": "Rahmen auf Seitenhintergrund"
+        },
+        {
+            "fg": "focus",
+            "bg": "bg",
+            "min": 3,
+            "label": "Fokusring auf Seitenhintergrund"
+        },
+        {
+            "fg": "text-muted",
+            "bg": "surface",
+            "min": 4.5,
+            "label": "Gedämpfter Text auf Fläche"
+        },
+        {
+            "fg": "link",
+            "bg": "surface",
+            "min": 4.5,
+            "label": "Link auf Fläche"
+        },
+        {
+            "fg": "border-strong",
+            "bg": "surface",
+            "min": 3,
+            "label": "Rahmen auf Fläche"
+        },
+        {
+            "fg": "focus",
+            "bg": "surface",
+            "min": 3,
+            "label": "Fokusring auf Fläche"
+        },
+        {
+            "fg": "danger",
+            "bg": "surface",
+            "min": 4.5,
+            "label": "Sale-/Fehler-Farbe auf Fläche"
+        },
+        {
+            "fg": "success",
+            "bg": "surface",
+            "min": 4.5,
+            "label": "Erfolg auf Fläche"
+        },
+        {
+            "fg": "warning",
+            "bg": "surface",
+            "min": 4.5,
+            "label": "Warnung auf Fläche"
+        },
+        {
+            "fg": "info",
+            "bg": "surface",
+            "min": 4.5,
+            "label": "Info auf Fläche"
+        },
+        {
+            "fg": "on-accent",
+            "bg": "accent",
+            "min": 4.5,
+            "label": "Button-Text auf Akzent"
+        }
+    ],
+    "presets": [
+        {
+            "id": "standard",
+            "label": "Standard (Anthrazit/Hell, Rot)",
+            "help": "Die Grundeinstellung des Themes. Setzt Farben, Ecken, Abstände, Schatten und Flächenstil zurück.",
+            "values": {
+                "accent": "red",
+                "radius": "soft",
+                "density": "normal",
+                "shadows": "soft",
+                "buttons": "solid",
+                "accent_custom": "",
+                "color_bg_light": "",
+                "color_bg_dark": "",
+                "color_surface_light": "",
+                "color_surface_dark": "",
+                "color_surface2_light": "",
+                "color_surface2_dark": "",
+                "color_text_light": "",
+                "color_text_dark": "",
+                "color_text_muted_light": "",
+                "color_text_muted_dark": "",
+                "color_border_light": "",
+                "color_border_dark": "",
+                "color_link_light": "",
+                "color_link_dark": "",
+                "color_on_accent_light": "",
+                "color_on_accent_dark": "",
+                "color_header_bg_light": "",
+                "color_header_bg_dark": "",
+                "color_footer_bg_light": "",
+                "color_footer_bg_dark": "",
+                "color_announce_bg_light": "",
+                "color_announce_bg_dark": "",
+                "color_danger_light": "",
+                "color_danger_dark": "",
+                "color_success_light": "",
+                "color_success_dark": "",
+                "color_warning_light": "",
+                "color_warning_dark": "",
+                "color_info_light": "",
+                "color_info_dark": "",
+                "color_focus_light": "",
+                "color_focus_dark": ""
+            },
+            "unavailable": [
+                "Kartenstil",
+                "Flächenstil",
+                "Inhaltsbreite"
+            ]
+        },
+        {
+            "id": "glass",
+            "label": "Glas",
+            "help": "Halbtransparente Flächen mit feinem Rand und runden Ecken, dezente Schatten. Bleibt lesbar: Text hat auf Hintergrund und Fläche mindestens 4,5 zu 1 Kontrast.",
+            "values": {
+                "radius": "round",
+                "shadows": "soft",
+                "density": "normal"
+            },
+            "unavailable": [
+                "Flächenstil",
+                "Kartenstil"
+            ]
+        },
+        {
+            "id": "compact",
+            "label": "Kompakt",
+            "help": "Weniger Abstand, eckigere Ecken und breiterer Inhalt: mehr Produkte auf einen Blick.",
+            "values": {
+                "density": "compact",
+                "radius": "sharp"
+            },
+            "unavailable": [
+                "Inhaltsbreite",
+                "Kartenstil",
+                "Flächenstil"
+            ]
+        }
+    ]
+}

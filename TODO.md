@@ -4,7 +4,7 @@
 
 ## Priorität 1
 
-- [ ] **Farben über Variablen** [Free] – in Arbeit
+- [ ] **Farben über Variablen** [Free] – geplant
 - [ ] **Hell-, Dunkel- und Systemmodus** [Free] – in Arbeit
 - [ ] **Einfach- und Experten-Konfigurator** [Free] – in Arbeit
 - [ ] **Lokale Schriften** [Free] – in Arbeit
@@ -29,13 +29,9 @@
 
 ## Priorität 2
 
-- [ ] **Designvariante „Basis“** [Free] – geplant
+- [ ] **Design-Presets (Stil-Sets)** [Free] – geplant
 - [ ] **Ausverkauft-Konfiguration** [Free] – in Arbeit
 - [ ] **EU- und DE-konforme Statistik (Datenschutz)** [Free] – geplant
 - [ ] **Rechtstext-Platzhalter und Hinweise** [Free] – geplant
-- [ ] **Colorpicker (Farbwähler)** [Free] – in Arbeit
-
-## Priorität 3
-
-- [ ] **Gespeicherte Farbpalette** [Free] – in Arbeit
+- [ ] **Layout-Varianten per Option** [Free] – geplant
 

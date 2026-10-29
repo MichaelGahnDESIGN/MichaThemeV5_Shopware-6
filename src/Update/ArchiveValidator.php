@@ -8,11 +8,14 @@ final class ArchiveValidator
     public const MAX_ENTRIES = 500;
     public const MAX_UNCOMPRESSED_BYTES = 40_000_000;
     public const MAX_FILE_BYTES = 10_000_000;
+    private const VITE_DIR = 'MichaThemeV5/src/Resources/public/administration/.vite/';
 
     public static function allowedPath(string $path): bool
     {
         if (str_contains($path, '\\') || str_contains($path, "\0") || preg_match('/[\x00-\x1f\x7f]/', $path)
             || str_contains($path, ':') || str_contains($path, '//')) { return false; }
+        // Einzige Ausnahme für Punkt-Ordner: Shopware 6.7 sucht die Admin-Skripte des Plugins in .vite/entrypoints.json
+        if (in_array($path, [self::VITE_DIR, self::VITE_DIR . 'entrypoints.json'], true)) { return true; }
         $segments = explode('/', rtrim($path, '/'));
         foreach ($segments as $segment) { if ($segment === '.' || $segment === '..' || $segment === '' || str_starts_with($segment, '.')) { return false; } }
         if (in_array($path, ['MichaThemeV5/composer.json', 'MichaThemeV5/LICENSE', 'MichaThemeV5/LICENSE.md', 'MichaThemeV5/README.md'], true)) { return true; }

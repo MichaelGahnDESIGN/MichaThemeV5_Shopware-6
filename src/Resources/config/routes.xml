@@ -3,4 +3,6 @@
   <import resource="../../Controller/*Controller.php" type="attribute"/>
   <!-- Glocke: Storefront-Routen und Admin-Route -->
   <import resource="../../NotificationCenter/Controller/*Controller.php" type="attribute"/>
+  <!-- Admin-Modul: Einstellungen, Lizenz, Empfehlungen, Info (Admin-API, ACL) -->
+  <import resource="../../Administration/Controller/*Controller.php" type="attribute"/>
 </routes>

@@ -46,7 +46,7 @@ final class LicenseClient
         $this->now = $now ?? 'time';
     }
 
-    /** @return array{valid:bool,tier:string,modules:list<string>,source:string,reason:string} */
+    /** @return array{valid:bool,tier:string,modules:list<string>,source:string,reason:string,period_end?:?string,valid_until?:int} */
     public function state(string $token): array
     {
         $token = trim($token);
@@ -86,6 +86,9 @@ final class LicenseClient
                     'modules' => $known ? array_values(array_filter((array) ($lic['modules'] ?? []), 'is_string')) : [],
                     'source' => 'live',
                     'reason' => $known ? 'ok' : 'unknown_tier',
+                    // nur zur Anzeige (Plugin): Ende der Lizenz und Ende des Zwischenspeichers
+                    'period_end' => is_string($lic['period_end'] ?? null) ? $lic['period_end'] : null,
+                    'valid_until' => $until,
                 ];
                 ($this->cacheSet)($key, ['until' => $until, 'state' => $state], max(60, $until - $now) + $this->graceSeconds);
 
@@ -109,6 +112,25 @@ final class LicenseClient
         }
 
         return $down;
+    }
+
+    /** "Jetzt prüfen": Zwischenspeicher dieses Codes verwerfen, der nächste state() fragt den Server. */
+    public function forget(string $token): void
+    {
+        $token = trim($token);
+        if ($token === '') {
+            return;
+        }
+        $renewed = ($this->cacheGet)('mt_tok_' . hash('sha256', $token . '|' . $this->domain));
+        if (is_array($renewed) && is_string($renewed['token'] ?? null) && $renewed['token'] !== '') {
+            $token = $renewed['token'];
+        }
+        $key = 'mt_lic_' . hash('sha256', $token . '|' . $this->domain);
+        $cached = ($this->cacheGet)($key);
+        // Eintrag bleibt für die Gnadenfrist erhalten (falls der Server gerade fehlt), gilt aber als abgelaufen
+        if (is_array($cached) && isset($cached['state'])) {
+            ($this->cacheSet)($key, ['until' => 0] + $cached, $this->graceSeconds);
+        }
     }
 
     /** Ist ein Modul freigeschaltet? Pro und Agentur: alle Module, Plus: die gebuchten. */

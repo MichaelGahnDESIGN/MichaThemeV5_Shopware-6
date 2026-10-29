@@ -32,6 +32,8 @@
 {% set mtVars = {
     '--mt-accent-custom': (theme_config('mt-accent-custom') ? (theme_config('mt-accent-custom')) : ''),
     '--mt-logo-height': (theme_config('mt-logo-height') ? (theme_config('mt-logo-height') ~ 'px') : ''),
-    '--mt-listing-cols': (theme_config('mt-listing-columns') ? (theme_config('mt-listing-columns')) : '')
+    '--mt-listing-cols': (theme_config('mt-listing-columns') ? (theme_config('mt-listing-columns')) : ''),
+    '--mt-ov-on-accent-light': (theme_config('mt-color-on-accent-light') ? (theme_config('mt-color-on-accent-light')) : ''),
+    '--mt-ov-on-accent-dark': (theme_config('mt-color-on-accent-dark') ? (theme_config('mt-color-on-accent-dark')) : '')
 } %}
 <meta name="mt-config" content="{{ { attrs: mtAttrs, vars: mtVars }|json_encode|escape('html_attr') }}">
