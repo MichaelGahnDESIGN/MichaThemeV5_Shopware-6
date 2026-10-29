@@ -1,8 +1,10 @@
-# Version 0.5.1 (Pre-Alpha)
+# Version 0.5.2 (Pre-Alpha)
 
 Das Theme ist noch in Entwicklung (Pre-Alpha). Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop.
 
 ## Neu in dieser Version
+
+- Korrigiert: Das Admin-Modul aus 0.5.1 fand sein Schema nicht. Mit 0.5.2 laden Einstellungen, Lizenz und Info.
 
 - Neues Admin-Modul: Einstellungen, Lizenzen, Plugin-Empfehlungen und Info an einem Ort (Einstellungen, Erweiterungen, MichaThemeV5).
 - 16 eigene Farben für Hell und Dunkel mit Farbwähler, Palette und Warnung bei schlecht lesbarem Text.

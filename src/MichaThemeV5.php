@@ -18,7 +18,7 @@ class MichaThemeV5 extends Plugin implements ThemeInterface
     public function build(ContainerBuilder $container): void
     {
         parent::build($container);
-        // Pfad fürs Admin-Modul (Schema, Changelog)
-        $container->setParameter('michatheme_v5.plugin_dir', $this->getPath());
+        // Pfad fürs Admin-Modul (Schema, Changelog). getPath() zeigt auf src/, gebraucht wird der Plugin-Ordner darüber
+        $container->setParameter('michatheme_v5.plugin_dir', \dirname(rtrim($this->getPath(), '/')));
     }
 }
