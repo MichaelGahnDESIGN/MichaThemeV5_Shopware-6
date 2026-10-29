@@ -4,7 +4,6 @@
 
 ## Priorität 1
 
-- [ ] **Farben über Variablen** [Free] – geplant
 - [ ] **Hell-, Dunkel- und Systemmodus** [Free] – in Arbeit
 - [ ] **Einfach- und Experten-Konfigurator** [Free] – in Arbeit
 - [ ] **Lokale Schriften** [Free] – in Arbeit
@@ -32,5 +31,4 @@
 - [ ] **Ausverkauft-Konfiguration** [Free] – in Arbeit
 - [ ] **EU- und DE-konforme Statistik (Datenschutz)** [Free] – geplant
 - [ ] **Rechtstext-Platzhalter und Hinweise** [Free] – geplant
-- [ ] **Layout-Varianten per Option** [Free] – geplant
 
