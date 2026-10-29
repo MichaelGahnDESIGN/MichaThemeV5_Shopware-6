@@ -90,3 +90,18 @@ test('Kern: Logik und Farbwähler sind die Generator-Dateien (nicht von Hand ge�
     assert.ok(logic.includes('colorWarnings') && logic.includes('fg: r.fg'));
     assert.ok(read(root + 'src/Resources/public/administration/mt/mt-colorpicker.js').includes('MTColorPicker'));
 });
+
+test('Adapter-CSS 0.5.3: Karten, Glas, Breite nur über --mt-Variablen, Glas mit Rückfall', () => {
+    const css = read(root + 'src/Resources/public/mt/mt-shopware.css');
+    const tail = css.slice(css.indexOf('Inhaltsbreite (Option container_width)'));
+    for (const v of ['narrow', 'wide']) assert.ok(tail.includes('data-mt-container="' + v + '"'));
+    for (const v of ['flat', 'elevated']) assert.ok(tail.includes('data-mt-cards="' + v + '"'));
+    assert.ok(tail.includes('data-mt-surface="glass"'));
+    assert.ok(/@supports \(\(backdrop-filter/.test(tail) && tail.includes('prefers-reduced-transparency: no-preference'), 'Rückfall ohne Transparenz');
+    assert.ok(tail.includes('var(--mt-glass-bg)') && tail.includes('var(--mt-glass-blur)'));
+    // Karten stehen als class="card product-box" im Shop, beide Schreibweisen abdecken
+    assert.ok(tail.includes('.product-box.card'));
+    assert.ok(!/#[0-9a-fA-F]{3,8}\b|rgba?\(|!important|transition|animation/.test(tail.replace(/\/\*.*?\*\//gs, '')), 'keine harten Farben, kein !important, keine Animation im Block');
+    const twig = read(root + 'src/Resources/views/storefront/layout/mt-config.html.twig');
+    for (const a of ['data-mt-cards', 'data-mt-surface', 'data-mt-container']) assert.ok(twig.includes("'" + a + "':"), a);
+});

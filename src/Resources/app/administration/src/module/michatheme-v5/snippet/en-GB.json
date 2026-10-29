@@ -45,11 +45,11 @@
       },
       "glass": {
         "label": "Glass",
-        "help": "Round corners and soft shadows. The glass effect for surfaces comes with a later update of the Shopware theme."
+        "help": "Glass surfaces with a fine border, round corners and soft shadows. Old browsers and “reduce transparency” keep plain surfaces."
       },
       "compact": {
         "label": "Compact",
-        "help": "Less spacing and sharper corners: more products at a glance. The wider content width comes with a later update."
+        "help": "Less spacing, sharper corners and wider content: more products at a glance."
       }
     },
     "filter": {

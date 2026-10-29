@@ -17,8 +17,8 @@
     "src/Resources/app/administration/src/module/michatheme-v5/page/mt-sw-license.js": "fbd036aa8eda24c6d89bde9d6b2ee00d02b9aa1531cfb1c9c3fc108eef3e44dd",
     "src/Resources/app/administration/src/module/michatheme-v5/page/mt-sw-settings.js": "6761ade9da1b1a92c5e8ba10454beb27d815fd4546aaaee16b479a49ec340d88",
     "src/Resources/app/administration/src/module/michatheme-v5/register.js": "4d30178f714dfadb25edb705fa8eee64cc12732213bd972837622ccad544b810",
-    "src/Resources/app/administration/src/module/michatheme-v5/snippet/de-DE.json": "87293f1286ffbda97891a7abca1fb817fa8ee3d5a5269b73650494b415374981",
-    "src/Resources/app/administration/src/module/michatheme-v5/snippet/en-GB.json": "39736d1f1240e470e9bba961fb904ed4da6bd4deeff3c7a02edfd2e7c79c9d38",
+    "src/Resources/app/administration/src/module/michatheme-v5/snippet/de-DE.json": "88cb0cef4ee226ed19c4523cdec12a46727b3ca43c38fc8645d6ec8e9881e05d",
+    "src/Resources/app/administration/src/module/michatheme-v5/snippet/en-GB.json": "fcbadda1d0eb0ca7ebaafae54bc780527b97f5340833b5f892a947fad0a0a2f1",
     "src/Resources/app/administration/src/module/michatheme-v5/style.js": "46cc59ed5bc1c1f855b3dd4746d4bcdabaad4eef87c2c19131dd6b5c37d5944d",
     "src/Resources/app/storefront/dist/storefront/js/micha-theme-v5/micha-theme-v5.js": "ce67deec42472972bdb569d576b8317b1b78fb2a1d0c4e5d43d59d82887facb6",
     "src/Resources/app/storefront/src/assets/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -30,7 +30,7 @@
   },
   "outputs": {
     "administration/.vite/entrypoints.json": "0f9c468a8cc9e00b0017aefc268094e9b204dc3c8e1c4e5608b76c9dbfd1fb31",
-    "administration/js/micha-theme-v5.js": "e711c4c0ed3da8c3862e419d380bb12693cb53b0618378e434caa02978f1b2c8",
+    "administration/js/micha-theme-v5.js": "d20991928d2ecac4386537666422a0646bb993605cca35ab9d3b491a4e2bd89d",
     "administration/mt/fonts/LICENSE-inter.txt": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345",
     "administration/mt/fonts/inter-latin-400-normal.woff2": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
     "administration/mt/fonts/inter-latin-700-normal.woff2": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
@@ -92,10 +92,10 @@
     "mt/mt-init.js": "907566b459a236a91bd7400772457e09fe5657a15a08a44317d0392c6ceaba24",
     "mt/mt-legal.css": "b44ea31a6dff57279bfa4414561c9da591ae68074733c53bbd306182fd1598c1",
     "mt/mt-legal.js": "d57be0f3d412a02e087e6e6ea8f4a5e4116c17e744d2f618a24ab43303a7ed2b",
-    "mt/mt-shopware.css": "dae27b927feb2d8ff62b96300e15063e618fe1efe9b12f48df054a25650d71a9",
+    "mt/mt-shopware.css": "48a048e56a7aa6c599037c1e5df8fc6335844f014d0f570ce647eebc592c25d3",
     "mt/mt-theme.js": "b266a58998d7d6a3c1379f5665c1a5f897a6f54084519143e646301d4aa5fd8e",
     "mt/mt-tokens.css": "7b41e9c438b035c776c081719c1c9c8106ec192419bbeb0487c23cfb3acae19c",
-    "mt/options.json": "0dd5cbcf0adf86d706d28264ad1a38a89f0720e0618fbc16b43b06fad4cf22ef",
+    "mt/options.json": "7c560ad8e9703e551510778341d88396fc36ccab61edae5ef94da90408ae8854",
     "preview.png": "b88ae63bab32ac322357dbebc53ef418aa60c4e267795d4187357e7f349134d7"
   }
 }

@@ -127,15 +127,18 @@ $ts->config['mt-license-token'] = $code;
 $s2 = $down->status($rootId, $ctx);
 ok($s2['valid'] === false && $s2['reason'] === 'unreachable' && $s2['kind'] === 'problem', 'Server weg + kaputter Cache: Free, kein Wurf');
 
-// Katalog: leise bei Fehlern
+// Katalog: leise bei Fehlern. Eigene ID wie im Live-Katalog (0.5.2 hatte plugin-michathemev5-shopware, dann blendete sich das Plugin nicht selbst aus)
+ok(CatalogService::SELF_ID === 'plugin-michatheme-v5-shopware', 'SELF_ID passt zum Katalog');
 $feed = json_encode(['schemaVersion' => 1, 'items' => [
     ['id' => 'plugin-a-shopware', 'name' => 'A', 'platform' => 'shopware', 'status' => 'live', 'tier' => 'free', 'downloadUrl' => 'https://theme.michael-gahn.de/d/a.zip', 'description' => '<b>x</b>'],
     ['id' => 'plugin-b-wordpress', 'name' => 'B', 'platform' => 'wordpress', 'status' => 'live'],
+    ['id' => 'plugin-michatheme-v5-shopware', 'name' => 'MichaThemeV5', 'platform' => 'shopware', 'status' => 'live', 'related' => ['plugin-a-shopware']],
     ['id' => 'plugin-c-shopware', 'name' => 'C', 'platform' => 'shopware', 'status' => 'live', 'tier' => 'paid', 'downloadUrl' => 'https://theme.michael-gahn.de/d/c.zip', 'detailsUrl' => 'https://evil.example/c'],
 ]]);
 $cat = new CatalogService(new CacheStore(new class implements Psr\Cache\CacheItemPoolInterface { public array $d = []; public function getItem(string $key): Psr\Cache\CacheItemInterface { $d = &$this->d; return new class($key, $d) implements Psr\Cache\CacheItemInterface { public function __construct(public string $k, public array &$d) {} public function isHit(): bool { return isset($this->d[$this->k]); } public function get() { return $this->d[$this->k] ?? null; } public function set($v): static { $this->d[$this->k] = $v; return $this; } public function expiresAfter($t): static { return $this; } }; } public function save(Psr\Cache\CacheItemInterface $i): bool { return true; } }), fn (string $u) => ['status' => 200, 'body' => $feed]);
 $r = $cat->load(false);
-ok($r['error'] === null && count($r['items']) === 2, 'nur Einträge für Shopware');
+ok($r['error'] === null && count($r['items']) === 2, 'nur Einträge für Shopware, das eigene Plugin ist ausgeblendet');
+ok($r['items'][0]['id'] === 'plugin-a-shopware' && $r['items'][0]['recommended'] === 1, 'related des eigenen Eintrags = Empfohlen');
 ok($r['items'][0]['download_url'] !== null && $r['items'][1]['download_url'] === null, 'Kostenpflichtig: nie Download');
 ok($r['items'][1]['details_url'] === null, 'fremde Adresse wird verworfen');
 ok($r['items'][0]['description'] === 'x', 'Text ohne HTML');

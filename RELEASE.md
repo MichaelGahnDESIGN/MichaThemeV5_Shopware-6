@@ -1,8 +1,11 @@
-# Version 0.5.2 (Pre-Alpha)
+# Version 0.5.3 (Pre-Alpha)
 
 Das Theme ist noch in Entwicklung (Pre-Alpha). Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop.
 
 ## Neu in dieser Version
+
+- Neu: Kartenstil, Flächenstil (Glas) und Inhaltsbreite einstellbar, auch über die Presets „Glas“ und „Kompakt“.
+- Korrigiert: Das Plugin blendet sich in den Plugin-Empfehlungen selbst aus.
 
 - Korrigiert: Das Admin-Modul aus 0.5.1 fand sein Schema nicht. Mit 0.5.2 laden Einstellungen, Lizenz und Info.
 
@@ -14,7 +17,6 @@ Das Theme ist noch in Entwicklung (Pre-Alpha). Bitte zuerst in einem Test-Shop a
 
 ## Noch nicht fertig
 
-- Glas-Fläche, Kartenstil und breitere Inhaltsbreite gibt es auf Shopware noch nicht (die Presets setzen nur Ecken, Abstand und Schatten).
 - Das Admin-Modul wurde nicht in jeder Shopware-Version getestet (6.7.15.1 ja, 6.6 nein).
 - Hell/Dunkel-Schalter im Benutzerkonto: Gäste ohne Konto sehen ihn dort nicht.
 - Auf Produktkarten liegen das Herz der Wunschliste (Shopware) und das Herz der Favoriten (Theme) nebeneinander.

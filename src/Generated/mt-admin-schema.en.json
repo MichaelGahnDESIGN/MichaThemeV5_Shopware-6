@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "version": "0.5.2",
+    "version": "0.5.3",
     "edition": "free",
     "platform": "shopware",
     "groups": [
@@ -1211,6 +1211,53 @@
             }
         },
         {
+            "id": "cards_style",
+            "key": "mt-cards-style",
+            "group": "shape",
+            "type": "select",
+            "mode": "simple",
+            "label": "Kartenstil",
+            "help": "Wie Produktkarten und Boxen aussehen: flach, mit Rahmen oder mit Schatten.",
+            "default": "outlined",
+            "attr": "data-mt-cards",
+            "choices": {
+                "flat": "Flach",
+                "outlined": "Mit Rahmen",
+                "elevated": "Mit Schatten"
+            }
+        },
+        {
+            "id": "surface_style",
+            "key": "mt-surface-style",
+            "group": "shape",
+            "type": "select",
+            "mode": "simple",
+            "label": "Flächenstil",
+            "help": "Glas: halbtransparente Flächen mit feinem Rand und Weichzeichner. Fällt bei älteren Browsern und bei der Systemeinstellung „Transparenz reduzieren“ auf einfarbige Flächen zurück.",
+            "default": "solid",
+            "attr": "data-mt-surface",
+            "choices": {
+                "solid": "Einfarbig",
+                "glass": "Glas"
+            }
+        },
+        {
+            "id": "container_width",
+            "key": "mt-container-width",
+            "group": "shape",
+            "type": "select",
+            "mode": "simple",
+            "label": "Inhaltsbreite",
+            "help": "Maximale Breite des Inhalts auf großen Bildschirmen.",
+            "default": "normal",
+            "attr": "data-mt-container",
+            "choices": {
+                "narrow": "Schmal",
+                "normal": "Normal",
+                "wide": "Breit"
+            }
+        },
+        {
             "id": "legal_warranty",
             "key": "mt-legal-warranty",
             "group": "legal",
@@ -1515,6 +1562,9 @@
                 "density": "normal",
                 "shadows": "soft",
                 "buttons": "solid",
+                "cards_style": "outlined",
+                "surface_style": "solid",
+                "container_width": "normal",
                 "accent_custom": "",
                 "color_bg_light": "",
                 "color_bg_dark": "",
@@ -1548,26 +1598,19 @@
                 "color_info_dark": "",
                 "color_focus_light": "",
                 "color_focus_dark": ""
-            },
-            "unavailable": [
-                "Kartenstil",
-                "Flächenstil",
-                "Inhaltsbreite"
-            ]
+            }
         },
         {
             "id": "glass",
             "label": "Glas",
             "help": "Halbtransparente Flächen mit feinem Rand und runden Ecken, dezente Schatten. Bleibt lesbar: Text hat auf Hintergrund und Fläche mindestens 4,5 zu 1 Kontrast.",
             "values": {
+                "surface_style": "glass",
                 "radius": "round",
                 "shadows": "soft",
+                "cards_style": "outlined",
                 "density": "normal"
-            },
-            "unavailable": [
-                "Flächenstil",
-                "Kartenstil"
-            ]
+            }
         },
         {
             "id": "compact",
@@ -1575,13 +1618,11 @@
             "help": "Weniger Abstand, eckigere Ecken und breiterer Inhalt: mehr Produkte auf einen Blick.",
             "values": {
                 "density": "compact",
-                "radius": "sharp"
-            },
-            "unavailable": [
-                "Inhaltsbreite",
-                "Kartenstil",
-                "Flächenstil"
-            ]
+                "radius": "sharp",
+                "container_width": "wide",
+                "cards_style": "flat",
+                "surface_style": "solid"
+            }
         }
     ]
 }

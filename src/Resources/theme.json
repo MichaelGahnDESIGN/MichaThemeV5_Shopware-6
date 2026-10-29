@@ -2205,6 +2205,128 @@
                     "allowEmpty": true
                 }
             },
+            "mt-cards-style": {
+                "label": {
+                    "de-DE": "Kartenstil",
+                    "en-GB": "Kartenstil"
+                },
+                "type": "text",
+                "value": "outlined",
+                "editable": true,
+                "block": "mt-shape",
+                "section": "mt-simple",
+                "order": 86,
+                "helpText": {
+                    "de-DE": "Wie Produktkarten und Boxen aussehen: flach, mit Rahmen oder mit Schatten.",
+                    "en-GB": "Wie Produktkarten und Boxen aussehen: flach, mit Rahmen oder mit Schatten."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "flat",
+                            "label": {
+                                "de-DE": "Flach",
+                                "en-GB": "Flach"
+                            }
+                        },
+                        {
+                            "value": "outlined",
+                            "label": {
+                                "de-DE": "Mit Rahmen",
+                                "en-GB": "Mit Rahmen"
+                            }
+                        },
+                        {
+                            "value": "elevated",
+                            "label": {
+                                "de-DE": "Mit Schatten",
+                                "en-GB": "Mit Schatten"
+                            }
+                        }
+                    ]
+                },
+                "scss": false
+            },
+            "mt-surface-style": {
+                "label": {
+                    "de-DE": "Flächenstil",
+                    "en-GB": "Flächenstil"
+                },
+                "type": "text",
+                "value": "solid",
+                "editable": true,
+                "block": "mt-shape",
+                "section": "mt-simple",
+                "order": 87,
+                "helpText": {
+                    "de-DE": "Glas: halbtransparente Flächen mit feinem Rand und Weichzeichner. Fällt bei älteren Browsern und bei der Systemeinstellung „Transparenz reduzieren“ auf einfarbige Flächen zurück.",
+                    "en-GB": "Glas: halbtransparente Flächen mit feinem Rand und Weichzeichner. Fällt bei älteren Browsern und bei der Systemeinstellung „Transparenz reduzieren“ auf einfarbige Flächen zurück."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "solid",
+                            "label": {
+                                "de-DE": "Einfarbig",
+                                "en-GB": "Einfarbig"
+                            }
+                        },
+                        {
+                            "value": "glass",
+                            "label": {
+                                "de-DE": "Glas",
+                                "en-GB": "Glas"
+                            }
+                        }
+                    ]
+                },
+                "scss": false
+            },
+            "mt-container-width": {
+                "label": {
+                    "de-DE": "Inhaltsbreite",
+                    "en-GB": "Inhaltsbreite"
+                },
+                "type": "text",
+                "value": "normal",
+                "editable": true,
+                "block": "mt-shape",
+                "section": "mt-simple",
+                "order": 88,
+                "helpText": {
+                    "de-DE": "Maximale Breite des Inhalts auf großen Bildschirmen.",
+                    "en-GB": "Maximale Breite des Inhalts auf großen Bildschirmen."
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "narrow",
+                            "label": {
+                                "de-DE": "Schmal",
+                                "en-GB": "Schmal"
+                            }
+                        },
+                        {
+                            "value": "normal",
+                            "label": {
+                                "de-DE": "Normal",
+                                "en-GB": "Normal"
+                            }
+                        },
+                        {
+                            "value": "wide",
+                            "label": {
+                                "de-DE": "Breit",
+                                "en-GB": "Breit"
+                            }
+                        }
+                    ]
+                },
+                "scss": false
+            },
             "mt-legal-warranty": {
                 "label": {
                     "de-DE": "Hinweis zur gesetzlichen Gewährleistung",
@@ -2215,7 +2337,7 @@
                 "editable": true,
                 "block": "mt-legal",
                 "section": "mt-simple",
-                "order": 86,
+                "order": 89,
                 "helpText": {
                     "de-DE": "Auf der Artikelseite und im Warenkorb. Ab Shopware 6.7.14 zeigt die Bestellabschlussseite den Hinweis selbst (Einstellungen › Warenkorb); das Theme ergänzt nur Artikelseite und Warenkorb, damit nichts doppelt erscheint.",
                     "en-GB": "Auf der Artikelseite und im Warenkorb. Ab Shopware 6.7.14 zeigt die Bestellabschlussseite den Hinweis selbst (Einstellungen › Warenkorb); das Theme ergänzt nur Artikelseite und Warenkorb, damit nichts doppelt erscheint."
@@ -2231,7 +2353,7 @@
                 "editable": true,
                 "block": "mt-legal",
                 "section": "mt-simple",
-                "order": 87,
+                "order": 90,
                 "helpText": {
                     "de-DE": "Textvorschlag, rechtlich prüfen lassen.",
                     "en-GB": "Textvorschlag, rechtlich prüfen lassen."
@@ -2251,7 +2373,7 @@
                 "editable": true,
                 "block": "mt-legal",
                 "section": "mt-simple",
-                "order": 88,
+                "order": 91,
                 "helpText": {
                     "de-DE": "Liest die Custom Fields mt_gpsr_manufacturer, mt_gpsr_responsible_person, mt_gpsr_contact und mt_gpsr_safety_info am Produkt (Einstellungen › System › Custom Fields, Typ Text). Ohne Hersteller-Feld wird der Hersteller aus den Stammdaten genutzt. Ohne Werte erscheint nichts.",
                     "en-GB": "Liest die Custom Fields mt_gpsr_manufacturer, mt_gpsr_responsible_person, mt_gpsr_contact und mt_gpsr_safety_info am Produkt (Einstellungen › System › Custom Fields, Typ Text). Ohne Hersteller-Feld wird der Hersteller aus den Stammdaten genutzt. Ohne Werte erscheint nichts."
@@ -2267,7 +2389,7 @@
                 "editable": true,
                 "block": "mt-legal",
                 "section": "mt-simple",
-                "order": 89,
+                "order": 92,
                 "helpText": {
                     "de-DE": "Pfad oder Adresse, z. B. /widerruf. Wird im Footer als „Vertrag widerrufen“ verlinkt. Ab Shopware 6.7.9 gibt es einen eigenen Button (Stammdaten › Widerrufsantrag Seite, Footer-Button einschalten); dann dieses Feld leer lassen. Den Bestellbutton beschriftet Shopware bzw. ein Rechtsplugin (Button-Lösung § 312j BGB), nicht das Theme. Technischer Hinweis, keine Rechtsberatung.",
                     "en-GB": "Pfad oder Adresse, z. B. /widerruf. Wird im Footer als „Vertrag widerrufen“ verlinkt. Ab Shopware 6.7.9 gibt es einen eigenen Button (Stammdaten › Widerrufsantrag Seite, Footer-Button einschalten); dann dieses Feld leer lassen. Den Bestellbutton beschriftet Shopware bzw. ein Rechtsplugin (Button-Lösung § 312j BGB), nicht das Theme. Technischer Hinweis, keine Rechtsberatung."
@@ -2284,7 +2406,7 @@
                 "editable": true,
                 "block": "mt-listing",
                 "section": "mt-simple",
-                "order": 90,
+                "order": 93,
                 "helpText": {
                     "de-DE": "Zeigt „Ausverkauft“ an Listen-Karten und einen deaktivierten Button auf der Artikelseite. Ausblenden stellen Sie in Shopware selbst ein (Verkaufskanal › Listing: Ausverkaufte Produkte ausblenden).",
                     "en-GB": "Zeigt „Ausverkauft“ an Listen-Karten und einen deaktivierten Button auf der Artikelseite. Ausblenden stellen Sie in Shopware selbst ein (Verkaufskanal › Listing: Ausverkaufte Produkte ausblenden)."
@@ -2320,7 +2442,7 @@
                 "editable": true,
                 "block": "mt-a11y",
                 "section": "mt-simple",
-                "order": 91,
+                "order": 94,
                 "helpText": {
                     "de-DE": "Pfad oder Adresse, z. B. /barrierefreiheit. Wird im Footer verlinkt.",
                     "en-GB": "Pfad oder Adresse, z. B. /barrierefreiheit. Wird im Footer verlinkt."

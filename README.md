@@ -28,7 +28,7 @@ Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto
 - **Merkliste:** Das ist die normale Wunschliste von Shopware. Das Symbol erscheint erst, wenn etwas drin liegt. Ist die Wunschliste im Admin ausgeschaltet, gibt es auch kein Symbol.
 - **Favoriten:** Eine eigene Herz-Liste des Themes. Das Herz sitzt auf den Produktkarten und auf der Artikelseite. Die Liste steht nur im Browser des Besuchers (nichts geht an den Server). Das Symbol in der Kopfzeile erscheint erst, wenn mindestens ein Favorit gespeichert ist. Abschaltbar in den Theme-Einstellungen („Favoriten (Herz-Liste) anzeigen“).
 
-## Admin-Modul (ab Version 0.5.1)
+## Admin-Modul (ab Version 0.5.1) und Layout (ab 0.5.3)
 
 Das Plugin bringt eine eigene Einstellungsseite im Shopware-Admin mit. So findest du sie:
 
@@ -38,7 +38,9 @@ Das Plugin bringt eine eigene Einstellungsseite im Shopware-Admin mit. So findes
 4. **Lizenzen:** Füge deinen Lizenzcode ein und klicke auf „Speichern und prüfen“. Der Code wird danach nie mehr im Klartext angezeigt. Ohne Code läuft alles in der Free-Version weiter. Kaufen kannst du auf https://theme.michael-gahn.de.
 5. **Plugin-Empfehlungen:** Weitere Plugins von Michael Gahn DESIGN. Es wird nichts automatisch installiert.
 
-Die Werte liegen in der normalen Theme-Konfiguration (Inhalte, Themes). Beide Wege ändern dasselbe, nichts geht verloren. Du brauchst keinen Build, das Admin-Skript liegt fertig im Paket. Recht für Benutzerrollen: Unter „Benutzer & Berechtigungen“ gibt es die Rechte „MichaThemeV5 ansehen“ und „bearbeiten“. Hinweis: Glas-Fläche und breitere Inhaltsbreite aus den Presets kommen erst mit einem späteren Theme-Update.
+Die Werte liegen in der normalen Theme-Konfiguration (Inhalte, Themes). Beide Wege ändern dasselbe, nichts geht verloren. Du brauchst keinen Build, das Admin-Skript liegt fertig im Paket. Recht für Benutzerrollen: Unter „Benutzer & Berechtigungen“ gibt es die Rechte „MichaThemeV5 ansehen“ und „bearbeiten“.
+
+Ab Version 0.5.3 gibt es auch auf Shopware drei Layout-Einstellungen (Gruppe „Form und Stil“): **Kartenstil** (flach, mit Rahmen, mit Schatten), **Flächenstil** (einfarbig oder Glas) und **Inhaltsbreite** (schmal, normal, breit). Glas ist halbtransparent mit Weichzeichner. Bei älteren Browsern und bei der Systemeinstellung „Transparenz reduzieren“ bleiben die Flächen einfarbig.
 
 ## Weitere Funktionen (Pro)
 

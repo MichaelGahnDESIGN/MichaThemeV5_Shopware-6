@@ -1,5 +1,12 @@
 # Änderungen
 
+## Version 0.5.3
+
+- Neu: Drei Layout-Einstellungen in der Gruppe „Form und Stil“: **Kartenstil** (flach, mit Rahmen, mit Schatten), **Flächenstil** (einfarbig oder Glas) und **Inhaltsbreite** (schmal, normal, breit). „Normal“ sieht aus wie bisher.
+- Glas ist halbtransparent mit Weichzeichner (Kopfzeile, Produktkarten, Warenkorb-Karten, Ankündigungsleiste). Bei älteren Browsern und bei der Systemeinstellung „Transparenz reduzieren“ bleiben die Flächen einfarbig. Der Text bleibt gut lesbar (mindestens 4,5 zu 1).
+- Die Presets „Glas“ und „Kompakt“ setzen jetzt alles, was ihr Name verspricht.
+- Korrigiert: Das Plugin blendet sich in den Plugin-Empfehlungen jetzt selbst aus (die Katalog-ID war falsch geschrieben).
+
 ## Version 0.5.2
 
 - Korrigiert: Das Admin-Modul fand sein Einstellungs-Schema nicht (falscher Pfad). Jetzt lädt es die Einstellungen, die Lizenz-Seite und die Info-Seite.

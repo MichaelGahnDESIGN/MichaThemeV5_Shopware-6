@@ -29,7 +29,6 @@
 
 ## Priorität 2
 
-- [ ] **Design-Presets (Stil-Sets)** [Free] – geplant
 - [ ] **Ausverkauft-Konfiguration** [Free] – in Arbeit
 - [ ] **EU- und DE-konforme Statistik (Datenschutz)** [Free] – geplant
 - [ ] **Rechtstext-Platzhalter und Hinweise** [Free] – geplant
