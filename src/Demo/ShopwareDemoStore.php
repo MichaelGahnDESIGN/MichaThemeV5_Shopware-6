@@ -6,6 +6,7 @@ namespace MichaThemeV5\Demo;
 
 use Shopware\Core\Content\Media\File\FileSaver;
 use Shopware\Core\Content\Media\File\MediaFile;
+use Shopware\Core\Content\Media\Subscriber\MediaDeletionSubscriber;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
@@ -230,12 +231,35 @@ final class ShopwareDemoStore implements DemoStore
             return;
         }
         $ctx = Context::createDefaultContext();
+        if ($entity === 'media') {
+            // Dateien sofort löschen: ohne Worker bliebe die Nachricht DeleteFileMessage in der Warteschlange liegen
+            $ctx->addState(MediaDeletionSubscriber::SYNCHRONE_FILE_DELETE);
+        }
         $repo = $this->repository($entity);
         // Nur vorhandene IDs; für property_group/delivery_time sind das ausschließlich die festen Import-IDs
         $existing = array_values($repo->searchIds(new Criteria($ids), $ctx)->getIds());
         if ($existing) {
             $repo->delete(array_map(static fn ($id) => ['id' => $id], $existing), $ctx);
         }
+        $this->deleteTagIfUnused();
+    }
+
+    /** Entfernt den Tag "mt-demo", sobald kein Artikel, keine Kategorie und kein Bild ihn mehr trägt. */
+    private function deleteTagIfUnused(): void
+    {
+        $ctx = Context::createDefaultContext();
+        $tagIds = $this->tagRepository->searchIds((new Criteria())->addFilter(new EqualsFilter('name', self::TAG)), $ctx)->getIds();
+        if (!$tagIds) {
+            return;
+        }
+        foreach (['product', 'category', 'media'] as $entity) {
+            $criteria = (new Criteria())->setLimit(1)->addFilter(new EqualsFilter('tags.name', self::TAG));
+            if ($this->repository($entity)->searchIds($criteria, $ctx)->getIds()) {
+                return;
+            }
+        }
+        $this->tagRepository->delete(array_map(static fn ($id) => ['id' => $id], array_values($tagIds)), $ctx);
+        $this->tagId = null;
     }
 
     private function repository(string $entity): EntityRepository
