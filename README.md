@@ -30,6 +30,15 @@ Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto
 - **Merkliste:** Das ist die normale Wunschliste von Shopware. Das Symbol erscheint erst, wenn etwas drin liegt. Ist die Wunschliste im Admin ausgeschaltet, gibt es auch kein Symbol.
 - **Favoriten:** Eine eigene Herz-Liste des Themes. Das Herz sitzt auf den Produktkarten und auf der Artikelseite. Die Liste steht nur im Browser des Besuchers (nichts geht an den Server). Das Symbol in der Kopfzeile erscheint erst, wenn mindestens ein Favorit gespeichert ist. Abschaltbar in den Theme-Einstellungen („Favoriten (Herz-Liste) anzeigen“).
 
+## Demo-Inhalte (ab Version 0.6.0)
+
+Per Konsole lassen sich 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern anlegen:
+
+- Importieren: `bin/console michatheme:demo:import` (wiederholbar, keine Dubletten)
+- Entfernen: `bin/console michatheme:demo:remove --force`
+
+Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup des Shops machen. Erprobt auf Shopware 6.7.15.1.
+
 ## Admin-Modul (ab Version 0.5.1) und Layout (ab 0.5.3)
 
 Das Plugin bringt eine eigene Einstellungsseite im Shopware-Admin mit. So findest du sie:
