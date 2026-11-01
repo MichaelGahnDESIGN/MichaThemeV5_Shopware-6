@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "sku_prefix": "MTDEMO-",
+  "currency_hint": "EUR",
+  "categories": [
+    {"slug": "mtdemo-wohnen", "name": "Wohnen & Deko", "description": "Kleine Dinge für ein gemütliches Zuhause: Textilien, Licht und Regale."},
+    {"slug": "mtdemo-kueche", "name": "Küche & Tisch", "description": "Geschirr, Zubehör und Aufbewahrung für Küche und Esstisch."},
+    {"slug": "mtdemo-buero", "name": "Büro & Schreibtisch", "description": "Ordnung und Ruhe am Arbeitsplatz: Unterlagen, Halter und Notizbücher."},
+    {"slug": "mtdemo-garten", "name": "Garten & Balkon", "description": "Töpfe, Gießkannen und Licht für draußen."}
+  ],
+  "products": [
+    {
+      "sku": "MTDEMO-001", "category": "mtdemo-wohnen",
+      "title": "Kissenbezug Nordlicht 45 x 45 cm",
+      "short": "Weicher Kissenbezug aus Baumwollmischung mit verdecktem Reißverschluss.",
+      "description": "Der Kissenbezug Nordlicht gibt Sofa und Sessel einen ruhigen, einheitlichen Look. Das Gewebe fühlt sich weich an und lässt sich bei 40 Grad waschen. Der verdeckte Reißverschluss sorgt für eine glatte Kante. Die Füllung ist nicht enthalten. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "19.90", "stock": 60, "delivery_time": "1-3 Werktage",
+      "weight": "0.2", "dimensions": {"length": "45", "width": "45", "height": "1"},
+      "attributes": [
+        {"name": "Material", "value": "Baumwollmischung"},
+        {"name": "Größe", "value": "45 x 45 cm"},
+        {"name": "Verschluss", "value": "Verdeckter Reißverschluss"},
+        {"name": "Pflege", "value": "Waschbar bei 40 Grad"}
+      ],
+      "variations": {"attribute": "Farbe", "options": [
+        {"value": "Sand", "sku": "MTDEMO-001-SAND", "stock": 25},
+        {"value": "Salbei", "sku": "MTDEMO-001-SALBEI", "stock": 20},
+        {"value": "Anthrazit", "sku": "MTDEMO-001-ANTHRAZIT", "stock": 15, "price": "21.90"}
+      ]},
+      "images": ["images/mtdemo-001-1.jpg", "images/mtdemo-001-2.jpg", "images/mtdemo-001-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-002", "category": "mtdemo-wohnen",
+      "title": "Wandregal Linea aus Eiche, 60 cm",
+      "short": "Schlichtes Wandregal aus massiver Eiche, geölt, inklusive Montagematerial.",
+      "description": "Das Wandregal Linea trägt Bücher, Pflanzen und Bilderrahmen. Es besteht aus massiver Eiche und ist mit einem Naturöl behandelt, die Maserung bleibt sichtbar. Befestigungsschrauben und Dübel für Mauerwerk liegen bei. Tragkraft bis 10 kg bei fachgerechter Montage. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "39.90", "stock": 18, "delivery_time": "2-4 Werktage",
+      "weight": "1.8", "dimensions": {"length": "60", "width": "18", "height": "3"},
+      "attributes": [
+        {"name": "Material", "value": "Eiche massiv, geölt"},
+        {"name": "Breite", "value": "60 cm"},
+        {"name": "Tragkraft", "value": "bis 10 kg"},
+        {"name": "Montage", "value": "Wandmontage, Material liegt bei"}
+      ],
+      "images": ["images/mtdemo-002-1.jpg", "images/mtdemo-002-2.jpg", "images/mtdemo-002-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-003", "category": "mtdemo-wohnen",
+      "title": "Tischlampe Kegel mit Stoffschirm",
+      "short": "Tischlampe mit mattem Keramikfuß und Stoffschirm, warmweißes Licht.",
+      "description": "Die Tischlampe Kegel taucht Nachttisch oder Sideboard in warmes Licht. Der Fuß ist aus mattierter Keramik, der Schirm aus hellem Stoff. Ein Schalter am Kabel erlaubt das Ein- und Ausschalten ohne Griff unter den Schirm. Fassung E14, Leuchtmittel nicht enthalten. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "34.90", "compare_price": "44.90", "stock": 22, "delivery_time": "1-3 Werktage",
+      "weight": "1.1", "dimensions": {"length": "22", "width": "22", "height": "34"},
+      "attributes": [
+        {"name": "Material", "value": "Keramik und Stoff"},
+        {"name": "Fassung", "value": "E14"},
+        {"name": "Höhe", "value": "34 cm"},
+        {"name": "Kabellänge", "value": "1,5 m mit Schalter"}
+      ],
+      "images": ["images/mtdemo-003-1.jpg", "images/mtdemo-003-2.jpg", "images/mtdemo-003-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-004", "category": "mtdemo-wohnen",
+      "title": "Wolldecke Hügel, 130 x 170 cm",
+      "short": "Warme Decke aus Wollmischung mit Fischgrätmuster.",
+      "description": "Die Wolldecke Hügel wärmt an kühlen Abenden und sieht dabei aus wie ein Wohnaccessoire. Das Fischgrätmuster ist beidseitig gleich, die Kanten sind sauber eingefasst. Schonend waschen oder reinigen lassen. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "49.00", "compare_price": "64.00", "stock": 14, "delivery_time": "2-4 Werktage",
+      "weight": "0.9", "dimensions": {"length": "35", "width": "25", "height": "12"},
+      "attributes": [
+        {"name": "Material", "value": "Wollmischung"},
+        {"name": "Maße", "value": "130 x 170 cm"},
+        {"name": "Muster", "value": "Fischgrät"},
+        {"name": "Pflege", "value": "Schonwäsche bei 30 Grad"}
+      ],
+      "images": ["images/mtdemo-004-1.jpg", "images/mtdemo-004-2.jpg", "images/mtdemo-004-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-005", "category": "mtdemo-kueche",
+      "title": "Keramikbecher-Set Morgen, 4 Stück",
+      "short": "Vier Becher mit 300 ml Inhalt, matt glasiert, in vier Farbtönen.",
+      "description": "Das Becher-Set Morgen bringt Farbe auf den Frühstückstisch. Jeder Becher fasst rund 300 ml und liegt mit dem breiten Henkel gut in der Hand. Die Glasur ist matt, die Innenseite glatt. Für Geschirrspüler und Mikrowelle geeignet. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "24.90", "stock": 40, "delivery_time": "1-3 Werktage",
+      "weight": "1.6", "dimensions": {"length": "22", "width": "22", "height": "10"},
+      "attributes": [
+        {"name": "Material", "value": "Keramik"},
+        {"name": "Inhalt", "value": "300 ml je Becher"},
+        {"name": "Anzahl", "value": "4 Stück"},
+        {"name": "Pflege", "value": "Spülmaschinengeeignet"}
+      ],
+      "images": ["images/mtdemo-005-1.jpg", "images/mtdemo-005-2.jpg", "images/mtdemo-005-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-006", "category": "mtdemo-kueche",
+      "title": "Schneidebrett Akazie mit Saftrille",
+      "short": "Robustes Schneidebrett aus Akazienholz mit umlaufender Saftrille.",
+      "description": "Das Akazienbrett steckt Messer und Alltag gut weg. Die umlaufende Saftrille fängt Flüssigkeit auf, Griffmulden erleichtern das Tragen. Von Hand mit warmem Wasser reinigen und gelegentlich mit Speiseöl pflegen. Nicht in den Geschirrspüler legen. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "22.90", "stock": 35, "delivery_time": "1-3 Werktage",
+      "weight": "1.0", "dimensions": {"length": "38", "width": "26", "height": "2"},
+      "attributes": [
+        {"name": "Material", "value": "Akazienholz"},
+        {"name": "Merkmal", "value": "Saftrille und Griffmulden"},
+        {"name": "Dicke", "value": "2 cm"},
+        {"name": "Pflege", "value": "Handwäsche, gelegentlich ölen"}
+      ],
+      "variations": {"attribute": "Größe", "options": [
+        {"value": "Klein (30 x 20 cm)", "sku": "MTDEMO-006-S", "stock": 12, "price": "17.90"},
+        {"value": "Mittel (38 x 26 cm)", "sku": "MTDEMO-006-M", "stock": 15},
+        {"value": "Groß (46 x 32 cm)", "sku": "MTDEMO-006-L", "stock": 8, "price": "29.90"}
+      ]},
+      "images": ["images/mtdemo-006-1.jpg", "images/mtdemo-006-2.jpg", "images/mtdemo-006-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-007", "category": "mtdemo-kueche",
+      "title": "Vorratsdosen-Set aus Glas, 3-teilig",
+      "short": "Drei Glasdosen mit Bambusdeckel in drei Größen.",
+      "description": "Das Set besteht aus drei Glasdosen mit 0,6, 1,0 und 1,5 Litern Inhalt. Die Deckel aus Bambus haben eine Silikondichtung und schließen gut ab. So bleiben Nudeln, Mehl oder Müsli übersichtlich im Regal. Die Gläser sind stapelbar. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "27.90", "compare_price": "34.90", "stock": 28, "delivery_time": "1-3 Werktage",
+      "weight": "1.9", "dimensions": {"length": "24", "width": "16", "height": "22"},
+      "attributes": [
+        {"name": "Material", "value": "Glas, Bambus, Silikon"},
+        {"name": "Inhalt", "value": "0,6 l, 1,0 l und 1,5 l"},
+        {"name": "Anzahl", "value": "3 Dosen mit Deckel"},
+        {"name": "Merkmal", "value": "Stapelbar"}
+      ],
+      "images": ["images/mtdemo-007-1.jpg", "images/mtdemo-007-2.jpg", "images/mtdemo-007-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-008", "category": "mtdemo-kueche",
+      "title": "Teekanne Dampf aus Steingut, 1,2 Liter",
+      "short": "Teekanne mit Edelstahlsieb und tropffreier Tülle.",
+      "description": "Die Teekanne Dampf fasst 1,2 Liter und hält den Tee lange warm. Das herausnehmbare Edelstahlsieb ist für lose Blätter gedacht, die Tülle gießt sauber. Der Deckel sitzt fest und hat eine kleine Aussparung für den Dampf. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "32.00", "stock": 16, "delivery_time": "2-4 Werktage",
+      "weight": "0.95", "dimensions": {"length": "24", "width": "16", "height": "17"},
+      "attributes": [
+        {"name": "Material", "value": "Steingut mit Edelstahlsieb"},
+        {"name": "Inhalt", "value": "1,2 Liter"},
+        {"name": "Merkmal", "value": "Tropffreie Tülle"},
+        {"name": "Pflege", "value": "Spülmaschinengeeignet, Sieb separat reinigen"}
+      ],
+      "images": ["images/mtdemo-008-1.jpg", "images/mtdemo-008-2.jpg", "images/mtdemo-008-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-009", "category": "mtdemo-buero",
+      "title": "Schreibtischunterlage aus Filz, 80 x 40 cm",
+      "short": "Dicke Filzunterlage, schützt die Tischplatte und dämpft Geräusche.",
+      "description": "Die Unterlage aus 3 mm dickem Filz macht Tastatur und Maus leiser und schont die Tischplatte vor Kratzern. Die Oberfläche ist angenehm weich, die Kanten sind sauber geschnitten. Flecken lassen sich mit einem feuchten Tuch abtupfen. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "18.90", "stock": 45, "delivery_time": "1-3 Werktage",
+      "weight": "0.5", "dimensions": {"length": "80", "width": "40", "height": "0.3"},
+      "attributes": [
+        {"name": "Material", "value": "Filz"},
+        {"name": "Maße", "value": "80 x 40 cm"},
+        {"name": "Dicke", "value": "3 mm"},
+        {"name": "Pflege", "value": "Feucht abtupfen"}
+      ],
+      "images": ["images/mtdemo-009-1.jpg", "images/mtdemo-009-2.jpg", "images/mtdemo-009-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-010", "category": "mtdemo-buero",
+      "title": "Stiftehalter aus Beton, rund",
+      "short": "Schwerer Stiftehalter mit rutschfester Unterseite.",
+      "description": "Der Stiftehalter aus Beton steht auch bei vollem Inhalt sicher. Die raue Oberfläche passt zu hellem Holz und Metall, die Unterseite ist mit Filz beklebt. Jedes Stück ist handgegossen, kleine Unterschiede in Farbe und Struktur sind normal. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "12.50", "stock": 50, "delivery_time": "1-3 Werktage",
+      "weight": "0.7", "dimensions": {"length": "9", "width": "9", "height": "10"},
+      "attributes": [
+        {"name": "Material", "value": "Beton"},
+        {"name": "Durchmesser", "value": "9 cm"},
+        {"name": "Höhe", "value": "10 cm"},
+        {"name": "Unterseite", "value": "Mit Filz beklebt"}
+      ],
+      "images": ["images/mtdemo-010-1.jpg", "images/mtdemo-010-2.jpg", "images/mtdemo-010-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-011", "category": "mtdemo-buero",
+      "title": "Notizbuch Raster mit Leinenumschlag",
+      "short": "Notizbuch mit kariertem Papier und Gummiband.",
+      "description": "Das Notizbuch Raster hat 160 Seiten mit feinem Karomuster und einen festen Leinenumschlag. Ein Gummiband hält es geschlossen, ein Lesebändchen markiert die aktuelle Seite. Das Papier ist 90 Gramm stark und eignet sich für Kugelschreiber und Bleistift. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "11.90", "stock": 80, "delivery_time": "1-3 Werktage",
+      "weight": "0.3", "dimensions": {"length": "21", "width": "15", "height": "1.5"},
+      "attributes": [
+        {"name": "Seiten", "value": "160, kariert"},
+        {"name": "Papier", "value": "90 g/m²"},
+        {"name": "Einband", "value": "Leinen mit Gummiband"},
+        {"name": "Extras", "value": "Lesebändchen"}
+      ],
+      "variations": {"attribute": "Format", "options": [
+        {"value": "A5", "sku": "MTDEMO-011-A5", "stock": 50},
+        {"value": "A6", "sku": "MTDEMO-011-A6", "stock": 30, "price": "8.90"}
+      ]},
+      "images": ["images/mtdemo-011-1.jpg", "images/mtdemo-011-2.jpg", "images/mtdemo-011-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-012", "category": "mtdemo-buero",
+      "title": "Monitorständer aus Bambus mit Ablage",
+      "short": "Erhöht den Bildschirm und schafft Platz für Tastatur und Notizen.",
+      "description": "Der Monitorständer hebt den Bildschirm auf Augenhöhe und bietet darunter eine Ablage für Tastatur, Notizbuch oder Stifte. Das Bambusholz ist glatt geschliffen, rutschfeste Füße schützen die Tischplatte. Der Aufbau ist in wenigen Minuten erledigt. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "29.90", "compare_price": "39.90", "stock": 20, "delivery_time": "2-4 Werktage",
+      "weight": "2.1", "dimensions": {"length": "50", "width": "20", "height": "10"},
+      "attributes": [
+        {"name": "Material", "value": "Bambus"},
+        {"name": "Breite", "value": "50 cm"},
+        {"name": "Höhe", "value": "10 cm"},
+        {"name": "Tragkraft", "value": "bis 20 kg"}
+      ],
+      "images": ["images/mtdemo-012-1.jpg", "images/mtdemo-012-2.jpg", "images/mtdemo-012-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-013", "category": "mtdemo-garten",
+      "title": "Pflanztopf Terra, Ø 24 cm",
+      "short": "Frostfester Pflanztopf aus Terrakotta mit Abzugsloch.",
+      "description": "Der Pflanztopf Terra bietet Kräutern, Blumen und kleinen Sträuchern ein Zuhause. Das Abzugsloch im Boden verhindert Staunässe, ein passender Untersetzer ist separat erhältlich. Terrakotta nimmt Feuchtigkeit auf und gibt sie langsam wieder ab. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "14.90", "stock": 55, "delivery_time": "2-4 Werktage",
+      "weight": "1.8", "dimensions": {"length": "24", "width": "24", "height": "21"},
+      "attributes": [
+        {"name": "Material", "value": "Terrakotta"},
+        {"name": "Durchmesser", "value": "24 cm"},
+        {"name": "Höhe", "value": "21 cm"},
+        {"name": "Merkmal", "value": "Mit Abzugsloch, frostfest"}
+      ],
+      "images": ["images/mtdemo-013-1.jpg", "images/mtdemo-013-2.jpg", "images/mtdemo-013-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-014", "category": "mtdemo-garten",
+      "title": "Gießkanne Zink mit Brausekopf",
+      "short": "Klassische Gießkanne aus Metall mit abnehmbarem Brausekopf.",
+      "description": "Die Gießkanne Zink gießt Balkonpflanzen und Beete gleichmäßig. Der Brausekopf ist abnehmbar und lässt sich zum Reinigen abschrauben. Der Henkel liegt gut in der Hand, auch wenn die Kanne voll ist. Nach Gebrauch entleeren und trocknen lassen. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "24.90", "stock": 30, "delivery_time": "2-4 Werktage",
+      "weight": "0.8", "dimensions": {"length": "40", "width": "15", "height": "28"},
+      "attributes": [
+        {"name": "Material", "value": "Metall, verzinkt"},
+        {"name": "Merkmal", "value": "Abnehmbarer Brausekopf"},
+        {"name": "Pflege", "value": "Nach Gebrauch entleeren"},
+        {"name": "Einsatz", "value": "Balkon und Garten"}
+      ],
+      "variations": {"attribute": "Inhalt", "options": [
+        {"value": "3 Liter", "sku": "MTDEMO-014-3L", "stock": 18, "price": "19.90"},
+        {"value": "5 Liter", "sku": "MTDEMO-014-5L", "stock": 12}
+      ]},
+      "images": ["images/mtdemo-014-1.jpg", "images/mtdemo-014-2.jpg", "images/mtdemo-014-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-015", "category": "mtdemo-garten",
+      "title": "Windlicht Laterne aus Metall mit Glas",
+      "short": "Laterne für Stumpenkerzen, drinnen und draußen nutzbar.",
+      "description": "Die Laterne schützt die Kerzenflamme vor Wind und wirft ein warmes Muster auf Tisch und Terrasse. Das Gehäuse ist aus pulverbeschichtetem Metall, die Scheiben bestehen aus Glas. Oben sitzt ein Tragering, die Tür lässt sich zum Wechseln der Kerze öffnen. Kerze nicht enthalten. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "21.90", "compare_price": "29.90", "stock": 24, "delivery_time": "1-3 Werktage",
+      "weight": "0.9", "dimensions": {"length": "15", "width": "15", "height": "30"},
+      "attributes": [
+        {"name": "Material", "value": "Metall, pulverbeschichtet, und Glas"},
+        {"name": "Höhe", "value": "30 cm"},
+        {"name": "Geeignet für", "value": "Stumpenkerzen bis 10 cm Durchmesser"},
+        {"name": "Einsatz", "value": "Innen und außen"}
+      ],
+      "images": ["images/mtdemo-015-1.jpg", "images/mtdemo-015-2.jpg", "images/mtdemo-015-3.jpg"]
+    },
+    {
+      "sku": "MTDEMO-016", "category": "mtdemo-garten",
+      "title": "Kräuter-Saatgutkiste mit 6 Sorten",
+      "short": "Holzkiste mit sechs Saatgut-Tütchen für die Fensterbank.",
+      "description": "Die Saatgutkiste enthält Samen von sechs gängigen Küchenkräutern und eine kurze Anleitung zur Aussaat. Die Kiste aus Kiefernholz dient später als Pflanzgefäß für die Fensterbank. Erde und Wasser nicht enthalten. Dieser Artikel ist im Demo-Datensatz absichtlich ausverkauft, damit die Anzeige für nicht lieferbare Ware sichtbar ist. Dies ist ein Beispielartikel aus den Demo-Inhalten.",
+      "price": "16.90", "stock": 0, "delivery_time": "Aktuell nicht lieferbar",
+      "weight": "0.6", "dimensions": {"length": "30", "width": "15", "height": "10"},
+      "attributes": [
+        {"name": "Inhalt", "value": "6 Saatgut-Tütchen mit Anleitung"},
+        {"name": "Material Kiste", "value": "Kiefernholz"},
+        {"name": "Maße Kiste", "value": "30 x 15 x 10 cm"},
+        {"name": "Geeignet für", "value": "Fensterbank und Balkon"}
+      ],
+      "images": ["images/mtdemo-016-1.jpg", "images/mtdemo-016-2.jpg", "images/mtdemo-016-3.jpg"]
+    }
+  ]
+}
