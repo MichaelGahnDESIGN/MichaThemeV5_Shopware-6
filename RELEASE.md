@@ -1,8 +1,15 @@
-# Version 0.5.3 (Pre-Alpha)
+# Version 0.6.0 (Pre-Alpha)
 
 Das Theme ist noch in Entwicklung (Pre-Alpha). Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop.
 
 ## Neu in dieser Version
+
+- Neu: Demo-Inhalte per Konsole. 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern.
+- Importieren: `bin/console michatheme:demo:import` (wiederholbar, keine Dubletten).
+- Entfernen: `bin/console michatheme:demo:remove --force`. Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup des Shops machen.
+- Ehrlich gesagt: Auf einem Demo-Shop mit Shopware 6.7.15.1 per Konsole erprobt, andere Versionen nicht.
+
+Frühere Änderungen in dieser Reihe:
 
 - Neu: Kartenstil, Flächenstil (Glas) und Inhaltsbreite einstellbar, auch über die Presets „Glas“ und „Kompakt“.
 - Korrigiert: Das Plugin blendet sich in den Plugin-Empfehlungen selbst aus.

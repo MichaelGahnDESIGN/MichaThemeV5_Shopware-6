@@ -1,5 +1,12 @@
 # Änderungen
 
+## Version 0.6.0
+
+- Neu: Demo-Inhalte per Konsole importieren und entfernen. 16 Beispielartikel in 4 Kategorien, je 3 Platzhalterbilder (48 Bilder, ohne Internetzugriff).
+- Importieren: `bin/console michatheme:demo:import` (wiederholbar, keine Dubletten).
+- Entfernen: `bin/console michatheme:demo:remove --force`. Entfernen löscht nur markierte Demo-Einträge. Eigene Artikel bleiben unberührt. Vor der Nutzung bitte ein Backup des Shops machen.
+- Ehrlich gesagt: Auf einem Demo-Shop mit Shopware 6.7.15.1 per Konsole erprobt. Andere Shopware-Versionen (zum Beispiel 6.6) wurden nicht getestet.
+
 ## Version 0.5.3
 
 - Neu: Drei Layout-Einstellungen in der Gruppe „Form und Stil“: **Kartenstil** (flach, mit Rahmen, mit Schatten), **Flächenstil** (einfarbig oder Glas) und **Inhaltsbreite** (schmal, normal, breit). „Normal“ sieht aus wie bisher.
