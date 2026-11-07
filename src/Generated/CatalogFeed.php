@@ -6,7 +6,7 @@ namespace MichaThemeV5\Plugin;
 
 /**
  * Holt die Plugin-Empfehlungen. Regeln: nur https, feste Adresse, keine Weiterleitungen (macht der http-Callback), 5 s, 512 KB.
- * Cache 6 h, bei Fehler 5 Minuten Pause und die letzte gute Liste (bis 7 Tage) mit Hinweis, "Aktualisieren" höchstens 1 x pro Minute.
+ * Cache 15 Minuten passend zum zentralen Empfehlungsvertrag, bei Fehler 5 Minuten Pause und die letzte gute Liste (bis 7 Tage) mit Hinweis, "Aktualisieren" höchstens 1 x pro Minute.
  * Fehler sind leise: kein Wurf, keine Warnung, nur ein freundlicher Hinweis in der Oberfläche. Im Shop (Frontend) wird nie abgerufen.
  *
  * Callbacks (von der Plattform):
@@ -15,9 +15,9 @@ namespace MichaThemeV5\Plugin;
  */
 final class CatalogFeed
 {
-    public const URL = 'https://theme.michael-gahn.de/api/catalog/plugins.json';
+    public const URL_PREFIX = 'https://theme.michael-gahn.de/api/v1/recommendations/';
     public const MAX_BYTES = 524288;
-    public const TTL = 21600;
+    public const TTL = 900;
     public const PAUSE = 300;
     public const STALE_MAX = 604800;
     public const REFRESH_GAP = 60;
@@ -84,7 +84,7 @@ final class CatalogFeed
     {
         $this->lastFailure = null;
         try {
-            $res = ($this->http)(self::URL);
+            $res = ($this->http)(self::URL_PREFIX . rawurlencode($this->platform) . '.json');
         } catch (\Throwable) {
             $res = null;
         }

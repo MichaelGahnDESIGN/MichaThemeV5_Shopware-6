@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace MichaThemeV5\Plugin;
 
 /**
- * Macht aus dem Katalog-Feed (https://theme.michael-gahn.de/api/catalog/plugins.json, schemaVersion 1) eine sichere Anzeigeliste.
+ * Macht aus dem Katalog-Feed von theme.michael-gahn.de eine sichere Anzeigeliste.
  * Regeln 1:1 aus docs/KATALOG.md. Alles Unbekannte oder Verdächtige wird leise verworfen, nie ein Fehler.
  */
 final class FeedNormalizer
@@ -28,6 +28,10 @@ final class FeedNormalizer
      */
     public static function normalize(array $feed, string $platform, string $selfId): ?array
     {
+        // Vertrag v1: pro Plattform ein schmaler Feed ohne Bilder, Downloads oder Repository-Adressen.
+        if (($feed['schema'] ?? null) === 1 && ($feed['platform'] ?? null) === $platform && is_array($feed['items'] ?? null)) {
+            return self::recommendations($feed, $platform);
+        }
         if (($feed['schemaVersion'] ?? null) !== 1 || !is_array($feed['items'] ?? null)) {
             return null;
         }
@@ -52,6 +56,44 @@ final class FeedNormalizer
         usort($out, static fn (array $a, array $b): int => [-$a['recommended'], $a['status'] === 'live' ? 0 : 1, $a['pos']] <=> [-$b['recommended'], $b['status'] === 'live' ? 0 : 1, $b['pos']]);
         foreach ($out as $i => $_) {
             unset($out[$i]['pos']);
+        }
+
+        return $out;
+    }
+
+    /** @return list<array<string,mixed>>|null */
+    private static function recommendations(array $feed, string $platform): ?array
+    {
+        $details = self::hostUrl($feed['catalog_url'] ?? null);
+        if ($details === null || !preg_match('~^https://theme\.michael-gahn\.de/downloads\?plattform=' . preg_quote($platform, '~') . '$~D', $details)) {
+            return null;
+        }
+        $out = [];
+        foreach (array_slice(array_values($feed['items']), 0, self::MAX_ITEMS) as $row) {
+            if (!is_array($row) || ($row['platform'] ?? null) !== $platform) {
+                continue;
+            }
+            $slug = $row['slug'] ?? null;
+            $name = $row['name'] ?? null;
+            if (!is_string($slug) || !preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/D', $slug) || !is_string($name) || trim($name) === '') {
+                continue;
+            }
+            $out[] = [
+                'id' => $slug,
+                'name' => self::plain($name, 120),
+                'description' => self::plain(is_string($row['description'] ?? null) ? $row['description'] : '', 500),
+                'tier' => 'free',
+                'status' => 'live',
+                'version' => is_string($row['version'] ?? null) ? ltrim(self::plain($row['version'], 30), 'vV') : '',
+                'details_url' => $details,
+                'download_url' => null,
+                'repository_url' => null,
+                'icon_url' => null,
+                'image_url' => null,
+                'image_alt' => null,
+                'accent' => null,
+                'recommended' => 0,
+            ];
         }
 
         return $out;
