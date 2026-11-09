@@ -134,8 +134,8 @@ class LicenseService
         return new LicenseClient(
             self::API,
             $domain,
-            $this->http ?? static function (string $url): ?array {
-                $res = HttpFetcher::get($url, 4, 65536);
+            $this->http ?? static function (string $url, array $request): ?array {
+                $res = HttpFetcher::post($url, $request, 4, 65536);
                 if ($res === null) {
                     return null;
                 }

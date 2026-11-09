@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace MichaThemeV5\Plugin;
 
 /**
- * Lizenzprüfung der Themes gegen https://theme.michael-gahn.de (GET /api/license/verify).
+ * Lizenzprüfung der Themes gegen https://theme.michael-gahn.de (POST /api/license/verify).
  *
  * Plattformneutral: HTTP und Zwischenspeicher werden von der Plattform übergeben.
- *  - $http(string $url): ?array   liefert ['status' => int, 'json' => array] oder null bei Netzwerkfehler
+ *  - $http(string $url, array $request): ?array liefert ['status' => int, 'json' => array] oder null.
+ *    Die Hülle muss Methode, Header und Body übernehmen, TLS prüfen und Weiterleitungen sperren.
  *  - $cacheGet(string $key): ?array
  *  - $cacheSet(string $key, array $value, int $ttl): void
  *
@@ -53,10 +54,20 @@ final class LicenseClient
         if ($token === '') {
             return self::FREE;
         }
+        // Kein Token an Klartext-URLs, eingebettete Zugangsdaten oder unklare Zieladressen senden.
+        $base = parse_url($this->apiBase);
+        if (!is_array($base) || ($base['scheme'] ?? '') !== 'https' || empty($base['host'])
+            || isset($base['user']) || isset($base['pass']) || isset($base['query']) || isset($base['fragment'])) {
+            return ['reason' => 'insecure_endpoint'] + self::FREE;
+        }
+        if (strlen($token) > 5000 || !preg_match('/^[A-Za-z0-9_.-]+$/D', $token)) {
+            return ['reason' => 'invalid_token'] + self::FREE;
+        }
         // Ein vom Server erneuertes Token (Abo-Verlängerung) gilt für genau den eingetragenen Schlüssel.
         $renewKey = 'mt_tok_' . hash('sha256', $token . '|' . $this->domain);
         $renewed = ($this->cacheGet)($renewKey);
-        if (is_array($renewed) && is_string($renewed['token'] ?? null) && $renewed['token'] !== '') {
+        if (is_array($renewed) && is_string($renewed['token'] ?? null) && strlen($renewed['token']) <= 5000
+            && preg_match('/^[A-Za-z0-9_.-]+$/D', $renewed['token'])) {
             $token = $renewed['token'];
         }
         $key = 'mt_lic_' . hash('sha256', $token . '|' . $this->domain);
@@ -68,12 +79,23 @@ final class LicenseClient
             }
         }
 
-        $res = ($this->http)($this->apiBase . '/license/verify?' . http_build_query(['token' => $token, 'domain' => $this->domain]));
+        // Token nur im Header; die Domain gehört in den JSON-Body, niemals in eine Token-URL.
+        try {
+            $res = ($this->http)(rtrim($this->apiBase, '/') . '/license/verify', [
+                'method' => 'POST',
+                'headers' => ['Authorization' => 'Bearer ' . $token, 'Accept' => 'application/json', 'Content-Type' => 'application/json'],
+                'body' => json_encode(['domain' => $this->domain], JSON_THROW_ON_ERROR),
+            ]);
+        } catch (\Throwable) {
+            // Fremde HTTP-Hüllen dürfen weder den Shop abbrechen noch Header in Fehlertexte schreiben.
+            $res = null;
+        }
         $json = is_array($res) && is_array($res['json'] ?? null) ? $res['json'] : null;
 
-        if ($json !== null && array_key_exists('valid', $json) && ($res['status'] ?? 0) < 500) {
-            if ($json['valid'] === true) {
-                if (is_string($json['renewed_token'] ?? null) && strlen($json['renewed_token']) < 5000) {
+        if ($json !== null && array_key_exists('valid', $json) && in_array($res['status'] ?? 0, [200, 403], true)) {
+            if ($json['valid'] === true && $res['status'] === 200) {
+                if (is_string($json['renewed_token'] ?? null) && strlen($json['renewed_token']) <= 5000
+                    && preg_match('/^[A-Za-z0-9_.-]+$/D', $json['renewed_token'])) {
                     ($this->cacheSet)($renewKey, ['token' => $json['renewed_token']], 400 * 86400);
                 }
                 $lic = is_array($json['license'] ?? null) ? $json['license'] : [];

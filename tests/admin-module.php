@@ -104,7 +104,7 @@ ok(count($svc->savePalette(array_map(fn ($i) => sprintf('#%06x', $i * 4096), ran
 // Lizenz: Code nie im Klartext, Format-Vorprüfung, Domain aus den Verkaufskanälen
 $calls = [];
 $code = 'aaa111.bbb222.ccc333xyz987';
-$http = function (string $url) use (&$calls): ?array { $calls[] = $url; return ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'modules' => [], 'period_end' => '2027-01-31T00:00:00Z'], 'cache_valid_until' => gmdate('c', time() + 3600)]]; };
+$http = function (string $url, array $request) use (&$calls): ?array { $calls[] = ['url' => $url, 'request' => $request]; return ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'modules' => [], 'period_end' => '2027-01-31T00:00:00Z'], 'cache_valid_until' => gmdate('c', time() + 3600)]]; };
 $lic = new LicenseService($svc, new CacheStore($pool), new Doctrine\DBAL\Connection(), new Symfony\Component\HttpFoundation\RequestStack(), Closure::fromCallable($http));
 $st = $lic->status($rootId, $ctx);
 ok($st['hasToken'] === false && $st['kind'] === 'free' && $st['reason'] === 'no_token' && $calls === [], 'ohne Code: Free, kein Abruf');
@@ -114,8 +114,8 @@ ok($ts->config['mt-license-token'] === $code, 'Code liegt im Theme-Feld mt-licen
 $st = $lic->status($rootId, $ctx);
 ok($st['valid'] === true && $st['tier'] === 'pro' && $st['kind'] === 'active', 'gültige Lizenz erkannt');
 ok($st['masked'] === '…xyz987' && !str_contains(json_encode($st), $code) && !str_contains(json_encode($st), 'ccc333'), 'Status enthält den Code nie im Klartext (nur die letzten 6 Zeichen)');
-ok($st['domain'] === 'shop.example.org' && str_contains($calls[0], 'domain=shop.example.org'), 'Domain kommt aus dem Verkaufskanal, klein geschrieben');
-ok(!str_contains(implode(' ', array_map('strval', $calls)), 'theme.michael-gahn.de/api/license/verify?token=') || true, 'Prüfung gegen den Lizenzserver');
+ok($st['domain'] === 'shop.example.org' && json_decode($calls[0]['request']['body'], true) === ['domain' => 'shop.example.org'], 'Domain kommt aus dem Verkaufskanal, klein geschrieben');
+ok($calls[0]['url'] === 'https://theme.michael-gahn.de/api/license/verify' && !str_contains($calls[0]['url'], $code) && $calls[0]['request']['method'] === 'POST' && $calls[0]['request']['headers']['Authorization'] === 'Bearer ' . $code, 'Token nur im Autorisierungsheader, keine Query-URL');
 $c2 = count($calls); $lic->status($rootId, $ctx);
 ok(count($calls) === $c2, 'zweiter Aufruf kommt aus dem Cache (24 h)');
 ok($lic->recheck($rootId, $ctx) === true && $lic->recheck($rootId, $ctx) === false, '"Jetzt prüfen" höchstens alle 10 Sekunden');
