@@ -43,10 +43,17 @@ class LicenseExtension extends AbstractExtension
         return $this->client = new LicenseClient(
             getenv('MT_LICENSE_API') ?: 'https://theme.michael-gahn.de/api',
             $domain,
-            static function (string $url): ?array {
-                $ctx = stream_context_create(['http' => ['timeout' => 4, 'ignore_errors' => true, 'header' => "Accept: application/json\r\n"]]);
-                $body = @file_get_contents($url, false, $ctx);
-                if ($body === false) {
+            static function (string $url, array $request): ?array {
+                $headers = [];
+                foreach ($request['headers'] as $name => $value) {
+                    $headers[] = $name . ': ' . $value;
+                }
+                $ctx = stream_context_create([
+                    'http' => ['method' => 'POST', 'header' => implode("\r\n", $headers), 'content' => $request['body'], 'timeout' => 4, 'ignore_errors' => true, 'follow_location' => 0, 'max_redirects' => 0],
+                    'ssl' => ['verify_peer' => true, 'verify_peer_name' => true],
+                ]);
+                $body = @file_get_contents($url, false, $ctx, 0, 262145);
+                if ($body === false || strlen($body) > 262144) {
                     return null;
                 }
                 $status = 0;

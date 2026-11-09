@@ -4,6 +4,10 @@ Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtss
 
 **Status:** in Entwicklung (Pre-Alpha).
 
+## Lizenztransport in Vorbereitung
+
+Der Entwicklungsstand stellt Lizenzprüfungen auf HTTPS-POST mit Autorisierungsheader um. Token stehen dabei nicht mehr in URLs. Theme und Begleitplugin müssen gemeinsam aktualisiert werden; vor der Veröffentlichung muss die Plattform den neuen Prüfweg unterstützen. Die bisherigen Release-Downloads bleiben unverändert. [Details und Grenzen](docs/LIZENZTRANSPORT.md).
+
 ## Funktionen
 
 33 Free-Funktionen sind aufgeführt (fertig oder noch in Arbeit, den Stand zeigt die Liste). Dieses Repo enthält ausschließlich die kostenlosen Funktionen.
