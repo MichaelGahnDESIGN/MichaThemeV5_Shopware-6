@@ -44,7 +44,8 @@ class LicenseService
                     $state = $s;
                     $domain = $d;
                 }
-                if ($s['valid'] ?? false) {
+                // gültig gefunden oder Server weg: nicht jede weitere Domain bis zum Timeout abklappern
+                if (($s['valid'] ?? false) || ($s['reason'] ?? '') === 'unreachable') {
                     break;
                 }
             }

@@ -1587,7 +1587,7 @@
                 },
                 "type": "text",
                 "value": "",
-                "editable": true,
+                "editable": false,
                 "block": "mt-license",
                 "section": "mt-simple",
                 "order": 53,
