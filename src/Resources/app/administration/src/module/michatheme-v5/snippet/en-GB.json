@@ -206,6 +206,20 @@
       "themeFound": "Theme found and active in the system",
       "assigned": "Theme is assigned to sales channels",
       "licenseKnown": "License status: {state}"
+    },
+    "update": {
+      "title": "Updates",
+      "intro": "See here whether a new version is available. It is only checked after your click. Nothing is installed automatically.",
+      "hint": "The hourly check found version {version}.",
+      "check": "Check for updates",
+      "available": "Version {version} is available.",
+      "none": "You have the latest version.",
+      "failed": "The update check is not possible right now. Please try again later.",
+      "install": "Install version {version}",
+      "confirm": "Install version {version} now? Please make a backup first. The checksum is verified. If anything fails, the current version stays in place.",
+      "installing": "Downloading and verifying the update …",
+      "installFailed": "The update could not be installed. The current version is unchanged.",
+      "installed": "Version {version} is prepared. Last step: go to Extensions, My extensions and click “Update” for MichaThemeV5."
     }
   }
 }

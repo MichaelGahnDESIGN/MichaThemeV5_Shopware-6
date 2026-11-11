@@ -206,6 +206,20 @@
       "themeFound": "Theme gefunden und aktiv im System",
       "assigned": "Theme ist Verkaufskanälen zugewiesen",
       "licenseKnown": "Lizenzstatus: {state}"
+    },
+    "update": {
+      "title": "Updates",
+      "intro": "Hier sehen Sie, ob es eine neue Version gibt. Es wird nur nach Ihrem Klick nachgesehen. Nichts wird automatisch installiert.",
+      "hint": "Die stündliche Prüfung hat Version {version} gefunden.",
+      "check": "Nach Updates suchen",
+      "available": "Version {version} ist verfügbar.",
+      "none": "Sie haben die aktuelle Version.",
+      "failed": "Die Update-Prüfung ist gerade nicht möglich. Bitte später erneut versuchen.",
+      "install": "Version {version} einspielen",
+      "confirm": "Version {version} jetzt einspielen? Vorher bitte ein Backup machen. Die Prüfsumme wird kontrolliert. Geht etwas schief, bleibt die bisherige Version erhalten.",
+      "installing": "Update wird geladen und geprüft …",
+      "installFailed": "Das Update konnte nicht eingespielt werden. Die bisherige Version ist unverändert.",
+      "installed": "Version {version} ist vorbereitet. Letzter Schritt: unter Erweiterungen, Meine Erweiterungen bei MichaThemeV5 auf „Aktualisieren“ klicken."
     }
   }
 }

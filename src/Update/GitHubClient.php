@@ -7,18 +7,19 @@ final class GitHubClient
 {
     public function __construct(private readonly DownloadPolicy $policy) {}
 
-    /** @return array<string, mixed>|null null bedeutet: noch kein veröffentlichtes Release. */
-    public function latest(): ?array
+    /** @return array<string, mixed>|null null = noch keine Prüfsummen-Datei veröffentlicht */
+    public function feed(): ?array
     {
         $body = '';
-        $status = $this->request('https://api.github.com/repos/' . ReleaseMetadata::REPOSITORY . '/releases/latest', 1_000_000,
+        // Prüfsummen-Datei ohne Weiterleitung, max 64 KB
+        $status = $this->request(ReleaseMetadata::FEED_URL, 65_536,
             static function (string $chunk) use (&$body): void { $body .= $chunk; }, false);
         if ($status === 404) { return null; }
-        if ($status !== 200) { throw new \RuntimeException('GitHub-Release-Prüfung vorübergehend nicht verfügbar.'); }
-        try { $release = json_decode($body, true, 32, JSON_THROW_ON_ERROR); }
-        catch (\JsonException $error) { throw new \RuntimeException('Ungültige GitHub-Release-Antwort.', 0, $error); }
-        if (!is_array($release)) { throw new \RuntimeException('Ungültige GitHub-Release-Metadaten.'); }
-        return $release;
+        if ($status !== 200) { throw new \RuntimeException('Update-Prüfung vorübergehend nicht verfügbar.'); }
+        try { $feed = json_decode($body, true, 8, JSON_THROW_ON_ERROR); }
+        catch (\JsonException $error) { throw new \RuntimeException('Ungültige Prüfsummen-Datei.', 0, $error); }
+        if (!is_array($feed)) { throw new \RuntimeException('Ungültige Prüfsummen-Datei.'); }
+        return $feed;
     }
 
     public function download(ReleaseMetadata $release, string $target): void
@@ -52,7 +53,7 @@ final class GitHubClient
                 CURLOPT_FOLLOWLOCATION => false, CURLOPT_PROTOCOLS => CURLPROTO_HTTPS,
                 CURLOPT_CONNECTTIMEOUT => 10, CURLOPT_TIMEOUT => 60,
                 CURLOPT_SSL_VERIFYPEER => true, CURLOPT_SSL_VERIFYHOST => 2,
-                CURLOPT_HTTPHEADER => ['Accept: application/vnd.github+json', 'User-Agent: MGD-EU-Label-Updater', 'X-GitHub-Api-Version: 2022-11-28'],
+                CURLOPT_HTTPHEADER => ['Accept: application/json, application/octet-stream', 'User-Agent: MichaThemeV5-Shopware-Updater'],
                 CURLOPT_HEADERFUNCTION => static function ($handle, string $header) use (&$location, &$status): int {
                     if (preg_match('/^HTTP\/\S+\s+(\d+)/', $header, $match)) { $status = (int) $match[1]; $location = null; }
                     if (stripos($header, 'Location:') === 0) { $location = trim(substr($header, 9)); }

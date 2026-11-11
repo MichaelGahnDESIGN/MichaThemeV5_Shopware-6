@@ -6,9 +6,11 @@ namespace MichaThemeV5\Administration\Controller;
 
 use MichaThemeV5\Administration\Service\InfoService;
 use MichaThemeV5\Administration\Service\SettingsService;
+use MichaThemeV5\ScheduledTask\UpdateTaskHandler;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Routing\ApiRouteScope;
 use Shopware\Core\PlatformRequest;
+use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
@@ -17,7 +19,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route(defaults: [PlatformRequest::ATTRIBUTE_ROUTE_SCOPE => [ApiRouteScope::ID]])]
 final class InfoController
 {
-    public function __construct(private readonly InfoService $info, private readonly SettingsService $settings)
+    public function __construct(private readonly InfoService $info, private readonly SettingsService $settings, private readonly SystemConfigService $config)
     {
     }
 
@@ -26,6 +28,10 @@ final class InfoController
     {
         $themeId = $this->settings->resolveThemeId($request->getPayload()->getString('themeId') ?: null, $context);
 
-        return new JsonResponse($this->info->info($themeId) + ['themeId' => $themeId]);
+        // Hinweis aus der stündlichen Prüfung (nur Versionsnummer, nichts wird abgefragt)
+        $hint = $this->config->getString(UpdateTaskHandler::LATEST_KEY);
+        $hint = preg_match('/^\d+\.\d+\.\d+$/D', $hint) ? $hint : '';
+
+        return new JsonResponse($this->info->info($themeId) + ['themeId' => $themeId, 'updateHint' => $hint]);
     }
 }

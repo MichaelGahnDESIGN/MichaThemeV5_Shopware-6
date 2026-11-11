@@ -17,14 +17,26 @@ final class UpdateController extends AbstractController
 {
     public function __construct(private readonly GitHubReleaseUpdater $updater, private readonly LoggerInterface $logger) {}
 
-    #[Route(path: '/api/_action/micha-theme-v5/update/check', name: 'api.action.micha_theme_v5.update.check', defaults: [PlatformRequest::ATTRIBUTE_ACL => ['system_config:update']], methods: ['POST'])]
-    public function check(Context $context): JsonResponse
+    // Nach Updates suchen: nur lesen, nichts wird heruntergeladen
+    #[Route(path: '/api/_action/micha-theme-v5/update/status', name: 'api.action.micha_theme_v5.update.status', defaults: [PlatformRequest::ATTRIBUTE_ACL => ['system_config:read']], methods: ['POST'])]
+    public function status(): JsonResponse
+    {
+        try { return new JsonResponse($this->updater->check()); }
+        catch (\Throwable $error) {
+            $this->logger->warning('MichaThemeV5: Update-Prüfung fehlgeschlagen.', ['exceptionType' => $error::class]);
+            return new JsonResponse(['error' => 'Update-Prüfung gerade nicht möglich. Bitte später erneut versuchen.'], 503);
+        }
+    }
+
+    // Update einspielen: nur per Klick, Schreibrecht nötig
+    #[Route(path: '/api/_action/micha-theme-v5/update/install', name: 'api.action.micha_theme_v5.update.install', defaults: [PlatformRequest::ATTRIBUTE_ACL => ['system_config:update']], methods: ['POST'])]
+    public function install(Context $context): JsonResponse
     {
         try { return new JsonResponse($this->updater->checkAndPrepare($context)); }
         catch (\Throwable $error) {
             // Keine Tokens, signierten Download-URLs oder absoluten Serverpfade in API/Logs ausgeben.
-            $this->logger->warning('MichaThemeV5: manuelle Update-Vorbereitung fehlgeschlagen.', ['exceptionType' => $error::class]);
-            return new JsonResponse(['error' => 'Update konnte nicht vorbereitet werden. Serverrechte, GitHub-Verfügbarkeit und Plugin-Installation prüfen.'], 503);
+            $this->logger->warning('MichaThemeV5: Update einspielen fehlgeschlagen.', ['exceptionType' => $error::class]);
+            return new JsonResponse(['error' => 'Update konnte nicht eingespielt werden. Die bisherige Version ist unverändert. Serverrechte und Plugin-Installation prüfen.'], 503);
         }
     }
 }

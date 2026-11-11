@@ -65,7 +65,7 @@
       <argument type="service" id="MichaThemeV5\Administration\Service\CatalogService"/><tag name="controller.service_arguments"/>
     </service>
     <service id="MichaThemeV5\Administration\Controller\InfoController" public="true">
-      <argument type="service" id="MichaThemeV5\Administration\Service\InfoService"/><argument type="service" id="MichaThemeV5\Administration\Service\SettingsService"/><tag name="controller.service_arguments"/>
+      <argument type="service" id="MichaThemeV5\Administration\Service\InfoService"/><argument type="service" id="MichaThemeV5\Administration\Service\SettingsService"/><argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/><tag name="controller.service_arguments"/>
     </service>
   </services>
 </container>

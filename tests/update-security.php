@@ -40,20 +40,27 @@ function archive(array $entries): string
 }
 
 $tests = [];
-$tests['Release: ausschließlich stabile höhere Version aus festem Repository'] = static function (): void {
+$tests['Release: Prüfsummen-Datei von theme.michael-gahn.de, nur stabile höhere Version aus festem Repository'] = static function (): void {
     check(class_exists(MichaThemeV5\Update\ReleaseMetadata::class), 'Release-Prüfung fehlt');
-    $release = ['tag_name' => 'v0.2.0', 'draft' => false, 'prerelease' => false, 'assets' => [[
-        'name' => 'MichaThemeV5.zip', 'size' => 1000, 'digest' => 'sha256:' . str_repeat('a', 64),
-        'browser_download_url' => 'https://github.com/MichaelGahnDESIGN/MichaThemeV5_Shopware-6/releases/download/v0.2.0/MichaThemeV5.zip',
-    ]]];
-    $parse = static fn(array $value) => MichaThemeV5\Update\ReleaseMetadata::fromGitHub($value, '0.1.0');
-    check($parse($release)->version === '0.2.0', 'Stabile neuere Version akzeptieren');
-    foreach ([['tag_name' => 'v0.1.0'], ['tag_name' => 'v0.2.0-beta.1'], ['draft' => true], ['prerelease' => true]] as $change) {
-        rejects(static fn() => $parse(array_replace($release, $change)), 'Ungültiges Release abweisen');
-    }
-    foreach ([['digest' => null], ['size' => 30000000], ['browser_download_url' => 'https://evil.example/MichaThemeV5.zip']] as $change) {
-        $bad = $release; $bad['assets'][0] = array_replace($bad['assets'][0], $change);
-        rejects(static fn() => $parse($bad), 'Ungültiges Asset abweisen');
+    check(MichaThemeV5\Update\ReleaseMetadata::FEED_URL === 'https://theme.michael-gahn.de/plugin-updates/michatheme-v5-shopware.json', 'Feste Adresse der Prüfsummen-Datei');
+    check(!method_exists(MichaThemeV5\Update\ReleaseMetadata::class, 'fromGitHub'), 'Alter Weg über die GitHub-API muss weg sein');
+    $feed = ['schema' => 1, 'product' => 'michatheme-v5-shopware', 'version' => '0.2.0', 'filename' => 'MichaThemeV5.zip',
+        'size' => 1000, 'sha256' => str_repeat('a', 64), 'root_dir' => 'MichaThemeV5',
+        'download_url' => 'https://github.com/MichaelGahnDESIGN/MichaThemeV5_Shopware-6/releases/download/v0.2.0/MichaThemeV5.zip'];
+    $parse = static fn(array $value) => MichaThemeV5\Update\ReleaseMetadata::fromChecksumFile($value, '0.1.0');
+    $ok = $parse($feed);
+    check($ok->version === '0.2.0' && $ok->sha256 === str_repeat('a', 64) && $ok->size === 1000 && $ok->url === $feed['download_url'], 'Gültige Prüfsummen-Datei akzeptieren');
+    check(MichaThemeV5\Update\ReleaseMetadata::newerVersion($feed, '0.1.0') === '0.2.0', 'Neuere Version erkennen');
+    check(MichaThemeV5\Update\ReleaseMetadata::newerVersion($feed, '0.2.0') === null, 'Gleiche Version ist kein Update');
+    check(MichaThemeV5\Update\ReleaseMetadata::newerVersion(['version' => '9.9.9'], '0.1.0') === null, 'Unvollständige Datei ist kein Update');
+    $bad = [['schema' => 2], ['product' => 'michatheme-v5'], ['version' => '0.1.0'], ['version' => '0.2.0-beta.1'], ['version' => 'v0.2.0'],
+        ['filename' => 'evil.zip'], ['root_dir' => '../x'], ['size' => 0], ['size' => 30000000], ['size' => '1000'],
+        ['sha256' => str_repeat('A', 64)], ['sha256' => str_repeat('a', 63)], ['sha256' => null],
+        ['download_url' => 'https://evil.example/MichaThemeV5.zip'],
+        ['download_url' => 'http://github.com/MichaelGahnDESIGN/MichaThemeV5_Shopware-6/releases/download/v0.2.0/MichaThemeV5.zip'],
+        ['download_url' => 'https://github.com/MichaelGahnDESIGN/MichaThemeV5_Shopware-6/releases/download/v0.3.0/MichaThemeV5.zip']];
+    foreach ($bad as $change) {
+        rejects(static fn() => $parse(array_replace($feed, $change)), 'Ungültige Prüfsummen-Datei abweisen: ' . json_encode($change));
     }
 };
 
@@ -114,8 +121,9 @@ $tests['Download: HTTPS-Hostgrenze, Digest und vollständige Größe'] = static 
     foreach (['http://github.com/a', 'https://evil.example/a', 'https://github.com.evil.example/a', 'https://user:pass@github.com/a', 'https://github.com:8443/a', 'file:///tmp/a'] as $url) {
         check(!$policy->allowedRedirect($url), 'Unsicheres Redirectziel zugelassen: ' . $url);
     }
-    $release = MichaThemeV5\Update\ReleaseMetadata::fromGitHub(['tag_name' => 'v0.2.0', 'draft' => false, 'prerelease' => false,
-        'assets' => [['name' => 'MichaThemeV5.zip', 'size' => 4, 'digest' => 'sha256:' . hash('sha256', 'good'), 'browser_download_url' => 'https://github.com/MichaelGahnDESIGN/MichaThemeV5_Shopware-6/releases/download/v0.2.0/MichaThemeV5.zip']]], '0.1.0');
+    $release = MichaThemeV5\Update\ReleaseMetadata::fromChecksumFile(['schema' => 1, 'product' => 'michatheme-v5-shopware', 'version' => '0.2.0',
+        'filename' => 'MichaThemeV5.zip', 'size' => 4, 'sha256' => hash('sha256', 'good'), 'root_dir' => 'MichaThemeV5',
+        'download_url' => 'https://github.com/MichaelGahnDESIGN/MichaThemeV5_Shopware-6/releases/download/v0.2.0/MichaThemeV5.zip'], '0.1.0');
     $file = tempnam(sys_get_temp_dir(), 'mgd-eu-digest-');
     try {
         file_put_contents($file, 'good'); $policy->verify($file, $release);
@@ -124,15 +132,22 @@ $tests['Download: HTTPS-Hostgrenze, Digest und vollständige Größe'] = static 
     } finally { unlink($file); }
 };
 
-$tests['Integration: feste Adminroute, Standard aus und stündlicher Check'] = static function (): void {
+$tests['Integration: kein stilles Update, Austausch nur per Klick mit Adminrecht'] = static function (): void {
     $base = __DIR__ . '/../src/';
     check(is_file($base . 'Controller/UpdateController.php'), 'Manuelle Adminroute fehlt');
     $controller = file_get_contents($base . 'Controller/UpdateController.php');
-    check(str_contains($controller, 'ApiRouteScope::ID') && str_contains($controller, "'system_config:update'") && str_contains($controller, "methods: ['POST']"), 'Admin-Authentifizierung und ACL fehlen');
+    check(str_contains($controller, 'ApiRouteScope::ID'), 'Admin-Authentifizierung fehlt');
+    check(preg_match("~update/status'.*?'system_config:read'.*?methods: \\['POST'\\]~s", $controller) === 1, 'Status-Route nur lesen, mit ACL');
+    check(preg_match("~update/install'.*?'system_config:update'.*?methods: \\['POST'\\]~s", $controller) === 1, 'Einspielen nur mit Schreibrecht und POST');
+    check(substr_count($controller, 'checkAndPrepare') === 1, 'Nur die Einspiel-Route darf Dateien austauschen');
     $config = simplexml_load_file($base . 'Resources/config/config.xml');
     $auto = $config->xpath('//input-field[name="automaticUpdates"]/defaultValue');
-    check((string) $auto[0] === 'false', 'Automatik muss standardmäßig aus sein');
+    check((string) $auto[0] === 'false', 'Automatische Prüfung muss standardmäßig aus sein');
     check(str_contains(file_get_contents($base . 'ScheduledTask/UpdateTask.php'), '3600'), 'Stündliches Prüfintervall');
+    $handler = file_get_contents($base . 'ScheduledTask/UpdateTaskHandler.php');
+    check(!str_contains($handler, 'checkAndPrepare') && str_contains($handler, '->check('), 'Geplante Aufgabe darf nur prüfen, nie Dateien austauschen');
+    $client = file_get_contents($base . 'Update/GitHubClient.php');
+    check(!str_contains($client, 'api.github.com') && str_contains($client, 'ReleaseMetadata::FEED_URL'), 'Versionsangabe nur aus der Prüfsummen-Datei');
 };
 
 $tests['Installer: geänderte Runtime-Anforderungen dürfen niemals aktive Dateien austauschen'] = static function (): void {

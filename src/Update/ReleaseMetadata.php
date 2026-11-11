@@ -2,33 +2,51 @@
 
 namespace MichaThemeV5\Update;
 
-/** GitHub-Antworten werden vollständig geprüft, bevor eine Datei heruntergeladen wird. */
+/**
+ * Prüfsummen-Datei von theme.michael-gahn.de (einfacher Modus wie MGD Update Client).
+ * Version, Größe und SHA-256 kommen von dort, das ZIP selbst vom festen GitHub-Release.
+ */
 final readonly class ReleaseMetadata
 {
     public const REPOSITORY = 'MichaelGahnDESIGN/MichaThemeV5_Shopware-6';
+    public const FEED_URL = 'https://theme.michael-gahn.de/plugin-updates/michatheme-v5-shopware.json';
+    public const PRODUCT = 'michatheme-v5-shopware';
+    public const ASSET = 'MichaThemeV5.zip';
+    public const ROOT_DIR = 'MichaThemeV5';
     public const MAX_DOWNLOAD_BYTES = 20_000_000;
+    private const SEMVER = '/^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$/D';
 
     private function __construct(public string $version, public string $url, public string $sha256, public int $size) {}
 
-    /** @param array<string, mixed> $release */
-    public static function fromGitHub(array $release, string $currentVersion): self
+    /** @param array<string, mixed> $feed */
+    public static function fromChecksumFile(array $feed, string $currentVersion): self
     {
-        $tag = $release['tag_name'] ?? '';
-        if (!is_string($tag) || !preg_match('/^v?(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$/D', $tag)
-            || ($release['draft'] ?? true) !== false || ($release['prerelease'] ?? true) !== false) {
-            throw new \RuntimeException('Nur veröffentlichte stabile Semver-Releases sind erlaubt.');
+        $version = $feed['version'] ?? null;
+        if (($feed['schema'] ?? null) !== 1 || ($feed['product'] ?? null) !== self::PRODUCT
+            || !is_string($version) || !preg_match(self::SEMVER, $version)) {
+            throw new \RuntimeException('Prüfsummen-Datei hat kein gültiges Format.');
         }
-        $version = ltrim($tag, 'v');
         if (!version_compare($version, $currentVersion, '>')) { throw new \RuntimeException('Keine neuere stabile Version verfügbar.'); }
-        $matches = array_values(array_filter(is_array($release['assets'] ?? null) ? $release['assets'] : [], static fn(mixed $asset): bool => is_array($asset) && ($asset['name'] ?? '') === 'MichaThemeV5.zip'));
-        if (count($matches) !== 1) { throw new \RuntimeException('Genau ein MichaThemeV5.zip-Asset wird benötigt.'); }
-        $asset = $matches[0];
-        $expected = 'https://github.com/' . self::REPOSITORY . '/releases/download/' . $tag . '/MichaThemeV5.zip';
-        if (($asset['browser_download_url'] ?? '') !== $expected || !is_int($asset['size'] ?? null)
-            || $asset['size'] <= 0 || $asset['size'] > self::MAX_DOWNLOAD_BYTES
-            || !is_string($asset['digest'] ?? null) || !preg_match('/^sha256:([a-f0-9]{64})$/D', $asset['digest'], $digest)) {
-            throw new \RuntimeException('Release-Asset besitzt keine zulässige Adresse, Größe oder SHA256-Prüfsumme.');
+        // Download-Adresse muss exakt zum Tag passen, sonst könnte die Datei ein altes oder fremdes ZIP unterschieben
+        $expected = 'https://github.com/' . self::REPOSITORY . '/releases/download/v' . $version . '/' . self::ASSET;
+        $size = $feed['size'] ?? null;
+        $sha = $feed['sha256'] ?? null;
+        if (($feed['filename'] ?? null) !== self::ASSET || ($feed['root_dir'] ?? null) !== self::ROOT_DIR
+            || ($feed['download_url'] ?? null) !== $expected
+            || !is_int($size) || $size <= 0 || $size > self::MAX_DOWNLOAD_BYTES
+            || !is_string($sha) || !preg_match('/^[a-f0-9]{64}$/D', $sha)) {
+            throw new \RuntimeException('Prüfsummen-Datei nennt keine zulässige Adresse, Größe oder SHA-256.');
         }
-        return new self($version, $expected, $digest[1], $asset['size']);
+        return new self($version, $expected, $sha, $size);
+    }
+
+    /**
+     * Nur für die Anzeige: neuere Version laut vollständig gültiger Datei, sonst null.
+     * @param array<string, mixed> $feed
+     */
+    public static function newerVersion(array $feed, string $currentVersion): ?string
+    {
+        try { return self::fromChecksumFile($feed, $currentVersion)->version; }
+        catch (\RuntimeException) { return null; }
     }
 }
