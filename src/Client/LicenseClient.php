@@ -77,6 +77,11 @@ final class LicenseClient
             if ($now < $cached['until']) {
                 return ['source' => 'cache'] + $cached['state'];
             }
+            // Ausfall vor kurzem gemerkt: nicht bei jedem Seitenaufruf bis zum Timeout warten
+            if (($cached['state']['valid'] ?? false) === true && $now < (int) ($cached['down_until'] ?? 0)
+                && $now < $cached['until'] + $this->graceSeconds) {
+                return ['source' => 'grace'] + $cached['state'];
+            }
         }
 
         // Token nur im Header; die Domain gehört in den JSON-Body, niemals in eine Token-URL.
@@ -124,6 +129,9 @@ final class LicenseClient
 
         // Server nicht erreichbar oder Fehler 5xx: abgelaufene gültige Antwort innerhalb der Gnadenfrist weiterverwenden.
         if (is_array($cached) && ($cached['state']['valid'] ?? false) === true && $now < $cached['until'] + $this->graceSeconds) {
+            // 2 Min merken, das Ende der Gnadenfrist bleibt gleich (until wird nicht angefasst)
+            ($this->cacheSet)($key, ['down_until' => $now + 120] + $cached, max(60, $cached['until'] + $this->graceSeconds - $now));
+
             return ['source' => 'grace'] + $cached['state'];
         }
 
@@ -151,7 +159,7 @@ final class LicenseClient
         $cached = ($this->cacheGet)($key);
         // Eintrag bleibt für die Gnadenfrist erhalten (falls der Server gerade fehlt), gilt aber als abgelaufen
         if (is_array($cached) && isset($cached['state'])) {
-            ($this->cacheSet)($key, ['until' => 0] + $cached, $this->graceSeconds);
+            ($this->cacheSet)($key, ['until' => 0] + array_diff_key($cached, ['down_until' => true]), $this->graceSeconds);
         }
     }
 

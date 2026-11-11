@@ -6,7 +6,7 @@
 - Geändert: Updates kommen jetzt über eine Prüfsummen-Datei auf theme.michael-gahn.de (`plugin-updates/michatheme-v5-shopware.json`). Das ZIP kommt vom GitHub-Release. Größe, SHA-256-Prüfsumme und alle Pfade im ZIP werden vor dem Entpacken geprüft. Geht etwas schief, bleibt die bisherige Version unverändert.
 - Geändert: Kein stilles Update mehr. Die stündliche Prüfung (Einstellung, ab Werk aus) sieht nur nach und zeigt einen Hinweis. Eingespielt wird erst nach einem Klick unter MichaThemeV5, Info, Karte **Updates**. Dafür braucht der Benutzer das Recht, Einstellungen zu ändern. Danach wie gewohnt unter Erweiterungen, Meine Erweiterungen auf „Aktualisieren“ klicken.
 - Geändert: Der Lizenzcode ist im Theme-Manager nicht mehr sichtbar (dort stand er lesbar). Gepflegt wird er auf der Seite **Lizenzen**. Ein schon gespeicherter Code bleibt erhalten.
-- Behoben: Ist der Lizenzserver nicht erreichbar, wartet die Lizenzseite nicht mehr auf jede Domain einzeln.
+- Behoben: Ist der Lizenzserver nicht erreichbar, wartet die Lizenzseite nicht mehr auf jede Domain einzeln. Der Ausfall wird 2 Minuten gemerkt, die Gnadenfrist von 48 Stunden bleibt gleich.
 - ⚠️ Wer 0.6.0 hat, muss dieses Update einmal von Hand einspielen (ZIP hochladen). Ab 0.6.1 geht es über den Knopf.
 
 ## Version 0.6.0

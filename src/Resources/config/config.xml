@@ -28,7 +28,7 @@
       <label lang="de-DE">Öffentliche Meldung "Produkt aktualisiert" bei Produktänderungen</label>
       <label lang="en-GB">Public message "Product updated" when products change</label>
       <defaultValue>false</defaultValue>
-      <helpText lang="de-DE">Standardmäßig aus. Gilt für alle Verkaufskanäle. Braucht den Shopware-Scheduler (Cron oder Queue-Worker). Es wird nur nachgesehen, nichts wird automatisch installiert. Ein neues Update erscheint unter MichaThemeV5, Info. Dort spielen Sie es mit einem Klick ein.</helpText>
+      <helpText lang="de-DE">Standardmäßig aus. Shopware ändert Produkte auch bei Lagerbestand und Preisen laufend, deshalb kann das viele Meldungen erzeugen (höchstens eine pro Produkt und Tag).</helpText>
       <helpText lang="en-GB">Off by default. Shopware also writes products for stock and price changes, so this can create many messages (at most one per product and day).</helpText>
     </input-field>
   </card>
