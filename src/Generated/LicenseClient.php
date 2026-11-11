@@ -77,9 +77,8 @@ final class LicenseClient
             if ($now < $cached['until']) {
                 return ['source' => 'cache'] + $cached['state'];
             }
-            // Ausfall vor kurzem gemerkt: nicht bei jedem Seitenaufruf bis zum Timeout warten
-            if (($cached['state']['valid'] ?? false) === true && $now < (int) ($cached['down_until'] ?? 0)
-                && $now < $cached['until'] + $this->graceSeconds) {
+            // Server grad weg (gemerkt 2 min) > nicht bei jedem Seitenaufruf bis zum Timeout warten
+            if (($cached['state']['valid'] ?? false) === true && $now < (int) ($cached['down_until'] ?? 0) && $now < $cached['until'] + $this->graceSeconds) {
                 return ['source' => 'grace'] + $cached['state'];
             }
         }
@@ -129,9 +128,7 @@ final class LicenseClient
 
         // Server nicht erreichbar oder Fehler 5xx: abgelaufene gültige Antwort innerhalb der Gnadenfrist weiterverwenden.
         if (is_array($cached) && ($cached['state']['valid'] ?? false) === true && $now < $cached['until'] + $this->graceSeconds) {
-            // 2 Min merken, das Ende der Gnadenfrist bleibt gleich (until wird nicht angefasst)
             ($this->cacheSet)($key, ['down_until' => $now + 120] + $cached, max(60, $cached['until'] + $this->graceSeconds - $now));
-
             return ['source' => 'grace'] + $cached['state'];
         }
 
