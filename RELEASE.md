@@ -1,8 +1,12 @@
-# Version 0.6.0 (Pre-Alpha)
+# Version 0.6.2 (Pre-Alpha)
 
 Das Theme ist noch in Entwicklung (Pre-Alpha). Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop.
 
 ## Neu in dieser Version
+
+- Glocke: Anzahl im Panel und Icon in den Plugin-Einstellungen wählbar (10 eingebettete Icons).
+- Glocke: „Alle anzeigen“ mit ausklappbaren Inhalten, „Alle gelesen“, „Ausblenden“ und „Gelesene ausblenden“.
+- Glocke: Öffnen allein markiert nichts mehr als gelesen.
 
 - Neu: Demo-Inhalte per Konsole. 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern.
 - Importieren: `bin/console michatheme:demo:import` (wiederholbar, keine Dubletten).

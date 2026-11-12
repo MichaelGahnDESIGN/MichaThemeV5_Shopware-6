@@ -31,5 +31,75 @@
       <helpText lang="de-DE">Standardmäßig aus. Shopware ändert Produkte auch bei Lagerbestand und Preisen laufend, deshalb kann das viele Meldungen erzeugen (höchstens eine pro Produkt und Tag).</helpText>
       <helpText lang="en-GB">Off by default. Shopware also writes products for stock and price changes, so this can create many messages (at most one per product and day).</helpText>
     </input-field>
+    <input-field type="int">
+      <name>notificationVisibleLimit</name>
+      <label lang="de-DE">Anzahl im Panel</label>
+      <label lang="en-GB">Number in the panel</label>
+      <defaultValue>5</defaultValue>
+      <min>1</min>
+      <max>30</max>
+      <helpText lang="de-DE">So viele aktuelle Meldungen stehen beim Klick auf die Glocke. Alle weiteren (bis 30) zeigt „Alle anzeigen“.</helpText>
+      <helpText lang="en-GB">How many current messages the bell shows. All others (up to 30) are listed under "Show all".</helpText>
+    </input-field>
+    <input-field type="single-select">
+      <name>notificationIcon</name>
+      <label lang="de-DE">Icon der Glocke</label>
+      <label lang="en-GB">Bell icon</label>
+      <defaultValue>bell</defaultValue>
+      <options>
+        <option>
+          <id>bell</id>
+          <name lang="de-DE">Glocke</name>
+          <name lang="en-GB">Bell</name>
+        </option>
+        <option>
+          <id>bell-ring</id>
+          <name lang="de-DE">Glocke mit Klang</name>
+          <name lang="en-GB">Ringing bell</name>
+        </option>
+        <option>
+          <id>bell-dot</id>
+          <name lang="de-DE">Glocke mit Punkt</name>
+          <name lang="en-GB">Bell with dot</name>
+        </option>
+        <option>
+          <id>megaphone</id>
+          <name lang="de-DE">Megafon</name>
+          <name lang="en-GB">Megaphone</name>
+        </option>
+        <option>
+          <id>inbox</id>
+          <name lang="de-DE">Posteingang</name>
+          <name lang="en-GB">Inbox</name>
+        </option>
+        <option>
+          <id>mail</id>
+          <name lang="de-DE">Brief</name>
+          <name lang="en-GB">Letter</name>
+        </option>
+        <option>
+          <id>message</id>
+          <name lang="de-DE">Sprechblase</name>
+          <name lang="en-GB">Speech bubble</name>
+        </option>
+        <option>
+          <id>info</id>
+          <name lang="de-DE">Info</name>
+          <name lang="en-GB">Info</name>
+        </option>
+        <option>
+          <id>star</id>
+          <name lang="de-DE">Stern</name>
+          <name lang="en-GB">Star</name>
+        </option>
+        <option>
+          <id>sparkles</id>
+          <name lang="de-DE">Neuigkeiten</name>
+          <name lang="en-GB">News</name>
+        </option>
+      </options>
+      <helpText lang="de-DE">Alle Icons sind im Plugin eingebettet. Es wird nichts von außen geladen.</helpText>
+      <helpText lang="en-GB">All icons are embedded in the plugin. Nothing is loaded from outside.</helpText>
+    </input-field>
   </card>
 </config>

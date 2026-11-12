@@ -33,7 +33,7 @@ final class NotificationController
                 $items = [...$this->notifications->personalFeed($customer->getId()), ...$items];
             }
 
-            return $this->json(['items' => $items]);
+            return $this->json(['items' => $items, 'settings' => $this->notifications->settings()]);
         } catch (\Throwable $error) {
             // Keine Fehler-Details nach außen, nur der Typ ins Log
             $this->logger->warning('MichaThemeV5: Benachrichtigungen konnten nicht geladen werden.', ['exceptionType' => $error::class]);
@@ -45,14 +45,40 @@ final class NotificationController
     #[Route(path: '/mgd-notification-center/{id}/read', name: 'frontend.mgd.notification.read', requirements: ['id' => '[0-9a-f]{32}'], defaults: ['XmlHttpRequest' => true], methods: ['POST'])]
     public function read(string $id, SalesChannelContext $context): JsonResponse
     {
+        return $this->act($context, fn (string $customer): bool => $this->notifications->markRead($id, $customer));
+    }
+
+    #[Route(path: '/mgd-notification-center/read-all', name: 'frontend.mgd.notification.read_all', defaults: ['XmlHttpRequest' => true], methods: ['POST'], priority: 10)]
+    public function readAll(SalesChannelContext $context): JsonResponse
+    {
+        return $this->act($context, fn (string $customer): int => $this->notifications->markAllRead($customer));
+    }
+
+    #[Route(path: '/mgd-notification-center/{id}/dismiss', name: 'frontend.mgd.notification.dismiss', requirements: ['id' => '[0-9a-f]{32}'], defaults: ['XmlHttpRequest' => true], methods: ['POST'])]
+    public function dismiss(string $id, SalesChannelContext $context): JsonResponse
+    {
+        return $this->act($context, fn (string $customer): bool => $this->notifications->dismiss($id, $customer));
+    }
+
+    #[Route(path: '/mgd-notification-center/dismiss-read', name: 'frontend.mgd.notification.dismiss_read', defaults: ['XmlHttpRequest' => true], methods: ['POST'], priority: 10)]
+    public function dismissRead(SalesChannelContext $context): JsonResponse
+    {
+        return $this->act($context, fn (string $customer): int => $this->notifications->dismissRead($customer));
+    }
+
+    /** Nur angemeldete Kunden, Kunde immer aus der Sitzung. bool = eine Meldung, int = Sammelaktion */
+    private function act(SalesChannelContext $context, callable $action): JsonResponse
+    {
         $customer = $context->getCustomer();
         if ($customer === null) {
             return $this->json(['success' => false], 401);
         }
         try {
-            return $this->json(['success' => $this->notifications->markRead($id, $customer->getId())]);
+            $result = $action($customer->getId());
+
+            return is_int($result) ? $this->json(['success' => true, 'count' => $result]) : $this->json(['success' => $result]);
         } catch (\Throwable $error) {
-            $this->logger->warning('MichaThemeV5: Meldung konnte nicht als gelesen markiert werden.', ['exceptionType' => $error::class]);
+            $this->logger->warning('MichaThemeV5: Meldungsstatus konnte nicht gespeichert werden.', ['exceptionType' => $error::class]);
 
             return $this->json(['success' => false], 503);
         }
