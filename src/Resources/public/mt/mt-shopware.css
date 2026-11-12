@@ -377,6 +377,41 @@ hr, .border, .border-top, .border-bottom { border-color: var(--mt-border) !impor
 .mt-notification-button:hover { background: var(--mt-surface-2); }
 .mt-notification-button svg { width: 1.375rem; height: 1.375rem; }
 .mt-notification-panel { border-radius: var(--mt-r-lg); box-shadow: var(--mt-shadow-md); }
+/* Glocke 0.6.2 Kopf, Ausblenden, Alle anzeigen */
+.mt-notification-center [hidden], .mt-notification-dialog [hidden] { display: none !important; }
+.mt-notification-panel { max-height: min(30rem, calc(100dvh - 7rem)); overflow: auto; overscroll-behavior: contain; }
+.mt-notification-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .25rem; }
+.mt-notification-tools { display: flex; flex-wrap: wrap; gap: .4rem; }
+.mt-notification-tool, .mt-notification-hide { min-height: 34px; padding: .3rem .65rem; border: 1px solid var(--mt-border-strong); border-radius: var(--mt-r-md, .5rem); background: var(--mt-surface); color: var(--mt-text); font: inherit; font-size: .8rem; cursor: pointer; }
+.mt-notification-tool:hover, .mt-notification-hide:hover { border-color: var(--mt-accent); }
+.mt-notification-tool:disabled { opacity: .5; cursor: default; }
+.mt-notification-status { margin: 0; font-size: .8rem; }
+.mt-notification-status:empty { display: none; }
+.mt-notification-list .mt-notification-item { display: grid; gap: .25rem; padding: .65rem 0; border-top: 1px solid var(--mt-border); }
+.mt-notification-item.is-read { opacity: .7; }
+.mt-notification-item-title { padding: 0; border: 0; background: none; color: inherit; font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+.mt-notification-text { font-size: .9rem; line-height: 1.5; }
+.mt-notification-foot { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.mt-notification-foot small { color: var(--mt-text-muted); }
+.mt-notification-show-all { display: block; width: 100%; min-height: 44px; margin-top: .5rem; border: 0; border-radius: var(--mt-r-md, .5rem); background: var(--mt-accent); color: var(--mt-on-accent, #fff); font: inherit; font-weight: 700; cursor: pointer; }
+.mt-notification-show-all:hover { background: var(--mt-accent-hover, var(--mt-accent)); }
+.mt-notification-dialog { box-sizing: border-box; width: min(680px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid var(--mt-border); border-radius: var(--mt-r-xl, 18px); background: var(--mt-surface); color: var(--mt-text); overflow: hidden; }
+.mt-notification-dialog[open] { display: flex; flex-direction: column; }
+.mt-notification-dialog::backdrop { background: #0f172a80; backdrop-filter: blur(6px); }
+.mt-notification-dialog header { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; padding: 18px 20px; border-bottom: 1px solid var(--mt-border); }
+.mt-notification-dialog h2 { flex: 1; margin: 0; font-size: 1.3rem; }
+.mt-notification-dialog-close { width: 42px; height: 42px; border: 1px solid var(--mt-border-strong); border-radius: var(--mt-r-md, .5rem); background: var(--mt-surface); color: var(--mt-text); font-size: 24px; line-height: 1; cursor: pointer; }
+.mt-notification-dialog-body { padding: 18px 20px; overflow: auto; overscroll-behavior: contain; }
+.mt-notification-dialog-list { display: grid; gap: .5rem; }
+.mt-notification-dialog-item { border: 1px solid var(--mt-border); border-radius: var(--mt-r-lg); }
+.mt-notification-dialog-item[open] { border-color: var(--mt-accent); }
+.mt-notification-dialog-item.is-read { opacity: .75; }
+.mt-notification-dialog-item summary { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: .8rem 1rem; font-weight: 700; cursor: pointer; }
+.mt-notification-dialog-item summary small { flex: none; font-weight: 400; color: var(--mt-text-muted); }
+.mt-notification-dialog-content { padding: 0 1rem 1rem; line-height: 1.7; overflow-wrap: anywhere; white-space: pre-line; }
+.mt-notification-dialog-content a { color: var(--mt-accent-text, var(--mt-accent)); text-decoration: underline; }
+.mt-notification-dialog-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: .5rem; white-space: normal; }
+@media (max-width: 600px) { .mt-notification-dialog-item summary { flex-direction: column; gap: .25rem; } .mt-notification-dialog h2 { flex-basis: calc(100% - 60px); } }
 
 /* Fokus Ring neutral (Storefront hat blau/weiss) */
 :focus-visible, .btn:focus-visible, .form-control:focus-visible, .form-select:focus-visible, .form-check-input:focus-visible, a:focus-visible,

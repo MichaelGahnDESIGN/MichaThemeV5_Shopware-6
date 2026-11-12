@@ -35,6 +35,18 @@ foreach ($files as $file) {
 $controller = (string) file_get_contents($root . '/src/NotificationCenter/Controller/NotificationController.php');
 ok(str_contains($controller, 'StorefrontRouteScope::ID'), 'Controller braucht den Storefront-Scope');
 ok(str_contains($controller, 'frontend.mgd.notification.feed') && str_contains($controller, 'frontend.mgd.notification.read'), 'Routennamen fehlen');
+// 0.6.2: Alle gelesen, Ausblenden, Gelesene ausblenden - Kunde nur aus der Sitzung
+foreach (['frontend.mgd.notification.read_all', 'frontend.mgd.notification.dismiss', 'frontend.mgd.notification.dismiss_read'] as $route) {
+    ok(str_contains($controller, $route), "Route fehlt: $route");
+}
+ok(str_contains($controller, '$context->getCustomer()') && !preg_match('/customerId[\'"]?\s*=>\s*\$request/', $controller), 'Kunde muss aus der Sitzung kommen');
+$service = (string) file_get_contents($root . '/src/NotificationCenter/Service/NotificationService.php');
+foreach (['markAllRead', 'dismissRead', 'function dismiss('] as $method) {
+    ok(str_contains($service, $method), "Service-Methode fehlt: $method");
+}
+ok(substr_count($service, 'self::VISIBLE') >= 4, 'Sammelaktionen müssen dieselbe Sichtbarkeit wie der Feed nutzen');
+$twig = (string) file_get_contents($root . '/src/Resources/views/storefront/notification/notification-center.html.twig');
+ok(!str_contains($twig, "\u{1F514}") && str_contains($twig, 'notificationIcon'), 'Glocke soll ein eingebettetes Icon aus den Einstellungen sein');
 $admin = (string) file_get_contents($root . '/src/NotificationCenter/Controller/NotificationAdminController.php');
 ok(str_contains($admin, 'ApiRouteScope::ID') && str_contains($admin, 'ATTRIBUTE_ACL'), 'Admin-Route braucht API-Scope und ACL');
 

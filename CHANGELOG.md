@@ -1,5 +1,12 @@
 # Änderungen
 
+## Version 0.6.2
+
+- Neu Glocke: In den Plugin-Einstellungen „Anzahl im Panel“ (1 bis 30) und „Icon der Glocke“ (10 eingebettete Icons, kein Emoji).
+- Neu Glocke: „Alle anzeigen“ öffnet ein Fenster mit allen Meldungen. Überschriften untereinander, ein Klick klappt den ganzen Inhalt samt Link auf.
+- Neu Glocke: „Alle gelesen“ markiert alle Meldungen, „Ausblenden“ je Meldung und „Gelesene ausblenden“. Persönliche Meldungen merkt sich der Shop, öffentliche der Browser.
+- Geändert: Das Öffnen der Glocke allein markiert nichts mehr als gelesen.
+
 ## Version 0.6.1
 
 - Geändert: Der Lizenzcode steht nicht mehr in der Adresse (URL). Er geht nur noch per HTTPS im Kopfteil der Anfrage an den Lizenzserver, ohne Weiterleitungen. [Details](docs/LIZENZTRANSPORT.md).

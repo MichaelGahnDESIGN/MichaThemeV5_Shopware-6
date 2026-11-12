@@ -13,7 +13,12 @@ final class NotificationService
     // Schalter aus config.xml
     private const CONFIG_ENABLED = 'MichaThemeV5.config.notificationCenterEnabled';
     private const CONFIG_PRODUCT_EVENTS = 'MichaThemeV5.config.notificationProductEvents';
+    private const CONFIG_LIMIT = 'MichaThemeV5.config.notificationVisibleLimit';
+    private const CONFIG_ICON = 'MichaThemeV5.config.notificationIcon';
     private const FEED_LIMIT = 30;
+    public const ICONS = ['bell', 'bell-ring', 'bell-dot', 'megaphone', 'inbox', 'mail', 'message', 'info', 'star', 'sparkles'];
+    // gleiche Sichtbarkeit wie personalFeed()
+    private const VISIBLE = "notification_id IN (SELECT id FROM mgd_notification WHERE scope = 'personal' AND status = 'published' AND published_at <= UTC_TIMESTAMP(3) AND (expires_at IS NULL OR expires_at > UTC_TIMESTAMP(3)))";
     // UTC-Zeit als ISO-Text, damit der Browser sie in Ortszeit umrechnen kann
     private const ISO = "DATE_FORMAT(%s, '%%Y-%%m-%%dT%%H:%%i:%%sZ')";
 
@@ -23,6 +28,16 @@ final class NotificationService
     public function isEnabled(): bool
     {
         return $this->config->get(self::CONFIG_ENABLED) !== false;
+    }
+
+    /** Anzahl im Panel (1-30) und Icon aus den Plugin-Einstellungen */
+    public function settings(?string $salesChannelId = null): array
+    {
+        // Werte je Verkaufskanal, sonst global
+        $limit = (int) ($this->config->get(self::CONFIG_LIMIT, $salesChannelId) ?: 5);
+        $icon = (string) ($this->config->get(self::CONFIG_ICON, $salesChannelId) ?: 'bell');
+
+        return ['visibleLimit' => max(1, min(self::FEED_LIMIT, $limit)), 'icon' => in_array($icon, self::ICONS, true) ? $icon : 'bell'];
     }
 
     /** Meldungen bei Produktänderungen sind nur an, wenn sie ausdrücklich eingeschaltet wurden. */
@@ -70,7 +85,29 @@ final class NotificationService
             return false;
         }
 
-        return 1 === $this->connection->executeStatement('UPDATE mgd_notification_recipient SET read_at = UTC_TIMESTAMP(3) WHERE notification_id = :notification AND customer_id = :customer AND read_at IS NULL', ['notification' => Uuid::fromHexToBytes($notificationId), 'customer' => Uuid::fromHexToBytes($customerId)]);
+        return 1 === $this->connection->executeStatement('UPDATE mgd_notification_recipient SET read_at = UTC_TIMESTAMP(3) WHERE notification_id = :notification AND customer_id = :customer AND read_at IS NULL AND dismissed_at IS NULL AND ' . self::VISIBLE, ['notification' => Uuid::fromHexToBytes($notificationId), 'customer' => Uuid::fromHexToBytes($customerId)]);
+    }
+
+    /** Alle eigenen, gerade sichtbaren als gelesen; liefert die Anzahl */
+    public function markAllRead(string $customerId): int
+    {
+        return $this->connection->executeStatement('UPDATE mgd_notification_recipient SET read_at = UTC_TIMESTAMP(3) WHERE customer_id = :customer AND read_at IS NULL AND dismissed_at IS NULL AND ' . self::VISIBLE, ['customer' => Uuid::fromHexToBytes($customerId)]);
+    }
+
+    /** Eine eigene Meldung ausblenden (gilt dann auch als gelesen) */
+    public function dismiss(string $notificationId, string $customerId): bool
+    {
+        if (!Uuid::isValid($notificationId)) {
+            return false;
+        }
+
+        return 1 === $this->connection->executeStatement('UPDATE mgd_notification_recipient SET dismissed_at = UTC_TIMESTAMP(3), read_at = COALESCE(read_at, UTC_TIMESTAMP(3)) WHERE notification_id = :notification AND customer_id = :customer AND dismissed_at IS NULL AND ' . self::VISIBLE, ['notification' => Uuid::fromHexToBytes($notificationId), 'customer' => Uuid::fromHexToBytes($customerId)]);
+    }
+
+    /** Alle schon gelesenen eigenen ausblenden */
+    public function dismissRead(string $customerId): int
+    {
+        return $this->connection->executeStatement('UPDATE mgd_notification_recipient SET dismissed_at = UTC_TIMESTAMP(3) WHERE customer_id = :customer AND read_at IS NOT NULL AND dismissed_at IS NULL AND ' . self::VISIBLE, ['customer' => Uuid::fromHexToBytes($customerId)]);
     }
 
     public function createOnce(array $notification, ?string $customerId = null): void
@@ -116,7 +153,8 @@ final class NotificationService
             'targetUrl' => self::safeTargetUrl(isset($row['targetUrl']) ? (string) $row['targetUrl'] : null),
             'publishedAt' => isset($row['publishedAt']) ? (string) $row['publishedAt'] : null,
             'scope' => $scope,
-            'read' => $scope === 'public' || !empty($row['readAt']),
+            // öffentliche: Lesestatus merkt sich der Browser
+            'read' => $scope === 'personal' && !empty($row['readAt']),
         ], $rows);
     }
 }
