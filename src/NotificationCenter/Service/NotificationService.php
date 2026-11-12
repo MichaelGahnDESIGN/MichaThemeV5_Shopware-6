@@ -31,10 +31,11 @@ final class NotificationService
     }
 
     /** Anzahl im Panel (1-30) und Icon aus den Plugin-Einstellungen */
-    public function settings(): array
+    public function settings(?string $salesChannelId = null): array
     {
-        $limit = (int) ($this->config->get(self::CONFIG_LIMIT) ?: 5);
-        $icon = (string) ($this->config->get(self::CONFIG_ICON) ?: 'bell');
+        // Werte je Verkaufskanal, sonst global
+        $limit = (int) ($this->config->get(self::CONFIG_LIMIT, $salesChannelId) ?: 5);
+        $icon = (string) ($this->config->get(self::CONFIG_ICON, $salesChannelId) ?: 'bell');
 
         return ['visibleLimit' => max(1, min(self::FEED_LIMIT, $limit)), 'icon' => in_array($icon, self::ICONS, true) ? $icon : 'bell'];
     }

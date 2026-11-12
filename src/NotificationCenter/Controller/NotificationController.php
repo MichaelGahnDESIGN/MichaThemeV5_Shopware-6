@@ -33,7 +33,7 @@ final class NotificationController
                 $items = [...$this->notifications->personalFeed($customer->getId()), ...$items];
             }
 
-            return $this->json(['items' => $items, 'settings' => $this->notifications->settings()]);
+            return $this->json(['items' => $items, 'settings' => $this->notifications->settings($context->getSalesChannelId())]);
         } catch (\Throwable $error) {
             // Keine Fehler-Details nach außen, nur der Typ ins Log
             $this->logger->warning('MichaThemeV5: Benachrichtigungen konnten nicht geladen werden.', ['exceptionType' => $error::class]);
