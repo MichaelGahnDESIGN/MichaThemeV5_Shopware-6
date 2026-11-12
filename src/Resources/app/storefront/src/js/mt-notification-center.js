@@ -96,7 +96,8 @@
         let items = [];
         let limit = 5;
         let busy = false;
-        const say = (text) => { if (status) status.textContent = text; };
+        // Meldung dahin, wo der Nutzer gerade ist (Fenster offen > Status im Fenster)
+        const say = (text) => { const target = dialog.open ? dStatus : status; if (target) target.textContent = text; };
 
         const markRead = (item) => {
             if (isRead(item)) return Promise.resolve(true);
@@ -120,9 +121,10 @@
         const dClose = el('button', 'mt-notification-dialog-close', '×'); dClose.type = 'button'; dClose.setAttribute('aria-label', 'Fenster schließen');
         dHead.append(dTitle, dReadAll, dHideRead, dClose);
         const dBody = el('div', 'mt-notification-dialog-body');
+        const dStatus = el('p', 'mt-notification-status'); dStatus.setAttribute('role', 'status'); dStatus.setAttribute('aria-live', 'polite');
         const dEmpty = el('p', 'mt-notification-empty', 'Keine Benachrichtigungen.');
         const dList = el('div', 'mt-notification-dialog-list');
-        dBody.append(dEmpty, dList); dialog.append(dHead, dBody);
+        dBody.append(dStatus, dEmpty, dList); dialog.append(dHead, dBody);
         if (document.body) document.body.append(dialog);
         const closeDialog = () => { if (typeof dialog.close === 'function') dialog.close(); else { dialog.open = false; button.focus(); } };
         dClose.addEventListener('click', closeDialog);

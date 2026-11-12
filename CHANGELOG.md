@@ -1,5 +1,10 @@
 # Änderungen
 
+## Version 0.7.0
+
+- Versionssprung auf 0.7.0: Die Glocke (Notification Center) hat jetzt auf allen Systemen dieselbe Version (WordPress, JTL-Shop, Shopware, Shopify).
+- Behoben Glocke: Fehlermeldungen erscheinen im Fenster „Alle anzeigen“, wenn es offen ist.
+
 ## Version 0.6.2
 
 - Neu Glocke: In den Plugin-Einstellungen „Anzahl im Panel“ (1 bis 30) und „Icon der Glocke“ (10 eingebettete Icons, kein Emoji).

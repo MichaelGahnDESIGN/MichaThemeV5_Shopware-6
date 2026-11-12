@@ -403,6 +403,7 @@ hr, .border, .border-top, .border-bottom { border-color: var(--mt-border) !impor
 .mt-notification-dialog-close { width: 42px; height: 42px; border: 1px solid var(--mt-border-strong); border-radius: var(--mt-r-md, .5rem); background: var(--mt-surface); color: var(--mt-text); font-size: 24px; line-height: 1; cursor: pointer; }
 .mt-notification-dialog-body { padding: 18px 20px; overflow: auto; overscroll-behavior: contain; }
 .mt-notification-dialog-list { display: grid; gap: .5rem; }
+.mt-notification-dialog .mt-notification-status { margin: 0 0 .75rem; }
 .mt-notification-dialog-item { border: 1px solid var(--mt-border); border-radius: var(--mt-r-lg); }
 .mt-notification-dialog-item[open] { border-color: var(--mt-accent); }
 .mt-notification-dialog-item.is-read { opacity: .75; }
