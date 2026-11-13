@@ -1,8 +1,11 @@
-# Version 0.6.2 (Pre-Alpha)
+# Version 0.7.0 (Pre-Alpha)
 
 Das Theme ist noch in Entwicklung (Pre-Alpha). Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop.
 
 ## Neu in dieser Version
+
+- Versionssprung auf 0.7.0: gleiche Version der Glocke auf allen Systemen.
+- Glocke: Fehlermeldungen erscheinen im Fenster „Alle anzeigen“.
 
 - Glocke: Anzahl im Panel und Icon in den Plugin-Einstellungen wählbar (10 eingebettete Icons).
 - Glocke: „Alle anzeigen“ mit ausklappbaren Inhalten, „Alle gelesen“, „Ausblenden“ und „Gelesene ausblenden“.
