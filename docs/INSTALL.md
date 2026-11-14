@@ -1,6 +1,6 @@
-# Installation (Entwicklungsstand)
+# Installation
 
-> Pre-Alpha. Das Theme wurde statisch geprüft (JSON, CSS, PHP-Syntax) und noch nicht in einer laufenden Shopware-Instanz getestet.
+> Fertige Version (ab 1.4.0). Geprüft auf einem Demo-Shop mit Shopware 6.7.15.1. Vor jedem Update bitte eine Sicherung des Shops machen.
 
 1. Ordner nach `custom/plugins/MichaThemeV5` kopieren (oder per Composer einbinden).
 2. `bin/console plugin:refresh && bin/console plugin:install --activate MichaThemeV5`

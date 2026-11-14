@@ -3,8 +3,10 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { strict as assert } from 'node:assert';
 import { test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 
-const root = new URL('../', import.meta.url).pathname;
+// Pfad sauber dekodieren, sonst knallts bei Leerzeichen im Ordner
+const root = fileURLToPath(new URL('../', import.meta.url));
 const mod = root + 'src/Resources/app/administration/src/module/michatheme-v5/';
 const read = (p) => readFileSync(p, 'utf8');
 const walk = (d) => readdirSync(d).flatMap((n) => (statSync(d + n).isDirectory() ? walk(d + n + '/') : [d + n]));

@@ -1,44 +1,37 @@
-# Version 0.7.0 (Pre-Alpha)
+# Version 1.4.0
 
-Das Theme ist noch in Entwicklung (Pre-Alpha). Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop.
+MichaThemeV5 für Shopware 6 ist jetzt eine fertige Version. Die Pre-Alpha-Phase ist vorbei.
 
-## Neu in dieser Version
+## Was ist neu?
 
-- Versionssprung auf 0.7.0: gleiche Version der Glocke auf allen Systemen.
-- Glocke: Fehlermeldungen erscheinen im Fenster „Alle anzeigen“.
+- Fertige Version: Das Theme ist für den Einsatz im Shop freigegeben.
+- Einheitliche Versionsnummer 1.4.0 für alle Produkte von Michael Gahn DESIGN (WordPress, JTL-Shop, Shopware, Shopify). So sieht man sofort, welche Stände zusammengehören.
+- Inhaltlich gleich wie 0.7.0. Es gibt keine neuen Funktionen und keine Änderungen am Code.
 
-- Glocke: Anzahl im Panel und Icon in den Plugin-Einstellungen wählbar (10 eingebettete Icons).
-- Glocke: „Alle anzeigen“ mit ausklappbaren Inhalten, „Alle gelesen“, „Ausblenden“ und „Gelesene ausblenden“.
-- Glocke: Öffnen allein markiert nichts mehr als gelesen.
+Das ist schon drin (aus den Versionen davor):
 
-- Neu: Demo-Inhalte per Konsole. 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern.
-- Importieren: `bin/console michatheme:demo:import` (wiederholbar, keine Dubletten).
-- Entfernen: `bin/console michatheme:demo:remove --force`. Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup des Shops machen.
-- Ehrlich gesagt: Auf einem Demo-Shop mit Shopware 6.7.15.1 per Konsole erprobt, andere Versionen nicht.
+- Admin-Modul unter Einstellungen, Erweiterungen, MichaThemeV5: Einstellungen, Lizenzen, Plugin-Empfehlungen und Info an einem Ort.
+- 16 eigene Farben für Hell und Dunkel, Design-Presets (Standard, Glas, Kompakt), Kartenstil, Flächenstil und Inhaltsbreite.
+- Glocke (Meldungen) mit „Alle anzeigen“, „Alle gelesen“ und „Ausblenden“. Anzahl und Icon sind einstellbar.
+- Demo-Inhalte per Konsole: `bin/console michatheme:demo:import` und `bin/console michatheme:demo:remove --force`.
 
-Frühere Änderungen in dieser Reihe:
+## Bekannte Grenzen
 
-- Neu: Kartenstil, Flächenstil (Glas) und Inhaltsbreite einstellbar, auch über die Presets „Glas“ und „Kompakt“.
-- Korrigiert: Das Plugin blendet sich in den Plugin-Empfehlungen selbst aus.
-
-- Korrigiert: Das Admin-Modul aus 0.5.1 fand sein Schema nicht. Mit 0.5.2 laden Einstellungen, Lizenz und Info.
-
-- Neues Admin-Modul: Einstellungen, Lizenzen, Plugin-Empfehlungen und Info an einem Ort (Einstellungen, Erweiterungen, MichaThemeV5).
-- 16 eigene Farben für Hell und Dunkel mit Farbwähler, Palette und Warnung bei schlecht lesbarem Text.
-- Design-Presets (Standard, Glas, Kompakt), Suche, „Einfach“ und „Experte“.
-- Lizenzcode einfügen und prüfen. Der Code wird nie im Klartext angezeigt.
-- Alle Werte bleiben in der normalen Theme-Konfiguration. Nichts geht verloren.
-
-## Noch nicht fertig
-
-- Das Admin-Modul wurde nicht in jeder Shopware-Version getestet (6.7.15.1 ja, 6.6 nein).
+- Geprüft mit Shopware 6.7.15.1. Shopware 6.6 wurde nicht getestet.
 - Hell/Dunkel-Schalter im Benutzerkonto: Gäste ohne Konto sehen ihn dort nicht.
 - Auf Produktkarten liegen das Herz der Wunschliste (Shopware) und das Herz der Favoriten (Theme) nebeneinander.
-- Der optionale GitHub-Updater ist standardmäßig aus. Bitte per ZIP-Upload installieren.
 
 ## So installieren
 
 1. Datei `MichaThemeV5.zip` herunterladen. Die Prüfsumme steht in `MichaThemeV5.zip.sha256`.
-2. In Shopware unter "Erweiterungen" > "Meine Erweiterungen" hochladen und den Update-Schritt ausführen.
+2. In Shopware unter „Erweiterungen“ > „Meine Erweiterungen“ hochladen.
+3. Das Plugin installieren und aktivieren. Das Theme dem Verkaufskanal zuweisen.
+4. `bin/console theme:compile` ausführen, danach den Cache leeren.
+
+## Update von einer älteren Version
+
+1. Zuerst eine Sicherung des Shops machen (Dateien und Datenbank).
+2. Die neue `MichaThemeV5.zip` hochladen und bei „Meine Erweiterungen“ auf „Aktualisieren“ klicken.
 3. `bin/console theme:compile` ausführen, danach den Cache leeren.
-4. Vor jedem Update eine Sicherung des Shops machen.
+
+Wer schon 0.6.1 oder neuer hat, kann das Update auch unter MichaThemeV5, Info, Karte „Updates“ per Knopf einspielen. Auch dann vorher eine Sicherung machen.

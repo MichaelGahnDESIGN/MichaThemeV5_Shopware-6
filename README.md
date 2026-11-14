@@ -2,7 +2,7 @@
 
 Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtssicherer Ausrichtung für DE und EU.
 
-**Status:** in Entwicklung (Pre-Alpha).
+**Status:** fertige Version 1.4.0. Vor jedem Update bitte eine Sicherung des Shops machen.
 
 ## Lizenztransport in Vorbereitung
 
@@ -23,7 +23,7 @@ Der Colorpicker ist ein Farbwähler. Er hat eine Farbfläche, einen Farbton-Regl
 
 Eingebunden ist er in der Einstellungsseite des Plugins MichaThemeV5: bei WooCommerce ab Plugin 0.5.0, bei JTL-Shop 5 ab Plugin 0.5.1 und bei Shopware 6 im Admin-Modul ab 0.5.1. Dort gibt es 16 Farbfelder je Hell und Dunkel. Ohne Plugin wählst du die Akzentfarbe wie bisher aus der Liste oder als eigene Farbe (HEX-Wert) in den Theme-Einstellungen. Bei Shopify gibt es den Colorpicker nicht: Der Theme-Editor hat einen eigenen Farbwähler, und gespeicherte Paletten sind dort nicht möglich.
 
-Ehrlich gesagt: Die Plugins sind Pre-Alpha und bisher nur in Test- und Demo-Umgebungen geprüft.
+Ehrlich gesagt: Die Plugins sind bisher nur in Test- und Demo-Umgebungen geprüft. Vor jedem Update bitte eine Sicherung machen.
 
 ## Icon-Leiste in der Kopfzeile (ab Version 0.4.0)
 
@@ -86,7 +86,7 @@ Neu: optionaler GitHub-Updater mit festem Repository, SHA-256-Prüfung, sicherer
 
 Nach dem Upload bzw. der automatischen Vorbereitung unter „Erweiterungen → Meine Erweiterungen“ den normalen Shopware-Updatevorgang ausführen. Shopware übernimmt dabei seine Asset- und Cache-Schritte. Für automatische Prüfungen den Schalter in den Plugin-Einstellungen global aktivieren; ScheduledTask-Scheduler und Queue-Worker müssen laufen. Wegen der kurzen Verzeichnis-Umschaltung ein Wartungsfenster verwenden. Eine Shop-Sicherung vor Updates bleibt empfohlen.
 
-Das Theme bleibt Pre-Alpha. Seine eigenen Styles, Skripte und Schriften liegen bereits fertig im Paket. Die normale Shopware-Theme-Zuweisung bzw. Theme-Kompilierung für den jeweiligen Verkaufskanal bleibt Teil von Shopware und wird nicht durch ein universelles all.css ersetzt.
+Ab Version 1.4.0 ist das Theme eine fertige Version. Seine eigenen Styles, Skripte und Schriften liegen bereits fertig im Paket. Die normale Shopware-Theme-Zuweisung bzw. Theme-Kompilierung für den jeweiligen Verkaufskanal bleibt Teil von Shopware und wird nicht durch ein universelles all.css ersetzt.
 
 Entwicklung: `python3 scripts/build-assets.py` baut die Dateien. `python3 scripts/build-release.py` prüft den Stand und erzeugt das ZIP unter `dist/`. Ein Push auf `main` erstellt nach erfolgreichen Prüfungen das Release der in `composer.json` angegebenen Version. Bereits veröffentlichte Versionen werden niemals überschrieben.
 

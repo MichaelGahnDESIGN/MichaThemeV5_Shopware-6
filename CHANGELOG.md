@@ -1,5 +1,12 @@
 # Änderungen
 
+## Version 1.4.0
+
+- Fertige Version: MichaThemeV5 für Shopware 6 ist nicht mehr Pre-Alpha.
+- Einheitliche Versionsnummer 1.4.0 für alle Produkte von Michael Gahn DESIGN (WordPress, JTL-Shop, Shopware, Shopify). So sieht man sofort, welche Stände zusammengehören.
+- Seit 0.7.0 gibt es keine weiteren Code-Änderungen. Version 1.4.0 enthält alles aus 0.7.0 und früher.
+- Vor jedem Update bitte weiterhin eine Sicherung des Shops machen.
+
 ## Version 0.7.0
 
 - Versionssprung auf 0.7.0: Die Glocke (Notification Center) hat jetzt auf allen Systemen dieselbe Version (WordPress, JTL-Shop, Shopware, Shopify).
