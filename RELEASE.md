@@ -1,12 +1,13 @@
-# Version 1.4.0
+# Version 1.5.0
 
-MichaThemeV5 für Shopware 6 ist jetzt eine fertige Version. Die Pre-Alpha-Phase ist vorbei.
+MichaThemeV5 für Shopware 6 meldet sich jetzt kurz bei theme.michael-gahn.de. Das hilft zu zählen, wie viele Shops das kostenlose Theme nutzen.
 
 ## Was ist neu?
 
-- Fertige Version: Das Theme ist für den Einsatz im Shop freigegeben.
-- Einheitliche Versionsnummer 1.4.0 für alle Produkte von Michael Gahn DESIGN (WordPress, JTL-Shop, Shopware, Shopify). So sieht man sofort, welche Stände zusammengehören.
-- Inhaltlich gleich wie 0.7.0. Es gibt keine neuen Funktionen und keine Änderungen am Code.
+- Aktiv-Meldung: Das Plugin meldet sich beim Installieren, Aktivieren und Aktualisieren. Danach höchstens einmal am Tag.
+- Gesendet werden nur: Plugin-Name, Version, Shopsystem, die Domain des Shops und eine zufällige Installations-ID. Keine Kundendaten, keine E-Mail, keine Bestellungen.
+- Abschaltbar: „Erweiterungen“ > „Meine Erweiterungen“ > MichaThemeV5 > „Konfigurieren“, Karte „Aktiv-Meldung“, Schalter „Installation bei Michael Gahn DESIGN melden“. Beim Ausschalten wird der Eintrag auf theme.michael-gahn.de gelöscht.
+- Das Plugin funktioniert immer voll weiter. Auch wenn der Schalter aus ist oder theme.michael-gahn.de nicht erreichbar ist.
 
 Das ist schon drin (aus den Versionen davor):
 
@@ -18,6 +19,7 @@ Das ist schon drin (aus den Versionen davor):
 ## Bekannte Grenzen
 
 - Geprüft mit Shopware 6.7.15.1. Shopware 6.6 wurde nicht getestet.
+- Die tägliche Meldung braucht den Shopware-Scheduler (Cron oder Queue-Worker). Ohne Scheduler meldet sich das Plugin, wenn jemand MichaThemeV5, Info öffnet.
 - Hell/Dunkel-Schalter im Benutzerkonto: Gäste ohne Konto sehen ihn dort nicht.
 - Auf Produktkarten liegen das Herz der Wunschliste (Shopware) und das Herz der Favoriten (Theme) nebeneinander.
 

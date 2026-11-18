@@ -13,6 +13,18 @@
     </input-field>
   </card>
   <card>
+    <title lang="de-DE">Aktiv-Meldung</title>
+    <title lang="en-GB">Activity report</title>
+    <input-field type="bool">
+      <name>installReport</name>
+      <label lang="de-DE">Installation bei Michael Gahn DESIGN melden</label>
+      <label lang="en-GB">Report this installation to Michael Gahn DESIGN</label>
+      <defaultValue>true</defaultValue>
+      <helpText lang="de-DE">Dieses Plugin meldet sich einmal bei theme.michael-gahn.de an und danach höchstens einmal am Tag. Gesendet werden nur: Plugin-Name, Version, Shopsystem, die Domain deines Shops und eine zufällige Installations-ID. So wissen wir, wie viele Shops das Plugin nutzen, und können dir Updates bereitstellen. Du kannst das hier jederzeit abschalten. Das Plugin funktioniert dann genauso weiter.</helpText>
+      <helpText lang="en-GB">This plugin registers once with theme.michael-gahn.de and after that reports at most once a day. Only the plugin name, version, shop system, your shop's domain and a random installation ID are sent. This tells us how many shops use the plugin and lets us provide updates. You can switch this off here at any time. The plugin keeps working exactly the same.</helpText>
+    </input-field>
+  </card>
+  <card>
     <title lang="de-DE">Benachrichtigungs-Center (Glocke)</title>
     <title lang="en-GB">Notification center (bell)</title>
     <input-field type="bool">

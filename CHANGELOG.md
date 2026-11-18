@@ -1,5 +1,12 @@
 # Änderungen
 
+## Version 1.5.0
+
+- Neu Aktiv-Meldung: Das Plugin meldet sich höchstens einmal am Tag bei theme.michael-gahn.de. Gesendet werden nur Plugin-Name, Version, Shopsystem, Domain und eine zufällige Installations-ID. Keine Kundendaten.
+- Neu: Schalter „Installation bei Michael Gahn DESIGN melden“ in der Plugin-Konfiguration (Karte „Aktiv-Meldung“). Ab Werk an. Beim Ausschalten wird der Eintrag auf theme.michael-gahn.de gelöscht.
+- Neu: Tägliche Aufgabe `micha_theme_v5.install_ping`. Ohne Shop-Cron meldet das Öffnen von MichaThemeV5, Info.
+- Das Plugin funktioniert immer voll weiter, auch wenn die Meldung aus ist oder die Plattform nicht erreichbar ist.
+
 ## Version 1.4.0
 
 - Fertige Version: MichaThemeV5 für Shopware 6 ist nicht mehr Pre-Alpha.

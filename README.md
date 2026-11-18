@@ -76,6 +76,36 @@ Alle rechtlichen Angaben sind technische Hinweise zum Stand der Erstellung und k
 
 Ab Version 0.2.4 funktioniert die Glocke wieder (Shopware 6.6 und 6.7). Sie steht oben in der Kopfleiste und unten im Footer. Eingeloggte Kunden sehen dort ihre eigenen Bestell-Meldungen. Öffentliche Meldungen für alle Besucher lassen sich bisher nur über die Admin-API anlegen (`POST /api/_action/mgd-notification-center`); eine fertige Oberfläche dafür im Admin gibt es noch nicht. Mehr dazu in [`docs/INSTALL.md`](docs/INSTALL.md).
 
+## Datenschutz: Aktiv-Meldung (ab Version 1.5.0)
+
+Das Plugin meldet sich bei theme.michael-gahn.de. So weiß Michael Gahn DESIGN, wie viele Shops das kostenlose Theme nutzen.
+
+**Was wird gesendet?** Nur diese 5 Angaben:
+
+1. Plugin-Name (`michatheme-v5-shopware`)
+2. Version (zum Beispiel `1.5.0`)
+3. Shopsystem (`shopware6`)
+4. Domain des Shops (zum Beispiel `mein-shop.de`)
+5. Eine zufällige Installations-ID (eine lange Zufallsnummer, ohne Bezug zu Ihnen)
+
+Es werden keine Kundendaten, keine E-Mail-Adressen und keine Bestellungen gesendet.
+
+**Wann wird gesendet?**
+
+- Beim Installieren, Aktivieren und Aktualisieren des Plugins.
+- Danach höchstens einmal am Tag (über den Shopware-Scheduler oder beim Öffnen von MichaThemeV5, Info).
+
+**So schalten Sie es ab:**
+
+1. In der Administration „Erweiterungen“ > „Meine Erweiterungen“ öffnen.
+2. Bei MichaThemeV5 auf die drei Punkte und „Konfigurieren“ klicken.
+3. In der Karte „Aktiv-Meldung“ den Schalter „Installation bei Michael Gahn DESIGN melden“ ausschalten.
+4. Auf „Speichern“ klicken.
+
+Beim Ausschalten wird der Eintrag auf theme.michael-gahn.de gelöscht. Danach sendet das Plugin nichts mehr.
+
+**Wichtig:** Das Plugin funktioniert immer voll weiter. Egal, ob der Schalter an oder aus ist und egal, ob theme.michael-gahn.de erreichbar ist.
+
 ## Fertige Release-Pakete und GitHub-Updates
 
 Das Release-ZIP enthält alle benötigten Plugin-Dateien einschließlich fertiger CSS-/JavaScript-Dateien. Upload und GitHub-Update verwenden dasselbe geprüfte Paket. Ein manueller Administration- oder Node-Build entfällt.

@@ -65,7 +65,19 @@
       <argument type="service" id="MichaThemeV5\Administration\Service\CatalogService"/><tag name="controller.service_arguments"/>
     </service>
     <service id="MichaThemeV5\Administration\Controller\InfoController" public="true">
-      <argument type="service" id="MichaThemeV5\Administration\Service\InfoService"/><argument type="service" id="MichaThemeV5\Administration\Service\SettingsService"/><argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/><tag name="controller.service_arguments"/>
+      <argument type="service" id="MichaThemeV5\Administration\Service\InfoService"/><argument type="service" id="MichaThemeV5\Administration\Service\SettingsService"/><argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/><argument type="service" id="MichaThemeV5\InstallReport\InstallReporter"/><tag name="controller.service_arguments"/>
+    </service>
+    <!-- Aktiv-Meldung Free-Lizenz (Install-Client > src/Install) -->
+    <service id="MichaThemeV5\InstallReport\InstallReporter">
+      <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/><argument type="service" id="Doctrine\DBAL\Connection"/><argument>%michatheme_v5.plugin_dir%</argument>
+    </service>
+    <service id="MichaThemeV5\InstallReport\InstallReportSubscriber">
+      <argument type="service" id="MichaThemeV5\InstallReport\InstallReporter"/><tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="MichaThemeV5\ScheduledTask\InstallPingTask"><tag name="shopware.scheduled.task"/></service>
+    <service id="MichaThemeV5\ScheduledTask\InstallPingTaskHandler">
+      <argument type="service" id="scheduled_task.repository"/><argument type="service" id="logger"/><argument type="service" id="MichaThemeV5\InstallReport\InstallReporter"/>
+      <tag name="messenger.message_handler" handles="MichaThemeV5\ScheduledTask\InstallPingTask"/>
     </service>
   </services>
 </container>

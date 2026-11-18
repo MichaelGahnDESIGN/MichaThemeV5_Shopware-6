@@ -2,7 +2,7 @@
   "name": "michael-gahn/micha-theme-v5",
   "description": "MichaThemeV5 für Shopware 6: Hell/Dunkel, viele Optionen, rechtssicher ausgerichtet für DE und EU",
   "type": "shopware-platform-plugin",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "license": "proprietary",
   "authors": [
     {
@@ -30,8 +30,8 @@
       "en-GB": "MichaThemeV5"
     },
     "description": {
-      "de-DE": "Kostenloses MichaThemeV5 mit Hell- und Dunkelmodus, lokalen Schriften und anpassbarer Darstellung. Fertige Styles und Skripte sowie optionale GitHub-Updates enthalten.",
-      "en-GB": "Free MichaThemeV5 with light and dark modes, local fonts and configurable storefront appearance. Includes ready-built styles and scripts plus optional GitHub updates."
+      "de-DE": "Kostenloses MichaThemeV5 mit Hell- und Dunkelmodus, lokalen Schriften und anpassbarer Darstellung. Fertige Styles und Skripte sowie optionale GitHub-Updates enthalten. Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar in den Einstellungen.",
+      "en-GB": "Free MichaThemeV5 with light and dark modes, local fonts and configurable storefront appearance. Includes ready-built styles and scripts plus optional GitHub updates. Reports at most once a day to theme.michael-gahn.de (plugin, version, shop system, domain, random ID). Can be switched off in the settings."
     },
     "manufacturerLink": {
       "de-DE": "https://theme.michael-gahn.de",
