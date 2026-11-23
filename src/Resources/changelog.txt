@@ -1,5 +1,15 @@
 # Änderungen
 
+## Version 1.6.0
+
+- Neu: Eine neue Seite im Admin unter „Einstellungen“ > „Erweiterungen“ > MichaThemeV5 (aus dem Plugin-Baukasten von Michael Gahn DESIGN). Sie zeigt Info, Updates, „Weitere Plugins“ und den Schalter „Installation melden“.
+- Neu: Updates mit dem Knopf „Jetzt aktualisieren“. Die Datei wird vorher geprüft (Prüfsumme). Es passiert nie etwas von selbst.
+- Neu: „Weitere Plugins“ als Kartenliste. Die alte Seite „Plugin-Empfehlungen“ ist nicht mehr verlinkt.
+- Der Schalter „Installation melden“ steht jetzt nur noch auf der neuen Seite (nicht mehr in der Plugin-Konfiguration). Ein ausgeschalteter Schalter bleibt aus. Die Installations-ID bleibt erhalten.
+- Die alte Update-Karte unter „Info“, die alte stündliche Update-Prüfung und die alte tägliche Meldung sind abgeschaltet. Die neue tägliche Meldung kommt aus dem Baukasten.
+- Einstellungen, Lizenzen, Info, Theme-Optionen, Farben und Glocke bleiben unverändert.
+- Nach dem Update: Cache leeren, danach `bin/console scheduled-task:register`.
+
 ## Version 1.5.2
 
 - Favicon: Ab Werk zeigt der Shop jetzt das Michael-Gahn-DESIGN-Logo (in 1.5.1 war es ein einfaches rotes „M“). Eigenes Favicon und der Rückfall aufs Logo funktionieren wie in 1.5.1.

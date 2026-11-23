@@ -13,3 +13,5 @@ import './page/mt-sw-license.js';
 import './page/mt-sw-catalog.js';
 import './page/mt-sw-info.js';
 import './register.js';
+// Plugin-Baukasten aus src/Kit (Updates, Weitere Plugins, Installation melden)
+import '../../../../../../Kit/Platform/Shopware/administration/mgd-kit.js';

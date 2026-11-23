@@ -48,10 +48,10 @@ Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup
 Das Plugin bringt eine eigene Einstellungsseite im Shopware-Admin mit. So findest du sie:
 
 1. Öffne im Admin **Einstellungen**, dann **Erweiterungen**, dann **MichaThemeV5**.
-2. Oben stehen vier Reiter: **Einstellungen**, **Lizenzen**, **Plugin-Empfehlungen** und **Info**.
+2. Oben stehen vier Reiter: **Einstellungen**, **Lizenzen**, **Updates** und **Info**.
 3. **Einstellungen:** Wähle ein Design-Preset (Standard, Glas, Kompakt), suche eine Einstellung oder schalte zwischen „Einfach“ und „Experte“ um. Unter „Eigene Farben“ (nur im Modus „Experte“) stellst du 16 Farben getrennt für Hell und Dunkel ein, mit Farbwähler, Palette für 12 Farben und Warnung bei schlecht lesbarem Text. Klicke dann auf **Speichern**. Das Theme wird neu übersetzt, das dauert bis zu einer Minute.
 4. **Lizenzen:** Füge deinen Lizenzcode ein und klicke auf „Speichern und prüfen“. Der Code wird danach nie mehr im Klartext angezeigt. Ohne Code läuft alles in der Free-Version weiter. Kaufen kannst du auf https://theme.michael-gahn.de.
-5. **Plugin-Empfehlungen:** Weitere Plugins von Michael Gahn DESIGN. Es wird nichts automatisch installiert.
+5. **Updates (ab Version 1.6.0):** Öffnet die Seite aus dem Plugin-Baukasten mit Info, Updates (Knopf „Jetzt aktualisieren“), „Weitere Plugins“ und dem Schalter „Installation melden“. Es wird nichts automatisch installiert.
 
 Die Werte liegen in der normalen Theme-Konfiguration (Inhalte, Themes). Beide Wege ändern dasselbe, nichts geht verloren. Du brauchst keinen Build, das Admin-Skript liegt fertig im Paket. Recht für Benutzerrollen: Unter „Benutzer & Berechtigungen“ gibt es die Rechte „MichaThemeV5 ansehen“ und „bearbeiten“.
 
@@ -88,7 +88,7 @@ Das Favicon ist das kleine Bild im Browser-Tab.
   4. Speichern.
 - Entfernst du dein Bild wieder, erscheint automatisch wieder das Logo.
 
-## Datenschutz: Aktiv-Meldung (ab Version 1.5.0)
+## Datenschutz: Aktiv-Meldung (ab Version 1.5.0, Schalter ab 1.6.0 auf der neuen Seite)
 
 Das Plugin meldet sich bei theme.michael-gahn.de. So weiß Michael Gahn DESIGN, wie viele Shops das kostenlose Theme nutzen.
 
@@ -105,14 +105,12 @@ Es werden keine Kundendaten, keine E-Mail-Adressen und keine Bestellungen gesend
 **Wann wird gesendet?**
 
 - Beim Installieren, Aktivieren und Aktualisieren des Plugins.
-- Danach höchstens einmal am Tag (über den Shopware-Scheduler oder beim Öffnen von MichaThemeV5, Info).
+- Danach höchstens einmal am Tag (über den Shopware-Scheduler, danach `bin/console scheduled-task:register` nicht vergessen).
 
 **So schalten Sie es ab:**
 
-1. In der Administration „Erweiterungen“ > „Meine Erweiterungen“ öffnen.
-2. Bei MichaThemeV5 auf die drei Punkte und „Konfigurieren“ klicken.
-3. In der Karte „Aktiv-Meldung“ den Schalter „Installation bei Michael Gahn DESIGN melden“ ausschalten.
-4. Auf „Speichern“ klicken.
+1. In der Administration „Einstellungen“ > „Erweiterungen“ > MichaThemeV5 öffnen (der Eintrag mit den Bereichen Updates und „Weitere Plugins“).
+2. Beim Bereich „Installation melden“ den Schalter ausschalten.
 
 Beim Ausschalten wird der Eintrag auf theme.michael-gahn.de gelöscht. Danach sendet das Plugin nichts mehr.
 
@@ -126,7 +124,7 @@ Die Release-Pipeline prüft PHP, Paketinhalt, Asset-Verweise und Build-Prüfsumm
 
 Neu: optionaler GitHub-Updater mit festem Repository, SHA-256-Prüfung, sicherer ZIP-Prüfung, privater Sicherung und Rückfall bei Fehlern. Automatik bleibt standardmäßig aus. Diese Version zunächst einmal per ZIP installieren.
 
-Nach dem Upload bzw. der automatischen Vorbereitung unter „Erweiterungen → Meine Erweiterungen“ den normalen Shopware-Updatevorgang ausführen. Shopware übernimmt dabei seine Asset- und Cache-Schritte. Für automatische Prüfungen den Schalter in den Plugin-Einstellungen global aktivieren; ScheduledTask-Scheduler und Queue-Worker müssen laufen. Wegen der kurzen Verzeichnis-Umschaltung ein Wartungsfenster verwenden. Eine Shop-Sicherung vor Updates bleibt empfohlen.
+Nach dem Upload bzw. der automatischen Vorbereitung unter „Erweiterungen → Meine Erweiterungen“ den normalen Shopware-Updatevorgang ausführen. Shopware übernimmt dabei seine Asset- und Cache-Schritte. Seit 1.6.0 gibt es keine automatische Prüfung mehr: Updates zeigt die neue Seite, eingespielt wird nur per Klick. Wegen der kurzen Verzeichnis-Umschaltung ein Wartungsfenster verwenden. Eine Shop-Sicherung vor Updates bleibt empfohlen.
 
 Ab Version 1.4.0 ist das Theme eine fertige Version. Seine eigenen Styles, Skripte und Schriften liegen bereits fertig im Paket. Die normale Shopware-Theme-Zuweisung bzw. Theme-Kompilierung für den jeweiligen Verkaufskanal bleibt Teil von Shopware und wird nicht durch ein universelles all.css ersetzt.
 

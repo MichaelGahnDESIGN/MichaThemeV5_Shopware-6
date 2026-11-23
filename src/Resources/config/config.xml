@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
-  <card>
-    <title lang="de-DE">Updates</title>
-    <title lang="en-GB">Updates</title>
-    <input-field type="bool">
-      <name>automaticUpdates</name>
-      <label lang="de-DE">Stündlich nach Updates suchen und im Admin anzeigen</label>
-      <label lang="en-GB">Check for updates hourly and show them in the admin</label>
-      <defaultValue>false</defaultValue>
-      <helpText lang="de-DE">Standardmäßig aus. Gilt für alle Verkaufskanäle. Braucht den Shopware-Scheduler (Cron oder Queue-Worker). Es wird nur nachgesehen, nichts wird automatisch installiert. Ein neues Update erscheint unter MichaThemeV5, Info. Dort spielen Sie es mit einem Klick ein.</helpText>
-      <helpText lang="en-GB">Disabled by default. Applies to all sales channels. Requires the Shopware scheduler (cron or queue worker). It only checks, nothing is installed automatically. A new update appears under MichaThemeV5, Info, where you install it with one click.</helpText>
-    </input-field>
-  </card>
-  <card>
-    <title lang="de-DE">Aktiv-Meldung</title>
-    <title lang="en-GB">Activity report</title>
-    <input-field type="bool">
-      <name>installReport</name>
-      <label lang="de-DE">Installation bei Michael Gahn DESIGN melden</label>
-      <label lang="en-GB">Report this installation to Michael Gahn DESIGN</label>
-      <defaultValue>true</defaultValue>
-      <helpText lang="de-DE">Dieses Plugin meldet sich einmal bei theme.michael-gahn.de an und danach höchstens einmal am Tag. Gesendet werden nur: Plugin-Name, Version, Shopsystem, die Domain deines Shops und eine zufällige Installations-ID. So wissen wir, wie viele Shops das Plugin nutzen, und können dir Updates bereitstellen. Du kannst das hier jederzeit abschalten. Das Plugin funktioniert dann genauso weiter.</helpText>
-      <helpText lang="en-GB">This plugin registers once with theme.michael-gahn.de and after that reports at most once a day. Only the plugin name, version, shop system, your shop's domain and a random installation ID are sent. This tells us how many shops use the plugin and lets us provide updates. You can switch this off here at any time. The plugin keeps working exactly the same.</helpText>
-    </input-field>
-  </card>
+  <!-- Karten "Updates" und "Aktiv-Meldung" sind weg: Updates und der Schalter "Installation melden" stehen jetzt im Admin unter Einstellungen > Erweiterungen (Baukasten) -->
   <card>
     <title lang="de-DE">Benachrichtigungs-Center (Glocke)</title>
     <title lang="en-GB">Notification center (bell)</title>

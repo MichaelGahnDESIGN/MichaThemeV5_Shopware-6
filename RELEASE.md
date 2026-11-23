@@ -1,30 +1,32 @@
-# Version 1.5.2
+# Version 1.6.0
 
-MichaThemeV5 für Shopware 6 zeigt jetzt das Michael-Gahn-DESIGN-Logo als Favicon.
+MichaThemeV5 für Shopware 6 hat jetzt eine neue Admin-Seite für Updates, „Weitere Plugins“ und den Schalter „Installation melden“.
 
 ## Was ist neu?
 
-- Ab Werk zeigt der Shop das Michael-Gahn-DESIGN-Logo im Browser-Tab statt des Shopware-Logos (in 1.5.1 war es noch ein einfaches rotes „M“).
-- Eigenes Favicon: „Inhalte“ > „Themes“ > MichaThemeV5 > „Medien“ > „Favicon“ ein eigenes Bild wählen und speichern. Ohne eigenes Bild erscheint wieder das Logo.
+- Neue Seite unter „Einstellungen“ > „Erweiterungen“ > MichaThemeV5. Dort stehen Info, Updates, „Weitere Plugins“ und der Schalter „Installation melden“.
+- Updates: Die Seite zeigt, ob es eine neue Version gibt. Mit „Jetzt aktualisieren“ spielst du sie ein. Vorher wird die Datei geprüft (Prüfsumme). Es passiert nie etwas von selbst.
+- „Weitere Plugins“: Karten mit anderen Plugins von Michael Gahn DESIGN. Installiert wird nichts automatisch.
+- „Installation melden“: Der Schalter steht jetzt auf der neuen Seite. Das Plugin meldet sich weiter höchstens einmal am Tag. Gesendet werden nur Plugin-Name, Version, Shopsystem, die Domain des Shops und eine zufällige Installations-ID.
 
-## Aus Version 1.5.0
+## Was bleibt gleich?
 
-- Aktiv-Meldung: Das Plugin meldet sich beim Installieren, Aktivieren und Aktualisieren. Danach höchstens einmal am Tag.
-- Gesendet werden nur: Plugin-Name, Version, Shopsystem, die Domain des Shops und eine zufällige Installations-ID. Keine Kundendaten, keine E-Mail, keine Bestellungen.
-- Abschaltbar: „Erweiterungen“ > „Meine Erweiterungen“ > MichaThemeV5 > „Konfigurieren“, Karte „Aktiv-Meldung“, Schalter „Installation bei Michael Gahn DESIGN melden“. Beim Ausschalten wird der Eintrag auf theme.michael-gahn.de gelöscht.
-- Das Plugin funktioniert immer voll weiter. Auch wenn der Schalter aus ist oder theme.michael-gahn.de nicht erreichbar ist.
+- Einstellungen, Lizenzen und Info in MichaThemeV5 funktionieren wie bisher.
+- Theme-Optionen, Farben, Design-Presets, Glocke und Favicon bleiben unverändert.
+- Hattest du „Installation melden“ ausgeschaltet, bleibt es aus. Deine Installations-ID bleibt erhalten.
+- Das Plugin funktioniert immer voll weiter, auch wenn theme.michael-gahn.de nicht erreichbar ist.
 
-Das ist schon drin (aus den Versionen davor):
+## Was ist abgeschaltet?
 
-- Admin-Modul unter Einstellungen, Erweiterungen, MichaThemeV5: Einstellungen, Lizenzen, Plugin-Empfehlungen und Info an einem Ort.
-- 16 eigene Farben für Hell und Dunkel, Design-Presets (Standard, Glas, Kompakt), Kartenstil, Flächenstil und Inhaltsbreite.
-- Glocke (Meldungen) mit „Alle anzeigen“, „Alle gelesen“ und „Ausblenden“. Anzahl und Icon sind einstellbar.
-- Demo-Inhalte per Konsole: `bin/console michatheme:demo:import` und `bin/console michatheme:demo:remove --force`.
+- Die alte Update-Karte unter „Info“ und die alte Seite „Plugin-Empfehlungen“ (nicht mehr verlinkt).
+- Die alte stündliche Update-Prüfung und die alte tägliche Aufgabe. Die neue tägliche Meldung kommt aus dem Baukasten.
+- Die Karten „Updates“ und „Aktiv-Meldung“ in der Plugin-Konfiguration. Den Schalter findest du jetzt auf der neuen Seite.
 
 ## Bekannte Grenzen
 
 - Geprüft mit Shopware 6.7.15.1. Shopware 6.6 wurde nicht getestet.
-- Die tägliche Meldung braucht den Shopware-Scheduler (Cron oder Queue-Worker). Ohne Scheduler meldet sich das Plugin, wenn jemand MichaThemeV5, Info öffnet.
+- Der Knopf „Jetzt aktualisieren“ ist neu und wurde noch nicht in einem echten Shopware ausprobiert. Du kannst jederzeit von Hand aktualisieren (siehe unten).
+- Die tägliche Meldung braucht den Shopware-Scheduler (Cron oder Queue-Worker).
 - Hell/Dunkel-Schalter im Benutzerkonto: Gäste ohne Konto sehen ihn dort nicht.
 - Auf Produktkarten liegen das Herz der Wunschliste (Shopware) und das Herz der Favoriten (Theme) nebeneinander.
 
@@ -39,6 +41,7 @@ Das ist schon drin (aus den Versionen davor):
 
 1. Zuerst eine Sicherung des Shops machen (Dateien und Datenbank).
 2. Die neue `MichaThemeV5.zip` hochladen und bei „Meine Erweiterungen“ auf „Aktualisieren“ klicken.
-3. `bin/console theme:compile` ausführen, danach den Cache leeren.
+3. `bin/console theme:compile` ausführen.
+4. Den Cache leeren, danach `bin/console scheduled-task:register`. Erst dann steht die neue tägliche Aufgabe in der Liste.
 
-Wer schon 0.6.1 oder neuer hat, kann das Update auch unter MichaThemeV5, Info, Karte „Updates“ per Knopf einspielen. Auch dann vorher eine Sicherung machen.
+Ab Version 1.6.0 geht das Update auch per Knopf: „Einstellungen“ > „Erweiterungen“ > MichaThemeV5 > „Updates“ > „Jetzt aktualisieren“. Auch dann vorher eine Sicherung machen.

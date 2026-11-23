@@ -3,6 +3,8 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <imports>
         <import resource="demo-services.xml"/>
+        <!-- Plugin-Baukasten (Updates, Weitere Plugins, Installation melden, tägliche Aufgabe) -->
+        <import resource="../../Kit/Platform/Shopware/Resources/config/services.xml"/>
     </imports>
     <services>
         <service id="MichaThemeV5\Twig\LicenseExtension">
@@ -18,13 +20,9 @@
     <service id="MichaThemeV5\Update\GitHubReleaseUpdater">
       <argument type="service" id="MichaThemeV5\Update\GitHubClient"/><argument type="service" id="MichaThemeV5\Update\AtomicInstaller"/><argument type="service" id="Shopware\Core\Framework\Plugin\PluginService"/><argument>%kernel.project_dir%</argument>
     </service>
-    <service id="MichaThemeV5\Controller\UpdateController" public="true">
-      <argument type="service" id="MichaThemeV5\Update\GitHubReleaseUpdater"/><argument type="service" id="logger"/>
-      <call method="setContainer"><argument type="service" id="service_container"/></call><tag name="controller.service_arguments"/>
-    </service>
-    <service id="MichaThemeV5\ScheduledTask\UpdateTask"><tag name="shopware.scheduled.task"/></service>
+    <!-- alte Update-Prüfung abgeschaltet (macht jetzt der Baukasten): Task nicht mehr angemeldet, Handler bleibt für übrige DB-Einträge und tut nix -->
     <service id="MichaThemeV5\ScheduledTask\UpdateTaskHandler">
-      <argument type="service" id="scheduled_task.repository"/><argument type="service" id="logger"/><argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/><argument type="service" id="MichaThemeV5\Update\GitHubReleaseUpdater"/>
+      <argument type="service" id="scheduled_task.repository"/><argument type="service" id="logger"/>
       <tag name="messenger.message_handler" handles="MichaThemeV5\ScheduledTask\UpdateTask"/>
     </service>
     <service id="MichaThemeV5\NotificationCenter\Service\NotificationService">
@@ -65,18 +63,11 @@
       <argument type="service" id="MichaThemeV5\Administration\Service\CatalogService"/><tag name="controller.service_arguments"/>
     </service>
     <service id="MichaThemeV5\Administration\Controller\InfoController" public="true">
-      <argument type="service" id="MichaThemeV5\Administration\Service\InfoService"/><argument type="service" id="MichaThemeV5\Administration\Service\SettingsService"/><argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/><argument type="service" id="MichaThemeV5\InstallReport\InstallReporter"/><tag name="controller.service_arguments"/>
+      <argument type="service" id="MichaThemeV5\Administration\Service\InfoService"/><argument type="service" id="MichaThemeV5\Administration\Service\SettingsService"/><tag name="controller.service_arguments"/>
     </service>
-    <!-- Aktiv-Meldung Free-Lizenz (Install-Client > src/Install) -->
-    <service id="MichaThemeV5\InstallReport\InstallReporter">
-      <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/><argument type="service" id="Doctrine\DBAL\Connection"/><argument>%michatheme_v5.plugin_dir%</argument>
-    </service>
-    <service id="MichaThemeV5\InstallReport\InstallReportSubscriber">
-      <argument type="service" id="MichaThemeV5\InstallReport\InstallReporter"/><tag name="kernel.event_subscriber"/>
-    </service>
-    <service id="MichaThemeV5\ScheduledTask\InstallPingTask"><tag name="shopware.scheduled.task"/></service>
+    <!-- alte Aktiv-Meldung abgeschaltet (macht jetzt der Baukasten > src/Kit): kein Reporter, kein Subscriber, Task nicht mehr angemeldet. Handler bleibt für übrige DB-Einträge und tut nix -->
     <service id="MichaThemeV5\ScheduledTask\InstallPingTaskHandler">
-      <argument type="service" id="scheduled_task.repository"/><argument type="service" id="logger"/><argument type="service" id="MichaThemeV5\InstallReport\InstallReporter"/>
+      <argument type="service" id="scheduled_task.repository"/><argument type="service" id="logger"/>
       <tag name="messenger.message_handler" handles="MichaThemeV5\ScheduledTask\InstallPingTask"/>
     </service>
   </services>

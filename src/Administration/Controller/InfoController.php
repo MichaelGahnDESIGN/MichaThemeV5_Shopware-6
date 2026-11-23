@@ -6,21 +6,18 @@ namespace MichaThemeV5\Administration\Controller;
 
 use MichaThemeV5\Administration\Service\InfoService;
 use MichaThemeV5\Administration\Service\SettingsService;
-use MichaThemeV5\InstallReport\InstallReporter;
-use MichaThemeV5\ScheduledTask\UpdateTaskHandler;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Routing\ApiRouteScope;
 use Shopware\Core\PlatformRequest;
-use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 
-/** Info-Seite: Versionen, Zuweisung, Changelog. Nur lesen (plus Aktiv-Meldung 1x am Tag). */
+/** Info-Seite: Versionen, Zuweisung, Changelog. Nur lesen. */
 #[Route(defaults: [PlatformRequest::ATTRIBUTE_ROUTE_SCOPE => [ApiRouteScope::ID]])]
 final class InfoController
 {
-    public function __construct(private readonly InfoService $info, private readonly SettingsService $settings, private readonly SystemConfigService $config, private readonly InstallReporter $install)
+    public function __construct(private readonly InfoService $info, private readonly SettingsService $settings)
     {
     }
 
@@ -29,13 +26,7 @@ final class InfoController
     {
         $themeId = $this->settings->resolveThemeId($request->getPayload()->getString('themeId') ?: null, $context);
 
-        // Hinweis aus der stündlichen Prüfung (nur Versionsnummer, nichts wird abgefragt)
-        $hint = $this->config->getString(UpdateTaskHandler::LATEST_KEY);
-        $hint = preg_match('/^\d+\.\d+\.\d+$/D', $hint) ? $hint : '';
-
-        // Aktiv-Meldung ohne Shop-Cron, höchstens 1x am Tag, wirft nie
-        $this->install->ping();
-
-        return new JsonResponse($this->info->info($themeId) + ['themeId' => $themeId, 'updateHint' => $hint]);
+        // Update-Hinweis und Aktiv-Meldung kommen seit 1.6.0 vom Baukasten (src/Kit), updateHint bleibt leer (alte Felder)
+        return new JsonResponse($this->info->info($themeId) + ['themeId' => $themeId, 'updateHint' => '']);
     }
 }

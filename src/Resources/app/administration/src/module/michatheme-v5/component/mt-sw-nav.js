@@ -1,4 +1,4 @@
-// Reiter-Navigation der vier Seiten (echte Links, aktuelle Seite per aria-current)
+// Reiter-Navigation der Seiten (echte Links, aktuelle Seite per aria-current)
 (function () {
     'use strict';
 
@@ -21,7 +21,8 @@
                 items: [
                     { name: 'michatheme.v5.settings', label: 'michatheme-v5.nav.settings' },
                     { name: 'michatheme.v5.license', label: 'michatheme-v5.nav.license' },
-                    { name: 'michatheme.v5.catalog', label: 'michatheme-v5.nav.catalog' },
+                    // alte Plugin-Empfehlungen nicht mehr verlinkt, Updates + Weitere Plugins = Baukasten-Seite
+                    { name: 'mgd.kit.michatheme.v5.shopware.index', label: 'michatheme-v5.update.title' },
                     { name: 'michatheme.v5.info', label: 'michatheme-v5.nav.info' }
                 ]
             };

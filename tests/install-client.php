@@ -121,24 +121,22 @@ foreach (['install', 'activate', 'update'] as $fn) {
 }
 ok(preg_match('/function reportInstall\(\): void\s*\{\s*try \{.*?\} catch \(\\\\Throwable\)/s', $plugin) === 1, 'reportInstall in try/catch');
 
-// 6) Verdrahtung, Texte, Version
+// 6) Verdrahtung, Texte, Version (1.6.0: alter Anschluss abgeschaltet, Baukasten übernimmt > tests/bruecke-baukasten.php)
 $xml = simplexml_load_file($root . '/src/Resources/config/config.xml');
-$f = $xml->xpath('//input-field[name="installReport"]')[0] ?? null;
-ok($f !== null && (string) $f['type'] === 'bool' && (string) $f->defaultValue === 'true', 'config.xml: Schalter installReport, ab Werk an');
-ok((string) ($f->xpath('helpText[@lang="de-DE"]')[0] ?? '') === Settings::HINT && (string) ($f->xpath('label[@lang="de-DE"]')[0] ?? '') === Settings::LABEL, 'config.xml: freigegebener Hinweistext wörtlich');
-ok(trim((string) ($f->xpath('helpText[@lang="en-GB"]')[0] ?? '')) !== '', 'config.xml: englischer Hilfetext');
+ok(($xml->xpath('//input-field[name="installReport"]') ?: []) === [], 'config.xml: alter Schalter installReport ist raus (nur noch ein Schalter, kommt vom Baukasten)');
+ok(\MichaThemeV5\Kit\Install\Settings::HINT === Settings::HINT && \MichaThemeV5\Kit\Install\Settings::LABEL === Settings::LABEL, 'Baukasten-Hinweistext = freigegebener Text, wörtlich');
 $services = new SimpleXMLElement((string) file_get_contents($root . '/src/Resources/config/services.xml'));
-$want = ['MichaThemeV5\\InstallReport\\InstallReporter' => 3, 'MichaThemeV5\\InstallReport\\InstallReportSubscriber' => 1, 'MichaThemeV5\\ScheduledTask\\InstallPingTaskHandler' => 3, 'MichaThemeV5\\Administration\\Controller\\InfoController' => 4];
+$want = ['MichaThemeV5\\ScheduledTask\\InstallPingTaskHandler' => 2, 'MichaThemeV5\\Administration\\Controller\\InfoController' => 2];
 $seen = 0;
 foreach ($services->services->service as $s) {
     $id = (string) $s['id'];
     if (isset($want[$id])) { ok(count($s->argument) === $want[$id], "services.xml: Argumente $id"); $seen++; }
-    if ($id === 'MichaThemeV5\\ScheduledTask\\InstallPingTask') { ok((string) $s->tag['name'] === 'shopware.scheduled.task', 'Task registriert'); $seen++; }
-    if ($id === 'MichaThemeV5\\InstallReport\\InstallReportSubscriber') { ok((string) $s->tag['name'] === 'kernel.event_subscriber', 'Subscriber registriert'); }
+    if (in_array($id, ['MichaThemeV5\\InstallReport\\InstallReporter', 'MichaThemeV5\\InstallReport\\InstallReportSubscriber', 'MichaThemeV5\\ScheduledTask\\InstallPingTask'], true)) { ok(false, "services.xml: $id darf nicht mehr angemeldet sein"); }
 }
-ok($seen === 5, 'alle neuen Dienste in services.xml');
-ok(str_contains((string) file_get_contents($root . '/src/ScheduledTask/InstallPingTask.php'), '86400'), 'Task läuft täglich');
-ok(str_contains((string) file_get_contents($root . '/src/Administration/Controller/InfoController.php'), '$this->install->ping();'), 'Info-Seite meldet ohne Cron');
+ok($seen === 2, 'Handler und InfoController in services.xml, alter Reporter/Subscriber/Task nicht mehr angemeldet');
+ok(str_contains((string) file_get_contents($root . '/src/ScheduledTask/InstallPingTask.php'), '86400'), 'Task-Klasse bleibt (DB-Einträge)');
+ok(!str_contains((string) file_get_contents($root . '/src/Administration/Controller/InfoController.php'), 'ping('), 'Info-Seite meldet nicht mehr selbst (macht der Baukasten)');
+ok(!str_contains((string) file_get_contents($root . '/src/ScheduledTask/InstallPingTaskHandler.php'), 'ping('), 'alter Ping-Handler meldet nicht (sonst doppelt)');
 $composer = json_decode((string) file_get_contents($root . '/composer.json'), true);
 ok(str_ends_with($composer['extra']['description']['de-DE'], 'Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar in den Einstellungen.'), 'composer.json: Kurztext wörtlich');
 ok(str_contains($composer['extra']['description']['en-GB'], 'theme.michael-gahn.de'), 'composer.json: Kurztext englisch');

@@ -2,33 +2,23 @@
 
 namespace MichaThemeV5\ScheduledTask;
 
-use MichaThemeV5\Update\GitHubReleaseUpdater;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\MessageQueue\ScheduledTask\ScheduledTaskHandler;
-use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
+// ABGESCHALTET ab 1.6.0: Updates kommen vom Baukasten (src/Kit). Der Handler bleibt nur, damit ein übriger Task-Eintrag
+// aus der DB (micha_theme_v5.update_check) nicht abstürzt. Er tut nix.
 #[AsMessageHandler(handles: UpdateTask::class)]
 final class UpdateTaskHandler extends ScheduledTaskHandler
 {
-    public const LATEST_KEY = 'MichaThemeV5.update.latestVersion';
-
-    public function __construct(EntityRepository $scheduledTaskRepository, LoggerInterface $logger, private readonly SystemConfigService $config, private readonly GitHubReleaseUpdater $updater)
+    public function __construct(EntityRepository $scheduledTaskRepository, LoggerInterface $logger)
     {
         parent::__construct($scheduledTaskRepository, $logger);
     }
 
     public function run(): void
     {
-        // Updates gelten global; ein Sales-Channel-Override kann sie nicht aktivieren.
-        if (!$this->config->getBool('MichaThemeV5.config.automaticUpdates')) { return; }
-        // nur nachsehen und merken, eingespielt wird erst per Klick im Admin (Info-Seite)
-        try {
-            $result = $this->updater->check();
-            $this->config->set(self::LATEST_KEY, $result['latestVersion'] ?? '');
-        } catch (\Throwable $error) {
-            $this->exceptionLogger->warning('MichaThemeV5: automatische Update-Prüfung fehlgeschlagen.', ['exceptionType' => $error::class]);
-        }
+        // nix mehr zu tun
     }
 }

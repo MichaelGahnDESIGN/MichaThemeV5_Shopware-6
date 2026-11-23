@@ -140,12 +140,18 @@ $tests['Integration: kein stilles Update, Austausch nur per Klick mit Adminrecht
     check(preg_match("~update/status'.*?'system_config:read'.*?methods: \\['POST'\\]~s", $controller) === 1, 'Status-Route nur lesen, mit ACL');
     check(preg_match("~update/install'.*?'system_config:update'.*?methods: \\['POST'\\]~s", $controller) === 1, 'Einspielen nur mit Schreibrecht und POST');
     check(substr_count($controller, 'checkAndPrepare') === 1, 'Nur die Einspiel-Route darf Dateien austauschen');
+    // 1.6.0: alter Weg abgeschaltet (Updates macht der Baukasten), Code bleibt aber liegen
+    $routes = file_get_contents($base . 'Resources/config/routes.xml');
+    check(!str_contains(preg_replace('~<!--.*?-->~s', '', $routes), '../../Controller/'), 'Alter UpdateController darf nicht mehr als Route geladen werden');
+    $services = file_get_contents($base . 'Resources/config/services.xml');
+    check(!str_contains($services, 'UpdateController'), 'Alter UpdateController ist kein Dienst mehr');
+    check(!str_contains($services, 'id="MichaThemeV5\\ScheduledTask\\UpdateTask"'), 'Alter Update-Task ist nicht mehr angemeldet');
+    check(str_contains($services, 'handles="MichaThemeV5\\ScheduledTask\\UpdateTask"'), 'Handler bleibt fuer uebrige Task-Eintraege in der DB');
     $config = simplexml_load_file($base . 'Resources/config/config.xml');
-    $auto = $config->xpath('//input-field[name="automaticUpdates"]/defaultValue');
-    check((string) $auto[0] === 'false', 'Automatische Prüfung muss standardmäßig aus sein');
-    check(str_contains(file_get_contents($base . 'ScheduledTask/UpdateTask.php'), '3600'), 'Stündliches Prüfintervall');
+    check($config->xpath('//input-field[name="automaticUpdates"]') === [], 'Alter Schalter automaticUpdates ist aus der Konfiguration raus');
+    check(str_contains(file_get_contents($base . 'ScheduledTask/UpdateTask.php'), '3600'), 'Task-Klasse bleibt (DB-Eintraege)');
     $handler = file_get_contents($base . 'ScheduledTask/UpdateTaskHandler.php');
-    check(!str_contains($handler, 'checkAndPrepare') && str_contains($handler, '->check('), 'Geplante Aufgabe darf nur prüfen, nie Dateien austauschen');
+    check(!str_contains($handler, 'checkAndPrepare') && !str_contains($handler, '->check(') && !str_contains($handler, 'GitHubReleaseUpdater'), 'Alter Handler tut nichts mehr (weder pruefen noch Dateien austauschen)');
     $client = file_get_contents($base . 'Update/GitHubClient.php');
     check(!str_contains($client, 'api.github.com') && str_contains($client, 'ReleaseMetadata::FEED_URL'), 'Versionsangabe nur aus der Prüfsummen-Datei');
 };

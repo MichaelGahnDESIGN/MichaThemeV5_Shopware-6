@@ -49,6 +49,12 @@ test('Routen: Navigation und Modul-Anmeldung passen zusammen', () => {
     assert.equal(routes.length, 4);
     const nav = read(mod + 'component/mt-sw-nav.js');
     for (const [name, comp] of routes) {
+        // 1.6.0: alte Plugin-Empfehlungen (catalog) sind nicht mehr verlinkt, stattdessen Link auf die Baukasten-Seite
+        if (name === 'catalog') {
+            assert.ok(!nav.includes("'michatheme.v5.catalog'"), 'catalog nicht mehr verlinkt');
+            assert.ok(nav.includes("'mgd.kit.michatheme.v5.shopware.index'"), 'Nav-Link auf Baukasten-Seite');
+            continue;
+        }
         assert.ok(nav.includes("'michatheme.v5." + name + "'"), 'Nav-Link ' + name);
         assert.ok(sources.some((f) => read(f).includes("Component.register('" + comp + "'")), 'Komponente ' + comp);
     }
