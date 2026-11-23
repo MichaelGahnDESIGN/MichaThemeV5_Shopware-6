@@ -1,8 +1,13 @@
-# Version 1.5.0
+# Version 1.5.1
 
-MichaThemeV5 für Shopware 6 meldet sich jetzt kurz bei theme.michael-gahn.de. Das hilft zu zählen, wie viele Shops das kostenlose Theme nutzen.
+MichaThemeV5 für Shopware 6 bringt jetzt das MichaTheme-Favicon mit.
 
 ## Was ist neu?
+
+- Ab Werk zeigt der Shop das MichaTheme-Favicon (rotes „M“) im Browser-Tab statt des Shopware-Logos.
+- Eigenes Favicon: „Inhalte“ > „Themes“ > MichaThemeV5 > „Medien“ > „Favicon“ ein eigenes Bild wählen und speichern. Ohne eigenes Bild erscheint wieder das MichaTheme-Favicon.
+
+## Aus Version 1.5.0
 
 - Aktiv-Meldung: Das Plugin meldet sich beim Installieren, Aktivieren und Aktualisieren. Danach höchstens einmal am Tag.
 - Gesendet werden nur: Plugin-Name, Version, Shopsystem, die Domain des Shops und eine zufällige Installations-ID. Keine Kundendaten, keine E-Mail, keine Bestellungen.

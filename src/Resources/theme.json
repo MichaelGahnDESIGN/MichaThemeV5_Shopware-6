@@ -2448,6 +2448,21 @@
                     "en-GB": "Pfad oder Adresse, z. B. /barrierefreiheit. Wird im Footer verlinkt."
                 },
                 "scss": false
+            },
+            "sw-logo-favicon": {
+                "label": {
+                    "de-DE": "Favicon",
+                    "en-GB": "Favicon"
+                },
+                "helpText": {
+                    "de-DE": "Ab Werk das MichaTheme-Favicon. Eigenes Bild hier auswählen. Ohne eigenes Bild erscheint wieder das MichaTheme-Favicon.",
+                    "en-GB": "MichaTheme favicon by default. Choose your own image here. Without your own image the MichaTheme favicon is shown again."
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/mt-favicon.png",
+                "editable": true,
+                "block": "media",
+                "order": 500
             }
         }
     },

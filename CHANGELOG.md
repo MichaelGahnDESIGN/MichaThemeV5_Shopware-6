@@ -1,5 +1,11 @@
 # Änderungen
 
+## Version 1.5.1
+
+- Neu: Ab Werk zeigt der Shop das MichaTheme-Favicon (rotes „M“) statt des Shopware-Logos.
+- Eigenes Favicon: „Inhalte“ > „Themes“ > MichaThemeV5 > Reiter „Medien“ (bzw. Logo-Bereich) > „Favicon“ ein eigenes Bild wählen und speichern. Entfernst du es wieder, erscheint das MichaTheme-Favicon.
+- Das Feld „Favicon“ im Bereich „Logo“ (Expertenmodus) funktioniert auch. Ist dort ein Bild gesetzt, hat es Vorrang.
+
 ## Version 1.5.0
 
 - Neu Aktiv-Meldung: Das Plugin meldet sich höchstens einmal am Tag bei theme.michael-gahn.de. Gesendet werden nur Plugin-Name, Version, Shopsystem, Domain und eine zufällige Installations-ID. Keine Kundendaten.

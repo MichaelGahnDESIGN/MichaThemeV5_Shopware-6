@@ -76,6 +76,18 @@ Alle rechtlichen Angaben sind technische Hinweise zum Stand der Erstellung und k
 
 Ab Version 0.2.4 funktioniert die Glocke wieder (Shopware 6.6 und 6.7). Sie steht oben in der Kopfleiste und unten im Footer. Eingeloggte Kunden sehen dort ihre eigenen Bestell-Meldungen. Öffentliche Meldungen für alle Besucher lassen sich bisher nur über die Admin-API anlegen (`POST /api/_action/mgd-notification-center`); eine fertige Oberfläche dafür im Admin gibt es noch nicht. Mehr dazu in [`docs/INSTALL.md`](docs/INSTALL.md).
 
+## Favicon (ab Version 1.5.1)
+
+Das Favicon ist das kleine Bild im Browser-Tab.
+
+- Ab Werk zeigt der Shop das MichaTheme-Favicon (rotes „M“).
+- Eigenes Favicon:
+  1. Administration öffnen.
+  2. „Inhalte“ > „Themes“ > MichaThemeV5.
+  3. Im Bereich „Medien“ bei „Favicon“ ein eigenes Bild wählen (am besten quadratisch, mindestens 192 × 192 Pixel).
+  4. Speichern.
+- Entfernst du dein Bild wieder, erscheint automatisch das MichaTheme-Favicon.
+
 ## Datenschutz: Aktiv-Meldung (ab Version 1.5.0)
 
 Das Plugin meldet sich bei theme.michael-gahn.de. So weiß Michael Gahn DESIGN, wie viele Shops das kostenlose Theme nutzen.
