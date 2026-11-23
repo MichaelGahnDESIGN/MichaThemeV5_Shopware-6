@@ -2455,11 +2455,11 @@
                     "en-GB": "Favicon"
                 },
                 "helpText": {
-                    "de-DE": "Ab Werk das MichaTheme-Favicon. Eigenes Bild hier auswählen. Ohne eigenes Bild erscheint wieder das MichaTheme-Favicon.",
-                    "en-GB": "MichaTheme favicon by default. Choose your own image here. Without your own image the MichaTheme favicon is shown again."
+                    "de-DE": "Ab Werk das Michael-Gahn-DESIGN-Logo. Eigenes Bild hier auswählen. Ohne eigenes Bild erscheint wieder das Logo.",
+                    "en-GB": "Michael Gahn DESIGN logo by default. Choose your own image here. Without your own image the logo is shown again."
                 },
                 "type": "media",
-                "value": "app/storefront/src/assets/mt-favicon.png",
+                "value": "app/storefront/src/assets/mt-favicon-mgd.png",
                 "editable": true,
                 "block": "media",
                 "order": 500

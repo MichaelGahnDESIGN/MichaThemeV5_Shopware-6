@@ -1,11 +1,11 @@
-# Version 1.5.1
+# Version 1.5.2
 
-MichaThemeV5 für Shopware 6 bringt jetzt das MichaTheme-Favicon mit.
+MichaThemeV5 für Shopware 6 zeigt jetzt das Michael-Gahn-DESIGN-Logo als Favicon.
 
 ## Was ist neu?
 
-- Ab Werk zeigt der Shop das MichaTheme-Favicon (rotes „M“) im Browser-Tab statt des Shopware-Logos.
-- Eigenes Favicon: „Inhalte“ > „Themes“ > MichaThemeV5 > „Medien“ > „Favicon“ ein eigenes Bild wählen und speichern. Ohne eigenes Bild erscheint wieder das MichaTheme-Favicon.
+- Ab Werk zeigt der Shop das Michael-Gahn-DESIGN-Logo im Browser-Tab statt des Shopware-Logos (in 1.5.1 war es noch ein einfaches rotes „M“).
+- Eigenes Favicon: „Inhalte“ > „Themes“ > MichaThemeV5 > „Medien“ > „Favicon“ ein eigenes Bild wählen und speichern. Ohne eigenes Bild erscheint wieder das Logo.
 
 ## Aus Version 1.5.0
 

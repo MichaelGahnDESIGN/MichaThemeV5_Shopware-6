@@ -1,5 +1,9 @@
 # Änderungen
 
+## Version 1.5.2
+
+- Favicon: Ab Werk zeigt der Shop jetzt das Michael-Gahn-DESIGN-Logo (in 1.5.1 war es ein einfaches rotes „M“). Eigenes Favicon und der Rückfall aufs Logo funktionieren wie in 1.5.1.
+
 ## Version 1.5.1
 
 - Neu: Ab Werk zeigt der Shop das MichaTheme-Favicon (rotes „M“) statt des Shopware-Logos.

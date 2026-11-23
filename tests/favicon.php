@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-// Favicon: MichaTheme-M als Standard für sw-logo-favicon, eigenes geht vor
+// Favicon: MGD-Logo als Standard für sw-logo-favicon, eigenes geht vor
 $root = dirname(__DIR__);
 $fails = 0;
 $ok = static function (string $name, bool $cond) use (&$fails): void {
