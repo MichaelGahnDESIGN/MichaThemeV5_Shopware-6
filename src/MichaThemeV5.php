@@ -32,19 +32,30 @@ class MichaThemeV5 extends Plugin implements ThemeInterface
     public function install(InstallContext $installContext): void
     {
         parent::install($installContext);
-        $this->reportInstall();
+        $this->reportInstall($installContext);
     }
 
     public function activate(ActivateContext $activateContext): void
     {
         parent::activate($activateContext);
-        $this->reportInstall();
+        $this->reportInstall($activateContext);
     }
 
     public function update(UpdateContext $updateContext): void
     {
         parent::update($updateContext);
-        $this->reportInstall();
+        $this->reportInstall($updateContext);
+    }
+
+    // nach dem Update meldet sich die neue Version sofort (Baukasten), darf das Update nie kaputt machen
+    public function postUpdate(UpdateContext $updateContext): void
+    {
+        parent::postUpdate($updateContext);
+        try {
+            ShopwareKit::forLifecycle($updateContext, $this->container->get(SystemConfigService::class), 'michatheme-v5-shopware')?->reportNow();
+        } catch (\Throwable) {
+            // still
+        }
     }
 
     // Abmelden beim Deinstallieren (Baukasten), darf das Deinstallieren nie kaputt machen
@@ -52,17 +63,19 @@ class MichaThemeV5 extends Plugin implements ThemeInterface
     {
         parent::uninstall($uninstallContext);
         try {
-            ShopwareKit::forUninstall($uninstallContext, $this->container->get(SystemConfigService::class), KitBridge::PRODUCT)?->uninstall($uninstallContext);
+            ShopwareKit::forUninstall($uninstallContext, $this->container->get(SystemConfigService::class), 'michatheme-v5-shopware')?->uninstall($uninstallContext);
         } catch (\Throwable) {
             // still
         }
     }
 
     // Aktiv-Meldung über den Baukasten, alter Zustand wird dabei einmal übernommen, darf install/activate/update nie kaputt machen
-    private function reportInstall(): void
+    private function reportInstall(object $context): void
     {
         try {
-            KitBridge::lifecycle($this->container ?? null, \dirname(rtrim($this->getPath(), '/')));
+            $config = $this->container->get(SystemConfigService::class);
+            KitBridge::migrate($config);
+            ShopwareKit::forLifecycle($context, $config, 'michatheme-v5-shopware')?->ping(true);
         } catch (\Throwable) {
             // still
         }

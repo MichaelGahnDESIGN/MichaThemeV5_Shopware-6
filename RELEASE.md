@@ -1,6 +1,18 @@
-# Version 1.6.0
+# Version 2.1.1
 
-MichaThemeV5 für Shopware 6 hat jetzt eine neue Admin-Seite für Updates, „Weitere Plugins“ und den Schalter „Installation melden“.
+MichaThemeV5 für Shopware 6 nutzt jetzt den aktuellen Plugin-Baukasten und die einheitliche Version 2.1.1 aller MGD-Produkte.
+
+## Was ist neu?
+
+- Updates, Weitere Plugins und der Schalter „Installation melden“ stehen auf einer Seite (Einstellungen › Erweiterungen › MichaThemeV5). Der doppelte Menüpunkt ist weg.
+- Der gemeinsame MGD-Farbwähler für die Farbfelder des Themes.
+- Nach dem Update meldet sich die Installation sofort neu an (höchstens einmal am Tag danach, abschaltbar).
+
+## Nach dem Update
+
+Cache leeren, danach `bin/console scheduled-task:register`. Deine Einstellungen und die Kennung deiner Installation bleiben erhalten.
+
+## Aus Version 1.6.0 und davor
 
 ## Was ist neu?
 

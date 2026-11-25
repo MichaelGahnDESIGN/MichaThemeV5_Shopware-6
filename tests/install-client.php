@@ -117,9 +117,9 @@ ok(!$thrown, 'Lifecycle-Aufruf wirft nie');
 unlink($tmp . '/composer.json'); rmdir($tmp);
 $plugin = (string) file_get_contents($root . '/src/MichaThemeV5.php');
 foreach (['install', 'activate', 'update'] as $fn) {
-    ok(preg_match('/function ' . $fn . '\(\w+Context \$\w+\): void\s*\{\s*parent::' . $fn . '\(\$\w+\);\s*\$this->reportInstall\(\);/', $plugin) === 1, "Plugin::$fn meldet");
+    ok(preg_match('/function ' . $fn . '\(\w+Context \$\w+\): void\s*\{\s*parent::' . $fn . '\(\$\w+\);\s*\$this->reportInstall\(\$\w+\);/', $plugin) === 1, "Plugin::$fn meldet");
 }
-ok(preg_match('/function reportInstall\(\): void\s*\{\s*try \{.*?\} catch \(\\\\Throwable\)/s', $plugin) === 1, 'reportInstall in try/catch');
+ok(preg_match('/function reportInstall\(object \$\w+\): void\s*\{\s*try \{.*?\} catch \(\\\\Throwable\)/s', $plugin) === 1, 'reportInstall in try/catch');
 
 // 6) Verdrahtung, Texte, Version (1.6.0: alter Anschluss abgeschaltet, Baukasten übernimmt > tests/bruecke-baukasten.php)
 $xml = simplexml_load_file($root . '/src/Resources/config/config.xml');

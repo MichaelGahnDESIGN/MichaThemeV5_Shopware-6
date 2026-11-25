@@ -1,5 +1,9 @@
 # Änderungen
 
+## [2.1.1] - 2026-11-25
+
+- Aktueller Baukasten, einheitliche Version.
+
 ## Version 1.6.0
 
 - Neu: Eine neue Seite im Admin unter „Einstellungen“ > „Erweiterungen“ > MichaThemeV5 (aus dem Plugin-Baukasten von Michael Gahn DESIGN). Sie zeigt Info, Updates, „Weitere Plugins“ und den Schalter „Installation melden“.
