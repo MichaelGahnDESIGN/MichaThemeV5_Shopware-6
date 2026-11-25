@@ -75,7 +75,7 @@ class MichaThemeV5 extends Plugin implements ThemeInterface
         try {
             $config = $this->container->get(SystemConfigService::class);
             KitBridge::migrate($config);
-            ShopwareKit::forLifecycle($context, $config, 'michatheme-v5-shopware')?->ping(true);
+            ShopwareKit::forLifecycle($context, $config, 'michatheme-v5-shopware')?->installClient()?->ping(true);
         } catch (\Throwable) {
             // still
         }

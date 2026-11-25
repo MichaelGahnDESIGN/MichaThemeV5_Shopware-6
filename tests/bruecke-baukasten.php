@@ -186,6 +186,9 @@ foreach ([true, false] as $keep) {
     ok($keep ? (isset($c->data[$MGD]) && !isset($c->data[$NEW])) : (!isset($c->data[$MGD]) && !isset($c->data[$NEW])), $keep ? 'Daten behalten: Zustand bleibt (neuer Schlüssel)' : 'Daten löschen: Baukasten-Zustand weg');
 }
 
+// Meldung bei Installation/Aktivierung: der aufgerufene Weg muss es wirklich geben (ShopwareKit hat kein ping(), nur installClient())
+ok(str_contains($plugin, "->installClient()?->ping(true)") && method_exists(ShopwareKit::class, 'installClient') && !method_exists(ShopwareKit::class, 'ping'), 'reportInstall ruft einen echten Weg auf: installClient()?->ping(true)');
+
 // 9) Version
 $composer = json_decode($read('composer.json'), true);
 ok($composer['version'] === '2.1.1', 'composer.json 2.1.1');
