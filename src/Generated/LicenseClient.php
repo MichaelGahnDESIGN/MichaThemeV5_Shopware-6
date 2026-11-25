@@ -21,8 +21,6 @@ namespace MichaThemeV5\Plugin;
 final class LicenseClient
 {
     public const NEGATIVE_TTL = 300;
-    // Lizenz muss zur Shop-Plattform passen (Plugin-Lizenz wordpress schaltet kein Theme frei)
-    public const PLATFORM = 'shopware6';
     public const FREE = ['valid' => false, 'tier' => 'free', 'modules' => [], 'source' => 'none', 'reason' => 'no_token'];
 
     /** @var callable */
@@ -108,14 +106,12 @@ final class LicenseClient
                 $until = strtotime((string) ($json['cache_valid_until'] ?? '')) ?: $now + 3600;
                 $until = min($until, $now + 86400);
                 $known = in_array($lic['tier'] ?? '', ['free', 'plus', 'pro', 'agency'], true);
-                $platformOk = ($lic['platform'] ?? null) === self::PLATFORM;
-                $known = $known && $platformOk;
                 $state = [
                     'valid' => $known,
                     'tier' => $known ? $lic['tier'] : 'free',
                     'modules' => $known ? array_values(array_filter((array) ($lic['modules'] ?? []), 'is_string')) : [],
                     'source' => 'live',
-                    'reason' => $known ? 'ok' : ($platformOk ? 'unknown_tier' : 'wrong_platform'),
+                    'reason' => $known ? 'ok' : 'unknown_tier',
                     // nur zur Anzeige (Plugin): Ende der Lizenz und Ende des Zwischenspeichers
                     'period_end' => is_string($lic['period_end'] ?? null) ? $lic['period_end'] : null,
                     'valid_until' => $until,

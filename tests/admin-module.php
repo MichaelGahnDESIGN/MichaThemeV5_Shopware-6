@@ -104,7 +104,7 @@ ok(count($svc->savePalette(array_map(fn ($i) => sprintf('#%06x', $i * 4096), ran
 // Lizenz: Code nie im Klartext, Format-Vorprüfung, Domain aus den Verkaufskanälen
 $calls = [];
 $code = 'aaa111.bbb222.ccc333xyz987';
-$http = function (string $url, array $request) use (&$calls): ?array { $calls[] = ['url' => $url, 'request' => $request]; return ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'platform' => 'shopware6', 'modules' => [], 'period_end' => '2027-01-31T00:00:00Z'], 'cache_valid_until' => gmdate('c', time() + 3600)]]; };
+$http = function (string $url, array $request) use (&$calls): ?array { $calls[] = ['url' => $url, 'request' => $request]; return ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'modules' => [], 'period_end' => '2027-01-31T00:00:00Z'], 'cache_valid_until' => gmdate('c', time() + 3600)]]; };
 $lic = new LicenseService($svc, new CacheStore($pool), new Doctrine\DBAL\Connection(), new Symfony\Component\HttpFoundation\RequestStack(), Closure::fromCallable($http));
 $st = $lic->status($rootId, $ctx);
 ok($st['hasToken'] === false && $st['kind'] === 'free' && $st['reason'] === 'no_token' && $calls === [], 'ohne Code: Free, kein Abruf');
