@@ -26,7 +26,7 @@ foreach ($files as $f) {
     $cache = []; $calls = 0; $now = 1_000_000; $up = true;
     $http = static function (string $url, array $req) use (&$calls, &$up, &$now): ?array {
         $calls++;
-        return $up ? ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'modules' => []], 'cache_valid_until' => gmdate('c', $now + 3600)]] : null;
+        return $up ? ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'platform' => 'shopware6', 'modules' => []], 'cache_valid_until' => gmdate('c', $now + 3600)]] : null;
     };
     $get = static function (string $k) use (&$cache, &$now): ?array { return isset($cache[$k]) && $cache[$k][1] > $now ? $cache[$k][0] : null; };
     $set = static function (string $k, array $v, int $ttl) use (&$cache, &$now): void { $cache[$k] = [$v, $now + $ttl]; };
