@@ -2,7 +2,7 @@
 
 Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtssicherer Ausrichtung für DE und EU.
 
-**Status:** fertige Version 2.1.1. Vor jedem Update bitte eine Sicherung des Shops machen.
+**Status:** fertige Version 2.1.2. Vor jedem Update bitte eine Sicherung des Shops machen.
 
 ## Lizenztransport in Vorbereitung
 
@@ -13,7 +13,7 @@ Der Entwicklungsstand stellt Lizenzprüfungen auf HTTPS-POST mit Autorisierungsh
 33 Free-Funktionen sind aufgeführt (fertig oder noch in Arbeit, den Stand zeigt die Liste). Dieses Repo enthält ausschließlich die kostenlosen Funktionen.
 Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.md), offene Punkte in [`TODO.md`](TODO.md).
 
-## Aussehen (ab Version 2.1.1)
+## Aussehen (ab Version 2.1.2)
 
 Hell: Weiß und Hellgrau. Dunkel: Anthrazit. Der Standard-Akzent ist Rot und lässt sich in den Theme-Einstellungen ändern. Rot steht nur bei bedienbaren Dingen (Kaufen-Button, Menüpunkt, Seitenzahl). Alle anderen Buttons sind neutral. Der Hell/Dunkel-Umschalter sitzt standardmäßig in der Kopfzeile.
 
@@ -25,7 +25,7 @@ Eingebunden ist er in der Einstellungsseite des Plugins MichaThemeV5: bei WooCom
 
 Ehrlich gesagt: Die Plugins sind bisher nur in Test- und Demo-Umgebungen geprüft. Vor jedem Update bitte eine Sicherung machen.
 
-## Icon-Leiste in der Kopfzeile (ab Version 2.1.1)
+## Icon-Leiste in der Kopfzeile (ab Version 2.1.2)
 
 Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto, Warenkorb. Die Suche bleibt in der Mitte.
 
@@ -34,7 +34,7 @@ Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto
 - **Merkliste:** Das ist die normale Wunschliste von Shopware. Das Symbol erscheint erst, wenn etwas drin liegt. Ist die Wunschliste im Admin ausgeschaltet, gibt es auch kein Symbol.
 - **Favoriten:** Eine eigene Herz-Liste des Themes. Das Herz sitzt auf den Produktkarten und auf der Artikelseite. Die Liste steht nur im Browser des Besuchers (nichts geht an den Server). Das Symbol in der Kopfzeile erscheint erst, wenn mindestens ein Favorit gespeichert ist. Abschaltbar in den Theme-Einstellungen („Favoriten (Herz-Liste) anzeigen“).
 
-## Demo-Inhalte (ab Version 2.1.1)
+## Demo-Inhalte (ab Version 2.1.2)
 
 Per Konsole lassen sich 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern anlegen:
 
@@ -43,7 +43,7 @@ Per Konsole lassen sich 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbil
 
 Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup des Shops machen. Erprobt auf Shopware 6.7.15.1.
 
-## Admin-Modul (ab Version 2.1.1) und Layout (ab 0.5.3)
+## Admin-Modul (ab Version 2.1.2) und Layout (ab 0.5.3)
 
 Das Plugin bringt eine eigene Einstellungsseite im Shopware-Admin mit. So findest du sie:
 
@@ -51,11 +51,11 @@ Das Plugin bringt eine eigene Einstellungsseite im Shopware-Admin mit. So findes
 2. Oben stehen vier Reiter: **Einstellungen**, **Lizenzen**, **Updates** und **Info**.
 3. **Einstellungen:** Wähle ein Design-Preset (Standard, Glas, Kompakt), suche eine Einstellung oder schalte zwischen „Einfach“ und „Experte“ um. Unter „Eigene Farben“ (nur im Modus „Experte“) stellst du 16 Farben getrennt für Hell und Dunkel ein, mit Farbwähler, Palette für 12 Farben und Warnung bei schlecht lesbarem Text. Klicke dann auf **Speichern**. Das Theme wird neu übersetzt, das dauert bis zu einer Minute.
 4. **Lizenzen:** Füge deinen Lizenzcode ein und klicke auf „Speichern und prüfen“. Der Code wird danach nie mehr im Klartext angezeigt. Ohne Code läuft alles in der Free-Version weiter. Kaufen kannst du auf https://theme.michael-gahn.de.
-5. **Updates (ab Version 2.1.1):** Öffnet die Seite aus dem Plugin-Baukasten mit Info, Updates (Knopf „Jetzt aktualisieren“), „Weitere Plugins“ und dem Schalter „Installation melden“. Es wird nichts automatisch installiert.
+5. **Updates (ab Version 2.1.2):** Öffnet die Seite aus dem Plugin-Baukasten mit Info, Updates (Knopf „Jetzt aktualisieren“), „Weitere Plugins“ und dem Schalter „Installation melden“. Es wird nichts automatisch installiert.
 
 Die Werte liegen in der normalen Theme-Konfiguration (Inhalte, Themes). Beide Wege ändern dasselbe, nichts geht verloren. Du brauchst keinen Build, das Admin-Skript liegt fertig im Paket. Recht für Benutzerrollen: Unter „Benutzer & Berechtigungen“ gibt es die Rechte „MichaThemeV5 ansehen“ und „bearbeiten“.
 
-Ab Version 2.1.1 gibt es auch auf Shopware drei Layout-Einstellungen (Gruppe „Form und Stil“): **Kartenstil** (flach, mit Rahmen, mit Schatten), **Flächenstil** (einfarbig oder Glas) und **Inhaltsbreite** (schmal, normal, breit). Glas ist halbtransparent mit Weichzeichner. Bei älteren Browsern und bei der Systemeinstellung „Transparenz reduzieren“ bleiben die Flächen einfarbig.
+Ab Version 2.1.2 gibt es auch auf Shopware drei Layout-Einstellungen (Gruppe „Form und Stil“): **Kartenstil** (flach, mit Rahmen, mit Schatten), **Flächenstil** (einfarbig oder Glas) und **Inhaltsbreite** (schmal, normal, breit). Glas ist halbtransparent mit Weichzeichner. Bei älteren Browsern und bei der Systemeinstellung „Transparenz reduzieren“ bleiben die Flächen einfarbig.
 
 ## Weitere Funktionen (Pro)
 
@@ -74,9 +74,9 @@ Alle rechtlichen Angaben sind technische Hinweise zum Stand der Erstellung und k
 
 ## Benachrichtigungs-Center (Glocke)
 
-Ab Version 2.1.1 funktioniert die Glocke wieder (Shopware 6.6 und 6.7). Sie steht oben in der Kopfleiste und unten im Footer. Eingeloggte Kunden sehen dort ihre eigenen Bestell-Meldungen. Öffentliche Meldungen für alle Besucher lassen sich bisher nur über die Admin-API anlegen (`POST /api/_action/mgd-notification-center`); eine fertige Oberfläche dafür im Admin gibt es noch nicht. Mehr dazu in [`docs/INSTALL.md`](docs/INSTALL.md).
+Ab Version 2.1.2 funktioniert die Glocke wieder (Shopware 6.6 und 6.7). Sie steht oben in der Kopfleiste und unten im Footer. Eingeloggte Kunden sehen dort ihre eigenen Bestell-Meldungen. Öffentliche Meldungen für alle Besucher lassen sich bisher nur über die Admin-API anlegen (`POST /api/_action/mgd-notification-center`); eine fertige Oberfläche dafür im Admin gibt es noch nicht. Mehr dazu in [`docs/INSTALL.md`](docs/INSTALL.md).
 
-## Favicon (ab Version 2.1.1, Logo ab 1.5.2)
+## Favicon (ab Version 2.1.2, Logo ab 1.5.2)
 
 Das Favicon ist das kleine Bild im Browser-Tab.
 
@@ -88,7 +88,7 @@ Das Favicon ist das kleine Bild im Browser-Tab.
   4. Speichern.
 - Entfernst du dein Bild wieder, erscheint automatisch wieder das Logo.
 
-## Datenschutz: Aktiv-Meldung (ab Version 2.1.1, Schalter ab 1.6.0 auf der neuen Seite)
+## Datenschutz: Aktiv-Meldung (ab Version 2.1.2, Schalter ab 1.6.0 auf der neuen Seite)
 
 Das Plugin meldet sich bei theme.michael-gahn.de. So weiß Michael Gahn DESIGN, wie viele Shops das kostenlose Theme nutzen.
 
@@ -126,7 +126,7 @@ Neu: optionaler GitHub-Updater mit festem Repository, SHA-256-Prüfung, sicherer
 
 Nach dem Upload bzw. der automatischen Vorbereitung unter „Erweiterungen → Meine Erweiterungen“ den normalen Shopware-Updatevorgang ausführen. Shopware übernimmt dabei seine Asset- und Cache-Schritte. Seit 1.6.0 gibt es keine automatische Prüfung mehr: Updates zeigt die neue Seite, eingespielt wird nur per Klick. Wegen der kurzen Verzeichnis-Umschaltung ein Wartungsfenster verwenden. Eine Shop-Sicherung vor Updates bleibt empfohlen.
 
-Ab Version 2.1.1 ist das Theme eine fertige Version. Seine eigenen Styles, Skripte und Schriften liegen bereits fertig im Paket. Die normale Shopware-Theme-Zuweisung bzw. Theme-Kompilierung für den jeweiligen Verkaufskanal bleibt Teil von Shopware und wird nicht durch ein universelles all.css ersetzt.
+Ab Version 2.1.2 ist das Theme eine fertige Version. Seine eigenen Styles, Skripte und Schriften liegen bereits fertig im Paket. Die normale Shopware-Theme-Zuweisung bzw. Theme-Kompilierung für den jeweiligen Verkaufskanal bleibt Teil von Shopware und wird nicht durch ein universelles all.css ersetzt.
 
 Entwicklung: `python3 scripts/build-assets.py` baut die Dateien. `python3 scripts/build-release.py` prüft den Stand und erzeugt das ZIP unter `dist/`. Ein Push auf `main` erstellt nach erfolgreichen Prüfungen das Release der in `composer.json` angegebenen Version. Bereits veröffentlichte Versionen werden niemals überschrieben.
 

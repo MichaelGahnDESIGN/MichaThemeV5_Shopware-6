@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-// Brückenversion 2.1.1: Plugin-Baukasten (src/Kit) eingebaut, alter Update-/Meldecode abgeschaltet
+// Brückenversion 2.1.2: Plugin-Baukasten (src/Kit) eingebaut, alter Update-/Meldecode abgeschaltet
 // ohne Shopware und ohne Netz, Shopware/Symfony-Klassen = kleine Attrappen
 
 namespace Shopware\Core\System\SystemConfig { class SystemConfigService { public array $data = []; public bool $broken = false; public function get(string $k) { if ($this->broken) { throw new \RuntimeException('db weg'); } return $this->data[$k] ?? null; } public function set(string $k, $v): void { if ($this->broken) { throw new \RuntimeException('db weg'); } if ($v === null) { unset($this->data[$k]); return; } $this->data[$k] = $v; } } }
@@ -113,7 +113,7 @@ $s = $state($c);
 ok($s !== null && $s['install_id'] === $ID && $s['key'] === $KEY && $s['report'] === true, 'Install-ID und Schlüssel sind im Baukasten-Schlüssel');
 ok(!array_key_exists($OLD, $c->data), 'alter Schlüssel ist stillgelegt (sonst käme nach "Daten löschen" eine abgemeldete ID zurück)');
 // ID bleibt: erste Meldung des Baukasten-Clients nutzt dieselbe ID
-$cl = new InstallClient($fake, new CallbackStore(static fn () => $c->get($NEW), static function (string $v) use ($c, $NEW): void { $c->set($NEW, $v); }), KitBridge::PRODUCT, 'shopware6', '2.1.1', 'shop.example.org');
+$cl = new InstallClient($fake, new CallbackStore(static fn () => $c->get($NEW), static function (string $v) use ($c, $NEW): void { $c->set($NEW, $v); }), KitBridge::PRODUCT, 'shopware6', '2.1.2', 'shop.example.org');
 ok($cl->ping(true) === true && $fake->calls[0][2]['X-MGD-Install-Id'] === $ID && $fake->calls[0][2]['Authorization'] === 'Bearer ' . $KEY, 'Baukasten-Client meldet mit der alten Install-ID und dem alten Schlüssel');
 // zweimal laufen lassen ändert nichts
 $before = $c->data; KitBridge::migrate($c);
@@ -124,7 +124,7 @@ $fake->calls = [];
 $c = new SystemConfigService();
 $c->data[$OLD] = json_encode(['report' => false]); $c->data[$SW] = false;
 KitBridge::migrate($c);
-$cl = new InstallClient($fake, new CallbackStore(static fn () => $c->get($NEW), static function (string $v) use ($c, $NEW): void { $c->set($NEW, $v); }), KitBridge::PRODUCT, 'shopware6', '2.1.1', 'shop.example.org');
+$cl = new InstallClient($fake, new CallbackStore(static fn () => $c->get($NEW), static function (string $v) use ($c, $NEW): void { $c->set($NEW, $v); }), KitBridge::PRODUCT, 'shopware6', '2.1.2', 'shop.example.org');
 ok($cl->isEnabled() === false && $cl->ping(true) === false && $fake->calls === [], 'alter Schalter "aus" bleibt aus: keine Meldung, kein Netz');
 ok(!isset($state($c)['install_id']), 'ausgeschaltet = keine Install-ID im Zustand');
 // c) nur Konfig false, gar kein Zustand
@@ -172,7 +172,7 @@ ok(str_contains($read('src/Bridge/KitBridge.php'), '?->ping(true)'), 'Bridge mel
 ok(preg_match('/function uninstall\(UninstallContext \$\w+\): void\s*\{\s*parent::uninstall\(\$\w+\);\s*try \{\s*ShopwareKit::forUninstall\(.*?\?->uninstall\(\$\w+\);\s*\} catch \(\\\\Throwable\)/s', $plugin) === 1, 'Plugin::uninstall meldet ab (forUninstall, in try/catch)');
 
 // 8) Deinstallieren über den Baukasten: Eintrag weg (immer), Baukasten-Config nur ohne keepUserData
-final class UCtx { public function __construct(private bool $keep) {} public function getPlugin(): object { return new class { public function getName(): string { return 'MichaThemeV5'; } }; } public function getCurrentPluginVersion(): string { return '2.1.1'; } public function keepUserData(): bool { return $this->keep; } }
+final class UCtx { public function __construct(private bool $keep) {} public function getPlugin(): object { return new class { public function getName(): string { return 'MichaThemeV5'; } }; } public function getCurrentPluginVersion(): string { return '2.1.2'; } public function keepUserData(): bool { return $this->keep; } }
 foreach ([true, false] as $keep) {
     $fake->calls = [];
     $c = new SystemConfigService();
@@ -191,9 +191,9 @@ ok(str_contains($plugin, "->installClient()?->ping(true)") && method_exists(Shop
 
 // 9) Version
 $composer = json_decode($read('composer.json'), true);
-ok($composer['version'] === '2.1.1', 'composer.json 2.1.1');
-ok((require $root . '/src/Generated/version.php')['version'] === '2.1.1', 'version.php 2.1.1');
-foreach (['mt-admin-schema.json', 'mt-admin-schema.en.json'] as $sf) { ok(json_decode($read('src/Generated/' . $sf), true)['version'] === '2.1.1', "$sf 2.1.1"); }
-ok(str_starts_with($read('RELEASE.md'), '# Version 2.1.1') && str_contains($read('CHANGELOG.md'), '## [2.1.1]') && str_contains($read('src/Resources/changelog.txt'), '## [2.1.1]'), 'RELEASE.md, CHANGELOG.md, changelog.txt für 2.1.1');
+ok($composer['version'] === '2.1.2', 'composer.json 2.1.2');
+ok((require $root . '/src/Generated/version.php')['version'] === '2.1.2', 'version.php 2.1.2');
+foreach (['mt-admin-schema.json', 'mt-admin-schema.en.json'] as $sf) { ok(json_decode($read('src/Generated/' . $sf), true)['version'] === '2.1.2', "$sf 2.1.2"); }
+ok(str_starts_with($read('RELEASE.md'), '# Version 2.1.2') && str_contains($read('CHANGELOG.md'), '## [2.1.2]') && str_contains($read('src/Resources/changelog.txt'), '## [2.1.2]'), 'RELEASE.md, CHANGELOG.md, changelog.txt für 2.1.2');
 echo "Brückenversion Baukasten geprüft.\n";
 }

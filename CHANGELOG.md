@@ -1,5 +1,9 @@
 # Änderungen
 
+## [2.1.2] - 2026-11-25
+
+- Lizenzprüfung: Plugin-Lizenzen schalten keine Themes mehr frei.
+
 ## [2.1.1] - 2026-11-25
 
 - Aktueller Baukasten, einheitliche Version.
