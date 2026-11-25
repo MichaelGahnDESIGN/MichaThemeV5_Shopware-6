@@ -145,7 +145,8 @@ class LicenseService
                 return ['status' => $res['status'], 'json' => is_array($json) ? $json : []];
             },
             fn (string $k): ?array => is_array($v = $this->cache->get($k)) ? $v : null,
-            fn (string $k, array $v, int $ttl) => $this->cache->set($k, $v, $ttl)
+            fn (string $k, array $v, int $ttl) => $this->cache->set($k, $v, $ttl),
+            platform: 'shopware6'
         );
     }
 }

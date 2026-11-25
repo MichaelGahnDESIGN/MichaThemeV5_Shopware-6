@@ -23,14 +23,15 @@ foreach ($files as $f) {
         if (str_ends_with($c, '\\LicenseClient')) { $class = $c; }
     }
     if ($class === null) { throw new RuntimeException('Klasse fehlt in ' . $f); }
+    $plat = str_starts_with($f, "inc/") ? "woocommerce" : (str_starts_with($f, "src/") ? "shopware6" : "jtl5");
     $cache = []; $calls = 0; $now = 1_000_000; $up = true;
     $http = static function (string $url, array $req) use (&$calls, &$up, &$now): ?array {
         $calls++;
-        return $up ? ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'modules' => []], 'cache_valid_until' => gmdate('c', $now + 3600)]] : null;
+        return $up ? ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'platform' => 'shopware6', 'kind' => 'theme', 'modules' => []], 'cache_valid_until' => gmdate('c', $now + 3600)]] : null;
     };
     $get = static function (string $k) use (&$cache, &$now): ?array { return isset($cache[$k]) && $cache[$k][1] > $now ? $cache[$k][0] : null; };
     $set = static function (string $k, array $v, int $ttl) use (&$cache, &$now): void { $cache[$k] = [$v, $now + $ttl]; };
-    $client = new $class('https://theme.michael-gahn.de/api', 'shop.example', $http, $get, $set, 172800, static function () use (&$now): int { return $now; });
+    $client = new $class('https://theme.michael-gahn.de/api', 'shop.example', $http, $get, $set, 172800, static function () use (&$now): int { return $now; }, $plat);
     $tok = 'aaa.bbb.ccc';
     $ok = $client->state($tok)['valid'] === true && $calls === 1;
     $now += 3700; $up = false;

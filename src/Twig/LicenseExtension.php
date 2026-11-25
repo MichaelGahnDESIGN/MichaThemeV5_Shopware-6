@@ -73,7 +73,8 @@ class LicenseExtension extends AbstractExtension
             },
             function (string $k, array $v, int $ttl): void {
                 $this->cache->save($this->cache->getItem($k)->set($v)->expiresAfter($ttl));
-            }
+            },
+            platform: 'shopware6'
         );
     }
 }
